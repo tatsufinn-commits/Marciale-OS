@@ -1,20 +1,27 @@
 {
-  "name": "mushoku-tensei-taskbar-hero",
-  "version": "0.3.0.0",
-  "description": "Build 20 — offline progression",
+  "name": "marciale-os",
+  "version": "1.5.5-v0.3.0",
   "private": true,
-  "type": "module",
+  "description": "Marciale-OS: TheHUB personal command center + Companion RPG unified workspace",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "test": "node --test tests/*.test.js"
+    "test": "npm --prefix \"TheHUB 1.5.5.2.3 a v\" test && npm --prefix \"Gamecompanion/files\" test",
+    "test:hub": "npm --prefix \"TheHUB 1.5.5.2.3 a v\" test",
+    "test:companion": "npm --prefix \"Gamecompanion/files\" test",
+    "start": "cd \"TheHUB 1.5.5.2.3 a v\" && python3 server.py",
+    "build": "npm --prefix \"Gamecompanion/files\" run build",
+    "build:companion": "npm --prefix \"Gamecompanion/files\" run build",
+    "dev": "npm --prefix \"Gamecompanion/files\" run dev",
+    "dev:companion": "npm --prefix \"Gamecompanion/files\" run dev",
+    "install:all": "npm --prefix \"TheHUB 1.5.5.2.3 a v\" install && npm --prefix \"Gamecompanion/files\" install"
   },
-  "devDependencies": {
-    "terser": "^5.49.2",
-    "vite": "^6.0.0"
-  },
-  "dependencies": {
-    "idb": "^8.0.0"
-  }
+  "keywords": [
+    "personal-os",
+    "dashboard",
+    "local-first",
+    "productivity",
+    "companion-rpg",
+    "chess"
+  ],
+  "author": "Tatsufinn",
+  "license": "ISC"
 }
