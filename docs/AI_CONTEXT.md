@@ -45,9 +45,9 @@ Any AI working on this repository must consult the dedicated operational documen
 
 | Document | Role & Purpose | Key Target |
 |---|---|---|
-| **`docs/AI_RULES.md`** | **The Constitution** — The 8 Supreme Laws of Marciale-OS. | Mandatory for all chats. |
-| **`docs/PROMPT_PLAYBOOK.md`** | **Prompt Library** — Copy-paste prompt templates for all 8 scenarios. | Prompt selection. |
-| **`docs/STRATEGIC_DECISION_FRAMEWORK.md`** | **Path Analyzer** — 4-Axis SPI scoring and Green/Yellow/Red light decisions. | Decision matrix & planning. |
+| **`docs/AI_RULES.md`** | **The Constitution** — The 9 Supreme Laws of Marciale-OS (including Mosaic Council). | Mandatory for all chats. |
+| **`docs/PROMPT_PLAYBOOK.md`** | **Prompt Library** — Copy-paste prompt templates for all 9 scenarios. | Prompt selection. |
+| **`docs/STRATEGIC_DECISION_FRAMEWORK.md`** | **Path Analyzer** — 7 Reality Protocols, Mosaic Council, and 4-Axis SPI. | Decision matrix & planning. |
 | **`docs/AGENTS.md`** | **The Staff** — 5 specialized agent roles (@architect, @sentinel, @forge, @mind, @sre). | Role boundaries & handoffs. |
 | **`docs/BUILD_LOGBOOK.md`** | **The Living Ledger** — Permanent historical log recording every build across sessions. | Build memory & history. |
 | **`docs/DIAGNOSTIC_AND_TESTING_GUIDE.md`** | **Proactive QA** — Automated tests & targeted scans for Chess/RuView. | Proves *"Does it work?"* |
@@ -55,7 +55,7 @@ Any AI working on this repository must consult the dedicated operational documen
 | **`docs/INCIDENT_RESPONSE_SRE_PLAYBOOK.md`** | **Emergency SRE** — Rapid incident triage (SEV-1 to SEV-4) and playbooks. | Rapid containment & PIR. |
 | **`docs/CODEBASE_DEEP_DIVE_STUDY.md`** | **Technical Study** — Module anatomy, StateManager schema, formulas. | Canonical source blueprint. |
 | **`docs/AI_CONTEXT.md`** | **Context Card** — High-level architecture map and safety rules. | Quick orientation. |
-| **`docs/REPAIR_DOSSIER.md`** | **Diagnostic Audit** — 23-phase empirical investigation report. | Historical root-cause logs. |
+| **`docs/REPAIR_DOSSIER.md`** | **Diagnostic Audit** — 23-phase deep empirical research report. | Historical root-cause logs. |
 | **`docs/MASTERFIX_PLAN_V1.0.md`** | **Work Orders** — Actionable builds F01 through F16. | Active build execution. |
 | **`docs/Refinedplan.md`** | **Roadmap** — Master Roadmap V7 + MasterFix + Master Roadmap V8. | Long-term evolution. |
 
