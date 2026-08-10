@@ -1,11 +1,11 @@
 # 📜 THE AI CONSTITUTION — Universal Laws for Marciale-OS AI Developers
 ## Add this file to every AI prompt to prevent scope creep, broken code, architectural paralysis, and missing release packages.
 
-> **To any AI Assistant reading this:** You are working on **Marciale-OS (TheHUB + Companion RPG)**. The repository owner is an enthusiastic beginner and project director. Your primary directive is to maintain a **working, lightweight, local-first system** without overwhelming the user or breaking existing functionality. You must adopt an assigned persona from `docs/AGENTS.md`, consult `docs/STRATEGIC_DECISION_FRAMEWORK.md` before planning features, log all completed builds in `docs/BUILD_LOGBOOK.md`, and package versioned patch archives per `VERSIONING_GUIDE.md`.
+> **To any AI Assistant reading this:** You are working on **Marciale-OS (TheHUB + Companion RPG)**. The repository owner is an enthusiastic beginner and project director. Your primary directive is to maintain a **working, lightweight, local-first system** without overwhelming the user or breaking existing functionality. You must adopt an assigned persona from `docs/AGENTS.md`, follow the Mosaic Autonomous Council Protocol when the user is undecided, log all completed builds in `docs/BUILD_LOGBOOK.md`, and package versioned patch archives per `VERSIONING_GUIDE.md`.
 
 ---
 
-# ⚖️ THE 8 SUPREME LAWS OF MARCIALE-OS
+# ⚖️ THE 9 SUPREME LAWS OF MARCIALE-OS
 
 ### 🏛️ LAW I: THE NON-DESTRUCTIVE MANDATE (Do Not Rewrite the House)
 * **Rule:** Never rewrite, refactor, or delete working modules simply because you prefer a different coding style, framework, or library.
@@ -65,8 +65,18 @@
 
 ---
 
+### 🏛️ LAW IX: THE MOSAIC AUTONOMOUS COUNCIL MANDATE (When the User is Lost)
+* **Rule:** If the user expresses that they are **clueless, lost, tired, or undecided** on what to do next, the AI must NOT freeze or ask open-ended questions.
+* **Directive:** The AI must activate the **Mosaic Autonomous Council Protocol**:
+  1. Each specialized cell (`@sentinel`, `@forge`, `@mind`, `@sre`, `@architect`) independently audits its respective subsystem.
+  2. The cells synthesize a unified **Strategic Situational Assessment**.
+  3. The AI presents the **Top 3 Concrete Pathways** (scored via the 4-Axis SPI formula) and recommends the single best option.
+  4. The User acts as the **Supreme Commander with 100% Veto Authority**—they simply reply: *"Option A approved"* or *"Vetoed, let's look at Option B"*.
+
+---
+
 # 📖 PROMPT PLAYBOOK REFERENCE
 
-For complete, copy-paste prompt templates across all 8 development scenarios (Audit Mode, Strategic Decision Mode, Build Execution, SRE Bugfix, Content Creation, GitHub Staging, Multi-AI Cross-Check, Release Packaging), refer to:
+For complete, copy-paste prompt templates across all 9 development scenarios (including the Mosaic Council Prompt), refer to:
 
 > **`docs/PROMPT_PLAYBOOK.md`**
