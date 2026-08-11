@@ -2601,11 +2601,144 @@ Please return:
     renderChessLab();
     return prompt;
   }
+  /* ---------- Tactical Threat & Socratic Coach Engine (Build V8.5) ---------- */
+  function analyzeTacticalThreats(state=ensureChessState()){
+    const game = chessGame(state);
+    const side = state.turn;
+    const moves = game.moves({ verbose: true });
+    let threats = [];
+
+    // 1. Check alert
+    const inCheck = typeof game.inCheck === 'function' ? game.inCheck() : (typeof game.in_check === 'function' ? game.in_check() : false);
+    if(inCheck){
+      threats.push({
+        type: 'check',
+        badge: '👑 Check Alert',
+        severity: 'danger',
+        desc: `${turnLabel(side)} is currently in check! Identify your options: capture the attacker, block, or move the King.`
+      });
+    }
+
+    // 2. High-value captures & hanging pieces
+    const captures = moves.filter(m => !!m.captured);
+    const highVal = captures.filter(m => ['q','r','b','n'].includes(m.captured));
+    if(highVal.length > 0){
+      const bestCap = highVal[0];
+      const pieceName = {q:'Queen', r:'Rook', b:'Bishop', n:'Knight', p:'Pawn'}[bestCap.captured] || 'piece';
+      threats.push({
+        type: 'hanging',
+        badge: '⚔️ Capture Target',
+        severity: 'warn',
+        desc: `Tactical opportunity to capture enemy ${pieceName} on ${bestCap.to.toUpperCase()}.`,
+        san: bestCap.san
+      });
+    }
+
+    // 3. Double attack / fork opportunities
+    const forks = [];
+    moves.forEach(m => {
+      try {
+        const temp = createChessGame(game.fen());
+        temp.move(m);
+        const nextMoves = temp.moves({ verbose: true });
+        const targets = new Set();
+        nextMoves.forEach(nm => {
+          if(['q','r','b','n','k'].includes(nm.captured) || (nm.to && ['d4','e4','d5','e5'].includes(nm.to))){
+            targets.add(nm.to);
+          }
+        });
+        if(targets.size >= 2 && !['k'].includes(m.piece)){
+          forks.push({ move: m, targetCount: targets.size });
+        }
+      } catch(e){}
+    });
+
+    if(forks.length > 0){
+      const topFork = forks.sort((a,b) => b.targetCount - a.targetCount)[0];
+      threats.push({
+        type: 'fork',
+        badge: '🔱 Double Attack Motif',
+        severity: 'good',
+        desc: `Look at ${topFork.move.piece.toUpperCase()} positioning towards ${topFork.move.to.toUpperCase()} for a dual threat.`,
+        san: topFork.move.san
+      });
+    }
+
+    return threats;
+  }
+
+  function generateTacticalCoachHint(state=ensureChessState()){
+    const threats = analyzeTacticalThreats(state);
+    const game = chessGame(state);
+    const side = turnLabel(state.turn);
+    const inCheck = typeof game.inCheck === 'function' ? game.inCheck() : (typeof game.in_check === 'function' ? game.in_check() : false);
+
+    let badge = '🎯 Positional Guidance';
+    let title = 'Strategic Observation';
+    let socraticSpeech = `${side} to move. Balance your pieces, control the central squares, and coordinate rooks.`;
+    let progressiveClue = 'Focus on piece activity and king safety.';
+
+    if(inCheck){
+      badge = '👑 King in Danger';
+      title = 'Check Alert';
+      socraticSpeech = 'Your King is under direct check! Calculate your 3 choices: Capture attacker, Block with a piece, or Step aside.';
+      progressiveClue = 'Prioritize finding a safe interposition or king retreat square.';
+    } else if(threats.some(t => t.type === 'fork')){
+      const f = threats.find(t => t.type === 'fork');
+      badge = '🔱 Fork Opportunity';
+      title = 'Tactical Double Attack';
+      socraticSpeech = 'There is an active geometric alignment where one of your pieces can strike two targets at once.';
+      progressiveClue = f.desc;
+    } else if(threats.some(t => t.type === 'hanging')){
+      const h = threats.find(t => t.type === 'hanging');
+      badge = '⚔️ Tactical Strike';
+      title = 'Undefended Target';
+      socraticSpeech = 'An enemy piece is insufficiently defended or exposed to tactical capture.';
+      progressiveClue = h.desc;
+    }
+
+    return {
+      badge,
+      title,
+      socraticSpeech,
+      progressiveClue,
+      threats
+    };
+  }
+
+  window.analyzeTacticalThreats = analyzeTacticalThreats;
+  window.generateTacticalCoachHint = generateTacticalCoachHint;
+
   function renderChessCoachPanel(state=ensureChessState()){
     const cached=loadChessCoachCache();
     const packet=(cached && cached.fen===state.fen && cached.moveCount===(state.moves||[]).length) ? cached : buildChessCoachPacket(state,{limit:3,source:'preview'});
     const best=packet.bestMove ? `${packet.bestMove.san || `${packet.bestMove.from}-${packet.bestMove.to}`}${packet.bestMove.cp!=null?` · ${packet.bestMove.cp} cp`:packet.bestMove.mate!=null?` · mate ${packet.bestMove.mate}`:''}` : 'No best move';
-    return `<div class="chess-coach-card"><div class="chess-coach-head"><b>Best move</b><span>${esc(best)}</span></div><div class="chess-coach-lines">${(packet.topLines||[]).map((line,idx)=>`<div><b>#${idx+1}</b><span>${esc(line.san || `${line.from}-${line.to}`)}</span><small>${esc(line.cp!=null?`${line.cp} cp`:line.mate!=null?`mate ${line.mate}`:'line')}</small></div>`).join('')}</div><div class="chess-coach-foot">Source: ${esc(packet.source)} · updated ${esc(new Date(packet.generatedAt||Date.now()).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}))}</div></div>`;
+    const hint=generateTacticalCoachHint(state);
+
+    return `<div class="chess-coach-card v2">
+      <div class="chess-coach-bubble">
+        <div class="chess-coach-avatar">🤖</div>
+        <div class="chess-coach-speech">
+          <div class="coach-speech-head">
+            <b>Marciale Tactical Coach</b>
+            <span class="coach-badge ${escAttr(hint.threats[0]?.severity || 'good')}">${esc(hint.badge)}</span>
+          </div>
+          <p class="coach-speech-text">"${esc(hint.socraticSpeech)}"</p>
+          <div class="coach-clue-box" id="coachClueBox" style="display:none;">
+            <small>💡 <b>Tactical Clue:</b> ${esc(hint.progressiveClue)}</small>
+          </div>
+        </div>
+      </div>
+      <div class="chess-coach-actions-row">
+        <button class="btn sm" id="chessRevealClueBtn" type="button">🔍 Reveal Clue</button>
+        <button class="btn sm primary" id="chessCoachDraft" type="button">Draft coach review</button>
+      </div>
+      <div class="chess-coach-lines">
+        <div style="font-size:11px;font-weight:800;color:var(--muted-foreground);margin-bottom:2px;"><b>Best move:</b> <span style="color:var(--foreground);">${esc(best)}</span></div>
+        ${(packet.topLines||[]).map((line,idx)=>`<div><b>#${idx+1}</b><span>${esc(line.san || `${line.from}-${line.to}`)}</span><small>${esc(line.cp!=null?`${line.cp} cp`:line.mate!=null?`mate ${line.mate}`:'line')}</small></div>`).join('')}
+      </div>
+      <div class="chess-coach-foot">Source: ${esc(packet.source)} · updated ${esc(new Date(packet.generatedAt||Date.now()).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}))}</div>
+    </div>`;
   }
   function chessHint(state=ensureChessState()){
     if(state.rewardLogged && state.result) return `${resultLabel(state.result)} logged to Hub Activity. Start a new game when ready.`;
@@ -2692,6 +2825,10 @@ Please return:
       // Re-bind fast coach draft buttons
       $('#chessCoachDraft')?.addEventListener('click', ()=>{ draftMarcialeChessCoachReview({force:false}); });
       $('#chessCoachRefresh')?.addEventListener('click', ()=>{ draftMarcialeChessCoachReview({force:true}); });
+      $('#chessRevealClueBtn')?.addEventListener('click', ()=>{
+        const box = $('#coachClueBox');
+        if(box) box.style.display = box.style.display === 'none' ? 'block' : 'none';
+      });
       return;
     }
 
@@ -3007,6 +3144,10 @@ Please return:
     $('#chessAnalyze')?.addEventListener('click', ()=>{ draftChessAnalysisWithMarciale(); });
     $('#chessCoachDraft')?.addEventListener('click', ()=>{ draftMarcialeChessCoachReview({force:false}); });
     $('#chessCoachRefresh')?.addEventListener('click', ()=>{ draftMarcialeChessCoachReview({force:true}); });
+    $('#chessRevealClueBtn')?.addEventListener('click', ()=>{
+      const box = $('#coachClueBox');
+      if(box) box.style.display = box.style.display === 'none' ? 'block' : 'none';
+    });
     $('#chessSoundEnabled')?.addEventListener('change', e=>{ setChessSoundSettings({enabled:!!e.target.checked}); });
     $('#chessSoundVolume')?.addEventListener('input', e=>{ setChessSoundSettings({volume:Math.max(0,Math.min(1,(Number(e.target.value)||0)/100))}); });
     $('#chessSoundTestMove')?.addEventListener('click', ()=>{ playChessSound('move_self'); });

@@ -6,6 +6,7 @@ const sandbox = createSandbox();
 loadScripts(sandbox, [
   'modules/00-storage.js',
   'modules/00-utils-config.js',
+  'modules/07-vault.js',
   'modules/17-presence.js',
 ]);
 
@@ -153,6 +154,23 @@ test('Presence integrates with hubSummary', () => {
     assert.ok(summary.presence !== undefined, 'hubSummary should include presence when enabled');
     assert.ok(typeof summary.presence.status === 'string', 'Presence status should be in summary');
   }
+});
+
+// Test 13: checkPresenceVaultSecurity locks vault on >3m away
+test('checkPresenceVaultSecurity auto-locks vault after 3 minutes away', () => {
+  win.VAULT_UNLOCKED = true;
+  assert.strictEqual(win.checkPresenceVaultSecurity(60000), false, '1 minute away should not lock vault');
+  assert.strictEqual(win.VAULT_UNLOCKED, true, 'Vault should remain unlocked');
+  assert.strictEqual(win.checkPresenceVaultSecurity(180000), true, '3 minutes away should lock vault');
+  assert.strictEqual(win.VAULT_UNLOCKED, false, 'Vault should be locked');
+});
+
+// Test 14: Hub.lockVault purges keys and locks vault
+test('Hub.lockVault purges keys and locks vault', () => {
+  win.VAULT_UNLOCKED = true;
+  win.Hub.lockVault('Test lock');
+  assert.strictEqual(win.VAULT_UNLOCKED, false, 'Hub.lockVault should set VAULT_UNLOCKED to false');
+  assert.strictEqual(win.VAULT_KEY, null, 'Hub.lockVault should zero out VAULT_KEY');
 });
 
 console.log(`\n✅ Presence unit tests: ${passed} passed, ${failed} failed`);

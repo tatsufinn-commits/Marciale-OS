@@ -209,10 +209,12 @@
 
   /* ---------- Automation Hooks ---------- */
   function onUserAway(){
-    // Auto-lock vault if enabled
-    if(_settings.awayLockVault){
+    // Spatial Privacy Auto-Lock: Auto-lock vault on away if enabled or if away > 3 min
+    if(_settings.awayLockVault || typeof checkPresenceVaultSecurity === 'function'){
       try{
-        if(typeof VAULT_UNLOCKED !== 'undefined' && VAULT_UNLOCKED && typeof lockVault === 'function'){
+        if(typeof checkPresenceVaultSecurity === 'function'){
+          checkPresenceVaultSecurity(now() - (_presenceState.lastAwayAt || _presenceState.lastInput));
+        } else if(typeof VAULT_UNLOCKED !== 'undefined' && VAULT_UNLOCKED && typeof lockVault === 'function'){
           lockVault('Vault auto-locked (away)');
         }
       }catch(e){}

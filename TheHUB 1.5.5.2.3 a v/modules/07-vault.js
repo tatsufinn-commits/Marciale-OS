@@ -2,6 +2,11 @@
    ENCRYPTED VAULT — local AES-GCM vault for accounts/passwords
    =========================================================== */
 let VAULT={sites:[]}, VAULT_KEY=null, VAULT_UNLOCKED=false, VAULT_SELECTED=null;
+if(typeof window !== 'undefined'){
+  window.VAULT = VAULT;
+  window.VAULT_KEY = VAULT_KEY;
+  window.VAULT_UNLOCKED = VAULT_UNLOCKED;
+}
 let VAULT_AI_ACCESS = localStorage.getItem('hub.vault.allowAi') === 'true';
 let VAULT_AUTOLOCK_MIN = Number(localStorage.getItem('hub.vault.autolock') || 5);
 let VAULT_LAST_ACTIVE = Date.now();
@@ -45,13 +50,53 @@ async function unlockVault(pass){
     }catch(e){ toast('Wrong master password or corrupted vault'); return false; }
   }else{
     VAULT={sites:[]}; localStorage.setItem('hub.vault.salt', bytesToB64(salt));
-    VAULT_KEY=key; VAULT_UNLOCKED=true; await encryptVault();
+    VAULT_KEY=key; VAULT_UNLOCKED=true; if(typeof window !== 'undefined') window.VAULT_UNLOCKED=true; await encryptVault();
   }
-  VAULT_KEY=key; VAULT_UNLOCKED=true; vaultTouch(); syncVaultSecurityInputs(); renderVault();
+  VAULT_KEY=key;
+  VAULT_UNLOCKED=true;
+  if(typeof window !== 'undefined'){
+    window.VAULT_KEY = key;
+    window.VAULT_UNLOCKED = true;
+    window.VAULT = VAULT;
+  }
+  vaultTouch(); syncVaultSecurityInputs(); renderVault();
   if (typeof renderTodayDashboard === 'function') renderTodayDashboard(); updateSideStats(); toast('Vault unlocked'); return true;
 }
-function lockVault(msg='Vault locked'){ VAULT_KEY=null; VAULT_UNLOCKED=false; VAULT={sites:[]}; VAULT_SELECTED=null; if($('#vaultPass')) $('#vaultPass').value=''; renderVault();
-  if (typeof renderTodayDashboard === 'function') renderTodayDashboard(); updateSideStats(); toast(msg); }
+function lockVault(msg='Vault locked'){
+  VAULT_KEY=null;
+  VAULT_UNLOCKED=false;
+  if(typeof window !== 'undefined'){
+    window.VAULT_KEY = null;
+    window.VAULT_UNLOCKED = false;
+    window.VAULT = {sites:[]};
+  }
+  VAULT={sites:[]};
+  VAULT_SELECTED=null;
+  try{ if(typeof $ === 'function' && $('#vaultPass')) $('#vaultPass').value=''; }catch(e){}
+  if(typeof renderVault === 'function') renderVault();
+  if(typeof renderTodayDashboard === 'function') renderTodayDashboard();
+  if(typeof updateSideStats === 'function') updateSideStats();
+  if(typeof toast === 'function') toast(msg);
+}
+
+function checkPresenceVaultSecurity(awayDurationMs){
+  const awayMin = (Number(awayDurationMs)||0) / 60000;
+  const isUnlocked = (typeof VAULT_UNLOCKED !== 'undefined' && VAULT_UNLOCKED) || (typeof window !== 'undefined' && window.VAULT_UNLOCKED);
+  if(isUnlocked && awayMin >= 3){
+    lockVault('Vault auto-locked: User away > 3 minutes (Spatial Privacy)');
+    return true;
+  }
+  return false;
+}
+
+window.lockVault = lockVault;
+window.unlockVault = unlockVault;
+window.saveVault = saveVault;
+window.checkPresenceVaultSecurity = checkPresenceVaultSecurity;
+if(typeof window.Hub !== 'undefined'){
+  window.Hub.lockVault = lockVault;
+  window.Hub.unlockVault = unlockVault;
+}
 async function saveVault(){ await encryptVault(); renderVault();
   if (typeof renderTodayDashboard === 'function') renderTodayDashboard(); updateSideStats(); }
 function vaultSiteById(id){ return VAULT.sites.find(s=>s.id===id); }

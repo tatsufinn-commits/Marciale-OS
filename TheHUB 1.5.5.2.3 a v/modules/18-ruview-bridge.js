@@ -57,7 +57,8 @@
     overridePresence: true,    // Use RuView presence over browser-based
     showSignalField: true,     // Render signal field visualization
     breathingDetection: true,  // Track breathing rate
-    motionSensitivity: 'normal' // low, normal, high
+    motionSensitivity: 'normal', // low, normal, high
+    privacyMode: false         // Spatial Privacy: Redacts raw CSI/Doppler features
   };
   let _initialized = false;
   let _listenersAttached = false;
@@ -272,8 +273,8 @@
     _stats.lastRssi = features.mean_rssi || primaryNode.rssi_dbm || 0;
     _stats.lastNodeId = primaryNode.node_id || null;
 
-    // Extract breathing rate from features if available
-    if(_settings.breathingDetection && features.breathing_band_power > 0.01){
+    // Extract breathing rate from features if available (unless in privacyMode)
+    if(!_settings.privacyMode && _settings.breathingDetection && features.breathing_band_power > 0.01){
       // Breathing rate estimation from band power (0.1-0.5 Hz = 6-30 BPM)
       if(features.dominant_freq_hz && features.dominant_freq_hz >= 0.1 && features.dominant_freq_hz <= 0.5){
         _stats.lastBreathingBpm = Math.round(features.dominant_freq_hz * 60);
@@ -286,13 +287,13 @@
     _dataWindow.push({
       ts: _lastMessageAt,
       presence: cls.presence,
-      motion: cls.motion_level,
+      motion: _settings.privacyMode ? 'discrete' : cls.motion_level,
       confidence: cls.confidence,
       rssi: features.mean_rssi || 0,
-      motionPower: features.motion_band_power || 0,
-      breathingPower: features.breathing_band_power || 0,
+      motionPower: _settings.privacyMode ? 0 : (features.motion_band_power || 0),
+      breathingPower: _settings.privacyMode ? 0 : (features.breathing_band_power || 0),
       breathingBpm: _stats.lastBreathingBpm,
-      signalField: _settings.showSignalField ? (msg.signal_field || null) : null
+      signalField: (!_settings.privacyMode && _settings.showSignalField) ? (msg.signal_field || null) : null
     });
 
     // Trim window

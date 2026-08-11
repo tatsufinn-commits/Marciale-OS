@@ -198,8 +198,16 @@
 
   const ACTION_HANDLERS = {
     lock_vault: function(args, ctx){
-      if(typeof VAULT_UNLOCKED !== 'undefined' && VAULT_UNLOCKED && typeof lockVault === 'function'){
-        lockVault('Vault auto-locked by Presence Automation');
+      if(typeof lockVault === 'function' && typeof VAULT_UNLOCKED !== 'undefined' && VAULT_UNLOCKED){
+        lockVault('Vault auto-locked by Presence Automation (Spatial Privacy)');
+        return 'Vault locked';
+      }
+      if(typeof window !== 'undefined' && typeof window.lockVault === 'function'){
+        window.lockVault('Vault auto-locked by Presence Automation (Spatial Privacy)');
+        return 'Vault locked';
+      }
+      if(typeof Hub !== 'undefined' && typeof Hub.lockVault === 'function'){
+        Hub.lockVault('Vault auto-locked by Presence Automation');
         return 'Vault locked';
       }
       return 'Vault was already locked';

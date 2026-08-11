@@ -121,4 +121,22 @@ assert.strictEqual(loadSnap.moves.length, 0, 'Loading FEN should reset the move 
 assert.strictEqual(loadSnap.fen, '4k3/8/8/8/8/8/8/4K3 w - - 0 1', 'Loading FEN should replace the board state with normalized full FEN');
 console.log('  ✅ FEN loading');
 
+// --- Build V8.5: ChessLab 2.0 Tactical Threat & Socratic Coach Tests ---
+// Test check threat detection
+win.chessLoadFen('4k3/8/8/8/8/8/4r3/4K3 w - - 0 1');
+const checkThreats = win.analyzeTacticalThreats(win.chessStateSnapshot());
+assert.ok(checkThreats.some(t => t.type === 'check'), 'analyzeTacticalThreats should identify king check state');
+
+// Test capture threat detection
+win.chessLoadFen('4k3/8/8/3q4/2B5/8/8/4K3 w - - 0 1');
+const capThreats = win.analyzeTacticalThreats(win.chessStateSnapshot());
+assert.ok(capThreats.some(t => t.type === 'hanging'), 'analyzeTacticalThreats should identify capturable queen on d5');
+
+// Test Socratic Hint generation
+const hint = win.generateTacticalCoachHint(win.chessStateSnapshot());
+assert.ok(typeof hint.socraticSpeech === 'string' && hint.socraticSpeech.length > 5, 'Socratic speech should be populated');
+assert.ok(typeof hint.progressiveClue === 'string', 'Progressive clue should be populated');
+assert.ok(String(win.renderChessCoachPanel()).includes('Marciale Tactical Coach'), 'Coach panel should render Marciale Tactical Coach speech bubble');
+console.log('  ✅ ChessLab 2.0 Tactical Coaching & Threat Detection');
+
 console.log('✅ Chess unit tests passed');
