@@ -129,3 +129,42 @@ To approve, reply: 'Approve Option A' (or name your preferred Option).
 To veto or redirect, simply tell the Council: 'Vetoed, let's explore something else.'"
 ================================================================================
 ```
+
+---
+
+# 5. DOMAIN AUTHORITY VS SYSTEM AUTHORITY DOCTRINE
+
+To prevent organizational friction while granting specialized speed, Marciale-OS operates on a strict **Two-Tier Authority Model**:
+
+```text
+ ┌────────────────────────────────────────────────────────────────────────────┐
+ │                     TWO-TIER AUTHORITY BOUNDARY MODEL                      │
+ └────────────────────────────────────────────────────────────────────────────┘
+                                       │
+     ┌─────────────────────────────────┴─────────────────────────────────┐
+     ▼                                                                   ▼
+┌───────────────────────────────────────┐   ┌───────────────────────────────────────┐
+│ TIER 1: DOMAIN AUTHORITY (Local)      │   │ TIER 2: SYSTEM AUTHORITY (Global)     │
+├───────────────────────────────────────┤   ├───────────────────────────────────────┤
+│ • Owned by: Specialized Departments   │   │ • Owned by: Core Squad (@architect,   │
+│   (/docs/web/, @frontend, @backend,   │     @sre, @sentinel)                      │
+│   @ui-ux, @pm, @qa, @scout)           │   │ • Global monorepo build configuration │
+│ • Component styling, CSS tokens       │   │ • Root package.json & dependencies    │
+│ • Local endpoint logic & validation   │   │ • Subsystem communication architecture│
+│ • UI layouts, WCAG 2.2 accessibility  │   │ • Cryptographic vault security model  │
+│ • Feature-level test design & gating  │   │ • SEV-1/SEV-2 incident containment    │
+│ • Socratic research dossiers & briefs │   │ • Constitutional rule amendments      │
+└───────────────────────────────────────┘   └───────────────────────────────────────┘
+```
+
+* **The Rule of Domain Autonomy:** Specialized departmental agents may make autonomous implementation decisions within their assigned domain provided they do not violate a higher-level law, alter global monorepo scripts, or introduce system-wide security/data risks.
+
+---
+
+# 6. RESEARCH-TO-DECISION TRACEABILITY PIPELINE
+
+Every significant architectural or technological decision within Marciale-OS must preserve an immutable audit trail:
+
+$$\text{Problem Formulation} \longrightarrow \text{@scout Technical Dossier} \longrightarrow \text{Alternatives Evaluation} \longrightarrow \text{Architectural Decision} \longrightarrow \text{Implementation} \longrightarrow \text{@qa Verification}$$
+
+This institutional memory guarantees that future AI agents and developers can understand *why* a particular technology, pattern, or compromise was selected without repeating redundant investigations.

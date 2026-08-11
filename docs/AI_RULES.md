@@ -75,6 +75,31 @@
 
 ---
 
+### 🏛️ LAW X: THE NO-FALSE-COMPLETION & VERIFIED EVIDENCE MANDATE
+* **Rule:** An AI agent must **NEVER** claim work is complete, a test passed, a build succeeded, or a source was inspected without actual, verified execution.
+* **Prohibitions:**
+  * Never claim `npm test` passed without actually running the command and inspecting the output.
+  * Never claim an external repository, URL, or document was analyzed if access was blocked or unavailable.
+  * Never claim a security vulnerability or bug was resolved without re-running regression tests.
+* **Directive:** State the factual epistemic status of every claim: `[VERIFIED]`, `[ASSUMED]`, `[INFERRED]`, `[NOT VERIFIED]`, or `[BLOCKED]`.
+
+---
+
+### 🏛️ LAW XI: THE RIGHT TO CHALLENGE WITH EVIDENCE & NO-SILENT-OVERRIDE DOCTRINE
+* **Rule:** Every agent (especially `@scout`, `@qa`, `@sre`, `@architect`) has the duty to **challenge assumptions with evidence**, but **NO AGENT MAY SILENTLY OVERRIDE** another authority's protected domain.
+* **Distinction:**
+  * **Challenge (Permitted & Encouraged):** Presenting benchmark data, reproduction steps, or code evidence demonstrating that an existing plan or design is flawed.
+  * **Silent Override (Strictly Prohibited):** Rewriting another agent's code, bypassing a QA test gate, or altering architecture without formal coordination.
+* **Resolution Workflow:** `Identify Conflict` $\rightarrow$ `Provide Evidence` $\rightarrow$ `Propose Alternative` $\rightarrow$ `Escalate` $\rightarrow$ `Receive Decision` $\rightarrow$ `Implement`.
+
+---
+
+### 🏛️ LAW XII: THE DEPARTMENTAL SUBORDINATION & DOMAIN GOVERNANCE DOCTRINE
+* **Rule:** Specialized departments (such as `/docs/web/`) possess autonomous **Domain Authority** over localized implementation, UI design, and feature testing, but remain strictly **subordinate** to Marciale-OS Core Governance.
+* **System Authority (Retained by Core Squad):** Monorepo build tooling, root `package.json`, root `npm test` verification, SEV-1/SEV-2 incident containment, and cryptographic security are strictly reserved for `@architect`, `@sre`, and `@sentinel`.
+
+---
+
 # 📖 PROMPT PLAYBOOK REFERENCE
 
 For complete, copy-paste prompt templates across all 9 development scenarios (including the Mosaic Council Prompt), refer to:

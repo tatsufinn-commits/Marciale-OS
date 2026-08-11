@@ -146,3 +146,20 @@ MANDATORY RULES:
 4. Append completed entry into docs/BUILD_LOGBOOK.md and package release zip per Law VIII.
 5. Explain what you changed in simple beginner terms for me!
 ```
+
+---
+
+# 5. SPECIALIZED DEPARTMENTS: THE WEB ENGINEERING DEPARTMENT (`/docs/web/`)
+
+For specialized web engineering, product design, and client-server development, Marciale-OS houses the **Web Engineering & Product Development Department (`/docs/web/`)**.
+
+The department consists of 7 specialized operational agents operating under the supervision of `@architect` and `@sre`:
+1. **`@scout`** (Technical Intelligence & Research Specialist) — `/docs/web/scout/SCOUT.md`
+2. **`@project-manager`** (Product Delivery Lead & Coordinator) — `/docs/web/project-manager/PROJECT_MANAGER.md`
+3. **`@ui-ux`** (Interface Design & Accessibility Authority) — `/docs/web/ui-ux/UI_UX.md`
+4. **`@frontend`** (Browser & Client-Side Engineer) — `/docs/web/frontend/FRONTEND.md`
+5. **`@backend`** (Server, Persistence & API Engineer) — `/docs/web/backend/BACKEND.md`
+6. **`@fullstack`** (Cross-Layer Integration Specialist) — `/docs/web/fullstack/FULLSTACK.md`
+7. **`@qa`** (Adversarial Quality Assurance Authority) — `/docs/web/qa/QA.md`
+
+See `/docs/web/WEB.md` and `/docs/web/WEB_GOVERNANCE.md` for complete departmental handoff protocols and routing matrices.

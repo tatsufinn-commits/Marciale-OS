@@ -301,7 +301,31 @@ When you clone this repository in a new chat:
   * Added unit tests in `tests/unit-chess.js` verifying threat detection and Socratic hint generation.
 * **Test Verification:** `npm test` passed 43 / 43 test suites with 0 errors (100% green).
 * **Current Production State:** Master Roadmap V8 is now 100% COMPLETE across all milestones (V8.1 through V8.5)!
-* **Next Recommended Build:** **Phase 2 Vault Expansion in TAMA (`BP-344-CANONICAL-ACCESSIBILITY-COMPENDIUM.md`) or Architecture Design Studio Reviewers**.
+
+---
+
+### [COMPLETED] Milestone G01: Web Department Integration & Constitutional Governance Amendment
+* **Date:** 2026-08-11
+* **Agent in Charge:** `@architect` (Lead Systems Architect) / `@sre` (Site Reliability Engineer)
+* **Goal:** Review, audit, and systematically upgrade Marciale-OS governance to seamlessly integrate the Web Engineering and Product Development Department (`/docs/web/`) without bureaucratic duplication or parallel government conflicts.
+* **Files Modified:**
+  * `docs/AI_RULES.md` (Enacted Laws X, XI, and XII of the AI Constitution)
+  * `docs/AGENTS.md` (Section 5: Specialized Web Department Agent Registry)
+  * `docs/STRATEGIC_DECISION_FRAMEWORK.md` (Section 5: Domain vs System Authority & Section 6: Research Traceability)
+  * `docs/web/WEB.md` (Department Charter)
+  * `docs/web/WEB_GOVERNANCE.md` (Departmental Decision Rights & Escalation)
+  * `docs/web/WEB_WORKFLOW.md` (Adaptive 4-Tier Lifecycle & Handoff Schemas)
+  * `docs/web/WEB_RESEARCH_PROTOCOL.md` (Technical Reconnaissance & 5-Tier Evidence Labels)
+  * `docs/web/WEB_QUALITY_STANDARD.md` (WCAG 2.2 AA, 60/5 FPS Power Budgets & Security)
+  * `docs/web/WEB_ROUTING_AND_REGISTRY.md` (Task Routing Matrix)
+  * `docs/web/GOVERNANCE_INTEGRATION_MAP.md` (Governance Dependency Hierarchy & Changelog)
+  * `docs/web/scout/SCOUT.md`, `frontend/FRONTEND.md`, `backend/BACKEND.md`, `fullstack/FULLSTACK.md`, `ui-ux/UI_UX.md`, `project-manager/PROJECT_MANAGER.md`, `qa/QA.md`
+* **Changes Delivered:**
+  * Codified the **Domain Authority vs System Authority** two-tier boundary model.
+  * Formally established the **No False Completion** rule and the **Right to Challenge with Evidence** doctrine.
+  * Linked all 7 specialized Web Department agents under `@architect` and `@sre` supervisory governance.
+* **Test Verification:** `npm test` passed 43 / 43 test suites with 0 errors (100% green).
+* **Current Production State:** Marciale-OS governance is unified, robust, and equipped for full web product engineering.
 
 ---
 
