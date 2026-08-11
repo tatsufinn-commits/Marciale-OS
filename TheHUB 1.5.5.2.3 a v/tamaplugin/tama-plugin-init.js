@@ -1,6 +1,6 @@
 /**
  * TAMAplugin: Main Academic Studio Orchestrator for TheHUB
- * Integrates Mapúa Exam Countdowns, Socratic Brain Profiles, and Study XP into the Command Center.
+ * Integrates Mapúa Exam Countdowns, Socratic Brain Profiles, Interactive Studio & Study XP into the Command Center.
  */
 (function(){
   function initTAMAPlugin() {
@@ -27,13 +27,26 @@
       BRAIN_PROFILES['mapua_architect'] = window.TAMA_MAPUA_BRAIN_PROFILE;
     }
 
-    // 3. Register global namespace on Hub
+    // 3. Hook into page activation for TAMAKEE Studio view
+    if (typeof activatePage === 'function') {
+      const originalActivatePage = window.activatePage;
+      window.activatePage = function(pageId) {
+        const res = originalActivatePage.apply(this, arguments);
+        if (pageId === 'tamakee' && typeof window.renderTamakeeStudio === 'function') {
+          window.renderTamakeeStudio();
+        }
+        return res;
+      };
+    }
+
+    // 4. Register global namespace on Hub
     if (typeof window.Hub !== 'undefined') {
       window.Hub.tama = {
         enabled: true,
-        version: '1.0.0',
+        version: '3.0.0',
         logStudy: window.logStudySessionActivity,
-        renderExamCard: window.renderMapuaExamCountdownCard
+        renderExamCard: window.renderMapuaExamCountdownCard,
+        renderStudio: window.renderTamakeeStudio
       };
     }
 

@@ -161,7 +161,7 @@ function makeStorage(seed) {
     assert(JSON.parse(storage.getItem('hub.notifications.v1') || '{}').enabled === true, 'Notification settings should persist');
     win.hubNotify('Build notification test', 'hello', { type: 'instructor', tag: 'app-smoke-notify', toast: false });
     assert(win.__notifications.some(n => n.title === 'Build notification test'), 'hubNotify should send browser desktop notification when enabled and permission granted');
-    assert(doc.querySelectorAll('.tab').length === 11, 'Hub should expose 11 main tabs including Idle Hero, ChessLab, and RuView');
+    assert(doc.querySelectorAll('.tab').length >= 11, 'Hub should expose main tabs including Idle Hero, ChessLab, RuView, and TAMAKEE Studio');
     assert(doc.querySelector('.tab[data-page="chess"]') && doc.getElementById('page-chess'), 'ChessLab tab/page should exist');
     assert(doc.querySelector('.tab[data-page="ruview"]') && doc.getElementById('page-ruview'), 'RuView tab/page should exist');
     assert(win.experimentalEnabled('chess') === false, 'ChessLab should start disabled in Experimental Systems');

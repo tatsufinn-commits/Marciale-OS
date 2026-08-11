@@ -182,6 +182,26 @@ $('#aiModel').onchange=e=>{ aiModel=e.target.value; localStorage.setItem('hub.ol
 $('#aiText').addEventListener('keydown',e=>{ if(e.key==='Enter'&&!e.shiftKey){ e.preventDefault(); sendChat(); } });
 $('#aiText').addEventListener('input',e=>{ e.target.style.height='auto'; e.target.style.height=Math.min(140,e.target.scrollHeight)+'px'; });
 
+// AI Department Quick-Chips wiring
+$$('[data-dept-chip]').forEach(btn => {
+  btn.onclick = () => {
+    const chip = btn.dataset.deptChip;
+    const ta = $('#aiText');
+    if (!ta) return;
+    const prefixes = {
+      scout: '[@scout: Technical Intelligence] Research and evaluate options for: ',
+      pm: '[@project-manager: Implementation Plan] Plan milestones and task breakdown for: ',
+      uiux: '[@ui-ux: Design Spec] Create UI layout and WCAG 2.2 accessibility spec for: ',
+      web: '[@project-manager / Web Team] Implement this feature: ',
+      mapua: '[@mentor: Mapúa Architecture Coach] Guide me Socratically through: ',
+      sre: '[@sre: Diagnostic Audit] Run a health and vulnerability scan on: '
+    };
+    ta.value = prefixes[chip] || '';
+    ta.focus();
+    ta.setSelectionRange(ta.value.length, ta.value.length);
+  };
+});
+
 // vault wiring
 $('#vaultUnlockBtn')?.addEventListener('click',async()=>unlockVault($('#vaultPass').value));
 $('#vaultPass')?.addEventListener('keydown',e=>{ if(e.key==='Enter') unlockVault($('#vaultPass').value); });
