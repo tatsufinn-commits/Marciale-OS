@@ -29,10 +29,11 @@
 | [Scenario 18: "Hear Me Out" Architectural Idea Pitch](#scenario-18-hear-me-out-architectural-idea-pitch-prompt) | Pitch a casual or crazy idea and have the AI calculate 4-Axis SPI score & sandbox plan. | 🟢 Zero Risk |
 | [Scenario 19: Continuous Repo-Intake & Task Execution](#scenario-19-continuous-repo-intake--task-execution-prompt) | Autonomous boot sequence for any Council member to read `tasks/` and execute. | 🟡 Medium Risk |
 | [Scenario 20: Gauntlet Meat-Grinder Stress-Test](#scenario-20-gauntlet-meat-grinder-stress-testing-prompt) | Inject edge-case chaos, test auto-healing, and verify multi-agent robustness. | 🟢 Zero Risk |
+| [Scenario 21: Next-Gen Memory & Observability](#scenario-21-next-gen-multi-agent-memory-compression--observability-integration) | Commission @engineer to integrate persistent memory, token compression & live observer. | 🟡 Medium Risk |
 
 ---
 
-# 📋 THE 20 MASTER PROMPT TEMPLATES
+# 📋 THE 21 MASTER PROMPT TEMPLATES
 
 ---
 
@@ -470,5 +471,32 @@ YOUR STRESS-TEST DIRECTIVES:
 3. If an issue is found: Summon @pangolin, formulate the math fix equation, apply surgical repair, and verify green with `npm run pangolin`.
 4. Output a crisp, factual stress-test scorecard!
 ```
+
+---
+
+### Scenario 21: Next-Gen Multi-Agent Memory, Compression & Observability Integration
+* **Goal:** Commission `@engineer` (Seat E) to integrate persistent cross-session memory (`claude-mem` pattern), code-aware tool compression (`headroom` pattern), and the High Council Live Observer Widget (`babysitter-observer` pattern) into Marciale-OS.
+
+```text
+Hello AI! You are assuming the role of [@engineer / Seat E] reporting to the JARWEN High Council.
+Here is my repository: https://github.com/tatsufinn-commits/Marciale-OS.git
+
+MODE: NEXT-GEN MULTI-AGENT CAPABILITY INTEGRATION (LAW I & LAW XIII)
+
+OBJECTIVE:
+Integrate 4 architectural superpowers extracted from industry benchmarks into Marciale-OS:
+1. Persistent Cross-Session Memory (claude-mem pattern): Structured observation vectors in TheHUB.
+2. Code-Aware Tool Compression (headroom pattern): 40% token reduction on LLM tool outputs.
+3. High Council Live Observer Widget (babysitter-observer pattern): Real-time liveness on Today Dashboard.
+4. Multi-AI Memory Bank Synchronization (my-claude-code-setup pattern).
+
+YOUR ENGINEERING DIRECTIVES:
+1. Adhere strictly to Law I (Non-Destructive): Build additively in Vanilla JS + Python server without importing heavy npm frameworks or cloud databases.
+2. Consume visual tokens from `DESIGN.md` for any UI components created.
+3. Write automated unit and integration test assertions verifying that all data structures serialize cleanly.
+4. Run `npm run pangolin` and verify 100% green checkmarks (SEV-0 Nominal).
+5. Append the completed milestone into `docs/BUILD_LOGBOOK.md` and log a dispatch in `docs/council/COUNCIL_COMMUNICATION_LOG.md`.
+```
+
 
 
