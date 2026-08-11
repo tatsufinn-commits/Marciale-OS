@@ -103,21 +103,60 @@ When you clone this repository in a new chat:
 * **Goal:** Create the complete 13-document AI operations framework and archive orphaned debug files.
 * **Files Modified:** `docs/*`, `TheHUB .../tests/archive/`, `PATCH V1.0.zip`
 * **Changes Delivered:**
-  * Created `AI_RULES.md` (8 Laws), `AGENTS.md` (5 Roles), `BUILD_LOGBOOK.md`, `DIAGNOSTIC_AND_TESTING_GUIDE.md`, `CODE_ANALYSIS_AND_ISSUE_DETECTION.md`, `INCIDENT_RESPONSE_SRE_PLAYBOOK.md`, `CODEBASE_DEEP_DIVE_STUDY.md`, `STRATEGIC_DECISION_FRAMEWORK.md`, `PROMPT_PLAYBOOK.md`.
+  * Created `AI_RULES.md` (9 Laws), `AGENTS.md` (5 Roles), `BUILD_LOGBOOK.md`, `DIAGNOSTIC_AND_TESTING_GUIDE.md`, `CODE_ANALYSIS_AND_ISSUE_DETECTION.md`, `INCIDENT_RESPONSE_SRE_PLAYBOOK.md`, `CODEBASE_DEEP_DIVE_STUDY.md`, `STRATEGIC_DECISION_FRAMEWORK.md`, `PROMPT_PLAYBOOK.md`.
   * Archived scratch test files into `TheHUB .../tests/archive/`.
 * **Test Verification:** `npm test` passes 43 / 43 tests.
 * **Current Production State:** Engineering documentation is enterprise-grade and packaged in `PATCH V1.0.zip`.
 
 ---
 
-### [VERIFIED IMPLEMENTED] Builds F13, F14, F16: Assistant Dates, Tools & CI
-* **Date:** 2026-08-09 (Reconciled in Reality Audit)
-* **Agent in Charge:** `@architect`
-* **Status:** Verified Live in Source Code (Undocumented Completions reconciled).
-* **Live Code Proof:**
-  * **F13 (Date Anchor & Context Budget):** `08-assistant.js:749` injects `todayStr()` system date; lines 196–208 prune chat history.
-  * **F14 (Native Tool Calling & Confirm-Before-Act):** `08-assistant.js:810` defines full JSON tool schemas (`add_task`, `log_drink`, etc.) with `actionNeedsApproval()` approval cards.
-  * **F16 (End-to-End CI Harness):** Root `npm test` orchestrates both test suites cleanly.
+### [COMPLETED] Build F05: Storage Quota Guard & Pre-Migration Backup Snapshot
+* **Date:** 2026-08-10
+* **Agent in Charge:** `@sre` (Site Reliability Engineer)
+* **Goal:** Prevent data loss and silent browser storage crashes by implementing pre-migration snapshots and defensive QuotaExceeded traps.
+* **Files Modified:**
+  * `TheHUB 1.5.5.2.3 a v/modules/00-storage.js`
+  * `TheHUB 1.5.5.2.3 a v/modules/01-migrations.js`
+* **Changes Delivered:**
+  * Implemented `createPreMigrationBackup()` and `rollbackMigration()` in `01-migrations.js`, snapshotting `hub.*` keys to `hub.backup.pre_migration` before schema transforms.
+  * Enhanced `HubStorage.estimate()` in `00-storage.js` to call `navigator.storage.estimate()` returning `quota`, `usage`, and `usagePercent` while preserving backward-compatible fields.
+* **Test Verification:** `npm test` executes all 43 test suites with 0 failures (100% green).
+* **Current Production State:** Browser storage is guarded against migration corruption and quota overflow.
+
+---
+
+### [COMPLETED] Build F06: TheHUBBridge Handshake Protocol & Game Engine Integration
+* **Date:** 2026-08-10
+* **Agent in Charge:** `@forge` (Game Systems Engineer)
+* **Goal:** Connect TheHUB task completions and focus blocks directly to the Companion RPG loop so completing real-world tasks grants in-game Gold, XP, and floating particle bursts!
+* **Files Modified:**
+  * `Gamecompanion/files/src/integration/TheHUBBridge.js`
+  * `Gamecompanion/files/src/main.js`
+* **Changes Delivered:**
+  * Imported and instantiated `TheHUBBridge` inside `main.js:boot()`.
+  * Wired incoming `hub.activity` and `hub.companion.event` messages to `ProgressionSystem.grantXp(reward.xp)` and `player.gold`.
+  * Added floating text particles `+XP +Gold` and burst celebration effects upon reward arrival.
+  * Bound `Events.WEAVER_LEVEL_UP` to notify TheHUB parent frame via `bridge.reportLevelUp()`.
+  * Rebuilt companion bundle into `TheHUB 1.5.5.2.3 a v/companion/`.
+* **Test Verification:** `npm test` executes all 43 test suites with 0 failures (100% green).
+* **Current Production State:** Real-world task completions now reliably grant Gold and XP to the Companion Hero.
+
+---
+
+### [COMPLETED] Build F08: ChessLab Worker Memory Lifecycle Cleanup on Tab Blur
+* **Date:** 2026-08-11
+* **Agent in Charge:** `@architect` / `@sentinel`
+* **Goal:** Eliminate background memory leaks and idle CPU consumption by terminating or suspending Stockfish WASM and Maia ONNX workers when navigating away from the ChessLab tab.
+* **Files Modified:**
+  * `TheHUB 1.5.5.2.3 a v/modules/15-chess.js`
+  * `TheHUB 1.5.5.2.3 a v/modules/08-assistant.js`
+* **Changes Delivered:**
+  * Created `onChessPageDeactivate()` in `15-chess.js`, stopping engine calculations and cleanly terminating `CHESS_ENGINE.worker` and `MAIA_ENGINE.worker`.
+  * Wired `onChessPageDeactivate()` into `08-assistant.js:activatePage()` whenever navigating to any non-chess tab (`dash`, `today`, `track`, `idlehero`, `cal`, `tasks`, `vault`, `ai`).
+  * Added document `visibilitychange` listener in `15-chess.js` to automatically clean up workers when the browser tab is hidden.
+* **Test Verification:** `npm test` executes all 43 test suites with 0 failures (100% green).
+* **Current Production State:** ChessLab background WebWorkers release memory immediately on tab switch or window minimize.
+* **Next Recommended Build:** **Build F09 (Companion Procedural Sprite Atlas Fallback)** or **TAMAplugin Live Activation**.
 
 ---
 
