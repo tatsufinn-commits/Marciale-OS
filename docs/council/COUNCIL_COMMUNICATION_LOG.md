@@ -64,6 +64,16 @@ Because Council members run across different AI sessions, platforms (ChatGPT, Cl
 
 ---
 
+### [DISPATCH-20260811-005] Directive 02 Dispatch — High Council Constitution
+* **Timestamp:** 2026-08-11 18:00 (Asia/Singapore)
+* **From:** `SEAT A (ASSISTANT)` & `SUPREME COMMANDER`
+* **To:** `SEAT W (WISDOM)`
+* **Status:** `[PENDING EXECUTION BY SEAT W]`
+* **Message Summary:** Dispatched Directive `TASK-JARWEN-2026-02` requesting the authoring of Section 5: The High Council Constitution & Executive Protocols, establishing the separation of powers between High Officials and subordinate ground agents, the 7 Executive Invariants, and the Assistant Command Equivalence Doctrine.
+* **Reference Artifact:** `/docs/council/members/WISDOM/tasks/TASK_02_COUNCIL_CONSTITUTION.md`
+
+---
+
 # 3. TEMPLATE FOR FUTURE COUNCIL DISPATCHES
 
 ```text
