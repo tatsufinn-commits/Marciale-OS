@@ -24,7 +24,8 @@ if (!fs.existsSync(htmlPath) || !fs.existsSync(cssPath)) {
 const html = fs.readFileSync(htmlPath, 'utf8');
 const css = fs.readFileSync(cssPath, 'utf8');
 
-let warnings = 0;
+let blockingErrors = 0;
+let advisoryWarnings = 0;
 let passes = 0;
 
 // 1. Audit Form Inputs for IDs
@@ -38,8 +39,8 @@ inputMatches.forEach(inp => {
   }
 });
 if (unlabelled > 0) {
-  console.warn(`   ⚠️  [WARNING] ${unlabelled} inputs are missing id or aria-label attributes.`);
-  warnings++;
+  console.error(`   ❌ [BLOCKING] ${unlabelled} inputs are missing id or aria-label attributes.`);
+  blockingErrors++;
 } else {
   console.log(`   ✅ 100% of inputs have valid id, aria-label, or type="hidden".`);
   passes++;
@@ -58,8 +59,8 @@ buttonMatches.forEach(btn => {
   }
 });
 if (emptyButtons > 0) {
-  console.warn(`   ⚠️  [WARNING] ${emptyButtons} buttons have no readable text or aria-label.`);
-  warnings++;
+  console.error(`   ❌ [BLOCKING] ${emptyButtons} buttons have no readable text or aria-label.`);
+  blockingErrors++;
 } else {
   console.log(`   ✅ All buttons have accessible text content or aria-labels.`);
   passes++;
@@ -74,8 +75,8 @@ imgMatches.forEach(img => {
   if (!img.includes('alt=')) missingAlt++;
 });
 if (missingAlt > 0) {
-  console.warn(`   ⚠️  [WARNING] ${missingAlt} images lack alt attributes.`);
-  warnings++;
+  console.warn(`   ⚠️  [ADVISORY] ${missingAlt} images lack alt attributes.`);
+  advisoryWarnings++;
 } else {
   console.log(`   ✅ All images contain valid alt attributes.`);
   passes++;
@@ -84,13 +85,12 @@ if (missingAlt > 0) {
 // 4. Audit CSS for Focus Indicators
 console.log('\n📋 4. Auditing CSS Focus Visible & Focus Indicators...');
 const hasFocus = css.includes(':focus') || css.includes(':focus-visible');
-const hasOutlineNone = css.includes('outline:none') || css.includes('outline: 0');
 if (hasFocus) {
   console.log(`   ✅ Focus styles defined in style.css.`);
   passes++;
 } else {
-  console.warn(`   ⚠️  [WARNING] No :focus or :focus-visible rules detected in style.css.`);
-  warnings++;
+  console.error(`   ❌ [BLOCKING] No :focus or :focus-visible rules detected in style.css.`);
+  blockingErrors++;
 }
 
 // 5. Audit CSS Color Palette Tokens
@@ -99,7 +99,7 @@ const requiredVars = ['--bg', '--card', '--txt', '--acc', '--line'];
 let missingVars = 0;
 requiredVars.forEach(v => {
   if (!css.includes(v)) {
-    console.warn(`   ⚠️  [MISSING TOKEN] CSS Variable ${v} not found.`);
+    console.error(`   ❌ [BLOCKING] Required CSS Variable ${v} not found.`);
     missingVars++;
   }
 });
@@ -107,12 +107,17 @@ if (missingVars === 0) {
   console.log(`   ✅ Core theme tokens defined for high-contrast presentation.`);
   passes++;
 } else {
-  warnings += missingVars;
+  blockingErrors += missingVars;
 }
 
 console.log('\n======================================================');
-console.log(`🎉 QA WCAG AUDIT COMPLETE: ${passes} Categories Passed (${warnings} Warnings)`);
-console.log('   Compliance Rating: W3C/WAI WCAG 2.2 Level AA Standard Validated');
-console.log('======================================================\n');
-
-process.exit(0);
+if (blockingErrors === 0) {
+  console.log(`🎉 QA WCAG AUDIT COMPLETE: ${passes} Categories Passed (${advisoryWarnings} Advisory Warnings)`);
+  console.log('   Compliance Rating: W3C/WAI WCAG 2.2 Level AA Standard Validated');
+  console.log('======================================================\n');
+  process.exit(0);
+} else {
+  console.error(`❌ QA WCAG AUDIT FAILED: ${blockingErrors} blocking accessibility defects detected!`);
+  console.log('======================================================\n');
+  process.exit(1);
+}

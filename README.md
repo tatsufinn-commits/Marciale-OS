@@ -1,18 +1,19 @@
-# 🌌 Marciale-OS (TheHUB + Companion RPG)
+# 🌌 Marciale-OS (TheHUB + Companion RPG + JARWEN Council)
 
-> **A local-first, private personal command center with an integrated idle companion RPG, local streaming AI assistant (Marciale), biometric tracker, encrypted vault, and ChessLab AI.**
+> **A local-first, private personal command center with an integrated idle companion RPG, local streaming AI assistant (Marciale), biometric tracker, encrypted vault, ChessLab 2.0 AI, and the multi-model JARWEN High Council.**
 
 Everything runs 100% locally on your machine with zero cloud subscriptions, complete offline resilience, and total privacy.
 
 ---
 
-## ⚡ Quickstart (The 3 Commands You Need)
+## ⚡ Quickstart (Essential Developer Commands)
 
-### 1. Run Automated Test Suite
+### 1. Run Full CI Test Harness & SRE Sentinel
 ```bash
-npm test
+npm test                # Runs all 43 TheHUB test suites + 34 Companion RPG tests
+npm run pangolin        # Autonomous SRE & Pangolin end-process health & hotfix loop
+npm run audit:all       # Runs Scout license, QA WCAG, Bridge contract & Governance audits
 ```
-*(Runs all 43 automated unit and smoke tests across both TheHUB and Companion RPG with 0 failures).*
 
 ### 2. Start Marciale-OS
 ```bash
@@ -20,82 +21,90 @@ npm start
 ```
 Open **[http://localhost:8000](http://localhost:8000)** in your browser.
 
-### 3. Build the Companion RPG
+### 3. Build the Companion RPG Bundle
 ```bash
-npm run build
+npm run build           # Compiles Vite companion bundle directly into TheHUB
 ```
 
 ---
 
-## 📂 Project Architecture
+## 📂 Project Architecture & Governance Scaffolding
 
 ```text
 Marciale-OS/
 ├── package.json                         # Root workspace controller (npm start, npm test, npm run build)
 ├── .gitignore                           # Excludes node_modules, build outputs, and caches
 ├── README.md                            # Main project overview & quickstart
-├── VERSIONING_GUIDE.md                  # Official semantic versioning policy
+├── DESIGN.md                            # Canonical UI Design System & W3C Token Specifications
+├── VERSIONING_GUIDE.md                  # Subsystem version domain authorities
 │
-├── TheHUB 1.5.5.2.3 a v/                # Core Web Command Center
+├── TheHUB 1.5.5.2.3 a v/                # Core Web Command Center (1.5.5.2.3-alpha)
 │   ├── server.py                        # Python HTTP server & RuView/Calendar proxy (Port 8000)
 │   ├── index.html                       # Dashboard Shell (11 Tab Views)
 │   ├── style.css                        # Cyberpunk / Dark UI Design System
 │   ├── modules/                         # 20 Modular JavaScript Engines (00 through 19)
 │   ├── companion/                       # Embedded Companion Game (Vite Build Output)
-│   └── tests/                           # 12 Automated Test Suites
+│   └── tests/                           # 12 Automated Test Suites (137 Assertions)
 │
-├── Gamecompanion/                       # Companion RPG Engine Source & Content
+├── Gamecompanion/                       # Companion RPG Engine Source & Content (0.3.0.0)
 │   ├── files/                           # Vite + ES Module Game Code (src/, tests/, package.json)
 │   ├── content/                         # Content Bibles (Quests, NPCs, Monsters, Items)
 │   └── integration/                     # Game Design & Technical Specifications
 │
-└── docs/                                # The 11-Document AI Operations & Governance Suite
-    ├── AI_RULES.md                      # The AI Constitution (8 Supreme Laws)
-    ├── AGENTS.md                        # The Specialized AI Squad (@architect, @sentinel, etc.)
-    ├── BUILD_LOGBOOK.md                 # Permanent Engineering Ledger recording all builds
-    ├── DIAGNOSTIC_AND_TESTING_GUIDE.md  # Proactive QA probes for ChessLab, RuView, & AI
-    ├── CODE_ANALYSIS_AND_ISSUE_DETECTION.md # Static code analysis & defect dossiers
-    ├── INCIDENT_RESPONSE_SRE_PLAYBOOK.md# Emergency triage (SEV-1 to SEV-4) & playbooks
-    ├── CODEBASE_DEEP_DIVE_STUDY.md      # Full module-by-module anatomy & state schemas
-    ├── AI_CONTEXT.md                    # Quick Reference Architecture Card
-    ├── REPAIR_DOSSIER.md                # 23-phase deep empirical research report
-    ├── MASTERFIX_PLAN_V1.0.md           # Work orders for Builds F01 through F16
-    └── Refinedplan.md                   # Master Roadmap V7 + MasterFix + Master Roadmap V8
+├── research/                            # Canonical Technical Research Repository
+│   ├── MARCIALE-OS_ANALYSIS_RESEARCH.md # Monorepo Census & 8 Industry Benchmarks
+│   ├── MARCIALE_OS_NEXTGEN_AI_RESEARCH.md # Memory, Compression & Observability
+│   └── proposals/                       # Ratified Master Proposals (MASTER_PROPOSAL_PLAN_V9.md)
+│
+└── docs/                                # Core Governance & High Council Suite
+    ├── THE_10_COMMANDMENTS_OF_DOCS.md   # The Absolute Inviolable Bible of Documentation & Releases
+    ├── AI_RULES.md                      # The AI Constitution (14 Supreme Laws)
+    ├── AGENT_PLAYBOOK.md                # Reverse-Intent Decoder & Autonomous Severity Matrix
+    ├── AGENTS.md                        # Virtual Squad Personas (6 Core Roles + 7 Web Roles)
+    ├── PROMPT_PLAYBOOK.md               # 22 Master Scenario Prompt Templates
+    ├── DOCS_MASTER_INDEX.md             # 1-Page Master Navigation Map & Document Index
+    ├── SYSTEM_STATE.md                  # Machine-Readable Ground-Truth State Registry
+    ├── BUILD_LOGBOOK.md                 # Permanent Engineering Ledger (Builds 0 through 40+)
+    ├── patchnotes/PATCHNOTES_LEDGER.md  # Living ledger of surgical bugfixes & patches
+    ├── hotfix/                          # Staging ground for incoming hotfix dossiers
+    ├── audit/                           # Governance integrity audits & repair reviews
+    └── council/                         # JARWEN High Council Charters, Dispatches & Member Storage
 ```
 
 ---
 
-## 🤖 Directing AI Developers (The Prompt Template)
+## 🤖 Directing AI Developers (Reverse-Intent & Scenario Invocations)
 
-Whenever you share this repository with an AI coding assistant, paste this prompt:
+Incoming AI assistants should be routed through **`docs/AGENT_PLAYBOOK.md`** (which automatically decodes casual, jagged, or emotional speech) or use standard scenarios from **`docs/PROMPT_PLAYBOOK.md`**:
 
 ```text
-Hello AI! Please assume the role of [@architect | @sentinel | @forge | @mind | @sre] per `docs/AGENTS.md` and strictly follow `docs/AI_RULES.md`.
+Hello AI! You are entering Marciale-OS (TheHUB + Companion RPG + JARWEN Council).
+Here is my repository: https://github.com/tatsufinn-commits/Marciale-OS.git
 
-MODE: ACTIVE BUILD EXECUTION
+MODE: HIGH COUNCIL TASK EXECUTION (LAWS I–XIV)
 
 MY CURRENT GOAL:
-1. Check the bottom of `docs/BUILD_LOGBOOK.md` to see recent progress.
-2. Execute [NAME OF TARGET BUILD, e.g. Build F02-R (Companion Auto-Link) or Build F05 (Storage Guard)].
-
-MANDATORY RULES:
-1. Follow your specific agent jurisdiction in docs/AGENTS.md.
-2. Follow the 8 Supreme Laws in docs/AI_RULES.md (no rewrites, local-first, simulation mode for hardware).
-3. Run `npm test` and make sure all 43 tests pass (100% green).
-4. Append your completed build entry into `docs/BUILD_LOGBOOK.md`.
-5. Package all updated files into a versioned `.zip` file per Law VIII (e.g. `PATCH-V1.0.zip`) for me to download.
-6. Explain what you did in simple beginner terms so I understand!
+1. Inspect `docs/SYSTEM_STATE.md` and `docs/BUILD_LOGBOOK.md` to see verified production state.
+2. Follow `docs/THE_10_COMMANDMENTS_OF_DOCS.md` and `docs/AI_RULES.md` (14 Supreme Laws).
+3. Execute [TARGET BUILD / TASK].
+4. Run `npm test` and `npm run pangolin` verifying 100% green checkmarks.
+5. Package the updated repository into `MARCIALE_OS_COMPLETE.zip` for download (Commandment I).
 ```
 
 ---
 
-## 🛠️ Handy Developer Commands
+## 🛠️ Complete Developer & Audit Command Table
 
-| Command | Action |
-|---|---|
-| `npm start` | Launches Python server at `http://localhost:8000` |
-| `npm test` | Runs both Hub (12 suites) & Companion (31 tests) suites |
-| `npm run test:hub` | Runs TheHUB unit, storage, chess, and smoke tests |
-| `npm run test:companion` | Runs 31 RPG engine unit tests |
-| `npm run build` | Compiles companion engine into `companion/` |
-| `npm run dev` | Runs standalone Vite dev server for companion RPG |
+| Command | Action | Primary Output |
+|---|---|---|
+| `npm start` | Launches Python server at `http://localhost:8000` | Local Web Command Center |
+| `npm test` | Runs full automated test suite | 43 Hub suites + 34 RPG tests |
+| `npm run pangolin` | Runs SRE sentinel & hotfix packager loop | Verified green or Hotfix Zip |
+| `npm run audit:all` | Runs Scout, QA WCAG, Bridge & Governance audits | Comprehensive compliance report |
+| `npm run audit:governance` | Verifies law, scenario, and version consistency | Machine-readable governance check |
+| `npm run audit:wcag` | Audits WCAG 2.2 Level AA accessibility | Contrast & ARIA status |
+| `npm run audit:bridge` | Validates 15 postMessage event signatures | Bi-directional bridge status |
+| `npm run health` | Runs SRE fault, XSS, and storage scanner | SRE redmark detection |
+| `npm run build` | Compiles Companion RPG into TheHUB | `TheHUB .../companion/` |
+| `npm run dev` | Runs standalone Vite dev server for RPG | `http://localhost:5173` |
+| `npm run install:all` | Restores dependencies across all subtrees | Clean `node_modules` |

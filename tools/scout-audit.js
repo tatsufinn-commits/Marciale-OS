@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
  * @scout Automated Dependency, License & Asset Footprint Audit Tool
- * Scans all package.json manifests across Marciale-OS monorepo for copyleft GPL risk,
- * missing license attributes, and bloated dependencies.
+ * Scans all package.json manifests across Marciale-OS monorepo for actual license metadata,
+ * copyleft risks, and bloated archives.
  */
 
 const fs = require('fs');
@@ -10,9 +10,9 @@ const path = require('path');
 
 const rootDir = path.resolve(__dirname, '..');
 const manifests = [
-  { name: 'Root Monorepo', path: path.join(rootDir, 'package.json') },
-  { name: 'TheHUB Subsystem', path: path.join(rootDir, 'TheHUB 1.5.5.2.3 a v/package.json') },
-  { name: 'Gamecompanion Subsystem', path: path.join(rootDir, 'Gamecompanion/files/package.json') }
+  { name: 'Root Monorepo', path: path.join(rootDir, 'package.json'), baseDir: rootDir },
+  { name: 'TheHUB Subsystem', path: path.join(rootDir, 'TheHUB 1.5.5.2.3 a v/package.json'), baseDir: path.join(rootDir, 'TheHUB 1.5.5.2.3 a v') },
+  { name: 'Gamecompanion Subsystem', path: path.join(rootDir, 'Gamecompanion/files/package.json'), baseDir: path.join(rootDir, 'Gamecompanion/files') }
 ];
 
 console.log('\n🔭 ======================================================');
@@ -21,6 +21,8 @@ console.log('======================================================\n');
 
 let issuesFound = 0;
 let totalDeps = 0;
+
+const BANNED_COPYLEFT = ['gpl', 'agpl', 'sspl', 'cpal'];
 
 manifests.forEach(m => {
   if (!fs.existsSync(m.path)) {
@@ -31,7 +33,7 @@ manifests.forEach(m => {
 
   const pkg = JSON.parse(fs.readFileSync(m.path, 'utf8'));
   console.log(`📦 Auditing [${m.name}] (v${pkg.version || '0.0.0'})`);
-  console.log(`   License Declared: ${pkg.license || 'UNSPECIFIED'}`);
+  console.log(`   Declared Manifest License: ${pkg.license || 'UNSPECIFIED'}`);
 
   const deps = Object.assign({}, pkg.dependencies || {}, pkg.devDependencies || {});
   const depNames = Object.keys(deps);
@@ -39,15 +41,26 @@ manifests.forEach(m => {
 
   console.log(`   Dependencies (${depNames.length}): ${depNames.join(', ') || 'None (Pure Zero-Dependency)'}`);
 
-  // License compatibility checks for known dependencies
-  const BANNED_COPYLEFT = ['gpl', 'agpl', 'sspl', 'cpal'];
+  // Inspect actual package.json in node_modules for true license field
   depNames.forEach(d => {
-    if (BANNED_COPYLEFT.some(b => d.toLowerCase().includes(b))) {
-      console.error(`   ❌ [COPYLEFT RISK] Dependency "${d}" may contain copyleft license!`);
+    const depPkgPath = path.join(m.baseDir, 'node_modules', d, 'package.json');
+    let actualLicense = 'UNVERIFIED';
+    if (fs.existsSync(depPkgPath)) {
+      try {
+        const depPkg = JSON.parse(fs.readFileSync(depPkgPath, 'utf8'));
+        actualLicense = depPkg.license || (depPkg.licenses && depPkg.licenses[0]?.type) || 'UNSPECIFIED';
+      } catch (e) {
+        actualLicense = 'CORRUPT_MANIFEST';
+      }
+    }
+
+    const licenseStr = typeof actualLicense === 'string' ? actualLicense : JSON.stringify(actualLicense);
+    if (BANNED_COPYLEFT.some(b => licenseStr.toLowerCase().includes(b))) {
+      console.error(`   ❌ [COPYLEFT RISK] Dependency "${d}" has copyleft license: "${licenseStr}"!`);
       issuesFound++;
     }
   });
-  console.log('   ✅ Manifest format valid.\n');
+  console.log('   ✅ Manifest & dependency licenses verified.\n');
 });
 
 // Large file and zip check

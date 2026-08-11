@@ -105,6 +105,26 @@ Whenever a bug, test failure, redmark, or integration defect is detected in Marc
 
 ---
 
+### [PATCH-20260811-07] SRE Tooling Hardening, Governance Audit Engine & State Registry
+* **Date:** 2026-08-11
+* **Patched By:** `@pangolin` / `@sre` / `@joint`
+* **Subsystem:** `tools/scout-audit.js`, `tools/qa-wcag-audit.js`, `tools/governance-audit.js`, `package.json`, `docs/SYSTEM_STATE.md`
+* **Severity Level:** SEV-2 (Governance & Verification Integrity)
+* **Symptoms Observed:** Remote SRE audit caught static string heuristics in license scanner (`tools/scout-audit.js`), WCAG audit exiting 0 despite warnings (`tools/qa-wcag-audit.js`), and lack of automated governance drift detection.
+* **Root Cause Analysis:** Verification tools must inspect actual package manifests in `node_modules` and differentiate blocking vs advisory errors with non-zero exit codes.
+* **Logic / Math Fix Equation:** 
+  $$\text{Exit Code} = \begin{cases} 0 & \text{if } \text{blockingErrors} = 0 \land \text{copyleftRisks} = 0 \land \text{governanceIssues} = 0 \\ 1 & \text{otherwise} \end{cases}$$
+* **Files Modified:**
+  * `tools/scout-audit.js` (Deep manifest license inspection in `node_modules`)
+  * `tools/qa-wcag-audit.js` (Enforced non-zero exit for blocking accessibility errors)
+  * `tools/governance-audit.js` (Automated governance, scenario, and version consistency scanner)
+  * `package.json` (Added `"audit:governance"` and updated `"audit:all"`)
+  * `docs/SYSTEM_STATE.md` (Created canonical ground-truth state registry)
+* **Regression Test Assertion Added:** `tools/governance-audit.js` (4/4 automated checks verified passing).
+* **Status:** 🟢 RESOLVED & VERIFIED
+
+---
+
 # 3. TEMPLATE FOR FUTURE PANGOLIN PATCHES
 
 ```text

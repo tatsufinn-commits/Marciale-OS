@@ -1,6 +1,12 @@
-# MASTER ROADMAP V6 — Build 30.11.1 Onwards (The Hybrid Chess AI \& v2.0 JARVIS Evolution)
+# 📜 MASTER ROADMAP V7 — Historical Build Log (Builds 0 through 33.9)
 
-## Scope \& Vision
+> **DOCUMENT STATUS:** HISTORICAL ARCHIVE — SUPERSEDED BY `Refinedplan.md` & `docs/BUILD_LOGBOOK.md`  
+> **VALID FOR CURRENT CODE STATE:** HISTORICAL PROVENANCE ONLY (Preserved under Commandment III & The "Do Not Fix" Preservation Doctrine)  
+> **CURRENT PRODUCTION STATE:** See `docs/SYSTEM_STATE.md` and `docs/BUILD_LOGBOOK.md`
+
+---
+
+## Scope & Vision
 
 This comprehensive roadmap covers the complete history of **TheHUB** from **Build 0** through our latest **Hybrid Chess AI Architecture (Build 30.11.1 Onwards)**, leading up to the massive "v3.0 JARVIS Evolution" proposal.
 
