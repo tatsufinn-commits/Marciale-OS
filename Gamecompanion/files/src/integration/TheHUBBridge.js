@@ -3,9 +3,9 @@
  * Supports dual event signatures: idlehero.* (TheHUB 1.5+) and mtgame.* (Companion RPG).
  */
 export class TheHUBBridge {
-  constructor({ onReward = null, onPause = null, onResume = null, onTheme = null } = {}) {
+  constructor({ onReward = null, onPause = null, onResume = null, onTheme = null, hubOrigin = null } = {}) {
     this._ready = false;
-    this._hubOrigin = '*';
+    this._hubOrigin = hubOrigin || (typeof window !== 'undefined' && window.location && window.location.origin && window.location.origin !== 'null' ? window.location.origin : '*');
     this._pendingRewards = [];
     this._onReward = onReward;
     this._onPause = onPause;
@@ -15,6 +15,10 @@ export class TheHUBBridge {
 
   init() {
     window.addEventListener('message', (event) => {
+      // Validate origin if not wildcard and origin is present
+      if (this._hubOrigin !== '*' && event.origin && event.origin !== this._hubOrigin) {
+        return;
+      }
       this._handleMessage(event.data);
     });
     // Dual-emit ready event for backward and forward compatibility

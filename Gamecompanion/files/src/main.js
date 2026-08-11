@@ -31,6 +31,7 @@ import { ProgressionSystem } from './systems/ProgressionSystem.js';
 import { RosterSystem } from './systems/RosterSystem.js';
 import { ZoneContentSystem } from './systems/ZoneContentSystem.js';
 import zoneData from './data/zones.json';
+import { AudioSystem } from './systems/AudioSystem.js';
 import { TheHUBBridge } from './integration/TheHUBBridge.js';
 
 const AUTO_SAVE_INTERVAL = 120000;
@@ -60,7 +61,9 @@ async function boot() {
       { path: 'combat.state', value: 'fighting' }
     ]);
   }
+  const audioSystem = new AudioSystem({ volume: 0.25 });
   const combatEngine = new CombatEngine({ stateManager, eventBus, events: Events, damageCalculator: new DamageCalculator({ affinityTable }), onHit: ({ defender, damage }) => {
+    audioSystem.play('hit');
     particles.addFloatingText({ x: defender.x + defender.width / 2, y: defender.y - 8 }, `-${Math.ceil(damage)}`, defender.type === 'enemy' ? '#8abaf0' : '#e06c75');
     particles.addBurst({ x: defender.x + defender.width / 2, y: defender.y + defender.height / 2 }, defender.type === 'enemy' ? '#8abaf0' : '#e06c75', 4);
   } });
@@ -77,7 +80,13 @@ async function boot() {
   eventBus.on(Events.MONSTER_KILLED, (payload) => { lootEngine.onMonsterKilled(payload); progressionSystem.grantXp(payload.xp ?? 0); });
   eventBus.on(Events.STAGE_CLEARED, ({ stageId }) => lootEngine.dropStageChest(stageId));
   const inventorySystem = new InventorySystem({ stateManager, itemTemplates: itemData.items });
-  eventBus.on(Events.CHEST_OPENED, ({ reward }) => inventorySystem.addReward(reward));
+  eventBus.on(Events.CHEST_OPENED, ({ reward }) => {
+    audioSystem.play('chest');
+    inventorySystem.addReward(reward);
+  });
+  eventBus.on(Events.WEAVER_LEVEL_UP, () => {
+    audioSystem.play('levelup');
+  });
   const economyManager = new EconomyManager({ stateManager });
   document.querySelector('#sell-first')?.addEventListener('click', () => { const item=stateManager.get('inventory.items')[0]; const result=item && economyManager.sell(item.uid); setSaveStatus(result?.sold ? `Sold for ${result.value} gold` : 'Nothing to sell', result?.sold ? 'success' : 'neutral'); });
   const craftingSystem = new CraftingSystem({ stateManager, inventorySystem, recipes });
