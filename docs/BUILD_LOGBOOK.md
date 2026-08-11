@@ -240,7 +240,68 @@ When you clone this repository in a new chat:
   * Added comprehensive unit test coverage in `tests/unit-tracker.js`.
 * **Test Verification:** `npm test` passed 43 / 43 test suites with 0 errors (100% green).
 * **Current Production State:** TheHUB automatically optimizes daily focus sessions to user bio-energy and guards restorative sleep.
-* **Next Recommended Build:** **Phase 2 Vault Expansion in TAMA (`RA9514-CANONICAL-FIRE-CODE-EGRESS-COMPENDIUM.md`) or Build V8.3 (Companion Roster Sync & Offline Loot Drops)**.
+
+---
+
+### [COMPLETED] Build V8.3: Full Bi-Directional Companion Progression & Gear Sync
+* **Date:** 2026-08-11
+* **Agent in Charge:** `@forge` (Gameplay Systems Specialist) / `@architect` (Lead Systems Architect)
+* **Goal:** Seamlessly synchronize hero equipment, gold balances, character roster unlocks, and offline progression notifications bi-directionally between the Canvas RPG and TheHUB command center.
+* **Files Modified:**
+  * `Gamecompanion/files/src/integration/TheHUBBridge.js`
+  * `Gamecompanion/files/src/main.js`
+  * `TheHUB 1.5.5.2.3 a v/modules/14-companion.js`
+  * `TheHUB 1.5.5.2.3 a v/style.css`
+* **Changes Delivered:**
+  * Added `reportSnapshot()`, `reportOfflineRewards()`, and `reportItemEquipped()` methods to `TheHUBBridge`.
+  * Wired automatic game state snapshots on level up, equipment changes, stage clears, and initial boot in `main.js`.
+  * Implemented `companionHeroData()` storage model and bi-directional message handlers in `14-companion.js`.
+  * Enhanced the Companion widget in TheHUB with live visual badges displaying equipped Weapon, Armor, Accessory, Gold balance, and Hero Level.
+  * Styled the companion gear status bar with responsive, dark-mode CSS tokens.
+* **Test Verification:** `npm run build && npm test` verified clean Vite bundle build and 43 / 43 green test suites.
+* **Current Production State:** Full bi-directional synchronization between TheHUB productivity activities and Companion RPG progression is live.
+
+---
+
+### [COMPLETED] Build V8.4: Spatial Privacy & Hardware Presence Security
+* **Date:** 2026-08-11
+* **Agent in Charge:** `@sentinel` (Security & Spatial Privacy Specialist) / `@architect` (Lead Systems Architect)
+* **Goal:** Enforce zero-trust spatial privacy by automatically locking the AES-GCM encrypted vault when the user walks away from their desk for $>3\text{ minutes}$ and gating raw RuView WiFi sensing telemetry.
+* **Files Modified:**
+  * `TheHUB 1.5.5.2.3 a v/modules/07-vault.js`
+  * `TheHUB 1.5.5.2.3 a v/modules/17-presence.js`
+  * `TheHUB 1.5.5.2.3 a v/modules/18-ruview-bridge.js`
+  * `TheHUB 1.5.5.2.3 a v/modules/19-presence-automation.js`
+  * `TheHUB 1.5.5.2.3 a v/tests/unit-presence.js`
+* **Changes Delivered:**
+  * Implemented `checkPresenceVaultSecurity(awayDurationMs)` in `07-vault.js`: Automatically executes full cryptographic zeroization (`VAULT_KEY = null`, `VAULT = {sites:[]}`) when user is away $\ge 3\text{ minutes}$.
+  * Bound `Hub.lockVault` and `Hub.unlockVault` across `window.Hub` namespaces.
+  * Enhanced `17-presence.js` tick timers and away hooks to auto-lock the vault on spatial absence.
+  * Upgraded `19-presence-automation.js` `lock_vault` action handler with graceful multi-namespace fallback.
+  * Added `privacyMode` gating to `18-ruview-bridge.js` to blank raw Doppler/CSI biological telemetry on demand.
+  * Added 2 new unit tests in `tests/unit-presence.js` (14/14 passing).
+* **Test Verification:** `npm test` passed 43 / 43 test suites with 0 errors (100% green).
+* **Current Production State:** TheHUB command center is secured with spatial zero-trust presence auto-locking.
+
+---
+
+### [COMPLETED] Build V8.5: ChessLab 2.0 Real-Time Tactical Coaching
+* **Date:** 2026-08-11
+* **Agent in Charge:** `@mind` (AI Specialist) / `@architect` (Lead Systems Architect)
+* **Goal:** Equip ChessLab with real-time tactical threat analysis (forks, pins, hanging pieces, king checks) and Socratic coaching overlays that guide players without revealing full moves prematurely.
+* **Files Modified:**
+  * `TheHUB 1.5.5.2.3 a v/modules/15-chess.js`
+  * `TheHUB 1.5.5.2.3 a v/style.css`
+  * `TheHUB 1.5.5.2.3 a v/tests/unit-chess.js`
+* **Changes Delivered:**
+  * Implemented `analyzeTacticalThreats(state)`: Scans legal moves for check states, double attack forks, and high-value hanging piece opportunities.
+  * Implemented `generateTacticalCoachHint(state)`: Formulates Socratic hints and progressive clues.
+  * Built the **Marciale Tactical Coach Speech Bubble Overlay** in `renderChessCoachPanel(state)` with progressive clue revelation (`#chessRevealClueBtn`) and Stockfish/Vesta candidate lines.
+  * Styled the coaching card with responsive theme tokens and status badges (`👑 Check Alert`, `🔱 Double Attack Motif`, `⚔️ Capture Target`, `🎯 Positional Guidance`).
+  * Added unit tests in `tests/unit-chess.js` verifying threat detection and Socratic hint generation.
+* **Test Verification:** `npm test` passed 43 / 43 test suites with 0 errors (100% green).
+* **Current Production State:** Master Roadmap V8 is now 100% COMPLETE across all milestones (V8.1 through V8.5)!
+* **Next Recommended Build:** **Phase 2 Vault Expansion in TAMA (`BP-344-CANONICAL-ACCESSIBILITY-COMPENDIUM.md`) or Architecture Design Studio Reviewers**.
 
 ---
 
