@@ -394,6 +394,7 @@
     <div class="tab" data-page="dash">🔖 Portal & Bookmarks</div>
     <div class="tab" data-page="idlehero">🧬 Idle Hero</div>
     <div class="tab" data-page="chess">♟️ ChessLab</div>
+    <div class="tab" data-page="tamakee">🏛️ TAMAKEE Studio</div>
     <div class="tab" data-page="ruview">🛰️ RuView</div>
     <div class="tab" data-page="cal">📅 Calendar</div>
     <div class="tab" data-page="tasks">✅ Tasks</div>
@@ -570,6 +571,11 @@
   <!-- ============ CHESS LAB PAGE ============ -->
   <div class="page" id="page-chess">
     <div id="chessLabRoot"></div>
+  </div>
+
+  <!-- ============ TAMAKEE STUDIO PAGE ============ -->
+  <div class="page" id="page-tamakee">
+    <div id="tamakeeStudioRoot"></div>
   </div>
 
   <!-- ============ RUVIEW PAGE ============ -->
@@ -812,6 +818,14 @@
           <span id="aiAttachName" style="font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">📄 document.txt</span>
           <button class="btn sm" onclick="clearAiAttachment()" style="padding:4px 8px; min-height:0; color:var(--danger); border:none; background:transparent;">✖ Remove</button>
         </div>
+        <div class="ai-department-chips" id="aiDeptChips" style="display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;margin-bottom:6px;">
+          <button class="btn sm" type="button" data-dept-chip="scout" title="Ask Scout to research tools, open-source repos, or feasibility">🔭 Ask Scout</button>
+          <button class="btn sm" type="button" data-dept-chip="pm" title="Ask Project Manager to plan and break down tasks">📋 Ask PM</button>
+          <button class="btn sm" type="button" data-dept-chip="uiux" title="Ask UI/UX for design specs and accessibility guidelines">🎨 Ask UI/UX</button>
+          <button class="btn sm" type="button" data-dept-chip="web" title="Dispatch Web Engineering Team for implementation">💻 Web Team</button>
+          <button class="btn sm" type="button" data-dept-chip="mapua" title="Ask Mapúa Architecture Socratic Coach">🏛️ Mapúa Coach</button>
+          <button class="btn sm" type="button" data-dept-chip="sre" title="Run SRE fault and vulnerability audit">🚨 SRE Health</button>
+        </div>
         <div class="ai-input grok-composer">
           <button class="btn" id="aiAttachBtn" title="Upload Document" style="height:48px; width:48px; padding:0; justify-content:center; background:var(--card); border:1px solid var(--line); color:var(--txt);">📎</button>
           <input type="file" id="aiAttachFile" style="display:none" accept=".txt,.md,.csv,.json,.html,.js,.py,.css,.log">
@@ -1051,6 +1065,7 @@
 <script src="TAMAplugin/mapua-brain-preset.js"></script>
 <script src="TAMAplugin/exam-calendar-card.js"></script>
 <script src="TAMAplugin/study-momentum-bridge.js"></script>
+<script src="TAMAplugin/tamakee-studio-view.js"></script>
 <script src="TAMAplugin/tama-plugin-init.js"></script>
 <script src="modules/09-main.js"></script>
 </body>

@@ -1775,3 +1775,68 @@ body:not(.sidebar-collapsed) .sidebar-backdrop{position:fixed;inset:0;background
 .chess-coach-actions-row{display:flex;gap:6px;margin-top:2px}
 .chess-coach-actions-row .btn{flex:1;justify-content:center;padding:5px 10px;font-size:11.5px;font-weight:700}
 
+/* ==========================================================
+   SECTION 15: TAMAKEE Studio Styles (Apex Engine)
+   ========================================================== */
+.tamakee-shell{display:grid;gap:14px}
+.tamakee-header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:var(--panel-pad,18px);border:1px solid color-mix(in srgb,var(--acc) 30%,var(--line));border-radius:var(--radius-xl,18px);background:radial-gradient(520px 180px at 0 0,color-mix(in srgb,var(--acc) 12%,transparent),transparent 72%),var(--card);box-shadow:var(--shadow-sm)}
+.tamakee-header h2{margin:0;color:var(--txt);font-size:20px;letter-spacing:-.03em}
+.tamakee-header p{margin:4px 0 0;color:var(--mut);font-size:12.5px;line-height:1.4}
+.tamakee-subtabs{display:flex;gap:8px;flex-wrap:wrap}
+.tamakee-body{display:grid;gap:14px}
+.tamakee-card{padding:var(--panel-pad,18px);border:1px solid var(--line);border-radius:var(--radius-xl,18px);background:var(--card);box-shadow:var(--shadow-sm);display:grid;gap:12px}
+.tamakee-card h3{margin:0;color:var(--txt);font-size:16px}
+.tamakee-card p{margin:0;color:var(--mut);font-size:13px;line-height:1.45}
+
+.exam-launcher-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:8px}
+.exam-mode-card{padding:14px;border:1px solid var(--line);border-radius:14px;background:color-mix(in srgb,var(--bg) 40%,var(--card));display:grid;gap:6px;transition:all .2s ease}
+.exam-mode-card:hover{border-color:var(--acc);transform:translateY(-2px)}
+.exam-mode-card b{color:var(--txt);font-size:14px}
+.exam-mode-card small{color:var(--mut);font-size:11.5px}
+
+.exam-active-card{position:relative}
+.exam-top-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.exam-top-bar b{color:var(--txt);font-size:14px}
+.exam-category-pill{padding:3px 8px;border-radius:999px;background:color-mix(in srgb,var(--acc) 16%,transparent);color:var(--acc);font-size:11px;font-weight:800;border:1px solid color-mix(in srgb,var(--acc) 30%,transparent)}
+.exam-timer-pill{padding:4px 10px;border-radius:999px;background:color-mix(in srgb,#f59e0b 16%,transparent);color:#fbbf24;font-size:12px;font-weight:900;border:1px solid color-mix(in srgb,#f59e0b 30%,transparent)}
+.question-text{font-size:15px;font-weight:700;color:var(--txt);line-height:1.5;margin:8px 0}
+.options-grid{display:grid;gap:8px}
+.option-btn{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:color-mix(in srgb,var(--bg) 60%,var(--card));color:var(--txt);text-align:left;cursor:pointer;transition:all .15s ease}
+.option-btn:hover{border-color:var(--acc);background:color-mix(in srgb,var(--acc) 8%,var(--card))}
+.option-btn.selected{border-color:var(--acc);background:color-mix(in srgb,var(--acc) 18%,var(--card));box-shadow:inset 3px 0 0 var(--acc)}
+.option-tag{display:grid;place-items:center;width:24px;height:24px;border-radius:6px;background:color-mix(in srgb,var(--bg) 80%,transparent);border:1px solid var(--line);font-size:11.5px;font-weight:900}
+.option-label{flex:1;font-size:13px;line-height:1.4}
+.socratic-clue-box{padding:8px 12px;border-radius:8px;background:color-mix(in srgb,#8b5cf6 14%,var(--card));border:1px solid color-mix(in srgb,#8b5cf6 35%,var(--line));color:var(--txt);font-size:12px}
+.exam-controls-bar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-top:10px;border-top:1px solid var(--line);flex-wrap:wrap}
+.question-nav-grid{display:flex;gap:4px;flex-wrap:wrap;margin-top:10px;max-height:80px;overflow-y:auto;padding-top:8px;border-top:1px dashed var(--line)}
+.q-nav-dot{width:26px;height:26px;border-radius:6px;border:1px solid var(--line);background:var(--bg);color:var(--mut);font-size:11px;font-weight:700;display:grid;place-items:center;cursor:pointer}
+.q-nav-dot.active{border-color:var(--acc);color:var(--acc);font-weight:900}
+.q-nav-dot.answered{background:color-mix(in srgb,var(--acc) 18%,var(--bg));border-color:var(--acc);color:var(--txt)}
+
+.results-header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.results-score-badge{padding:6px 14px;border-radius:999px;font-size:15px;font-weight:950}
+.results-score-badge.passed{background:color-mix(in srgb,#22c55e 20%,transparent);color:#4ade80;border:1px solid color-mix(in srgb,#22c55e 40%,transparent)}
+.results-score-badge.failed{background:color-mix(in srgb,#ef4444 20%,transparent);color:#fca5a5;border:1px solid color-mix(in srgb,#ef4444 40%,transparent)}
+.results-actions{display:flex;gap:10px;margin:8px 0 14px}
+.exam-review-list{display:grid;gap:10px;margin-top:12px;border-top:1px solid var(--line);padding-top:12px}
+.review-item{padding:10px 12px;border-radius:10px;border:1px solid var(--line);display:grid;gap:4px;background:color-mix(in srgb,var(--bg) 40%,var(--card))}
+.review-item.correct{border-left:4px solid #22c55e}
+.review-item.incorrect{border-left:4px solid #ef4444}
+.review-item-top{display:flex;justify-content:space-between;align-items:center;font-size:12px}
+.review-trap{font-size:11.5px;color:#fcd34d}
+.review-citation{font-size:11.5px;color:var(--acc)}
+
+.tamakee-solvers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.solver-card{display:grid;gap:10px}
+.solver-form{display:grid;gap:8px}
+.solver-form label{display:grid;gap:4px;font-size:12px;color:var(--mut);font-weight:700}
+.solver-form input{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:6px 10px;color:var(--txt);font-size:13px}
+.solver-output{padding:10px 12px;border-radius:10px;background:color-mix(in srgb,var(--acc) 10%,var(--card));border:1px solid color-mix(in srgb,var(--acc) 28%,var(--line));font-size:12px;line-height:1.5;color:var(--txt)}
+
+.tamakee-vault-browser{display:grid;gap:12px}
+.vault-modules-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.vault-module-card{padding:12px;border-radius:12px;border:1px solid var(--line);background:color-mix(in srgb,var(--bg) 30%,var(--card));display:grid;gap:6px}
+.vault-module-card b{color:var(--txt);font-size:13px}
+.vault-module-card p{color:var(--mut);font-size:11.5px;line-height:1.4}
+.module-cluster-pill{align-self:start;padding:2px 6px;border-radius:4px;background:color-mix(in srgb,var(--acc) 14%,transparent);color:var(--acc);font-size:10px;font-weight:900;border:1px solid color-mix(in srgb,var(--acc) 30%,transparent)}
+
