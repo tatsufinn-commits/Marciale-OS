@@ -26,9 +26,9 @@ function saveDrinks(){
 const LIMIT_CAF=400; // mg/day commonly cited safe upper limit for healthy adults
 const LIMIT_TAU=3000; // mg/day common supplement upper range
 const LIMIT_SUG=50; // WHO daily upper limit
-// Active/residual model constants. Caffeine is the same 5h half-life used by the charts.
+// Active/residual model constants. Caffeine uses clinical 5.7h pharmacokinetic elimination half-life.
 // Taurine/sugar are labelled as estimates because they are not the same physiology as caffeine.
-const HALF_LIFE_CAF_H=5;
+const HALF_LIFE_CAF_H=5.7;
 const HALF_LIFE_TAU_H=1.5;  // approximate plasma taurine clearance model
 const HALF_LIFE_SUG_H=2;    // "recent sugar load" model, not blood glucose advice
 

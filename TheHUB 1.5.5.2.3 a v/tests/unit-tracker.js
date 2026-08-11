@@ -7,10 +7,10 @@ loadScripts(sandbox, ['modules/00-utils-config.js', 'modules/05-calendar.js', 'm
 const start = Date.UTC(2026, 5, 14, 8, 0, 0);
 const entries = [{ id: 'log1', drink: 'machiato', qty: 1, date: '2026-06-14', time: '08:00', ts: start }];
 
-// Default Caramel Macchiato has 150mg caffeine and the app models a 5h half-life.
+// Default Caramel Macchiato has 150mg caffeine and the app models a 5.7h pharmacokinetic half-life.
 assert.ok(Math.abs(sandbox.caffeineAt(start, entries) - 150) < 0.001, 'caffeineAt should equal full dose at logged time');
-assert.ok(Math.abs(sandbox.caffeineAt(start + 5 * 3600000, entries) - 75) < 0.001, 'caffeineAt should halve after 5h');
-assert.ok(Math.abs(sandbox.caffeineAt(start + 10 * 3600000, entries) - 37.5) < 0.001, 'caffeineAt should quarter after 10h');
+assert.ok(Math.abs(sandbox.caffeineAt(start + 5.7 * 3600000, entries) - 75) < 0.001, 'caffeineAt should halve after 5.7h');
+assert.ok(Math.abs(sandbox.caffeineAt(start + 11.4 * 3600000, entries) - 37.5) < 0.001, 'caffeineAt should quarter after 11.4h');
 assert.strictEqual(sandbox.caffeineAt(start - 1, entries), 0, 'future drinks should not contribute before their timestamp');
 console.log('  ✅ caffeineAt() half-life math');
 
@@ -22,10 +22,10 @@ console.log('  ✅ caffeine quantity scaling');
 // caffeineBelowAt() should return startTs immediately when already below threshold.
 assert.strictEqual(sandbox.caffeineBelowAt(entries, 200, start), start, 'already-below threshold should return start timestamp');
 
-// 150mg drops below 75mg just after one half-life; search resolution is 5 minutes.
+// 150mg drops below 75mg just after one half-life (5.7h); search resolution is 5 minutes.
 const below75 = sandbox.caffeineBelowAt(entries, 75, start);
-assert.ok(below75 >= start + 5 * 3600000, 'below-threshold timestamp should be at/after half-life boundary');
-assert.ok(below75 <= start + 5 * 3600000 + 5 * 60000, 'below-threshold search should resolve within one 5-minute step');
+assert.ok(below75 >= start + 5.7 * 3600000, 'below-threshold timestamp should be at/after half-life boundary');
+assert.ok(below75 <= start + 5.7 * 3600000 + 5 * 60000, 'below-threshold search should resolve within one 5-minute step');
 console.log('  ✅ caffeineBelowAt()');
 
 // Active sugar should follow its own decay model.
@@ -67,23 +67,23 @@ console.log('  ✅ biometric intake estimates');
 // 1. calculateBedtimeCaffeine()
 const morningTs = new Date('2026-06-14T09:00:00').getTime();
 const eveningEntry = [{ id: 'late_coffee', drink: 'spanish', qty: 1, date: '2026-06-14', time: '18:00', ts: new Date('2026-06-14T18:00:00').getTime() }];
-// Spanish latte has 256mg caffeine. At 23:00 (5 hours later, 1 half-life), projected level should be ~128mg
+// Spanish latte has 256mg caffeine. At 23:00 (5 hours later), projected level with 5.7h half life is ~139.4mg
 const bedtimeData = sandbox.calculateBedtimeCaffeine(morningTs, '23:00', eveningEntry);
-assert.ok(Math.abs(bedtimeData.projectedMg - 128) < 1, `Bedtime caffeine should be ~128mg after 5h half life, got ${bedtimeData.projectedMg}`);
+assert.ok(Math.abs(bedtimeData.projectedMg - 139.4) < 1, `Bedtime caffeine should be ~139.4mg after 5.7h half life, got ${bedtimeData.projectedMg}`);
 assert.strictEqual(bedtimeData.exceedsThreshold, true, 'Bedtime projected caffeine should exceed sleep threshold');
 assert.strictEqual(bedtimeData.warningLevel, 'danger', 'High bedtime residual should trigger danger warning level');
 console.log('  ✅ calculateBedtimeCaffeine()');
 
 // 2. safeCaffeineCutoff()
 const cutoff = sandbox.safeCaffeineCutoff('23:00', 100, 25, morningTs);
-// For 100mg down to 25mg: 2 half lives = 10 hours before 23:00 => 13:00 cutoff
-assert.strictEqual(cutoff.clearanceHours, 10, '100mg to 25mg threshold should require exactly 10 clearance hours');
-assert.strictEqual(cutoff.cutoffTimeStr, '13:00', 'Cutoff for 23:00 bedtime should be 13:00');
-assert.strictEqual(cutoff.isPastCutoff, false, '09:00 morning time should not be past 13:00 cutoff');
+// For 100mg down to 25mg: 2 half lives = 11.4 hours before 23:00 => 11:36 cutoff
+assert.strictEqual(cutoff.clearanceHours, 11.4, '100mg to 25mg threshold should require exactly 11.4 clearance hours');
+assert.strictEqual(cutoff.cutoffTimeStr, '11:36', 'Cutoff for 23:00 bedtime should be 11:36');
+assert.strictEqual(cutoff.isPastCutoff, false, '09:00 morning time should not be past 11:36 cutoff');
 
 const lateTs = new Date('2026-06-14T16:00:00').getTime();
 const lateCutoff = sandbox.safeCaffeineCutoff('23:00', 100, 25, lateTs);
-assert.strictEqual(lateCutoff.isPastCutoff, true, '16:00 afternoon time should be past 13:00 cutoff');
+assert.strictEqual(lateCutoff.isPastCutoff, true, '16:00 afternoon time should be past 11:36 cutoff');
 console.log('  ✅ safeCaffeineCutoff()');
 
 // 3. getCircadianFocusRecommendation()

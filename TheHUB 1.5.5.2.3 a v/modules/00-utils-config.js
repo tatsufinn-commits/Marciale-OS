@@ -1170,3 +1170,92 @@ function brainPromptBlock(){
 }
 normalizeBrain();
 
+/* ---------- Procedural Web Audio Engine (Build 39 / Silent Pipeline) ---------- */
+let _hubAudioCtx = null;
+const HUB_SOUND_CONFIG = {
+  enabled: true,
+  volume: 0.35
+};
+
+function getHubAudioContext(){
+  if(typeof window === 'undefined') return null;
+  const AudioCtx = window.AudioContext || window.webkitAudioContext;
+  if(!AudioCtx) return null;
+  if(!_hubAudioCtx){
+    try { _hubAudioCtx = new AudioCtx(); } catch(e){}
+  }
+  if(_hubAudioCtx && _hubAudioCtx.state === 'suspended'){
+    const resumeHandler = () => {
+      _hubAudioCtx?.resume();
+      ['click','keydown','touchstart'].forEach(ev => document.removeEventListener(ev, resumeHandler));
+    };
+    ['click','keydown','touchstart'].forEach(ev => document.addEventListener(ev, resumeHandler, {once:true, passive:true}));
+  }
+  return _hubAudioCtx;
+}
+
+function playHubSound(type = 'click'){
+  if(!HUB_SOUND_CONFIG.enabled) return false;
+  const ctx = getHubAudioContext();
+  if(!ctx) return false;
+  try {
+    const t0 = ctx.currentTime;
+    const vol = Math.max(0.01, Math.min(1.0, HUB_SOUND_CONFIG.volume));
+
+    if(type === 'click'){
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(800, t0);
+      osc.frequency.exponentialRampToValueAtTime(200, t0 + 0.03);
+      gain.gain.setValueAtTime(vol * 0.15, t0);
+      gain.gain.exponentialRampToValueAtTime(0.001, t0 + 0.03);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(t0);
+      osc.stop(t0 + 0.035);
+      return true;
+    }
+
+    if(type === 'chime' || type === 'complete'){
+      const osc1 = ctx.createOscillator();
+      const osc2 = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc1.type = 'sine'; osc2.type = 'triangle';
+      osc1.frequency.setValueAtTime(523.25, t0);
+      osc1.frequency.exponentialRampToValueAtTime(1046.50, t0 + 0.35);
+      osc2.frequency.setValueAtTime(659.25, t0);
+      osc2.frequency.exponentialRampToValueAtTime(1318.50, t0 + 0.35);
+      gain.gain.setValueAtTime(vol * 0.25, t0);
+      gain.gain.exponentialRampToValueAtTime(0.001, t0 + 0.45);
+      osc1.connect(gain); osc2.connect(gain);
+      gain.connect(ctx.destination);
+      osc1.start(t0); osc2.start(t0);
+      osc1.stop(t0 + 0.46); osc2.stop(t0 + 0.46);
+      return true;
+    }
+
+    if(type === 'alert' || type === 'warn'){
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(220, t0);
+      osc.frequency.setValueAtTime(180, t0 + 0.1);
+      gain.gain.setValueAtTime(vol * 0.2, t0);
+      gain.gain.exponentialRampToValueAtTime(0.001, t0 + 0.25);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(t0);
+      osc.stop(t0 + 0.26);
+      return true;
+    }
+  } catch(e){
+    return false;
+  }
+  return false;
+}
+
+window.playHubSound = playHubSound;
+window.getHubAudioContext = getHubAudioContext;
+window.HUB_SOUND_CONFIG = HUB_SOUND_CONFIG;
+
