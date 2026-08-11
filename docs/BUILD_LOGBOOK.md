@@ -329,6 +329,30 @@ When you clone this repository in a new chat:
 
 ---
 
+### [COMPLETED] Milestone G02: Pangolin Autonomous Patchmaster & SRE End-Process Sentinel Loop
+* **Date:** 2026-08-11
+* **Agent in Charge:** `@sre` (Incident Commander) / `@pangolin` (Field Repair Officer)
+* **Goal:** Establish `@pangolin` as the dedicated field repair officer under `@sre` to automatically diagnose faults, formulate mathematical fix equations, apply surgical patches, log patchnotes into `docs/patchnotes/`, and package emergency Hotfix Proposal zips if an intractable issue arises.
+* **Files Modified:**
+  * `docs/AGENTS.md` (Registered `@pangolin` under `@sre`)
+  * `docs/AI_RULES.md` (Enacted Law XIII: The Context Token Budget & Silent Pipeline Rule)
+  * `docs/patchnotes/PATCHNOTES_LEDGER.md` (The living patchnotes dropbox)
+  * `docs/patchnotes/templates/HOTFIX_TEMPLATE.md`
+  * `docs/PROMPT_PLAYBOOK.md` (Added Scenarios 13 & 14)
+  * `docs/DOCS_MASTER_INDEX.md` (Updated master index)
+  * `tools/sre-auto-sentinel.js` (Autonomous sentinel check & hotfix packager CLI)
+  * `TheHUB 1.5.5.2.3 a v/modules/08-assistant.js` & `index.html` (Department Quick-Chips)
+  * `package.json` (Added `npm run pangolin` & `npm run sentinel:check`)
+* **Changes Delivered:**
+  * Built automated end-process sentinel loop (`npm run pangolin`).
+  * Created dedicated `docs/patchnotes/` dropbox with historical patch entries.
+  * Built automatic `[BUILD_NAME] - HOTFIX PROPOSAL.zip` generator for unresolved incidents.
+  * Added 6 Department Quick-Chips in TheHUB AI chat.
+* **Test Verification:** `npm run pangolin && npm test && npm run audit:all` passed 100% green with 0 errors.
+* **Current Production State:** Marciale-OS possesses autonomous self-healing, diagnostic scanning, and hotfix packaging capabilities.
+
+---
+
 # 3. TEMPLATE FOR FUTURE AI AGENTS (COPY & PASTE AT END OF SESSION)
 
 ```text

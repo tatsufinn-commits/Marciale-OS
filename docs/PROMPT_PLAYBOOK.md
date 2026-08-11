@@ -18,10 +18,15 @@
 | [Scenario 7: Multi-AI Second Opinion (Cross-Check)](#scenario-7-multi-ai-second-opinion-cross-check) | You want to ask Claude / ChatGPT to review another AI's plan. | 🟢 Zero Risk |
 | [Scenario 8: Autonomous Post-Roadmap Planning](#scenario-8-autonomous-post-roadmap-planning) | All past roadmaps are finished; you want the AI to discover what to optimize next. | 🟢 Zero Risk |
 | [Scenario 9: The Mosaic Council (When I Am Lost)](#scenario-9-the-mosaic-council-when-i-am-lost--clueless) | You feel clueless, tired, or have no idea what to do next. | 🟢 Zero Risk |
+| [Scenario 10: The Scout Research & Web Handoff](#scenario-10-scout-technical-research--web-team-handoff) | Gather intelligence on an open-source tool and auto-generate the exact Web Team prompt. | 🟢 Zero Risk |
+| [Scenario 11: Web Department Feature Execution](#scenario-11-web-department-feature-implementation) | Take Scout's handoff prompt and execute the web build with full QA gating. | 🟡 Medium Risk |
+| [Scenario 12: SRE Autonomous Redmark & Fault Scan](#scenario-12-sre-autonomous-fault--vulnerability-scan) | Have @sre scan the entire codebase for bugs, storage leaks, and security redmarks. | 🟢 Zero Risk |
+| [Scenario 13: The Pangolin Surgical Patch & Hotfix](#scenario-13-pangolin-surgical-patch--hotfix-execution) | Dispatch @pangolin to surgically fix a bug, add regression tests, and drop patchnotes. | 🟡 Medium Risk |
+| [Scenario 14: Automated End-Process Sentinel Check](#scenario-14-sre-automated-end-process-sentinel--hotfix-packager) | Automatically verify health at build conclusion and package Hotfix zips if needed. | 🟢 Zero Risk |
 
 ---
 
-# 📋 THE 9 MASTER PROMPT TEMPLATES
+# 📋 THE 14 MASTER PROMPT TEMPLATES
 
 ---
 
@@ -219,4 +224,113 @@ YOUR AUTONOMOUS DIRECTIVE:
 3. Synthesize the findings into a standard Mosaic Council Report per `docs/STRATEGIC_DECISION_FRAMEWORK.md`.
 4. Present the Top 3 Actionable Options (Option A: Recommended, Option B: Alternative, Option C: Experimental), scored with the 4-Axis SPI formula.
 5. Provide a simple VETO / APPROVAL prompt so I can make the final decision with one short reply!
+```
+
+---
+
+### Scenario 10: Scout Technical Research & Web Team Handoff
+* **Goal:** When you want `@scout` to gather data on a tool, library, or feature idea, evaluate licenses, produce a `WEB-RESEARCH-DOSSIER.md`, and **automatically write the exact, copy-paste prompt for the Web Team** so you don't have to know any web development syntax!
+
+```text
+Hello AI! Please assume the role of [@scout (Technical Intelligence & Research Specialist)] per `docs/AGENTS.md` and `docs/web/scout/SCOUT.md`.
+Here is my repository: https://github.com/tatsufinn-commits/Marciale-OS.git
+
+MODE: TECHNICAL RECONNAISSANCE & SCOUT HANDOFF (NO PRODUCTION CODE WRITING)
+
+MY GOAL:
+Gather sufficient data, inspect open-source patterns, and come up with a structured plan to upgrade [TheHUB / TAMAKEE / Marciale-OS].
+
+TOPIC / FEATURE TO INVESTIGATE:
+[Describe what you want to research, e.g. "How to add procedural spell particles to Canvas 2D" OR "How to build an offline flashcard Leitner algorithm" OR paste a GitHub URL]
+
+MANDATORY SCOUT DIRECTIVES:
+1. Follow the 5-tier evidence classification ([OBSERVED], [SOURCED], [INFERRED], [RECOMMENDED], [SPECULATIVE]) in `docs/web/WEB_RESEARCH_PROTOCOL.md`.
+2. Inspect open-source licenses (MIT/Apache vs GPL copyleft contagion) and evaluate performance trade-offs.
+3. Produce a structured `WEB-RESEARCH-DOSSIER.md` summarizing architecture, feasibility, and risks.
+4. AT THE END OF YOUR RESPONSE: Formulate the EXACT, ready-to-use copy-paste prompt for the Web Development Team (@project-manager / @frontend / @backend) so I can simply paste it into the next chat to build the feature!
+```
+
+---
+
+### Scenario 11: Web Department Feature Implementation
+* **Goal:** You have a research dossier or feature plan (from Scout or your own idea) and want the Web Department to execute the build with full `@qa` release gating and `npm test` verification.
+
+```text
+Hello AI! Please assume the role of [@project-manager / Web Engineering Department] per `docs/web/WEB.md`.
+Here is my repository: https://github.com/tatsufinn-commits/Marciale-OS.git
+
+MODE: ACTIVE WEB DEPARTMENT EXECUTION (LAW IV & LAW XIII LEAN PROTOCOL)
+
+TARGET FEATURE TO BUILD:
+[Paste Scout's generated handoff prompt OR describe your web feature]
+
+MANDATORY WEB DEPARTMENT RULES:
+1. Apply Law XIII (The Silent Pipeline): Execute the full Scout -> PM -> UX -> Dev -> QA workflow internally without generating bureaucratic token bloat.
+2. Follow WCAG 2.2 Level AA accessibility standards (min 4.5:1 contrast, visible focus rings, full keyboard nav).
+3. Modify only the required target modules; preserve existing Vanilla JS / ES Module architecture without heavy frameworks (Law I).
+4. Run `npm test` and `npm run audit:all` to verify 100% green checkmarks before concluding (Law V & Law X).
+5. Append completed build entry to `docs/BUILD_LOGBOOK.md` and package the updated `Fix.zip` archive (Law VII & VIII)!
+```
+
+---
+
+### Scenario 12: SRE Autonomous Fault & Vulnerability Scan
+* **Goal:** You want `@sre` (Site Reliability Engineer) to independently scan the entire Marciale-OS codebase for bugs, storage leaks, uncaught exceptions, and security redmarks, and auto-generate the fix.
+
+```text
+Hello AI! Please assume the role of [@sre (Site Reliability Engineer & Incident Commander)] per `docs/AGENTS.md` and `docs/INCIDENT_RESPONSE_SRE_PLAYBOOK.md`.
+Here is my repository: https://github.com/tatsufinn-commits/Marciale-OS.git
+
+MODE: AUTONOMOUS SRE FAULT, DIAGNOSTIC & VULNERABILITY SCAN
+
+YOUR SRE DIRECTIVES:
+1. Execute `npm run health` and `npm run audit:all` to scan for runtime bugs, storage leaks, XSS risks, and unhandled network hangs.
+2. Inspect browser console logs and review storage quota safeguards in `TheHUB .../modules/00-storage.js`.
+3. Classify any detected issues by severity (SEV-0 Nominal, SEV-1 Outage, SEV-2 Data/Storage Risk, SEV-3 Functional Bug, SEV-4 Minor).
+4. If redmarks or vulnerabilities are found, formulate the exact surgical remediation plan, implement the fix, and verify that all 43 test suites pass 100% green!
+```
+
+---
+
+### Scenario 13: Pangolin Surgical Patch & Hotfix Execution
+* **Goal:** You have an active bug, broken test, or redmark and want `@pangolin` to locate the exact broken line, formulate the logic fix equation, apply the surgical patch, add a permanent regression test assertion, and record the patchnote into `docs/patchnotes/PATCHNOTES_LEDGER.md`.
+
+```text
+Hello AI! Please assume the role of [@pangolin (Automated Patchmaster & Repair Officer)] reporting under [@sre] per `docs/AGENTS.md` and `docs/patchnotes/PATCHNOTES_LEDGER.md`.
+Here is my repository: https://github.com/tatsufinn-commits/Marciale-OS.git
+
+MODE: PANGOLIN SURGICAL REPAIR & PATCHNOTE LOGGING
+
+BUG / REDMARK TO FIX:
+[Describe the bug, paste the error stack trace, or name the failing test]
+
+YOUR PANGOLIN DIRECTIVES:
+1. Pinpoint the exact file and line number of the defect.
+2. Formulate the mathematical/logical fix equation.
+3. Apply the minimal surgical code diff without modifying unrelated working modules (Law I & Law IV).
+4. Run `npm test` and `npm run audit:all` to verify 100% green checkmarks (Law V & Law X).
+5. Add a permanent automated test assertion to prevent this defect from ever recurring.
+6. Append a formal entry into `docs/patchnotes/PATCHNOTES_LEDGER.md` and package the updated `Fix.zip` archive (Law VIII)!
+```
+
+---
+
+### Scenario 14: SRE Automated End-Process Sentinel & Hotfix Packager
+* **Goal:** At the conclusion of any build, patch, or upgrade, have `@sre` run the automated sentinel loop to verify system integrity and, if an intractable issue exists, automatically package a downloadable `[BUILD_NAME] - HOTFIX PROPOSAL.zip` containing the incident diagnostic and copy-paste prompt!
+
+```text
+Hello AI! We just completed an engineering update in Marciale-OS.
+Here is my repository: https://github.com/tatsufinn-commits/Marciale-OS.git
+
+Please assume the role of [@sre (Site Reliability Engineer)] and execute the End-Process Sentinel Protocol.
+
+MODE: SRE AUTOMATED END-PROCESS INTEGRITY & SENTINEL CHECK
+
+YOUR SENTINEL DIRECTIVES:
+1. Run `npm run pangolin` (or `npm run health` and `npm test`).
+2. If all 43 test suites and security audits pass 100% green:
+   - Declare SEV-0 Nominal status and append the milestone entry into `docs/BUILD_LOGBOOK.md`.
+3. If an unresolved or breaking defect is detected:
+   - Automatically package `[BUILD_NAME] - HOTFIX PROPOSAL.zip` in the root workspace containing `HOTFIX_DIAGNOSTIC_REPORT.md` and `HOTFIX_DISPATCH_PROMPT.txt`.
+   - Present the hotfix zip in the viewer so I can paste it into the next chat for instant remediation!
 ```
