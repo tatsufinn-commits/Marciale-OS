@@ -30,10 +30,11 @@
 | [Scenario 19: Continuous Repo-Intake & Task Execution](#scenario-19-continuous-repo-intake--task-execution-prompt) | Autonomous boot sequence for any Council member to read `tasks/` and execute. | 🟡 Medium Risk |
 | [Scenario 20: Gauntlet Meat-Grinder Stress-Test](#scenario-20-gauntlet-meat-grinder-stress-testing-prompt) | Inject edge-case chaos, test auto-healing, and verify multi-agent robustness. | 🟢 Zero Risk |
 | [Scenario 21: Next-Gen Memory & Observability](#scenario-21-next-gen-multi-agent-memory-compression--observability-integration) | Commission @engineer to integrate persistent memory, token compression & live observer. | 🟡 Medium Risk |
+| [Scenario 22: Research-Backed Next Roadmap Generator](#scenario-22-research-backed-autonomous-next-roadmap-generator) | Synthesize all intelligence in `/research/` into the next concrete SPI-scored engineering roadmap. | 🟢 Zero Risk |
 
 ---
 
-# 📋 THE 21 MASTER PROMPT TEMPLATES
+# 📋 THE 22 MASTER PROMPT TEMPLATES
 
 ---
 
@@ -497,6 +498,33 @@ YOUR ENGINEERING DIRECTIVES:
 4. Run `npm run pangolin` and verify 100% green checkmarks (SEV-0 Nominal).
 5. Append the completed milestone into `docs/BUILD_LOGBOOK.md` and log a dispatch in `docs/council/COUNCIL_COMMUNICATION_LOG.md`.
 ```
+
+---
+
+### Scenario 22: Research-Backed Autonomous Next Roadmap Generator
+* **Goal:** When existing roadmaps are complete, command `@joint` (The High Council) and `@architect` to inspect all empirical intelligence in `/home/user/Marciale-OS/research/`, calculate 4-Axis SPI scores, and generate the next concrete, actionable build roadmap (e.g. Master Roadmap V9 / Builds 41–50) with zero speculative drift!
+
+```text
+Hello AI! You are convening the JARWEN High Council (@joint) alongside [@architect] and [@wisdom].
+Here is my repository: https://github.com/tatsufinn-commits/Marciale-OS.git
+
+MODE: RESEARCH-BACKED AUTONOMOUS ROADMAP SYNTHESIS (LAW I, IX & XIV)
+
+OBJECTIVE:
+Synthesize all empirical intelligence and engineering blueprints in `/home/user/Marciale-OS/research/` into the next official sequential build roadmap.
+
+YOUR HIGH COUNCIL DIRECTIVES:
+1. Inspect the living build history in `docs/BUILD_LOGBOOK.md` and verify current test status (`npm test`).
+2. Read all research dossiers in `/research/` (e.g. `MARCIALE-OS_ANALYSIS_RESEARCH.md`, `MARCIALE_OS_NEXTGEN_AI_RESEARCH.md`, `RESEARCH_DOSSIER_DESIGN_MD_ECOSYSTEM.md`).
+3. Evaluate candidate features using the 4-Axis SPI Formula (Strategic Value, Practicality, Independence, Risk).
+4. Formulate the next sequential build roadmap (e.g. Builds 41 through 50) detailing:
+   - Build Number & Title
+   - Primary Assigned Council Seat & Subordinate Agent
+   - Exact files to touch or create
+   - Observable user verification criteria
+5. File the ratified roadmap into `docs/DEFINITIVE_MASTERPLAN.md` and log `[DISPATCH]` in `docs/council/COUNCIL_COMMUNICATION_LOG.md`!
+```
+
 
 
 
