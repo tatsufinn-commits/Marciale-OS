@@ -19,10 +19,26 @@ To eliminate unnecessary bureaucracy while guaranteeing technical rigor, the Web
 
 | Workflow Tier | Task Description & Examples | Required Agents | Mandatory Artifacts | QA Gate Depth |
 |---|---|---|---|---|
-| **TIER 1: MICRO** | Small CSS fix, typo, button color, minor unit test patch ($<30\text{ lines}$). | `@frontend` or `@backend` $\rightarrow$ `@qa` | Code patch + inline test verification. | Smoke check & unit test pass. |
-| **TIER 2: STANDARD** | New UI card, tab feature, new modal, or local storage field. | `@project-manager` $\rightarrow$ `@ui-ux` $\rightarrow$ `@frontend`/`@backend` $\rightarrow$ `@qa` | `WEB-IMPLEMENTATION-PLAN`, `WEB-UX-UI-SPEC`, `WEB-QA-REPORT`. | Functional, regression, and WCAG accessibility tests. |
+| **TIER 1: MICRO** | Small CSS fix, typo, button color, minor unit test patch ($<30\text{ lines}$). | `@frontend` or `@backend` $\rightarrow$ `@qa` | Code patch + inline test verification (Silent Pipeline). | Smoke check & unit test pass. |
+| **TIER 2: STANDARD** | New UI card, tab feature, new modal, or local storage field. | `@project-manager` $\rightarrow$ `@ui-ux` $\rightarrow$ `@frontend`/`@backend` $\rightarrow$ `@qa` | Code patch + Concise 5-bullet summary (Silent Pipeline). | Functional, regression, and WCAG accessibility tests. |
 | **TIER 3: MAJOR** | Cross-subsystem bridge, new WebSocket feed, database schema update, complex AI tool. | Full Department: `@scout` $\rightarrow$ `@pm` $\rightarrow$ `@ui-ux` $\rightarrow$ `@frontend` + `@backend` $\rightarrow$ `@fullstack` $\rightarrow$ `@qa` | `WEB-RESEARCH-DOSSIER`, `WEB-IMPLEMENTATION-PLAN`, `WEB-UX-UI-SPEC`, `WEB-INTEGRATION-REPORT`, `WEB-QA-REPORT`. | Full E2E integration, negative edge-case testing, load profile. |
 | **TIER 4: ARCHITECTURAL** | Core monorepo restructure, new communication protocol, storage engine migration. | Full Department $+$ `@architect` $+$ `@sre` $+$ User Approval | All Tier 3 artifacts $+$ Architectural Review in `BUILD_LOGBOOK.md`. | Full-suite monorepo regression (`npm test` 100% green), SRE sign-off. |
+
+---
+
+# 1.1 THE SILENT PIPELINE PROTOCOL (LAW XIII)
+
+To prevent context-window token exhaustion when collaborating with local 7B/8B or cloud AI assistants:
+
+* **The Rule:** In Tier 1 and Tier 2 workflows, the AI agent **internally applies the complete mental discipline** (*Scout $\rightarrow$ PM $\rightarrow$ UX $\rightarrow$ Dev $\rightarrow$ QA*) in a single turn without outputting separate multi-page memos.
+* **Output Format for Tier 1 & Tier 2:**
+  1. What was changed (clean working code).
+  2. Why it was changed.
+  3. Evidence of test passing (`npm test`).
+  4. How the user can test it with their mouse.
+* **Full Multi-Page Dossiers:** Generated **only** when requested by the User or when executing Tier 3 (Major) and Tier 4 (Architectural) builds.
+
+---
 
 ---
 

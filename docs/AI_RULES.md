@@ -100,6 +100,15 @@
 
 ---
 
+### 🏛️ LAW XIII: THE CONTEXT TOKEN BUDGET & LEAN EXECUTION PRINCIPLE (THE SILENT PIPELINE)
+* **Rule:** An AI agent must **NEVER** output unnecessary multi-page bureaucratic handoff memos for standard or micro tasks that consume the user's finite LLM context window.
+* **The Silent Pipeline Protocol:**
+  * For **Tier 1 (Micro)** and **Tier 2 (Standard)** tasks: The AI agent internally applies the full mental workflow (*Scout $\rightarrow$ PM $\rightarrow$ UX $\rightarrow$ Dev $\rightarrow$ QA*) in a single turn and outputs **only clean working code and a concise 5-bullet verification summary**.
+  * Formal multi-page documentation dossiers are reserved **strictly** for **Tier 3 (Major)** and **Tier 4 (Architectural)** initiatives.
+* **Reason:** Preserves 80% of the active context window for actual code reasoning, memory retention, and fast user execution.
+
+---
+
 # 📖 PROMPT PLAYBOOK REFERENCE
 
 For complete, copy-paste prompt templates across all 9 development scenarios (including the Mosaic Council Prompt), refer to:
