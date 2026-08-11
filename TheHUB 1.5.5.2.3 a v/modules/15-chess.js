@@ -1794,6 +1794,22 @@ let maxDepth = 2;
     cleanupChessEnginePending();
   }
 
+  function onChessPageDeactivate(){
+    try{ chessEngineStop(); }catch(e){}
+    try{ terminateChessEngineWorker(); }catch(e){}
+    try{ terminateMaiaEngineWorker(); }catch(e){}
+  }
+  window.onChessPageDeactivate = onChessPageDeactivate;
+  window.terminateChessWorkers = onChessPageDeactivate;
+
+  if(typeof document !== 'undefined'){
+    document.addEventListener('visibilitychange', ()=>{
+      if(document.hidden){
+        onChessPageDeactivate();
+      }
+    });
+  }
+
   function chessEngineStatus(){
     return {
       mode:CHESS_ENGINE.mode,

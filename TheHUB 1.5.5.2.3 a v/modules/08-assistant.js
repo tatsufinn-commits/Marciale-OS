@@ -1104,6 +1104,7 @@ function activatePage(page){
   if(page==='track') { renderTracker(); }
   if(page==='idlehero') renderIdleHeroPage?.();
   if(page==='chess'){ initChess?.(); renderChessLab?.(); }
+  else { try{ if(typeof window.onChessPageDeactivate === 'function') window.onChessPageDeactivate(); }catch(e){} }
   if(page==='cal') renderCalendar();
   if(page==='tasks' && typeof renderTasks === 'function') renderTasks();
   if(page==='vault') renderVault();

@@ -124,11 +124,18 @@
     async estimate(){
       let idbKeys=[];
       try{ idbKeys=await this.keys(); }catch(e){}
+      let navEstimate = null;
+      if (typeof navigator !== 'undefined' && navigator.storage && typeof navigator.storage.estimate === 'function') {
+        try { navEstimate = await navigator.storage.estimate(); } catch(e) {}
+      }
       return {
         backend:this.backend,
         ready:!!this._ready,
         failed:!!this._failed,
         indexedDbKeys:idbKeys.length,
+        quota: navEstimate?.quota || null,
+        usage: navEstimate?.usage || null,
+        usagePercent: (navEstimate?.quota && navEstimate?.usage) ? Math.round((navEstimate.usage / navEstimate.quota) * 100) : null
       };
     }
   };
