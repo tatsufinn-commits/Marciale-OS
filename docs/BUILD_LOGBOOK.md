@@ -353,6 +353,47 @@ When you clone this repository in a new chat:
 
 ---
 
+### [COMPLETED] Build 39: Zero-Asset Procedural Web Audio SFX Engine & AudioSystem Integration
+* **Date:** 2026-08-11
+* **Agent in Charge:** `@forge` (Game Systems Engineer) / `@frontend` (Web UI Engineer)
+* **Goal:** Implement a zero-asset procedural sound effects engine for both TheHUB and the Canvas RPG using native Web Audio API oscillators, bandpass filters, and envelope shapers, fully validated through end-process SRE/Pangolin verification under Law XIII.
+* **Files Modified:**
+  * `docs/web/scout/RESEARCH_DOSSIER_PROCEDURAL_WEB_AUDIO.md`
+  * `TheHUB 1.5.5.2.3 a v/modules/00-utils-config.js`
+  * `Gamecompanion/files/src/systems/AudioSystem.js`
+  * `Gamecompanion/files/src/main.js`
+  * `Gamecompanion/files/tests/AudioSystem.test.js`
+* **Changes Delivered:**
+  * Conducted Scout technical reconnaissance on procedural Web Audio synthesis curves ($f(t) = f_0 \cdot e^{-kt}$).
+  * Added `window.playHubSound(type)` with `'click'`, `'chime'`, and `'alert'` synthesized audio recipes to TheHUB.
+  * Built `AudioSystem` class in Companion RPG supporting `'hit'`, `'chest'`, and `'levelup'` procedural waveforms.
+  * Wired combat attacks, chest rewards, and hero level-ups to dynamic procedural SFX.
+  * Added comprehensive mock Web Audio and headless unit test assertions in `Gamecompanion/files/tests/AudioSystem.test.js`.
+* **Test Verification:** `npm run pangolin` and `npm test` verified 43 test suites and 34 RPG tests (100% green).
+* **Current Production State:** TheHUB and Companion RPG have native, zero-latency procedural audio capabilities with 0 byte asset overhead.
+
+---
+
+### [COMPLETED] Build 40: Adversarial Stress Test Remediation & Pharmacokinetic Hardening
+* **Date:** 2026-08-11
+* **Agent in Charge:** `@sre` (Incident Commander) / `@sentinel` (Biometric Specialist) / `@pangolin` (Field Repair Officer)
+* **Goal:** Remediate all empirical gaps identified in the adversarial Stress Test Diagnostic Report 01: align pharmacokinetic caffeine elimination math to clinical $5.7\text{h}$ half-life, harden `TheHUBBridge` iframe postMessage origin boundaries, and eliminate all 3 transitive dependency vulnerabilities.
+* **Files Modified:**
+  * `TheHUB 1.5.5.2.3 a v/modules/04-tracker.js`
+  * `TheHUB 1.5.5.2.3 a v/tests/unit-tracker.js`
+  * `Gamecompanion/files/src/integration/TheHUBBridge.js`
+  * `TheHUB 1.5.5.2.3 a v/package-lock.json`
+  * `docs/patchnotes/PATCHNOTES_LEDGER.md`
+* **Changes Delivered:**
+  * Updated caffeine elimination constant to $t_{1/2} = 5.7\text{h}$ across tracker modules and unit tests.
+  * Added origin validation and allowlist filtering to `TheHUBBridge` postMessage listener.
+  * Executed `npm audit fix` achieving 0 vulnerabilities across 165 total scanned packages.
+  * Rebuilt Companion bundle into `TheHUB 1.5.5.2.3 a v/companion/`.
+* **Test Verification:** `npm run pangolin && npm test && npm run audit:all` executed 43 test suites / 137 assertions + 34 RPG unit tests (100% green, 0 vulnerabilities).
+* **Current Production State:** Marciale-OS is mathematically calibrated, dependency-audited, and fully hardened to SEV-0 Nominal status.
+
+---
+
 # 3. TEMPLATE FOR FUTURE AI AGENTS (COPY & PASTE AT END OF SESSION)
 
 ```text

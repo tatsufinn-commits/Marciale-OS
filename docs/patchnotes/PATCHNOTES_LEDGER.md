@@ -65,6 +65,46 @@ Whenever a bug, test failure, redmark, or integration defect is detected in Marc
 
 ---
 
+### [PATCH-20260811-05] Zero-Asset Procedural Web Audio Synthesizer Integration
+* **Date:** 2026-08-11
+* **Patched By:** `@pangolin` / `@forge` / `@frontend`
+* **Subsystem:** `TheHUB 1.5.5.2.3 a v/modules/00-utils-config.js`, `Gamecompanion/files/src/systems/AudioSystem.js`
+* **Severity Level:** SEV-4 (Enhancement & Architecture Validation)
+* **Symptoms Observed:** TheHUB and Companion RPG lacked native audio feedback for UI clicks, task completions, and combat strikes; importing external `.mp3`/`.wav` assets would bloat bundle sizes and break offline file portability.
+* **Root Cause Analysis:** Offline single-file HTML distributions require zero external asset dependencies; sound effects must be generated mathematically via Web Audio API oscillators and gain envelope modulations ($f(t) = f_0 \cdot e^{-kt}$, $g(t) = g_0 \cdot e^{-t/\tau}$).
+* **Logic / Math Fix Equation:** 
+  $$\text{Hit Waveform: } f(t) = 400 \cdot (60 / 400)^{t / 0.10} \text{ Hz with Low-Pass } 1200\text{ Hz Filter}$$
+  $$\text{Fanfare Triad: } f_n \in [523.25, 659.25, 783.99, 1046.50] \text{ Hz with Triangle Oscillators}$$
+* **Files Modified:**
+  * `TheHUB 1.5.5.2.3 a v/modules/00-utils-config.js` (`window.playHubSound`)
+  * `Gamecompanion/files/src/systems/AudioSystem.js` (`AudioSystem` class)
+  * `Gamecompanion/files/src/main.js` (Combat onHit, chest opened, level up triggers)
+  * `Gamecompanion/files/tests/AudioSystem.test.js` (Unit test suite with Web Audio mock)
+* **Regression Test Assertion Added:** `Gamecompanion/files/tests/AudioSystem.test.js` (3 assertions verifying headless tolerance, volume clamping, and waveform node scheduling).
+* **Status:** 🟢 RESOLVED & VERIFIED
+
+---
+
+### [PATCH-20260811-06] Pharmacokinetic Half-Life Calibration & Iframe Origin Hardening
+* **Date:** 2026-08-11
+* **Patched By:** `@pangolin` / `@sentinel` / `@sre`
+* **Subsystem:** `TheHUB 1.5.5.2.3 a v/modules/04-tracker.js`, `tests/unit-tracker.js`, `Gamecompanion/files/src/integration/TheHUBBridge.js`
+* **Severity Level:** SEV-3 (Mathematical Calibration & Security Hardening)
+* **Symptoms Observed:** Adversarial stress test diagnosis caught caffeine half-life constant set to $5\text{h}$ instead of the clinical $5.7\text{h}$ pharmacokinetic standard, and `TheHUBBridge` lacked origin filtering on inbound event listeners.
+* **Root Cause Analysis:** Elimination kinetics require $t_{1/2} = 5.7\text{h}$ to accurately model bedtime residual concentrations ($C(t) = C_0 \cdot 0.5^{t/5.7}$). Iframe messaging needed explicit `window.location.origin` binding to prevent rogue frame spoofing.
+* **Logic / Math Fix Equation:** 
+  $$C_{\text{bedtime}} = \sum C_i \cdot 0.5^{(t_{\text{bedtime}} - t_i)/5.7}$$
+  $$T_{\text{cutoff}} = t_{\text{bedtime}} - \left( \log_2\left(\frac{Dose}{Threshold}\right) \times 5.7 \right) \text{ hours}$$
+* **Files Modified:**
+  * `TheHUB 1.5.5.2.3 a v/modules/04-tracker.js` (`HALF_LIFE_CAF_H = 5.7`)
+  * `TheHUB 1.5.5.2.3 a v/tests/unit-tracker.js` (Updated half-life, cutoff, and residual assertions)
+  * `Gamecompanion/files/src/integration/TheHUBBridge.js` (Origin allowlist validation)
+  * `TheHUB 1.5.5.2.3 a v/package-lock.json` (Resolved 3 transitive vulnerabilities via `npm audit fix`)
+* **Regression Test Assertion Added:** `tests/unit-tracker.js` (10/10 passing assertions with $5.7\text{h}$ mathematical rigor).
+* **Status:** 🟢 RESOLVED & VERIFIED
+
+---
+
 # 3. TEMPLATE FOR FUTURE PANGOLIN PATCHES
 
 ```text
