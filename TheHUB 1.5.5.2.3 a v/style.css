@@ -1759,3 +1759,19 @@ body:not(.sidebar-collapsed) .sidebar-backdrop{position:fixed;inset:0;background
 .companion-gear-status-bar .gear-badge{font-size:11px;padding:3px 8px;border-radius:6px;background:color-mix(in srgb,var(--bg) 80%,var(--card));border:1px solid var(--line);color:var(--txt);font-weight:600;white-space:nowrap}
 .companion-gear-status-bar .gold-badge{font-size:11px;padding:3px 8px;border-radius:6px;background:color-mix(in srgb,#f59e0b 18%,var(--card));border:1px solid color-mix(in srgb,#f59e0b 40%,var(--line));color:#fbbf24;font-weight:800;white-space:nowrap;margin-left:auto}
 
+/* ChessLab 2.0 Tactical Coach Overlay (Build V8.5) */
+.chess-coach-card.v2{border:1px solid color-mix(in srgb,var(--acc) 38%,var(--border));background:radial-gradient(320px 100px at 0 0,color-mix(in srgb,var(--acc) 14%,transparent),transparent 75%),var(--surface);display:grid;gap:10px}
+.chess-coach-bubble{display:flex;align-items:flex-start;gap:10px;padding:8px;background:color-mix(in srgb,var(--bg) 40%,transparent);border-radius:12px;border:1px solid color-mix(in srgb,var(--border) 60%,transparent)}
+.chess-coach-avatar{font-size:22px;line-height:1}
+.chess-coach-speech{flex:1;min-width:0}
+.coach-speech-head{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:4px}
+.coach-speech-head b{font-size:12px;color:var(--foreground);font-weight:800}
+.coach-badge{padding:2px 7px;border-radius:999px;font-size:10.5px;font-weight:850;border:1px solid var(--border)}
+.coach-badge.danger{background:color-mix(in srgb,#ef4444 20%,transparent);color:#fca5a5;border-color:color-mix(in srgb,#ef4444 40%,transparent)}
+.coach-badge.warn{background:color-mix(in srgb,#f59e0b 20%,transparent);color:#fbbf24;border-color:color-mix(in srgb,#f59e0b 40%,transparent)}
+.coach-badge.good{background:color-mix(in srgb,var(--acc) 20%,transparent);color:var(--acc);border-color:color-mix(in srgb,var(--acc) 40%,transparent)}
+.coach-speech-text{margin:0;font-size:12px;line-height:1.45;color:var(--foreground);font-style:italic}
+.coach-clue-box{margin-top:6px;padding:6px 8px;border-radius:8px;background:color-mix(in srgb,var(--acc) 12%,var(--card));border:1px solid color-mix(in srgb,var(--acc) 30%,var(--line));font-size:11.5px;color:var(--txt)}
+.chess-coach-actions-row{display:flex;gap:6px;margin-top:2px}
+.chess-coach-actions-row .btn{flex:1;justify-content:center;padding:5px 10px;font-size:11.5px;font-weight:700}
+
