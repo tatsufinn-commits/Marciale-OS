@@ -173,7 +173,22 @@ When you clone this repository in a new chat:
   * Rebuilt companion bundle into `TheHUB 1.5.5.2.3 a v/companion/`.
 * **Test Verification:** `npm test` passed 43 / 43 suites with 0 errors (100% green).
 * **Current Production State:** Companion RPG now renders lively, animated retro pixel art with zero external PNG dependencies!
-* **Next Recommended Build:** **Build F12 (Background Tab 5 FPS Power Throttle)**.
+
+---
+
+### [COMPLETED] Build F12: Background Tab 5 FPS Power & Frame-Rate Governor
+* **Date:** 2026-08-11
+* **Agent in Charge:** `@forge` (Game Systems Engineer)
+* **Goal:** Reduce background CPU/GPU utilization to $<1\%$ when TheHUB is running in an inactive browser tab or minimized window, preventing laptop battery drain during long focus blocks.
+* **Files Modified:**
+  * `Gamecompanion/files/src/core/GameLoop.js`
+* **Changes Delivered:**
+  * Added `_bindVisibilityHandler()` in `GameLoop.js` listening to `document.visibilitychange`.
+  * Automatically throttles Canvas rendering from 60 FPS down to **5 FPS** when `document.hidden === true`.
+  * Resets time accumulator on tab focus to prevent burst catch-up frame spikes when returning to the tab.
+  * Rebuilt companion bundle into `TheHUB 1.5.5.2.3 a v/companion/`.
+* **Test Verification:** `npm test` passed 43 / 43 suites with 0 errors (100% green).
+* **Current Production State:** Companion RPG now features automatic 5 FPS power-saving governor.
 
 ---
 
@@ -190,6 +205,42 @@ When you clone this repository in a new chat:
   * Wired `logStudySessionActivity()` awarding +200 Gold & +100 XP to the Companion RPG.
 * **Test Verification:** `npm test` passed 43 / 43 suites with 0 errors (100% green).
 * **Current Production State:** TheHUB command center is now a live Mapúa Architecture study cockpit!
+
+---
+
+### [COMPLETED] Build V8.1: Local AI Model Auto-Discovery & Quant Router
+* **Date:** 2026-08-11
+* **Agent in Charge:** `@mind` (Local AI & Streaming Specialist)
+* **Goal:** Make Marciale AI resilient, adaptive, and intelligent by automatically discovering locally pulled Ollama models, querying VRAM, and routing quick tasks to 3B models and deep architectural reasoning to 7B/8B models.
+* **Files Modified:**
+  * `TheHUB 1.5.5.2.3 a v/modules/08-assistant.js`
+* **Changes Delivered:**
+  * Enhanced `checkOllama()` with a 2.5-second `AbortController` timeout probe to prevent UI hangs when the Ollama daemon is offline.
+  * Implemented `routeModelForTask(taskType)` helper: automatically routes simple habit/task actions to lightweight models (`llama3.2:3b`, `qwen2.5:3b`) and deep Socratic architectural problem solving to reasoning models (`qwen2.5:7b`, `deepseek-r1:8b`).
+  * Added dynamic parameter size sorting ($14\text{B} > 8\text{B} > 7\text{B} > 3\text{B}$) in the model selection dropdown.
+* **Test Verification:** `npm test` passed 43 / 43 suites with 0 errors (100% green).
+* **Current Production State:** Marciale AI now features resilient 2.5s health probes and dynamic quant routing.
+
+---
+
+### [COMPLETED] Build V8.2: Circadian Biometric Focus Scheduling & Sleep Advisories
+* **Date:** 2026-08-11
+* **Agent in Charge:** `@sentinel` (Biometric & State Integrity Specialist) / `@architect` (Lead Systems Architect)
+* **Goal:** Intelligently synchronize active caffeine pharmacokinetics, circadian energy cycles, and focus timer durations while protecting sleep onset through bedtime residual modeling.
+* **Files Modified:**
+  * `TheHUB 1.5.5.2.3 a v/modules/04-tracker.js`
+  * `TheHUB 1.5.5.2.3 a v/modules/12-today.js`
+  * `TheHUB 1.5.5.2.3 a v/style.css`
+  * `TheHUB 1.5.5.2.3 a v/tests/unit-tracker.js`
+* **Changes Delivered:**
+  * Built `calculateBedtimeCaffeine()`: Projects caffeine residual concentration at target bedtime using half-life decay math, warning if $>25\text{mg}$.
+  * Built `safeCaffeineCutoff()`: Calculates the exact time cutoff after which a standard dose will impair sleep readiness.
+  * Built `getCircadianFocusRecommendation()`: Intelligently classifies energy tiers into Peak ($>100\text{mg} \rightarrow 50\text{m}$ Deep Focus), Steady ($40\text{--}100\text{mg} \rightarrow 25\text{m}$ Pomodoro Sprint), and Wind-Down ($<40\text{mg} \rightarrow 15\text{m}$ Active Recall Flashcards).
+  * Enhanced Focus Session card and Today Dashboard intake widget with live biometric suggestion banners and 1-click duration application.
+  * Added comprehensive unit test coverage in `tests/unit-tracker.js`.
+* **Test Verification:** `npm test` passed 43 / 43 test suites with 0 errors (100% green).
+* **Current Production State:** TheHUB automatically optimizes daily focus sessions to user bio-energy and guards restorative sleep.
+* **Next Recommended Build:** **Phase 2 Vault Expansion in TAMA (`RA9514-CANONICAL-FIRE-CODE-EGRESS-COMPENDIUM.md`) or Build V8.3 (Companion Roster Sync & Offline Loot Drops)**.
 
 ---
 
