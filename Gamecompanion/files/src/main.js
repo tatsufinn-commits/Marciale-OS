@@ -1,4 +1,5 @@
-/** Build 4 — thin application orchestrator; Bootstrap owns initialization order. */
+/** Build 4 — thin application orchestrator; Bootstrap owns initialization order.
+    Build F06 — Wired TheHUBBridge into progressionSystem and eventBus. */
 import { gameLoop } from './core/GameLoop.js';
 import { stateManager } from './core/StateManager.js';
 import { timeKeeper } from './core/TimeKeeper.js';
@@ -30,6 +31,7 @@ import { ProgressionSystem } from './systems/ProgressionSystem.js';
 import { RosterSystem } from './systems/RosterSystem.js';
 import { ZoneContentSystem } from './systems/ZoneContentSystem.js';
 import zoneData from './data/zones.json';
+import { TheHUBBridge } from './integration/TheHUBBridge.js';
 
 const AUTO_SAVE_INTERVAL = 120000;
 const setSaveStatus = (text, type = '') => { const element = document.querySelector('#save-status'); if (element) { element.textContent = text; element.dataset.type = type; } };
@@ -102,6 +104,34 @@ async function boot() {
   window.setInterval(() => saveManager.save('interval').catch((error) => console.error('Interval save failed', error)), AUTO_SAVE_INTERVAL);
   document.querySelector('#save-now')?.addEventListener('click', () => saveManager.save('manual').catch((error) => setSaveStatus(`Save failed: ${error.message}`, 'error')));
   document.querySelector('#new-game')?.addEventListener('click', () => modal.show({ title: 'Start a new game?', body: '<p>This permanently removes this browser’s current saved progress.</p>', actions: [{ label: 'Cancel', onClick: () => modal.close() }, { label: 'Delete save and restart', kind: 'danger', onClick: async () => { await bootstrap.newGame(); modal.close(); } }] }));
+
+  // ── Build F06: TheHUBBridge Integration ────────────────────────────────
+  const bridge = new TheHUBBridge({
+    onReward: (reward) => {
+      if (!reward) return;
+      if (reward.xp) progressionSystem.grantXp(reward.xp);
+      if (reward.gold) stateManager.update('player.gold', (g) => (g || 0) + reward.gold);
+      particles.addFloatingText({ x: 300, y: 145 }, `+${reward.xp || 0} XP +${reward.gold || 0}G`, '#d4a034', { lifetime: 2200 });
+      particles.addBurst({ x: 300, y: 145 }, '#d4a034', 8);
+      saveManager.save('hub-reward').catch(() => {});
+    },
+    onPause: () => {
+      gameLoop.setTargetFPS(5);
+      timeKeeper.pause();
+    },
+    onResume: () => {
+      gameLoop.setTargetFPS(60);
+      timeKeeper.resume();
+    },
+    onTheme: (theme) => {
+      if (theme && theme.primary) document.documentElement.style.setProperty('--primary', theme.primary);
+    }
+  });
+  bridge.init();
+
+  eventBus.on(Events.WEAVER_LEVEL_UP, (payload) => {
+    bridge.reportLevelUp(payload?.heroId || 'rudeus', payload?.level || 2);
+  });
 
   gameLoop.start((dt) => {
     timeKeeper.addPlayTime(dt); stateManager.set('totalPlayTime', timeKeeper.getPlayTime(), { source: 'loop' });
