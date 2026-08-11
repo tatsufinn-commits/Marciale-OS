@@ -135,6 +135,118 @@ function nextBedtimeTs(timeStr=SLEEP_BEDTIME, fromTs=Date.now()){
   if(d.getTime()<fromTs) d.setDate(d.getDate()+1);
   return d.getTime();
 }
+
+/* ---------- Circadian & Biometric Focus Engine (Build V8.2) ---------- */
+
+/**
+ * Calculates projected caffeine residual at bedtime.
+ */
+function calculateBedtimeCaffeine(fromTs = Date.now(), bedtimeStr = SLEEP_BEDTIME, entries = LOG) {
+  const bedtimeTs = nextBedtimeTs(bedtimeStr, fromTs);
+  const projectedMg = Math.max(0, caffeineAt(bedtimeTs, entries));
+  const hoursToBed = Math.max(0, (bedtimeTs - fromTs) / 3600000);
+  const exceedsThreshold = projectedMg > SLEEP_THRESHOLD || projectedMg > 25;
+  const warningLevel = projectedMg > 50 ? 'danger' : projectedMg > 25 ? 'warn' : 'ok';
+  
+  let sleepImpactSummary = 'Optimal sleep readiness. Caffeine will clear before target bedtime.';
+  if (projectedMg > 50) {
+    sleepImpactSummary = 'High sleep disruption risk. Slow-wave and REM sleep likely suppressed.';
+  } else if (projectedMg > 25) {
+    sleepImpactSummary = 'Moderate bedtime residual. May increase sleep latency or cause fragmented rest.';
+  }
+
+  return {
+    fromTs,
+    bedtimeTs,
+    bedtimeStr: String(bedtimeStr || '23:00'),
+    projectedMg: Math.round(projectedMg * 10) / 10,
+    hoursToBed: Math.round(hoursToBed * 10) / 10,
+    exceedsThreshold,
+    warningLevel,
+    sleepImpactSummary
+  };
+}
+
+/**
+ * Calculates the safe caffeine cutoff time for a standard dose (e.g. 100mg)
+ * such that residual caffeine at bedtime does not exceed thresholdMg (default 25mg).
+ */
+function safeCaffeineCutoff(bedtimeStr = SLEEP_BEDTIME, standardDoseMg = 100, thresholdMg = 25, fromTs = Date.now()) {
+  const bedtimeTs = nextBedtimeTs(bedtimeStr, fromTs);
+  const dose = Math.max(1, Number(standardDoseMg) || 100);
+  const target = Math.max(1, Number(thresholdMg) || 25);
+  
+  const halfLivesNeeded = Math.max(0, Math.log2(dose / target));
+  const clearanceHours = halfLivesNeeded * HALF_LIFE_CAF_H;
+  const cutoffTs = bedtimeTs - Math.round(clearanceHours * 3600000);
+  const isPastCutoff = fromTs >= cutoffTs;
+  
+  const d = new Date(cutoffTs);
+  const cutoffTimeStr = String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0');
+
+  return {
+    cutoffTs,
+    cutoffTimeStr,
+    clearanceHours: Math.round(clearanceHours * 10) / 10,
+    hoursBeforeBed: Math.round(clearanceHours * 10) / 10,
+    isPastCutoff,
+    bedtimeStr: String(bedtimeStr || '23:00')
+  };
+}
+
+/**
+ * Returns dynamic focus session duration and task suggestions based on
+ * current caffeine concentration, circadian phase, and bedtime proximity.
+ */
+function getCircadianFocusRecommendation(nowTs = Date.now(), entries = LOG) {
+  const activeCaf = Math.max(0, caffeineAt(nowTs, entries));
+  const d = new Date(nowTs);
+  const hour = d.getHours();
+  const bedtimeData = calculateBedtimeCaffeine(nowTs, SLEEP_BEDTIME, entries);
+  
+  let tier = 'steady';
+  let durationMin = 25;
+  let label = '25m Steady Sprint';
+  let mode = 'steady_focus';
+  let taskType = 'Structured Sprint & Building Tech Review';
+  let reason = 'Moderate steady stimulation. Optimal for standard 25-minute Pomodoro sprints and specification review.';
+  let suggestedSubjects = 'Building Tech (BT), BP 344 Accessibility Checks, Professional Practice';
+
+  if (activeCaf >= 100 || (activeCaf >= 60 && hour >= 9 && hour <= 12)) {
+    tier = 'peak';
+    durationMin = 50;
+    label = '50m Deep Focus Block';
+    mode = 'deep_focus';
+    taskType = 'Deep Analytical Work & Studio Drafting';
+    reason = `High active caffeine (${activeCaf.toFixed(0)}mg) provides peak cognitive alertness. Ideal for intense architectural calculations, structural sizing, or studio design plates.`;
+    suggestedSubjects = 'Architectural Design Studio (AD), Structural Calculations (STRUC), NBCP Rule 7/8 Calculations';
+  } else if (activeCaf < 40 || hour >= 21 || bedtimeData.hoursToBed <= 2) {
+    tier = 'low';
+    durationMin = 15;
+    label = '15m Light Active Recall';
+    mode = 'light_recall';
+    taskType = 'Active Recall Flashcards & Daily Reflection';
+    reason = `Low stimulation (${activeCaf.toFixed(0)}mg) or evening wind-down phase. Intensive calculations are counterproductive; focus on active recall flashcards, organizing notes, and daily reflection.`;
+    suggestedSubjects = 'TAMA HOA History Flashcards, TOA Architectural Theory, Daily Logbook Review';
+  }
+
+  return {
+    tier,
+    durationMin,
+    label,
+    mode,
+    taskType,
+    reason,
+    suggestedSubjects,
+    activeCaffeineMg: Math.round(activeCaf * 10) / 10,
+    bedtimeProjectedMg: bedtimeData.projectedMg,
+    hour
+  };
+}
+
+window.calculateBedtimeCaffeine = calculateBedtimeCaffeine;
+window.safeCaffeineCutoff = safeCaffeineCutoff;
+window.getCircadianFocusRecommendation = getCircadianFocusRecommendation;
 function fmtClock(ts){ return new Date(ts).toLocaleString([], {weekday:'short', hour:'2-digit', minute:'2-digit'}); }
 function durationText(ms){ const mins=Math.max(0, Math.round(ms/60000)); const h=Math.floor(mins/60), m=mins%60; return h?`${h}h ${m}m`:`${m}m`; }
 function projectedLogEntry(){
@@ -157,6 +269,9 @@ function renderSleepReadiness(){
   const activeScale=Math.max(SLEEP_THRESHOLD*3, Number(limits.cafSingle)||200, 1);
   const activePct=pct(active, activeScale);
   const remaining=clear ? Math.max(0, clear-now) : null;
+  const bedtimeInfo=calculateBedtimeCaffeine(now, SLEEP_BEDTIME, LOG);
+  const cutoffInfo=safeCaffeineCutoff(SLEEP_BEDTIME, 100, SLEEP_THRESHOLD, now);
+
   $('#sleepStatus').innerHTML = `
     <div class="sleep-clearance-card ${state}" style="--sleep-p:${activePct};--sleep-color:${state==='ready'?'var(--good)':state==='warn'?'var(--warn)':'var(--danger)'}">
       <div class="sleep-ring" aria-label="Active caffeine ${activePct}% of readiness scale"><b>${active.toFixed(0)}</b><span>mg active</span></div>
@@ -164,6 +279,8 @@ function renderSleepReadiness(){
         <div class="sleep-state">${ready?'Ready now 🌙':compatible?'Manageable before bedtime':'Sleep risk'}</div>
         <div class="sleep-line">Below <b>${SLEEP_THRESHOLD}mg</b>: <b>${esc(clearanceLabel)}</b></div>
         <div class="sleep-line">Target bedtime: <b>${esc(bedLabel)}</b>${remaining!==null?` · clearance in ${esc(durationText(remaining))}`:''}</div>
+        <div class="sleep-line">Projected bedtime level: <b>~${bedtimeInfo.projectedMg.toFixed(0)}mg</b>${bedtimeInfo.projectedMg>25?' ⚠️':''}</div>
+        <div class="sleep-line">Safe caffeine cutoff: <b>${esc(cutoffInfo.cutoffTimeStr)}</b>${cutoffInfo.isPastCutoff?' · <span style="color:var(--danger)">Past Cutoff</span>':''}</div>
         <div class="sleep-meter"><i style="width:${activePct}%"></i></div>
       </div>
     </div>`;

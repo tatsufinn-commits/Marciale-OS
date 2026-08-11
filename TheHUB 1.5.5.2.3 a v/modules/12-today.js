@@ -770,12 +770,48 @@ function renderFocusSessionCard(){
   const openTasks=(typeof TASKS!=='undefined' ? TASKS : []).filter(t=>t.status!=='done').slice().sort((a,b)=>(a.due||'9999').localeCompare(b.due||'9999'));
   if(!s){
     if(state) state.textContent='Idle';
-    const defaultMin=Number(focusSettings().durationMin)||25;
+    const rec = typeof getCircadianFocusRecommendation === 'function'
+      ? getCircadianFocusRecommendation()
+      : { tier:'steady', durationMin:25, label:'25m Steady Sprint', reason:'Moderate focus block recommended.', suggestedSubjects:'General Work' };
+    const defaultMin=Number(focusSettings().durationMin)||rec.durationMin||25;
     const defaultHours=Math.floor(defaultMin/60), defaultMinutes=defaultMin%60;
-    body.innerHTML=`<div class="focus-idle"><p>Pick a task or start a LOCK IN block. Completion logs activity points.</p><div class="focus-controls"><select id="focusTaskSelect"><option value="">General LOCK IN</option>${openTasks.map(t=>`<option value="${escAttr(t.id)}">${esc(t.title)}${t.due?' · '+esc(t.due):''}</option>`).join('')}</select><div class="focus-duration-pair"><label class="focus-duration-field"><span>Hours</span><input id="focusHoursInput" type="number" min="0" max="8" step="1" value="${defaultHours}" inputmode="numeric"></label><label class="focus-duration-field"><span>Minutes</span><input id="focusMinutesInput" type="number" min="0" max="59" step="1" value="${defaultMinutes||25}" inputmode="numeric"></label></div><button class="btn sm primary" id="focusStartBtn" type="button">Start LOCK IN</button></div><div class="focus-presets"><button type="button" data-focus-min="25">25m</button><button type="button" data-focus-min="50">50m</button><button type="button" data-focus-min="90">1h 30m</button><button type="button" data-focus-min="120">2h</button><button type="button" data-focus-min="180">3h</button></div></div>`;
+    body.innerHTML=`<div class="focus-idle">
+      <div class="focus-biometric-rec ${escAttr(rec.tier||'steady')}">
+        <div class="focus-biometric-head">
+          <span class="focus-biometric-icon">${rec.tier==='peak'?'⚡':rec.tier==='steady'?'🎯':'🌙'}</span>
+          <div class="focus-biometric-title">
+            <b>Biometric Suggestion: ${esc(rec.label)}</b>
+            <small>${rec.tier==='peak'?'🔥 Peak Stimulation':rec.tier==='steady'?'⚡ Steady Energy':'🌙 Winding Down'}</small>
+          </div>
+          <span class="focus-biometric-badge ${escAttr(rec.tier||'steady')}">${rec.durationMin}m</span>
+        </div>
+        <p class="focus-biometric-reason">${esc(rec.reason)}</p>
+        <div class="focus-biometric-footer">
+          <span>🏛️ <b>Best for:</b> ${esc(rec.suggestedSubjects)}</span>
+          <button class="btn sm" id="applyBiometricBtn" type="button">Apply ${rec.durationMin}m</button>
+        </div>
+      </div>
+      <p>Pick a task or start a LOCK IN block. Completion logs activity points.</p>
+      <div class="focus-controls">
+        <select id="focusTaskSelect"><option value="">General LOCK IN</option>${openTasks.map(t=>`<option value="${escAttr(t.id)}">${esc(t.title)}${t.due?' · '+esc(t.due):''}</option>`).join('')}</select>
+        <div class="focus-duration-pair">
+          <label class="focus-duration-field"><span>Hours</span><input id="focusHoursInput" type="number" min="0" max="8" step="1" value="${defaultHours}" inputmode="numeric"></label>
+          <label class="focus-duration-field"><span>Minutes</span><input id="focusMinutesInput" type="number" min="0" max="59" step="1" value="${defaultMinutes||25}" inputmode="numeric"></label>
+        </div>
+        <button class="btn sm primary" id="focusStartBtn" type="button">Start LOCK IN</button>
+      </div>
+      <div class="focus-presets">
+        <button type="button" data-focus-min="15">15m (Recall)</button>
+        <button type="button" data-focus-min="25">25m (Sprint)</button>
+        <button type="button" data-focus-min="50">50m (Deep)</button>
+        <button type="button" data-focus-min="90">1h 30m</button>
+        <button type="button" data-focus-min="120">2h</button>
+      </div>
+    </div>`;
     function setFocusDurationInputs(total){ total=Math.max(1, Math.min(480, Number(total)||25)); const h=Math.floor(total/60), m=total%60; if($('#focusHoursInput')) $('#focusHoursInput').value=String(h); if($('#focusMinutesInput')) $('#focusMinutesInput').value=String(m); }
     function readFocusDurationInputs(){ const h=Math.max(0, Number($('#focusHoursInput')?.value)||0); const m=Math.max(0, Number($('#focusMinutesInput')?.value)||0); return Math.max(1, Math.min(480, Math.round(h*60+m))); }
     $$('#focusSessionBody [data-focus-min]').forEach(btn=>btn.onclick=()=>setFocusDurationInputs(btn.dataset.focusMin));
+    $('#applyBiometricBtn')?.addEventListener('click',()=>{ setFocusDurationInputs(rec.durationMin); toast(`Applied ${rec.durationMin}m biometric duration`,'info'); });
     $('#focusStartBtn')?.addEventListener('click',()=>{ const mins=readFocusDurationInputs(); const fs=focusSettings(); fs.durationMin=mins; saveFocusSettings(fs); startFocusSession($('#focusTaskSelect')?.value||'', mins); },{once:true});
     return;
   }
@@ -872,7 +908,20 @@ function renderTodayDashboard() {
     const totals = dayTotals(todayStr());
     const activeSugarNow = typeof activeSugar === 'function' ? activeSugar() : 0;
     const limits = typeof personalIntakeLimits==='function' ? personalIntakeLimits() : {cafDaily:400,sugarRecommended:50,sugarUpper:50,personalized:false};
+    const bedtimeData = typeof calculateBedtimeCaffeine === 'function' ? calculateBedtimeCaffeine() : null;
+    const cutoffData = typeof safeCaffeineCutoff === 'function' ? safeCaffeineCutoff() : null;
+    const circRec = typeof getCircadianFocusRecommendation === 'function' ? getCircadianFocusRecommendation() : null;
+
+    let warningBadgeHtml = '';
+    if (bedtimeData && bedtimeData.projectedMg > 25) {
+      warningBadgeHtml = `
+        <div class="today-sleep-warning ${bedtimeData.warningLevel}">
+          <span>⚠️ <b>Bedtime Advisory:</b> ~${bedtimeData.projectedMg.toFixed(0)}mg projected at ${esc(bedtimeData.bedtimeStr)} bedtime. ${esc(bedtimeData.sleepImpactSummary)}</span>
+        </div>`;
+    }
+
     tdyIntake.innerHTML = `
+       ${warningBadgeHtml}
        <div class="today-metric-row">
           <div><span>Active Caffeine</span><b>${active.toFixed(0)} mg</b></div>
           <div class="mini-meter"><i style="width:${Math.min(100, Math.round(active/(limits.cafDaily||400)*100))}%; background:${active > SLEEP_THRESHOLD ? 'var(--warn)' : 'var(--good)'}"></i></div>
@@ -881,6 +930,16 @@ function renderTodayDashboard() {
           <div><span>Sleep Readiness</span><b style="color:${ready ? 'var(--good)' : 'var(--danger)'}">${ready ? 'Ready 🌙' : 'Not ready'}</b></div>
           <small>${ready ? 'Below your threshold now.' : `Below ${SLEEP_THRESHOLD}mg around ${clear?fmtClock(clear):'later than 72h'}.`}</small>
        </div>
+       ${cutoffData ? `
+       <div class="today-metric-row compact">
+          <div><span>Safe Caffeine Cutoff</span><b style="color:${cutoffData.isPastCutoff ? 'var(--danger)' : 'var(--txt)'}">${esc(cutoffData.cutoffTimeStr)} ${cutoffData.isPastCutoff ? '(Past Cutoff)' : ''}</b></div>
+          <small>${cutoffData.isPastCutoff ? '⚠️ Current intake elevates bedtime residual > 25mg.' : `Standard coffee before ${esc(cutoffData.cutoffTimeStr)} clears by ${esc(cutoffData.bedtimeStr)}.`}</small>
+       </div>` : ''}
+       ${circRec ? `
+       <div class="today-metric-row compact">
+          <div><span>Circadian Energy Tier</span><b style="color:var(--acc)">${esc(circRec.label)}</b></div>
+          <small>${esc(circRec.reason)}</small>
+       </div>` : ''}
        <div class="today-metric-row compact">
           <div><span>Today intake</span><b>${totals.caf.toFixed(0)}/${limits.cafDaily}mg caf · ${activeSugarNow.toFixed(1)}g active sugar</b></div>
           <small>${totals.sug.toFixed(1)}g consumed today · sugar uses a ${typeof HALF_LIFE_SUG_H!=='undefined'?HALF_LIFE_SUG_H:2}h decay model${limits.personalized?' · personalized guide active':''}.</small>

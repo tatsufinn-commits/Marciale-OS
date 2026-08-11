@@ -63,4 +63,50 @@ assert.ok(limits.sugarRecommended > 0 && limits.sugarUpper > limits.sugarRecomme
 assert.ok(limits.cafDaily > 0 && limits.cafDaily <= 400, 'caffeine daily estimate should be positive and capped');
 console.log('  ✅ biometric intake estimates');
 
+// --- Build V8.2: Circadian & Biometric Focus Orchestration ---
+// 1. calculateBedtimeCaffeine()
+const morningTs = new Date('2026-06-14T09:00:00').getTime();
+const eveningEntry = [{ id: 'late_coffee', drink: 'spanish', qty: 1, date: '2026-06-14', time: '18:00', ts: new Date('2026-06-14T18:00:00').getTime() }];
+// Spanish latte has 256mg caffeine. At 23:00 (5 hours later, 1 half-life), projected level should be ~128mg
+const bedtimeData = sandbox.calculateBedtimeCaffeine(morningTs, '23:00', eveningEntry);
+assert.ok(Math.abs(bedtimeData.projectedMg - 128) < 1, `Bedtime caffeine should be ~128mg after 5h half life, got ${bedtimeData.projectedMg}`);
+assert.strictEqual(bedtimeData.exceedsThreshold, true, 'Bedtime projected caffeine should exceed sleep threshold');
+assert.strictEqual(bedtimeData.warningLevel, 'danger', 'High bedtime residual should trigger danger warning level');
+console.log('  ✅ calculateBedtimeCaffeine()');
+
+// 2. safeCaffeineCutoff()
+const cutoff = sandbox.safeCaffeineCutoff('23:00', 100, 25, morningTs);
+// For 100mg down to 25mg: 2 half lives = 10 hours before 23:00 => 13:00 cutoff
+assert.strictEqual(cutoff.clearanceHours, 10, '100mg to 25mg threshold should require exactly 10 clearance hours');
+assert.strictEqual(cutoff.cutoffTimeStr, '13:00', 'Cutoff for 23:00 bedtime should be 13:00');
+assert.strictEqual(cutoff.isPastCutoff, false, '09:00 morning time should not be past 13:00 cutoff');
+
+const lateTs = new Date('2026-06-14T16:00:00').getTime();
+const lateCutoff = sandbox.safeCaffeineCutoff('23:00', 100, 25, lateTs);
+assert.strictEqual(lateCutoff.isPastCutoff, true, '16:00 afternoon time should be past 13:00 cutoff');
+console.log('  ✅ safeCaffeineCutoff()');
+
+// 3. getCircadianFocusRecommendation()
+// Case A: High caffeine (>100mg) => 50m Deep Focus
+const peakEntries = [{ id: 'peak_caf', drink: 'machiato', qty: 1, date: '2026-06-14', time: '09:00', ts: morningTs }];
+const recPeak = sandbox.getCircadianFocusRecommendation(morningTs, peakEntries);
+assert.strictEqual(recPeak.tier, 'peak', 'High caffeine should recommend peak tier');
+assert.strictEqual(recPeak.durationMin, 50, 'Peak tier should recommend 50m focus duration');
+assert.strictEqual(recPeak.mode, 'deep_focus', 'Peak tier mode should be deep_focus');
+
+// Case B: Moderate caffeine (40-100mg) => 25m Steady Sprint
+const afternoonTs = morningTs + 6 * 3600000; // 6 hours later (15:00): 150 * 0.5^(6/5) = ~65mg
+const recSteady = sandbox.getCircadianFocusRecommendation(afternoonTs, peakEntries);
+assert.strictEqual(recSteady.tier, 'steady', '65mg in afternoon (15:00) should recommend steady tier');
+assert.strictEqual(recSteady.durationMin, 25, 'Steady tier should recommend 25m duration');
+assert.strictEqual(recSteady.mode, 'steady_focus', 'Steady tier mode should be steady_focus');
+
+// Low caffeine (<40mg) => 15m Light Active Recall
+const nightTs = morningTs + 12 * 3600000; // 12 hours later: 150 * 0.5^(12/5) = ~28mg
+const recLow = sandbox.getCircadianFocusRecommendation(nightTs, peakEntries);
+assert.strictEqual(recLow.tier, 'low', 'Low caffeine at night should recommend low tier');
+assert.strictEqual(recLow.durationMin, 15, 'Low tier should recommend 15m light recall duration');
+assert.strictEqual(recLow.mode, 'light_recall', 'Low tier mode should be light_recall');
+console.log('  ✅ getCircadianFocusRecommendation()');
+
 console.log('✅ Tracker unit tests passed');

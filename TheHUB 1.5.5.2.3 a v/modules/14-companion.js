@@ -6,6 +6,7 @@
    =========================================================== */
 const COMPANION_KEY='hub.companion.v1';
 const COMPANION_EVENTS_KEY='hub.companion.events.v1';
+const COMPANION_HERO_KEY='hub.companion.hero.v1';
 const COMPANION_EVENT_LIMIT=120;
 const COMPANION_FRAME_SRC='companion/index.html';
 const COMPANION_MINI_SRC='companion-mini/index.html';
@@ -14,6 +15,24 @@ let COMPANION_FRAME_READY=false;
 let COMPANION_FRAME_STATUS='idle';
 let COMPANION_FRAME_QUEUE=[];
 let COMPANION_MESSAGE_LISTENER=false;
+
+function companionHeroData(){
+  return LS.get(COMPANION_HERO_KEY, {
+    hero: { name:'Rudeus Greyrat', level:1, hp:100, maxHp:100 },
+    equipment: { weapon:null, armor:null, accessory:null },
+    gold: 0,
+    zone: 'fittoa',
+    wave: 1,
+    roster: []
+  });
+}
+function saveCompanionHeroData(data){
+  const merged = Object.assign({}, companionHeroData(), data||{});
+  LS.set(COMPANION_HERO_KEY, merged);
+  return merged;
+}
+window.companionHeroData = companionHeroData;
+window.saveCompanionHeroData = saveCompanionHeroData;
 const COMPANION_XP_TYPES=['task_done','focus_session_completed','note_created','note_edited','event_added','bookmark_added','ai_action_approved','chess_match_completed','chess_match_won'];
 const COMPANION_DEFAULT={
   name:'Marciale Sprite',
@@ -147,14 +166,37 @@ function handleCompanionFrameMessage(event){
   const frames=companionFrames().concat(companionMiniFrames());
   if(frames.length && !frames.some(frame=>event.source===frame.contentWindow)) return;
   const data=event.data||{};
-  if(data.type==='idlehero.ready'){
+  if(data.type==='idlehero.ready' || data.type==='mtgame.ready'){
     COMPANION_FRAME_READY=true;
     setCompanionFrameStatus('loaded');
     flushCompanionFrameQueue();
   }
-  if(data.type==='idlehero.ack'){
+  if(data.type==='idlehero.ack' || data.type==='mtgame.ack'){
     markCompanionEventAck(String(data.sourceActivityId||''), data);
     setCompanionFrameStatus('reward acknowledged');
+  }
+  if(data.type==='idlehero.snapshot' || data.type==='mtgame.snapshot'){
+    const payload = data.payload || data.snapshot || data;
+    if(payload && typeof payload === 'object'){
+      saveCompanionHeroData(payload);
+      renderCompanionCard?.();
+    }
+  }
+  if(data.type==='idlehero.levelup' || data.type==='mtgame.levelup'){
+    const lvl = data.payload?.newLevel || data.newLevel || 2;
+    if(typeof toast === 'function') toast(`🎉 Hero Leveled Up to Lv ${lvl}!`, 'success');
+    renderCompanionCard?.();
+  }
+  if(data.type==='idlehero.item_equipped' || data.type==='mtgame.item_equipped'){
+    const item = data.payload?.item || data.item || data;
+    if(typeof toast === 'function') toast(`🛡️ Hero equipped: ${item.name||item.slot||'Gear'}`, 'info');
+    renderCompanionCard?.();
+  }
+  if(data.type==='idlehero.offline_rewards' || data.type==='mtgame.offline_rewards'){
+    const off = data.payload || data.rewards || data;
+    if(off && (off.gold || off.xp) && typeof toast === 'function'){
+      toast(`🎮 Companion gathered +${off.gold||0}G & +${off.xp||0}XP while away!`, 'success');
+    }
   }
   if(data.type==='idlehero.status') setCompanionFrameStatus(data.status||'status');
   if(data.type==='companion-mini.ready') postCompanionMiniSnapshot();
@@ -417,11 +459,36 @@ function renderCompanionCard(){
   const snap=companionStateSnapshot();
   const latestTime=snap.latest ? new Date(Number(snap.latest.ts)||Date.now()).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}) : 'No activity yet';
   const src=snap.settings.miniFrameSrc || COMPANION_MINI_SRC;
+  const heroData=companionHeroData();
+  const eqWeapon=heroData.equipment?.weapon?.name || 'Basic Staff';
+  const eqArmor=heroData.equipment?.armor?.name || 'Robes';
+  const eqAccessory=heroData.equipment?.accessory?.name || 'Amulet';
+  const heroName=heroData.hero?.name || 'Rudeus Greyrat';
+  const heroLvl=heroData.hero?.level || snap.level || 1;
+
   if(embed.querySelector('#companionFrameMini')){ postCompanionMiniSnapshot(); return; }
   embed.innerHTML=`
-    <div class="activity-companion-head"><div><b>🧬 Momentum Companion</b><span>Mini companion lives inside Hub Activity. Open the full Idle Hero page for the complete webgame.</span></div><em id="companionLevelBadge">Lv ${snap.level}</em></div>
-    <div class="companion-compact-actions"><button class="btn primary" id="companionOpenIdlePage" type="button">Open Idle Hero page</button><button class="btn" id="companionRetryRewards" type="button">Retry rewards</button></div>
-    <div class="companion-mini-shell"><iframe id="companionFrameMini" class="companion-mini-frame" src="${escAttr(src)}" title="Momentum Companion Mini" loading="lazy" referrerpolicy="no-referrer"></iframe><div class="companion-frame-footer"><span data-companion-status>Mini Companion: ready</span><span>Mini iframe · ${esc(src)}</span></div></div>`;
+    <div class="activity-companion-head">
+      <div><b>🧬 Momentum Companion: ${esc(heroName)}</b><span>Mini companion lives inside Hub Activity. Open the full Idle Hero page for the complete webgame.</span></div>
+      <em id="companionLevelBadge">Lv ${heroLvl}</em>
+    </div>
+    <div class="companion-gear-status-bar">
+      <span class="gear-badge" title="Equipped Weapon">🗡️ ${esc(eqWeapon)}</span>
+      <span class="gear-badge" title="Equipped Armor">🛡️ ${esc(eqArmor)}</span>
+      <span class="gear-badge" title="Equipped Accessory">💍 ${esc(eqAccessory)}</span>
+      <span class="gold-badge" title="Hero Gold">🪙 ${Number(heroData.gold||0).toLocaleString()} G</span>
+    </div>
+    <div class="companion-compact-actions">
+      <button class="btn primary" id="companionOpenIdlePage" type="button">Open Idle Hero page</button>
+      <button class="btn" id="companionRetryRewards" type="button">Retry rewards</button>
+    </div>
+    <div class="companion-mini-shell">
+      <iframe id="companionFrameMini" class="companion-mini-frame" src="${escAttr(src)}" title="Momentum Companion Mini" loading="lazy" referrerpolicy="no-referrer"></iframe>
+      <div class="companion-frame-footer">
+        <span data-companion-status>Mini Companion: ready</span>
+        <span>Mini iframe · ${esc(src)}</span>
+      </div>
+    </div>`;
   $('#companionOpenIdlePage')?.addEventListener('click',()=>activatePage?.('idlehero'));
   $('#companionRetryRewards')?.addEventListener('click',()=>{ const n=retryCompanionUndeliveredEvents(); toast(n?`Retried ${n} reward event${n===1?'':'s'}`:'No reward events needed retry','info'); });
   const frame=$('#companionFrameMini');

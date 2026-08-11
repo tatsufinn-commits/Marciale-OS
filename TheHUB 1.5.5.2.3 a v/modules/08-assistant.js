@@ -1383,12 +1383,19 @@ function openAssistantSettings(){ ensureAssistantSettingsModal(); $('#setUrl').v
 window.openAssistantSettings=openAssistantSettings;
 
 async function checkOllama(){
+  const controller = (typeof AbortController !== 'undefined') ? new AbortController() : null;
+  const timeoutId = controller ? setTimeout(() => controller.abort(), 2500) : null;
   try{
-    const r=await fetch(OLLAMA_URL+'/api/tags',{method:'GET',headers:ollamaHeaders()});
+    const r=await fetch(OLLAMA_URL+'/api/tags',{
+      method:'GET',
+      headers:ollamaHeaders(),
+      signal: controller?.signal
+    });
+    if(timeoutId) clearTimeout(timeoutId);
     if(!r.ok) throw 0;
     const data=await r.json();
     // Auto-detect all models installed locally
-    let have = (data.models||[]).map(m=>m.name);
+    let have = (data.models||[]).map(m=>m.name||m.model||'').filter(Boolean);
     
     // Sort them so larger/smarter models appear near the top logically (e.g. 14b > 9b > 8b > 7b)
     have.sort((a,b) => {
@@ -1399,15 +1406,15 @@ async function checkOllama(){
     OLLAMA_MODELS = have.slice();
     const sel = $('#aiModel');
     const list = have.length ? have : MY_MODELS;
-    sel.innerHTML = list.map(m=>`<option value="${escAttr(m)}">${esc(m)} · ${modelTier(m)}</option>`).join('');
+    if(sel) sel.innerHTML = list.map(m=>`<option value="${escAttr(m)}">${esc(m)} · ${modelTier(m)}</option>`).join('');
     
     // If the user's previously selected model exists, keep it. 
     // Otherwise, auto-select the smartest model we just found!
     if (list.includes(aiModel)) {
-        sel.value = aiModel;
-    } else {
+        if(sel) sel.value = aiModel;
+    } else if(list.length) {
         aiModel = list[0]; 
-        sel.value = aiModel;
+        if(sel) sel.value = aiModel;
         localStorage.setItem('hub.ollama.model', aiModel);
         toast('Auto-detected local model: ' + aiModel);
     }
@@ -1415,13 +1422,36 @@ async function checkOllama(){
     syncAiResourceControls();
     setOllamaState(true);
   }catch(e){
+    if(timeoutId) clearTimeout(timeoutId);
     OLLAMA_MODELS=[];
-    $('#aiModel').innerHTML=MY_MODELS.map(m=>`<option value="${escAttr(m)}">${esc(m)} · ${modelTier(m)}</option>`).join('');
-    $('#aiModel').value=aiModel;
+    if($('#aiModel')){
+      $('#aiModel').innerHTML=MY_MODELS.map(m=>`<option value="${escAttr(m)}">${esc(m)} · ${modelTier(m)}</option>`).join('');
+      $('#aiModel').value=aiModel;
+    }
     syncAiResourceControls();
     setOllamaState(false);
   }
 }
+
+/**
+ * Build V8.1: Intelligent Quant Router
+ * Routes simple daily tasks to fast lightweight models (3B) and deep architecture
+ * Socratic calculations to reasoning models (7B/8B/14B).
+ */
+function routeModelForTask(taskType = 'general'){
+  if (!OLLAMA_MODELS || !OLLAMA_MODELS.length) return aiModel;
+  const fastModels = OLLAMA_MODELS.filter(m => /3b|4b|mini|tiny/i.test(m));
+  const reasoningModels = OLLAMA_MODELS.filter(m => /7b|8b|9b|14b|32b|70b|r1|deepseek/i.test(m));
+
+  if (taskType === 'quick_action' || taskType === 'habit_log' || taskType === 'calendar_query') {
+    return fastModels.length ? fastModels[0] : aiModel;
+  }
+  if (taskType === 'socratic_study' || taskType === 'structural_math' || taskType === 'exam_simulation') {
+    return reasoningModels.length ? reasoningModels[0] : aiModel;
+  }
+  return aiModel;
+}
+window.routeModelForTask = routeModelForTask;
 window.checkOllama = checkOllama;
 window.assistantDateGuard = assistantDateGuard;
 window.nativeToolDefinitions = nativeToolDefinitions;
