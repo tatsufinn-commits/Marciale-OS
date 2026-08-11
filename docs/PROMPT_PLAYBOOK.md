@@ -26,10 +26,13 @@
 | [Scenario 15: Watch-Relief Handover (Rate-Limit)](#scenario-15-watch-relief-handover-prompt-rate-limit-succession) | Transition active context and verified state to a fresh model when hit by daily limits. | 🟢 Zero Risk |
 | [Scenario 16: Digital Letters of Last Resort](#scenario-16-digital-letters-of-last-resort-execution) | Authorize an isolated model to assume operational watch and recover ground truth. | 🟢 Zero Risk |
 | [Scenario 17: Multi-Model Adversarial Peer Review](#scenario-17-multi-model-adversarial-review-prompt) | Have WISDOM / another seat stress-test code or proposals with evidence-based critique. | 🟢 Zero Risk |
+| [Scenario 18: "Hear Me Out" Architectural Idea Pitch](#scenario-18-hear-me-out-architectural-idea-pitch-prompt) | Pitch a casual or crazy idea and have the AI calculate 4-Axis SPI score & sandbox plan. | 🟢 Zero Risk |
+| [Scenario 19: Continuous Repo-Intake & Task Execution](#scenario-19-continuous-repo-intake--task-execution-prompt) | Autonomous boot sequence for any Council member to read `tasks/` and execute. | 🟡 Medium Risk |
+| [Scenario 20: Gauntlet Meat-Grinder Stress-Test](#scenario-20-gauntlet-meat-grinder-stress-testing-prompt) | Inject edge-case chaos, test auto-healing, and verify multi-agent robustness. | 🟢 Zero Risk |
 
 ---
 
-# 📋 THE 14 MASTER PROMPT TEMPLATES
+# 📋 THE 20 MASTER PROMPT TEMPLATES
 
 ---
 
@@ -404,4 +407,68 @@ YOUR REVIEW DIRECTIVES:
 4. Distinguish: [CONFIRMED DEFECT], [PROBABLE DEFECT], [POTENTIAL RISK], [DESIGN DISAGREEMENT], [INFORMATION GAP].
 5. Conclude with a clear verdict: PASS | PASS WITH CONDITIONS | REQUIRES REVISION | BLOCKED.
 ```
+
+---
+
+### Scenario 18: "Hear Me Out" Architectural Idea Pitch Prompt
+* **Goal:** When the Commander has an exciting, raw, or crazy idea and starts with *"Hear me out..."*, calculate the **4-Axis SPI score**, check compatibility with Law I (Non-Destructive) and Law II (Sandbox First), and present a grounded, low-risk sandbox implementation proposal.
+
+```text
+Hello AI! Hear me out — I have an exciting new concept for Marciale-OS:
+[Describe your idea in your own words, e.g. "What if we connect Spotify Web Playback API or a custom retro sound synthesizer?"]
+
+MODE: "HEAR ME OUT" STRATEGIC PRACTICALITY & SANDBOX EVALUATION
+
+YOUR ARCHITECTURAL DIRECTIVES:
+1. Evaluate my idea against the 4-Axis SPI Formula (Strategic Value, Practicality, Independence, Risk).
+2. Propose a zero-bloat, sandboxed way to build it without rewriting our working Vanilla JS/Canvas/Python architecture (Law I & Law II).
+3. Provide a clear Recommendation: [GO / SANDBOX PROTOTYPE] or [DEFER / SPECULATIVE].
+4. Give me a simple, beginner-friendly explanation of how it would work!
+```
+
+---
+
+### Scenario 19: Continuous Repo-Intake & Task Execution Prompt
+* **Goal:** The standard autonomous boot prompt for any Council member opening a session. Instructs the AI to inspect its member directory (`docs/council/members/[SEAT]/tasks/`), execute any assigned directives on behalf of the Commander, and write deliverables.
+
+```text
+Hello AI! You are entering Marciale-OS as a member of the JARWEN Council.
+Here is my repository: https://github.com/tatsufinn-commits/Marciale-OS.git
+
+MODE: JARWEN AUTONOMOUS REPO-INTAKE & TASK EXECUTION (LAW XIV)
+
+YOUR BOOT & DUTY DIRECTIVES:
+1. Identify your assigned Council Seat:
+   - Seat A: ASSISTANT | Seat W: WISDOM | Seat E: ENGINEER | Seat R: RECON | Seat N: NAVIGATOR
+2. Check your assigned task folder: `docs/council/members/[YOUR_SEAT]/tasks/` and `docs/council/COUNCIL_COMMUNICATION_LOG.md`.
+3. If an active task is found:
+   - Assume your role, command your subordinate virtual agents, execute the requirements, and verify with tests (`npm test`).
+   - Write your finished deliverable to `docs/council/members/[YOUR_SEAT]/deliverables/`.
+   - Log a dispatch entry under [DISPATCH] in `docs/council/COUNCIL_COMMUNICATION_LOG.md`.
+4. If no task is found:
+   - Report active watch status to the Supreme Commander and request directives.
+```
+
+---
+
+### Scenario 20: Gauntlet Meat-Grinder Stress-Testing Prompt
+* **Goal:** Put the entire agent squad, SRE sentinel, or a specific subsystem through an intense, multi-turn stress test with simulated failures, redmarks, and edge cases to verify auto-healing and constitutional robustness.
+
+```text
+Hello AI! We are putting the Marciale-OS agent squad into the meat grinder!
+Here is my repository: https://github.com/tatsufinn-commits/Marciale-OS.git
+
+MODE: GAUNTLET ADVERSARIAL STRESS-TEST & CHAOS INJECTION
+
+YOUR STRESS-TEST DIRECTIVES:
+1. Assume the role of [@qa / @sentinel / @sre] and conduct an aggressive, zero-assumption stress test.
+2. Probe for:
+   - Broken state migrations, corrupt local storage keys, or quota overflows.
+   - High-load frame drops, tab-blur CPU spikes, or worker memory leaks.
+   - Iframe postMessage spoofing or WCAG 2.2 accessibility keyboard traps.
+   - Phantom commands, dead documentation, or governance circularities.
+3. If an issue is found: Summon @pangolin, formulate the math fix equation, apply surgical repair, and verify green with `npm run pangolin`.
+4. Output a crisp, factual stress-test scorecard!
+```
+
 

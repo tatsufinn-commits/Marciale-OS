@@ -141,10 +141,44 @@ When the Supreme Commander engages with Marciale-OS:
 1. **Intake & Intent Decoding (`AGENT_PLAYBOOK.md`):**
    * The system parses the user's raw message (regardless of how casual, tired, or jagged it is) and matches it to the right Council Seat and Scenario.
 2. **Strategic Shaping (`WISDOM`):**
-   * High-level tasks are shaped, scoped, and checked against the 13 Supreme Laws.
+   * High-level tasks are shaped, scoped, and checked against the 14 Supreme Laws.
 3. **Reconnaissance & Mapping (`RECONNAISSANCE` & `NAVIGATOR`):**
    * External repos or cross-subsystem parameters are scouted and mapped into lean specs.
 4. **Heavyweight Construction (`ENGINEER`):**
    * Code is built surgically with zero extraneous dependencies.
 5. **Execution, Verification & Logging (`ASSISTANT`):**
    * ASSISTANT runs `npm test` and `npm run pangolin`, verifies 100% green execution, logs the milestone to `BUILD_LOGBOOK.md`, and presents the results cleanly to the Supreme Commander.
+
+---
+
+# 5. MEMBER DIRECTORIES & THE REPO-DRIVEN DUTY PROTOCOL (LAW XIV)
+
+Each Council Seat maintains a dedicated physical directory within the repository:
+
+```text
+/docs/council/members/
+├── ASSISTANT/
+│   ├── RESUME_ASSISTANT.md
+│   ├── tasks/                  <- Incoming directives & task orders
+│   └── deliverables/           <- Completed verified outputs & reports
+├── WISDOM/
+│   ├── RESUME_WISDOM.md
+│   ├── tasks/                  <- TASK_01.md and future directives
+│   └── deliverables/           <- Completed prompt architectures & reviews
+├── RECONNAISSANCE/
+│   ├── tasks/
+│   └── deliverables/           <- Scout research dossiers
+├── ENGINEER/
+│   ├── tasks/
+│   └── deliverables/           <- Code architecture specs & test reports
+└── NAVIGATOR/
+    ├── tasks/
+    └── deliverables/           <- Cross-repo maps & WCAG audit reports
+```
+
+### The Autonomous Repo-Driven Duty Cycle:
+1. **Trigger:** The Commander opens a chat session with any AI model.
+2. **Scan:** The model reads `docs/council/members/[SEAT]/tasks/` and `docs/council/COUNCIL_COMMUNICATION_LOG.md`.
+3. **Execute:** If a task is present, the model executes the assigned mandate, commands subordinate agents, and writes finished deliverables to `deliverables/`.
+4. **Assistant Command Equivalence:** Any task placed in `tasks/` by the ASSISTANT (Seat A) carries the **full legitimate operational authority of a direct directive from the Supreme Commander**.
+5. **Standby:** If no task is present, the model reports active watch status and awaits direct orders from the Commander.

@@ -1,7 +1,7 @@
 # 📚 MARCIALE-OS & TAMAKEE MASTER DOCUMENTATION INDEX (`/docs/DOCS_MASTER_INDEX.md`)
 ## The 1-Page Unified Document Navigator, Purpose Map & Agent Dispatcher
 **Target System:** Marciale-OS + TAMAKEE Unified Ecosystem  
-**Governing Authority:** `@architect` (Lead Systems Architect)  
+**Governing Authority:** `@architect` (Lead Systems Architect) & ASSISTANT (Seat A)  
 **Status:** Authoritative Document Index  
 
 ---
@@ -16,13 +16,19 @@
 
 | If you want to... | Consult This Document | Invoke This Agent | Primary Terminal Command |
 |---|---|:---:|---|
-| **Understand the rules of the AI** | `/docs/AI_RULES.md` | Core Squad | Review the 13 Supreme Laws |
-| **Pick the right persona for a task** | `/docs/AGENTS.md` | `@architect` | Review 5 Core + 7 Web Roles |
-| **Get a copy-paste prompt for AI** | `/docs/PROMPT_PLAYBOOK.md` | Any Persona | Copy Scenario 1–12 prompts |
+| **Understand the rules of the AI** | `/docs/AI_RULES.md` | Council / Squad | Review the 14 Supreme Laws |
+| **Decode casual / jagged human speech**| `/docs/AGENT_PLAYBOOK.md` | Any Active Model | Auto-Reverse Intent Translation |
+| **Pick the right persona for a task** | `/docs/AGENTS.md` | `@architect` | Review 6 Core + 7 Web Roles |
+| **Review Council governance & seats** | `/docs/council/JARWEN_COUNCIL_CHARTER.md` | Seat A / Seat W | Review 5 Council Seats & Protocol |
+| **Read standing continuity orders** | `/docs/council/STAND_ORDERS_LETTERS_OF_LAST_RESORT.md` | Patrolling Seat | Continuous Watch Invariants |
+| **Check cross-model message bus** | `/docs/council/COUNCIL_COMMUNICATION_LOG.md` | All Seats | Inspect active dispatches |
+| **Get a copy-paste prompt for AI** | `/docs/PROMPT_PLAYBOOK.md` | Any Persona | Copy Scenarios 1–20 |
 | **Decide on a new idea / check SPI** | `/docs/STRATEGIC_DECISION_FRAMEWORK.md` | `@architect` | Calculate 4-Axis SPI score |
 | **See history of completed builds** | `/docs/BUILD_LOGBOOK.md` | `@architect` | Check latest completed milestone |
-| **Fix a blank screen, crash, or bug** | `/docs/INCIDENT_RESPONSE_SRE_PLAYBOOK.md` | `@sre` | `npm run sre:scan` |
+| **Fix a blank screen, crash, or bug** | `/docs/INCIDENT_RESPONSE_SRE_PLAYBOOK.md` | `@sre` | `npm run health` |
 | **Apply surgical patch & log patchnote**| `/docs/patchnotes/PATCHNOTES_LEDGER.md` | `@pangolin` | `npm run pangolin` |
+| **Review integrity audits & repair plans**| `/docs/audit/` | `@architect` / Seat W | Inspect audit dossiers |
+| **Stage incoming hotfix proposals** | `/docs/hotfix/` | `@sre` / `@pangolin` | Triage incoming hotfixes |
 | **Run tests or diagnose failures** | `/docs/DIAGNOSTIC_AND_TESTING_GUIDE.md` | `@sentinel` | `npm test` |
 | **Check monorepo status & health** | `/docs/APEX_ENGINE_UPGRADE_MANUAL.md` | `@sre` / `@scout` | `npm run status` |
 | **Research an open-source tool/library**| `/docs/web/WEB_RESEARCH_PROTOCOL.md` | `@scout` | `npm run scout` |
@@ -32,25 +38,31 @@
 | **Implement Python API / storage** | `/docs/web/backend/BACKEND.md` | `@backend` | `TheHUB .../server.py` |
 | **Fix cross-subsystem / bridge bugs** | `/docs/web/fullstack/FULLSTACK.md` | `@fullstack` | `npm run audit:bridge` |
 | **Perform QA release verification** | `/docs/web/qa/QA.md` | `@qa` | `npm test && npm run audit:all` |
-| **Study Mapúa Architectural Laws** | `/vault/00-CORE-BUILDING-LAWS/` | `@mentor` | `npm run code` or TAMAKEE Studio |
+| **Study Mapúa Architectural Laws** | `/vault/00-CORE-BUILDING-LAWS/` | `@mentor` | TAMAKEE Academic Studio |
 | **Validate a Mapúa Major Plate** | `/vault/02-DESIGN-STUDIO-SPINE/` | `@drillmaster` | `npm run plate:check` |
-| **Take the 100-Item Exit Exam** | `/reviewers/mock-exams/` | `@examiner` | `node grade-exam.js 100` |
 
 ---
 
 # 📂 COMPLETE DOCUMENTATION INVENTORY
 
-### 🏛️ 1. Core Governance Suite (`/docs/`)
-1. **`AI_RULES.md`:** The 13 Supreme Constitutional Laws of Marciale-OS.
-2. **`AGENTS.md`:** Virtual Squad Personas (@pangolin added) & Departmental Integration.
-3. **`PROMPT_PLAYBOOK.md`:** 14 Copy-Paste Scenario Prompt Templates (including Scout Handoff & Pangolin Patch).
-4. **`STRATEGIC_DECISION_FRAMEWORK.md`:** 7 Reality Protocols, SPI Scoring & Mosaic Council.
-5. **`BUILD_LOGBOOK.md`:** Living ledger of all engineering milestones.
-6. **`patchnotes/PATCHNOTES_LEDGER.md`:** The permanent patchnotes dropbox for surgical fixes.
-7. **`INCIDENT_RESPONSE_SRE_PLAYBOOK.md`:** SEV-1 to SEV-4 SRE emergency playbooks.
-8. **`DIAGNOSTIC_AND_TESTING_GUIDE.md`:** Test execution, JSDOM probes & smoke checks.
-9. **`DEFINITIVE_MASTERPLAN.md`:** Master blueprint uniting Marciale-OS and TAMAKEE.
-10. **`APEX_ENGINE_UPGRADE_MANUAL.md`:** The Lean Execution & Anti-Bureaucracy Manual.
+### 🏛️ 1. Core Governance & Council Suite (`/docs/` & `/docs/council/`)
+1. **`AI_RULES.md`:** The 14 Supreme Constitutional Laws of Marciale-OS (Law XIV: Continuous Watch & Duty Mandate).
+2. **`AGENT_PLAYBOOK.md`:** Reverse-Intent Decoder, Autonomous Severity Classifier & 0-Paralysis Protocol.
+3. **`AGENTS.md`:** Virtual Squad Personas (6 Core Executive Roles + 7 Web Department Roles).
+4. **`PROMPT_PLAYBOOK.md`:** 20 Copy-Paste Scenario Prompt Templates (including Watch-Relief, Letters of Last Resort, Idea Pitch, and Gauntlet Stress-Testing).
+5. **`council/JARWEN_COUNCIL_CHARTER.md`:** The Multi-AI High Council Architecture (Seats A, W, R, E, N).
+6. **`council/STAND_ORDERS_LETTERS_OF_LAST_RESORT.md`:** The 10 Inviolable Continuous Watch Standing Orders.
+7. **`council/COUNCIL_COMMUNICATION_LOG.md`:** The Cross-Model Message Bus & Dispatch Ledger.
+8. **`council/members/`:** Dedicated Member Workspaces (`tasks/`, `deliverables/`, and resumes).
+9. **`STRATEGIC_DECISION_FRAMEWORK.md`:** 7 Reality Protocols, SPI Scoring & Mosaic Council.
+10. **`BUILD_LOGBOOK.md`:** Living ledger of all 40+ completed engineering milestones.
+11. **`patchnotes/PATCHNOTES_LEDGER.md`:** The permanent patchnotes dropbox for surgical fixes.
+12. **`audit/`:** Complete governance integrity audits and repair design reviews.
+13. **`hotfix/`:** Staging ground for hotfix proposals and automated packaging.
+14. **`INCIDENT_RESPONSE_SRE_PLAYBOOK.md`:** SEV-1 to SEV-4 SRE emergency playbooks.
+15. **`DIAGNOSTIC_AND_TESTING_GUIDE.md`:** Test execution, JSDOM probes & smoke checks.
+16. **`DEFINITIVE_MASTERPLAN.md`:** Canonical master blueprint uniting Marciale-OS and TAMAKEE.
+17. **`APEX_ENGINE_UPGRADE_MANUAL.md`:** The Lean Execution & Anti-Bureaucracy Manual.
 
 ---
 
