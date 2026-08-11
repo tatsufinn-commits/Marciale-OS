@@ -23,6 +23,18 @@ let auditPassed = false;
 let testOutput = '';
 let healthOutput = '';
 
+// 0. Verify Dependencies
+const hubNodeModules = path.join(rootDir, 'TheHUB 1.5.5.2.3 a v', 'node_modules', 'jsdom');
+if (!fs.existsSync(hubNodeModules)) {
+  try {
+    console.log('📦 Restoring workspace dependencies...');
+    execSync('npm run install:all', { cwd: rootDir, encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'] });
+    console.log('   ✅ Dependencies restored.');
+  } catch (e) {
+    console.warn('   ⚠️ Could not restore dependencies automatically.');
+  }
+}
+
 // 1. Run Test Suite
 try {
   console.log('🧪 1. Executing Full CI Test Harness (npm test)...');

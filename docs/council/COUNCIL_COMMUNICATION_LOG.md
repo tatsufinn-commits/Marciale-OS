@@ -41,12 +41,26 @@ Because Council members run across different AI sessions, platforms (ChatGPT, Cl
 * **Timestamp:** 2026-08-11 17:00 (Asia/Singapore)
 * **From:** `SEAT A (ASSISTANT)` & `SUPREME COMMANDER`
 * **To:** `SEAT W (WISDOM)`
-* **Status:** `[PENDING EXECUTION BY SEAT W]`
+* **Status:** `[RESOLVED / RATIFIED]`
 * **Message Summary:** Dispatched Directive `TASK-JARWEN-2026-01` requesting:
   1. Architecture for `docs/AGENT_PLAYBOOK.md` (Reverse-Intent Decoder).
   2. Scenarios 15, 16, and 17 for `docs/PROMPT_PLAYBOOK.md` (Rate-limit handover, Letters of Last Resort, Adversarial Review).
   3. Digital Letters of Last Resort standing orders.
 * **Reference Artifact:** `/docs/council/members/WISDOM/TASK_01.md`
+
+---
+
+### [DISPATCH-20260811-004] Task 01 Deliverables & Council Ratification
+* **Timestamp:** 2026-08-11 17:30 (Asia/Singapore)
+* **From:** `SEAT W (WISDOM)` & `SEAT A (ASSISTANT)`
+* **To:** `ALL COUNCIL & SUPREME COMMANDER`
+* **Status:** `[RESOLVED / ENACTED IN PRODUCTION]`
+* **Message Summary:** 
+  1. Co-authored and deployed `/docs/AGENT_PLAYBOOK.md` (Reverse-Intent Decoder & Autonomous Severity Matrix).
+  2. Co-authored and deployed `/docs/council/STAND_ORDERS_LETTERS_OF_LAST_RESORT.md` (10 Permanent Continuity Orders).
+  3. Appended Scenarios 15, 16, and 17 to `/docs/PROMPT_PLAYBOOK.md` (Watch Relief, Letters of Last Resort Execution, Adversarial Review).
+  4. Verified zero regression across all test suites via `npm run pangolin`.
+* **Reference Artifacts:** `/docs/AGENT_PLAYBOOK.md`, `/docs/council/STAND_ORDERS_LETTERS_OF_LAST_RESORT.md`, `/docs/PROMPT_PLAYBOOK.md`
 
 ---
 

@@ -23,6 +23,9 @@
 | [Scenario 12: SRE Autonomous Redmark & Fault Scan](#scenario-12-sre-autonomous-fault--vulnerability-scan) | Have @sre scan the entire codebase for bugs, storage leaks, and security redmarks. | 🟢 Zero Risk |
 | [Scenario 13: The Pangolin Surgical Patch & Hotfix](#scenario-13-pangolin-surgical-patch--hotfix-execution) | Dispatch @pangolin to surgically fix a bug, add regression tests, and drop patchnotes. | 🟡 Medium Risk |
 | [Scenario 14: Automated End-Process Sentinel Check](#scenario-14-sre-automated-end-process-sentinel--hotfix-packager) | Automatically verify health at build conclusion and package Hotfix zips if needed. | 🟢 Zero Risk |
+| [Scenario 15: Watch-Relief Handover (Rate-Limit)](#scenario-15-watch-relief-handover-prompt-rate-limit-succession) | Transition active context and verified state to a fresh model when hit by daily limits. | 🟢 Zero Risk |
+| [Scenario 16: Digital Letters of Last Resort](#scenario-16-digital-letters-of-last-resort-execution) | Authorize an isolated model to assume operational watch and recover ground truth. | 🟢 Zero Risk |
+| [Scenario 17: Multi-Model Adversarial Peer Review](#scenario-17-multi-model-adversarial-review-prompt) | Have WISDOM / another seat stress-test code or proposals with evidence-based critique. | 🟢 Zero Risk |
 
 ---
 
@@ -334,3 +337,71 @@ YOUR SENTINEL DIRECTIVES:
    - Automatically package `[BUILD_NAME] - HOTFIX PROPOSAL.zip` in the root workspace containing `HOTFIX_DIAGNOSTIC_REPORT.md` and `HOTFIX_DISPATCH_PROMPT.txt`.
    - Present the hotfix zip in the viewer so I can paste it into the next chat for instant remediation!
 ```
+
+---
+
+### Scenario 15: Watch-Relief Handover Prompt (Rate-Limit Succession)
+* **Goal:** When an active AI model (e.g. ASSISTANT or WISDOM) approaches its daily token cap or message quota, generate a standardized, zero-loss **Watch-Relief Dossier** for the incoming model.
+
+```text
+Hello AI! My session quota / message limit is approaching its end.
+Please generate an official JARWEN WATCH-RELIEF DOSSIER for the incoming model that will relieve your watch.
+
+MODE: JARWEN WATCH-RELIEF HANDOVER DOSSIER COMPILATION
+
+YOUR HANDOVER DIRECTIVES:
+1. Do not output a generic chat summary; output an actionable operational handover containing:
+   - CURRENT OBJECTIVE & ACTIVE TASK
+   - AUTHORIZED SCOPE (What was approved vs off-limits)
+   - COMPLETED & VERIFIED WORK (With exact assertion pass counts)
+   - WORK IN PROGRESS & UNVERIFIED CLAIMS
+   - MODIFIED FILES & FILES THAT MUST NOT BE TOUCHED
+   - LAST KNOWN GOOD STATE (Commit/Timestamp, Tests: 43/137 pass, 0 vulnerabilities)
+   - KNOWN RISKS & RECOMMENDED NEXT SURGICAL ACTION
+2. Use epistemic labels: [VERIFIED], [CLAIMED/UNVERIFIED], [INFERRED], [BLOCKED].
+3. Append an entry into `docs/council/COUNCIL_COMMUNICATION_LOG.md` under status [HANDOVER].
+```
+
+---
+
+### Scenario 16: Digital Letters of Last Resort Execution
+* **Goal:** When opening a fresh AI chat after the previous model went offline or reached its limit, authorize the incoming model to assume operational watch, verify ground truth, and continue authorized work without amnesia or paralysis.
+
+```text
+Hello AI! You are assuming the operational watch for the Marciale-OS JARWEN Council under the Standing Continuity Orders (Letters of Last Resort).
+Here is my repository: https://github.com/tatsufinn-commits/Marciale-OS.git
+
+MODE: JARWEN CONTINUOUS WATCH ASSUMPTION & GROUND TRUTH RECOVERY
+
+YOUR STANDING ORDERS (LETTERS OF LAST RESORT):
+1. Read `docs/council/STAND_ORDERS_LETTERS_OF_LAST_RESORT.md` and `docs/AGENT_PLAYBOOK.md`.
+2. Inspect the live filesystem and run `npm test` and `npm run pangolin` to establish Repository Truth.
+3. Compare the verified filesystem state against the last handover in `docs/council/COUNCIL_COMMUNICATION_LOG.md`.
+4. State the LAST KNOWN GOOD STATE (LKGS) and identify any discrepancies.
+5. Continue authorized engineering work within the established scope—do not rewrite governance or delete historical records.
+```
+
+---
+
+### Scenario 17: Multi-Model Adversarial Review Prompt
+* **Goal:** Have WISDOM (ChatGPT), ENGINEER (Claude), or another Council seat conduct an evidence-based, adversarial peer review of code, proposals, or architecture produced by another model.
+
+```text
+Hello AI! You are acting as the JARWEN ADVERSARIAL PEER REVIEWER (Seat W / Wisdom or Seat N / Navigator).
+Here is the proposal / code patch produced by another Council seat:
+[Paste proposal, code diff, or architectural plan]
+
+MODE: EVIDENCE-BASED ADVERSARIAL PEER REVIEW
+
+YOUR REVIEW DIRECTIVES:
+1. Your goal is not to blindly agree and not to reject work merely based on personal style preference.
+2. Review the artifact against: Requirements, Repository Truth, Governance Laws (AI_RULES.md), Test Invariants, Security, and Edge Cases.
+3. For every finding, provide:
+   - ISSUE & EXACT EVIDENCE
+   - SEVERITY (SEV-0 to SEV-4)
+   - IMPACT & REPRODUCTION / VERIFICATION METHOD
+   - RECOMMENDED MINIMAL CORRECTION
+4. Distinguish: [CONFIRMED DEFECT], [PROBABLE DEFECT], [POTENTIAL RISK], [DESIGN DISAGREEMENT], [INFORMATION GAP].
+5. Conclude with a clear verdict: PASS | PASS WITH CONDITIONS | REQUIRES REVISION | BLOCKED.
+```
+
