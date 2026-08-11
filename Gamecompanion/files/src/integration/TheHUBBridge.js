@@ -99,4 +99,19 @@ export class TheHUBBridge {
     this._send('idlehero.achievement', { achievementId });
     this._send('mtgame.achievement', { achievementId });
   }
+
+  reportSnapshot(snapshot = {}) {
+    this._send('idlehero.snapshot', snapshot);
+    this._send('mtgame.snapshot', snapshot);
+  }
+
+  reportOfflineRewards(rewards = {}) {
+    this._send('idlehero.offline_rewards', rewards);
+    this._send('mtgame.offline_rewards', rewards);
+  }
+
+  reportItemEquipped(item = {}) {
+    this._send('idlehero.item_equipped', item);
+    this._send('mtgame.item_equipped', item);
+  }
 }

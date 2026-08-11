@@ -105,7 +105,7 @@ async function boot() {
   document.querySelector('#save-now')?.addEventListener('click', () => saveManager.save('manual').catch((error) => setSaveStatus(`Save failed: ${error.message}`, 'error')));
   document.querySelector('#new-game')?.addEventListener('click', () => modal.show({ title: 'Start a new game?', body: '<p>This permanently removes this browser’s current saved progress.</p>', actions: [{ label: 'Cancel', onClick: () => modal.close() }, { label: 'Delete save and restart', kind: 'danger', onClick: async () => { await bootstrap.newGame(); modal.close(); } }] }));
 
-  // ── Build F06: TheHUBBridge Integration ────────────────────────────────
+  // ── Build F06 & Build V8.3: TheHUBBridge Integration ─────────────────────
   const bridge = new TheHUBBridge({
     onReward: (reward) => {
       if (!reward) return;
@@ -114,6 +114,7 @@ async function boot() {
       particles.addFloatingText({ x: 300, y: 145 }, `+${reward.xp || 0} XP +${reward.gold || 0}G`, '#d4a034', { lifetime: 2200 });
       particles.addBurst({ x: 300, y: 145 }, '#d4a034', 8);
       saveManager.save('hub-reward').catch(() => {});
+      bridge.reportSnapshot(getGameSnapshot());
     },
     onPause: () => {
       gameLoop.setTargetFPS(5);
@@ -129,9 +130,40 @@ async function boot() {
   });
   bridge.init();
 
+  const getGameSnapshot = () => {
+    const s = stateManager.getState();
+    return {
+      hero: {
+        name: s.combat?.hero?.name || 'Rudeus Greyrat',
+        level: s.combat?.hero?.level || 1,
+        hp: s.combat?.hero?.hp || 100,
+        maxHp: s.combat?.hero?.maxHp || 100,
+        aiMode: s.combat?.hero?.aiMode || 'balanced'
+      },
+      equipment: s.player?.equipment || { weapon: null, armor: null, accessory: null },
+      gold: s.player?.gold || 0,
+      zone: s.progression?.currentZone || 'fittoa',
+      wave: s.combat?.currentWave || 1,
+      roster: rosterSystem.getRoster()
+    };
+  };
+
   eventBus.on(Events.WEAVER_LEVEL_UP, (payload) => {
     bridge.reportLevelUp(payload?.heroId || 'rudeus', payload?.level || 2);
+    bridge.reportSnapshot(getGameSnapshot());
   });
+
+  eventBus.on(Events.ITEM_EQUIPPED, (payload) => {
+    bridge.reportItemEquipped(payload);
+    bridge.reportSnapshot(getGameSnapshot());
+  });
+
+  eventBus.on(Events.STAGE_CLEARED, () => {
+    bridge.reportSnapshot(getGameSnapshot());
+  });
+
+  // Emit initial snapshot on boot
+  bridge.reportSnapshot(getGameSnapshot());
 
   gameLoop.start((dt) => {
     timeKeeper.addPlayTime(dt); stateManager.set('totalPlayTime', timeKeeper.getPlayTime(), { source: 'loop' });
