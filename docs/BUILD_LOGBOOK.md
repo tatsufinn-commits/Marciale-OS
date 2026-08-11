@@ -152,11 +152,44 @@ When you clone this repository in a new chat:
   * `TheHUB 1.5.5.2.3 a v/modules/08-assistant.js`
 * **Changes Delivered:**
   * Created `onChessPageDeactivate()` in `15-chess.js`, stopping engine calculations and cleanly terminating `CHESS_ENGINE.worker` and `MAIA_ENGINE.worker`.
-  * Wired `onChessPageDeactivate()` into `08-assistant.js:activatePage()` whenever navigating to any non-chess tab (`dash`, `today`, `track`, `idlehero`, `cal`, `tasks`, `vault`, `ai`).
+  * Wired `onChessPageDeactivate()` into `08-assistant.js:activatePage()` whenever navigating to any non-chess tab.
   * Added document `visibilitychange` listener in `15-chess.js` to automatically clean up workers when the browser tab is hidden.
 * **Test Verification:** `npm test` executes all 43 test suites with 0 failures (100% green).
 * **Current Production State:** ChessLab background WebWorkers release memory immediately on tab switch or window minimize.
-* **Next Recommended Build:** **Build F09 (Companion Procedural Sprite Atlas Fallback)** or **TAMAplugin Live Activation**.
+
+---
+
+### [COMPLETED] Build F09: Companion Procedural Pixel Art & Character Renderer
+* **Date:** 2026-08-11
+* **Agent in Charge:** `@forge` (Game Systems Engineer)
+* **Goal:** Upgrade Canvas 2D renderer to draw high-fidelity procedural pixel art for Hero (Rudeus with robe, hair, eyes, pulsing magic staff), animated bouncing Slimes, Goblins with daggers, Boss Dragons with flapping wings, ornate treasure chests, and gradient parallax backgrounds!
+* **Files Modified:**
+  * `Gamecompanion/files/src/rendering/CanvasRenderer.js`
+* **Changes Delivered:**
+  * Implemented `drawProceduralHero()` with bobbing animations, golden belts, and glowing magic staff gem.
+  * Implemented `drawProceduralMonster()` supporting bouncing squishy Slimes, Goblins with pointed ears, and Boss Dragons with wings and horns.
+  * Enhanced `drawChest()` with open golden treasure glow and closed sparkle shimmer animations.
+  * Upgraded `drawBackground()` with multi-stop sky gradients and distant mountain silhouettes.
+  * Rebuilt companion bundle into `TheHUB 1.5.5.2.3 a v/companion/`.
+* **Test Verification:** `npm test` passed 43 / 43 suites with 0 errors (100% green).
+* **Current Production State:** Companion RPG now renders lively, animated retro pixel art with zero external PNG dependencies!
+* **Next Recommended Build:** **Build F12 (Background Tab 5 FPS Power Throttle)**.
+
+---
+
+### [COMPLETED] Build T15 / TAMAplugin: Live Academic Studio Plugin Integration
+* **Date:** 2026-08-11
+* **Agent in Charge:** `@architect` (Lead Systems Engineer) / `@mind` (AI Specialist)
+* **Goal:** Connect TAMA academic knowledge, Mapúa exam countdowns, and study momentum rewards directly into TheHUB command center.
+* **Files Modified:**
+  * `TheHUB 1.5.5.2.3 a v/TAMAplugin/` (All 5 plugin files)
+  * `TheHUB 1.5.5.2.3 a v/index.html`
+* **Changes Delivered:**
+  * Added `mapua_architect` Socratic Brain Profile for Marciale AI.
+  * Built Mapúa Exam Countdown Card on Today Dashboard scanning Blackboard `.ics` feeds.
+  * Wired `logStudySessionActivity()` awarding +200 Gold & +100 XP to the Companion RPG.
+* **Test Verification:** `npm test` passed 43 / 43 suites with 0 errors (100% green).
+* **Current Production State:** TheHUB command center is now a live Mapúa Architecture study cockpit!
 
 ---
 
