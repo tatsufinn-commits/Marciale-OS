@@ -58,7 +58,7 @@ Marciale-OS/
 │
 └── docs/                                # Core Governance & High Council Suite
     ├── THE_10_COMMANDMENTS_OF_DOCS.md   # The Absolute Inviolable Bible of Documentation & Releases
-    ├── AI_RULES.md                      # The AI Constitution (17 Supreme Laws)
+    ├── AI_RULES.md                      # The AI Constitution (19 Supreme Laws)
     ├── AGENT_PLAYBOOK.md                # Reverse-Intent Decoder & Autonomous Severity Matrix
     ├── AGENTS.md                        # Virtual Squad Personas (6 Core Roles + 7 Web Roles)
     ├── PROMPT_PLAYBOOK.md               # 22 Master Scenario Prompt Templates
@@ -86,7 +86,7 @@ MODE: HIGH COUNCIL TASK EXECUTION (LAWS I–XVII)
 
 MY CURRENT GOAL:
 1. Inspect `docs/SYSTEM_STATE.md` and `docs/BUILD_LOGBOOK.md` to see verified production state.
-2. Follow `docs/THE_10_COMMANDMENTS_OF_DOCS.md` and `docs/AI_RULES.md` (17 Supreme Laws).
+2. Follow `docs/THE_10_COMMANDMENTS_OF_DOCS.md` and `docs/AI_RULES.md` (19 Supreme Laws).
 3. Execute [TARGET BUILD / TASK].
 4. Run `npm test` and `npm run pangolin` verifying 100% green checkmarks.
 5. Package the updated repository into `MARCIALE_OS_COMPLETE.zip` for download (Commandment I).
