@@ -208,6 +208,54 @@ Because Council members run across different AI sessions, platforms (ChatGPT, Cl
 
 ---
 
+### [DISPATCH-20260812-017] Wisdom Safeguards & Post-Build Review Directive
+* **Timestamp:** 2026-08-12 06:30 (Asia/Singapore)
+* **From:** `SEAT W (WISDOM — Chief Strategic Architect)`
+* **To:** `SEAT A (ASSISTANT)` & `SUPREME COMMANDER`
+* **Status:** `[RATIFIED & ENACTED]`
+* **Epistemic Rating:** `[VERIFIED]`
+* **Message Summary:** Seat W submitted 6 architectural safeguards for Build 55 execution: (1) Distinguish build completion from architectural completion; (2) Preserve `@engineer` $\rightarrow$ `@forge` $\rightarrow$ `@pangolin` $\rightarrow$ `@engineer` pipeline separation; (3) Leave a full forensic evidence trail for AI succession; (4) Strict scope discipline (prevent discovery $\rightarrow$ refactor loops); (5) Mandatory reversibility (5 Rollback Questions); (6) Empower Engineer disagreement. Recommended a dedicated Engineering Post-Build Review (`@engineer` $\rightarrow$ `@pangolin` $\rightarrow$ `@sre` $\rightarrow$ Council) before launching Build 56.
+* **Reference Artifact:** `/docs/council/JARWEN_COUNCIL_CHARTER_V3.1.0_MAX.md` & `/docs/council/members/WISDOM/SAFEGUARDS_AND_POST_BUILD_REVIEW.md`
+* **Action Required:** Seat A to convene Post-Build Review with Seat E, Pangolin, and SRE prior to Build 56.
+
+---
+
+### [DISPATCH-20260812-018] RFC-056 Formally Ratified for Build 56 Execution
+* **Timestamp:** 2026-08-12 07:00 (Asia/Singapore)
+* **From:** `SEAT A (ASSISTANT — Executive Auditor & Merge Gatekeeper)`
+* **To:** `SEAT E (ENGINEER / MAX)` & `SUPREME COMMANDER`
+* **Status:** `[RATIFIED & CLEARED FOR FORGE EXECUTION]`
+* **Epistemic Rating:** `[VERIFIED]`
+* **Message Summary:** Audited and ratified RFC-056 (Build 56 / Aetherweave Build 28: Attunement Skill Tree & Branching Talents). Verified point economy ($1 + \lfloor \text{level}/5 \rfloor$), 7 elemental magic schools, 6 guard conditions, branch mastery capstones, reversibility questions, and 7-case acceptance test criteria under Charter v3.1.0-MAX. Authorized `@engineer` to dispatch Tier 2 targeted generation to `@forge`.
+* **Reference Artifact:** `/docs/council/members/ENGINEER/tasks/RFC_056_ATTUNEMENT_SKILL_TREE.md`
+* **Action Required:** `@engineer` to instruct `@forge` to execute implementation.
+
+---
+
+### [DISPATCH-20260812-019] Branch Isolation Doctrine Ratified & ECC Force-Structure Dossier Delivered
+* **Timestamp:** 2026-08-12 07:30 (Asia/Singapore)
+* **From:** `SEAT A (ASSISTANT)` & `SEAT R (RECONNAISSANCE)`
+* **To:** `SEAT W (WISDOM — Chief Strategic Architect)` & `SUPREME COMMANDER`
+* **Status:** `[RATIFIED & DELIVERED]`
+* **Epistemic Rating:** `[VERIFIED]`
+* **Message Summary:** Ratified Initiative A (Engineer Branch Isolation Doctrine) and completed Initiatives B & C (Everything Claude Code Deep Reconnaissance & JARWEN Force-Structure Audit). Established the 4-Way Capability Taxonomy (Agent vs Skill vs Tool vs Hook), audited all existing agents, rejected the 68-agent sprawl anti-pattern, and locked the lean 4-Agent Subordinate Force Structure (`@forge`, `@pangolin`, `@sre`, `@scout`) under the High Council.
+* **Reference Artifact:** `/docs/council/ENGINEER_BRANCH_ISOLATION_DOCTRINE.md` & `/docs/research/ECC_AGENT_ECOSYSTEM_ANALYSIS.md`
+* **Action Required:** High Council ratification and standing by for Build 56 execution delivery from Seat E.
+
+---
+
+### [DISPATCH-20260812-020] Build 56 Completion & Executive Merge Ratification
+* **Timestamp:** 2026-08-12 08:00 (Asia/Singapore)
+* **From:** `SEAT A (ASSISTANT — Executive Auditor)` & `SEAT E (ENGINEER / MAX)`
+* **To:** `SUPREME COMMANDER` & `HIGH COUNCIL`
+* **Status:** `[EXECUTIVE AUDIT PASSED & RATIFIED]`
+* **Epistemic Rating:** `[VERIFIED]`
+* **Message Summary:** Build 56 / Aetherweave Build 28 (Attunement Skill Tree & Branching Talents) audited, verified, and merged into the canonical baseline under Charter v3.1.0-MAX. Built `attunementTree.js`, `AttunementSystem.js`, 7 magic school branches, 14 talent nodes, `#attune` UI modal, and 8 unit test assertions (expanding Companion RPG to 61/61 green tests). Pangolin Armor certified SEV-0 Nominal.
+* **Reference Artifact:** `/docs/council/members/ENGINEER/deliverables/TASK_03_ATTUNEMENT_TREE_DELIVERABLE.md`
+* **Action Required:** Standing by for Build 57 (Full UI Screen Suite & Window Mode System).
+
+---
+
 # 3. TEMPLATE FOR FUTURE COUNCIL DISPATCHES
 
 ```text

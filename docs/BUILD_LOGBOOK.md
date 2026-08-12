@@ -708,6 +708,33 @@ When you clone this repository in a new chat:
 
 ---
 
+### [COMPLETED] Build 56 / Aetherweave Build 28: Attunement Skill Tree & Branching Talents
+* **Date:** 2026-08-12
+* **Agent in Charge:** `@engineer` (Max — Seat E) / `@the_forge` / `@assistant`
+* **Goal:** Implement the data-driven 7-magic-school Attunement Skill Tree (14 nodes, branch mastery capstones, point economy $1 + \lfloor \text{level}/5 \rfloor$, and `#attune` modal) per RFC-056.
+* **Files Modified:**
+  * `Gamecompanion/files/src/data/attunementTree.js` (Created)
+  * `Gamecompanion/files/src/systems/AttunementSystem.js` (Created)
+  * `Gamecompanion/files/src/core/EventBus.js`
+  * `Gamecompanion/files/src/main.js`
+  * `Gamecompanion/files/index.html`
+  * `Gamecompanion/files/tests/AttunementSystem.test.js` (Created)
+  * `Gamecompanion/files/MASTER_ROADMAP_STATUS.md`
+  * `docs/patchnotes/PATCHNOTES_LEDGER.md`
+  * `docs/SYSTEM_STATE.md`
+  * `docs/council/members/ENGINEER/deliverables/TASK_03_ATTUNEMENT_TREE_DELIVERABLE.md` (Created)
+* **Changes Delivered:**
+  * Created `attunementTree.js` containing 7 elemental branches (Water, Earth, Fire, Wind, Healing, Barrier, Demon) and 14 talent nodes with stat modifiers and capstones.
+  * Built `AttunementSystem.js` evaluating point grants, node rank investments, hero level gates, prerequisite parent checks, and branch mastery capstone unlocks.
+  * Added `#attune` UI modal with live branch navigation, rank upgrades, point balances, and full point respec.
+  * Added 8 unit tests in `tests/AttunementSystem.test.js` expanding companion test suite to 61/61 green tests.
+  * Rebuilt Vite production bundle directly into `TheHUB 1.5.5.2.3 a v/companion/`.
+* **Test Verification:** `npm run pangolin` executed all 43 test suites / 137 assertions + 61 RPG unit tests (100% green, SEV-0 Nominal).
+* **Current Production State:** Companion RPG features full 7-branch attunement skill tree, talent investments, and capstone masteries.
+* **Next Recommended Build:** Build 57 / Aetherweave Build 29: Full UI Screen Suite & Window Mode System.
+
+---
+
 # 3. TEMPLATE FOR FUTURE AI AGENTS (COPY & PASTE AT END OF SESSION)
 
 ```text

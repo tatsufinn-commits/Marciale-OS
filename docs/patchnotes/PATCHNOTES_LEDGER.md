@@ -396,6 +396,26 @@ Whenever a bug, test failure, redmark, or integration defect is detected in Marc
 
 ---
 
+### [PATCH-20260812-23] Build 56 / Aetherweave Build 28 Attunement Skill Tree & Branching Talents
+* **Date:** 2026-08-12
+* **Patched By:** `@engineer` / `@the_forge` / `@assistant`
+* **Subsystem:** `Gamecompanion/files/src/data/attunementTree.js`, `src/systems/AttunementSystem.js`, `src/core/EventBus.js`, `src/main.js`, `tests/AttunementSystem.test.js`
+* **Severity Level:** SEV-4 (Attunement Progression Milestone)
+* **Symptoms Observed:** Players lacked elemental specialization trees, talent point allocation, and branch capstone masteries.
+* **Root Cause Analysis:** Built `AttunementSystem` evaluating point economy ($1 + \lfloor \text{level}/5 \rfloor$), parent prerequisites, hero level gates, branch mastery thresholds, stat aggregation, and full respec.
+* **Files Modified:**
+  * `Gamecompanion/files/src/data/attunementTree.js`
+  * `Gamecompanion/files/src/systems/AttunementSystem.js`
+  * `Gamecompanion/files/src/core/EventBus.js`
+  * `Gamecompanion/files/src/main.js`
+  * `Gamecompanion/files/index.html`
+  * `Gamecompanion/files/tests/AttunementSystem.test.js`
+  * `docs/BUILD_LOGBOOK.md`
+* **Regression Test Assertion Added:** `Gamecompanion/files/tests/AttunementSystem.test.js` (8 new assertions verifying point economy, tier 1/2 investments, level/parent guards, max-rank caps, branch mastery, and respec).
+* **Status:** 🟢 RESOLVED & VERIFIED
+
+---
+
 # 3. TEMPLATE FOR FUTURE PANGOLIN PATCHES
 
 ```text
