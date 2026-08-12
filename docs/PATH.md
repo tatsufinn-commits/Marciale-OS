@@ -97,7 +97,7 @@ When modifying, building, or committing files in **`Marciale-OS`**, follow this 
 │
 └── docs/                                <- GOVERNANCE, AUDIT & HIGH COUNCIL SUITE
     ├── THE_10_COMMANDMENTS_OF_DOCS.md   <- Inviolable Bible of Documentation & Releases
-    ├── AI_RULES.md                      <- The AI Constitution (15 Supreme Laws)
+    ├── AI_RULES.md                      <- The AI Constitution (17 Supreme Laws)
     ├── AGENT_PLAYBOOK.md                <- Reverse-Intent Decoder & Autonomous Severity Matrix
     ├── AGENTS.md                        <- Virtual Squad Registry (6 Core Roles + 7 Web Roles)
     ├── PROMPT_PLAYBOOK.md               <- 22 Master Scenario Prompt Templates

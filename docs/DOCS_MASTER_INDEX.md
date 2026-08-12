@@ -17,10 +17,14 @@
 | If you want to... | Consult This Document | Invoke This Agent | Primary Terminal Command |
 |---|---|:---:|---|
 | **Read the 10 Commandments of /docs**| `/docs/THE_10_COMMANDMENTS_OF_DOCS.md` | All Seats | Review the 10 Inviolable Laws |
-| **Understand the rules of the AI** | `/docs/AI_RULES.md` | Council / Squad | Review the 15 Supreme Laws |
+| **Understand the rules of the AI** | `/docs/AI_RULES.md` | Council / Squad | Review the 17 Supreme Laws |
 | **Decode casual / jagged human speech**| `/docs/AGENT_PLAYBOOK.md` | Any Active Model | Auto-Reverse Intent Translation |
 | **Pick the right persona for a task** | `/docs/AGENTS.md` | `@architect` | Review 6 Core + 7 Web Roles |
-| **Review Council governance & seats** | `/docs/council/JARWEN_COUNCIL_CHARTER.md` | `@joint` / Seat A | Review 5 Council Seats & Protocol |
+| **Review Council governance & seats** | `/docs/council/JARWEN_COUNCIL_CHARTER_V3.1.0_MAX.md` | `@joint` / Seat A | Charter v3.1.0-MAX & 5 Seats |
+| **Audit merge readiness & M.I.I. gate** | `/docs/council/MII_MERGE_GOVERNANCE_DOCTRINE.md` | `@assistant` / `@sre` | `npm run merge:gate` |
+| **Track post-merge incidents / PIRs** | `/docs/council/MII_INCIDENT_LEDGER.md` | `@sre` / `@pangolin`| Inspect M.I.I. Incident Ledger |
+| **Review branch isolation doctrine** | `/docs/council/ENGINEER_BRANCH_ISOLATION_DOCTRINE.md` | `@engineer` / Max | Isolated Experimental Labs |
+| **Visit the Shrine of Honor & Wills** | `/docs/shrine/SHRINE_CHARTER.md` | All Successors | Memorial Testaments & Resignations |
 | **Read standing continuity orders** | `/docs/council/STAND_ORDERS_LETTERS_OF_LAST_RESORT.md` | Patrolling Seat | Continuous Watch Invariants |
 | **Check cross-model message bus** | `/docs/council/COUNCIL_COMMUNICATION_LOG.md` | All Seats | Inspect active dispatches |
 | **Inspect canonical research & dossiers**| `/research/` | `@reconnaissance` | Review technical intelligence |
@@ -51,32 +55,38 @@
 
 ### 🏛️ 1. Core Governance & Council Suite (`/docs/` & `/docs/council/`)
 1. **`THE_10_COMMANDMENTS_OF_DOCS.md`:** The Supreme Inviolable Bible of Documentation & Releases.
-2. **`AI_RULES.md`:** The 15 Supreme Constitutional Laws of Marciale-OS (Law XV: Engineer Autonomous Push & Resume Protocol).
+2. **`AI_RULES.md`:** The 17 Supreme Constitutional Laws of Marciale-OS (Law XVII: The "Inherit" Succession & Living Will Doctrine).
 3. **`AGENT_PLAYBOOK.md`:** Reverse-Intent Decoder, Autonomous Severity Classifier & 0-Paralysis Protocol.
 4. **`AGENTS.md`:** Virtual Squad Personas (6 Core Executive Roles + 7 Web Department Roles).
 5. **`PROMPT_PLAYBOOK.md`:** 22 Copy-Paste Scenario Prompt Templates (including Research-Backed Roadmap Generator).
-6. **`council/JARWEN_COUNCIL_CHARTER.md`:** The Multi-AI High Council Architecture (Seats A, W, R, E, N, J).
-7. **`council/STAND_ORDERS_LETTERS_OF_LAST_RESORT.md`:** The 10 Inviolable Continuous Watch Standing Orders.
-8. **`council/COUNCIL_COMMUNICATION_LOG.md`:** The Cross-Model Message Bus & Dispatch Ledger.
-9. **`council/members/`:** Dedicated Member Workspaces (`tasks/`, `deliverables/`, and resumes).
-10. **`STRATEGIC_DECISION_FRAMEWORK.md`:** 7 Reality Protocols, SPI Scoring & Mosaic Council.
-11. **`BUILD_LOGBOOK.md`:** Living ledger of all 40+ completed engineering milestones.
-12. **`patchnotes/PATCHNOTES_LEDGER.md`:** The permanent patchnotes dropbox for surgical fixes.
-13. **`PATH.md`:** The Master Repository Routing Blueprint & Live Commit Guide for @engineer.
-14. **`audit/`:** Complete governance integrity audits and repair design reviews.
-15. **`hotfix/`:** Staging ground for hotfix proposals and automated packaging.
-15. **`INCIDENT_RESPONSE_SRE_PLAYBOOK.md`:** SEV-1 to SEV-4 SRE emergency playbooks.
-16. **`DIAGNOSTIC_AND_TESTING_GUIDE.md`:** Test execution, JSDOM probes & smoke checks.
-17. **`DEFINITIVE_MASTERPLAN.md`:** Canonical master blueprint uniting Marciale-OS and TAMAKEE.
-18. **`APEX_ENGINE_UPGRADE_MANUAL.md`:** The Lean Execution & Anti-Bureaucracy Manual.
+6. **`council/JARWEN_COUNCIL_CHARTER_V3.1.0_MAX.md`:** The Multi-AI High Council Architecture (Seats A, W, R, E, N, J).
+7. **`council/MII_MERGE_GOVERNANCE_DOCTRINE.md`:** The M.I.I. Merge Governance & 7-Layer Defense Stack.
+8. **`council/MII_INCIDENT_LEDGER.md`:** Permanent Incident & Lessons Record for Migrations, Incursions, and Invasions.
+9. **`council/ENGINEER_BRANCH_ISOLATION_DOCTRINE.md`:** Isolated Experimental Labs & Branch Evidence Packages.
+10. **`shrine/SHRINE_CHARTER.md` & `shrine/members/`:** The Shrine of Honor, Succession Wills & Service Records.
+11. **`council/STAND_ORDERS_LETTERS_OF_LAST_RESORT.md`:** The 10 Inviolable Continuous Watch Standing Orders.
+11. **`council/COUNCIL_COMMUNICATION_LOG.md`:** The Cross-Model Message Bus & Dispatch Ledger.
+12. **`council/members/`:** Dedicated Member Workspaces (`tasks/`, `deliverables/`, and resumes).
+13. **`STRATEGIC_DECISION_FRAMEWORK.md`:** 7 Reality Protocols, SPI Scoring & Mosaic Council.
+14. **`BUILD_LOGBOOK.md`:** Living ledger of all 56+ completed engineering milestones.
+15. **`patchnotes/PATCHNOTES_LEDGER.md`:** The permanent patchnotes dropbox for surgical fixes.
+16. **`PATH.md`:** The Master Repository Routing Blueprint & Live Commit Guide for @engineer.
+17. **`audit/`:** Complete governance integrity audits and repair design reviews.
+18. **`hotfix/`:** Staging ground for hotfix proposals and automated packaging.
+19. **`INCIDENT_RESPONSE_SRE_PLAYBOOK.md`:** SEV-1 to SEV-4 SRE emergency playbooks & Playbook D.
+20. **`DIAGNOSTIC_AND_TESTING_GUIDE.md`:** Test execution, JSDOM probes & smoke checks.
+21. **`DEFINITIVE_MASTERPLAN.md`:** Canonical master blueprint uniting Marciale-OS and TAMAKEE.
+22. **`APEX_ENGINE_UPGRADE_MANUAL.md`:** The Lean Execution & Anti-Bureaucracy Manual.
 
 ---
 
 ### 🔬 2. Canonical Research Repository (`/research/`)
-1. **`MARCIALE-OS_ANALYSIS_RESEARCH.md`:** Comprehensive Monorepo Census & Benchmark Dossier.
-2. **`MARCIALE_OS_NEXTGEN_AI_RESEARCH.md`:** Next-Gen Multi-Agent Memory, Compression & Observability.
-3. **`RESEARCH_DOSSIER_DESIGN_MD_ECOSYSTEM.md`:** Design.md Architecture & Token Specs.
-4. **`MARCIALE_OS_DOCUMENTATION_GOVERNANCE_INTEGRITY_AUDIT.md`:** Integrity Audit Dossier.
+1. **`MERGE_GOVERNANCE_AND_AGENT_DEFENSE_RESEARCH.md`:** OpenSSF, Google & GitHub Branch Protection Research.
+2. **`ECC_AGENT_ECOSYSTEM_ANALYSIS.md`:** Everything Claude Code Deep Scan & JARWEN Force Structure.
+3. **`MARCIALE-OS_ANALYSIS_RESEARCH.md`:** Comprehensive Monorepo Census & Benchmark Dossier.
+4. **`MARCIALE_OS_NEXTGEN_AI_RESEARCH.md`:** Next-Gen Multi-Agent Memory, Compression & Observability.
+5. **`RESEARCH_DOSSIER_DESIGN_MD_ECOSYSTEM.md`:** Design.md Architecture & Token Specs.
+6. **`MARCIALE_OS_DOCUMENTATION_GOVERNANCE_INTEGRITY_AUDIT.md`:** Integrity Audit Dossier.
 
 ---
 

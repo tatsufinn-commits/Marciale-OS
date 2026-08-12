@@ -16,7 +16,7 @@
 | **TheHUB Command Shell** | `TheHUB 1.5.5.2.3 a v/package.json` | `1.5.5.2.3-alpha` | 🟢 VERIFIED | 20 Vanilla JS Modules + Python Server |
 | **Companion RPG Engine** | `Gamecompanion/files/package.json` | `0.3.0.0` | 🟢 VERIFIED | Vite ES Module Canvas Engine |
 | **TAMA Academic Studio** | `TAMAplugin` & Academic Vault | `2.0.0` | 🟢 VERIFIED | Mapúa BS Architecture Knowledge Spine |
-| **AI Constitution** | `docs/AI_RULES.md` | `Laws I–XV (15 Laws)` | 🟢 VERIFIED | Enacted Constitutional Standard |
+| **AI Constitution** | `docs/AI_RULES.md` | `Laws I–XVII (17 Laws)` | 🟢 VERIFIED | Enacted Constitutional Standard |
 | **Prompt Playbook** | `docs/PROMPT_PLAYBOOK.md` | `22 Scenarios` | 🟢 VERIFIED | Complete Scenario Registry |
 
 ---
@@ -24,12 +24,13 @@
 # 2. ACTIVE GOVERNANCE & COUNCIL TOPOLOGY
 
 ```text
-CONSTITUTION: 15 Supreme Laws (/docs/AI_RULES.md)
+CONSTITUTION: 17 Supreme Laws (/docs/AI_RULES.md)
 COMMANDMENTS: 10 Inviolable Commandments (/docs/THE_10_COMMANDMENTS_OF_DOCS.md)
 COUNCIL SEATS: 5 Sovereign Seats (Seat A, Seat W, Seat R, Seat E, Seat N) + Seat J (@joint)
 VIRTUAL SQUAD: 6 Core Executive Roles + 7 Web Department Roles + 3 TAMA Studio Roles
 CONTINUITY:   10 Standing Orders & Letters of Last Resort (/docs/council/STAND_ORDERS_...)
 INTENT LAYER:  Reverse-Intent Decoder (/docs/AGENT_PLAYBOOK.md)
+SHRINE:       The Sacred Memorial of Honor & Testaments (/docs/shrine/)
 RESEARCH REPO: Canonical Intelligence Archive (/home/user/Marciale-OS/research/)
 ```
 
@@ -52,7 +53,7 @@ RESEARCH REPO: Canonical Intelligence Archive (/home/user/Marciale-OS/research/)
 * **Build 53 (Aetherweave Build 25):** Faction Reputation & Guild Supply System (41 RPG Tests).
 * **Build 54 (Aetherweave Build 26):** Companion Personal Quest Storylines & Signature Relics (48 RPG Tests).
 * **Build 55 (Aetherweave Build 27):** Regional Bounty Board & Monster Hunting Guilds (53 RPG Tests).
-* **Build 56 (Aetherweave Build 28):** Attunement Skill Tree & Branching Talents (61 RPG Tests).
+* **Build 56 (Aetherweave Build 28):** Attunement Skill Tree & Branching Talents (65 RPG Tests).
 * **Master Roadmap V9.0:** 100% COMPLETED & VERIFIED in Production across all 8 Milestones (Builds 41–48).
 
 ---

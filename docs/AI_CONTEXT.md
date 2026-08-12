@@ -45,8 +45,9 @@ Any AI working on this repository must consult the dedicated operational documen
 
 | Document | Role & Purpose | Key Target |
 |---|---|---|
-| **`docs/AI_RULES.md`** | **The Constitution** — The 15 Supreme Laws of Marciale-OS (including Law XV). | Mandatory for all chats. |
+| **`docs/AI_RULES.md`** | **The Constitution** — The 16 Supreme Laws of Marciale-OS (including Law XVI). | Mandatory for all chats. |
 | **`docs/PROMPT_PLAYBOOK.md`** | **Prompt Library** — Copy-paste prompt templates for all 22 scenarios. | Prompt selection. |
+| **`docs/council/MII_MERGE_GOVERNANCE_DOCTRINE.md`** | **Merge Governance** — M.I.I. framework (Migration, Incursion, Invasion, Quarantine). | Protected merge gates. |
 | **`docs/STRATEGIC_DECISION_FRAMEWORK.md`** | **Path Analyzer** — 7 Reality Protocols, Mosaic Council, and 4-Axis SPI. | Decision matrix & planning. |
 | **`docs/AGENTS.md`** | **The Staff** — 6 Core + 7 Web specialized agent roles. | Role boundaries & handoffs. |
 | **`docs/BUILD_LOGBOOK.md`** | **The Living Ledger** — Permanent historical log recording every build across sessions. | Build memory & history. |
