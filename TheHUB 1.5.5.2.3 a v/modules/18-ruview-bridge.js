@@ -460,41 +460,40 @@ Rules: This is hardware-backed presence detection from WiFi CSI sensing (ESP32).
     if(typeof toast === 'function') toast('RuView settings saved', 'success');
   }
 
-  /* ---------- Signal Field Visualization ---------- */
+  /* ---------- Signal Field Visualization (Build 42 Dot-Matrix Radar) ---------- */
   function renderSignalField(container, data){
-    if(!container || !data || !data.signalField) return;
-    const field = data.signalField;
-    const gridValues = field.values || [];
-    const gridSize = (field.grid_size && field.grid_size[0]) || 20;
+    if(!container) return;
+    const field = data?.signalField;
+    const gridValues = field?.values || [];
+    const gridSize = (field?.grid_size && field?.grid_size[0]) || 20;
     
-    if(!gridValues.length || !gridSize) return;
-    
-    // FIXED (Build 32 perf): Build the grid DOM once and cache it.
-    // On subsequent calls, only update background colors in-place.
+    // Build or update the grid container with dot-matrix radar sweep overlay
     let gridWrap = container.querySelector('.ruview-signal-grid');
-    let cells = gridWrap ? gridWrap.children : null;
+    let cells = gridWrap ? gridWrap.querySelectorAll('.ruview-dot') : null;
     
-    if(!gridWrap || !cells || cells.length !== gridValues.length){
-      // First render or size changed — build the grid
-      let html = '<div class="ruview-signal-grid" style="display:grid;grid-template-columns:repeat('+gridSize+',1fr);gap:1px;width:100%;aspect-ratio:1;border-radius:8px;overflow:hidden;border:1px solid var(--line)">';
-      for(let i = 0; i < gridValues.length; i++){
-        html += '<div></div>';
+    if(!gridWrap || !cells || cells.length !== (gridValues.length || 400)){
+      const totalCells = gridValues.length || 400;
+      let html = '<div class="ruview-signal-grid" style="position:relative;display:grid;grid-template-columns:repeat('+gridSize+',1fr);gap:2px;width:100%;aspect-ratio:1;border-radius:12px;overflow:hidden;background:var(--color-canvas, #0b0c10);padding:8px;border:1px solid var(--line);box-shadow:0 0 0 1px rgba(255,255,255,0.05), inset 0 0 20px rgba(0,0,0,0.8);">';
+      for(let i = 0; i < totalCells; i++){
+        html += '<div class="ruview-dot" style="width:100%;aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,0.04);transition:background 0.3s, opacity 0.3s;"></div>';
       }
-      html += '</div>';
+      html += '<div class="ruview-radar-rings"></div><div class="ruview-radar-sweep"></div></div>';
       container.innerHTML = html;
       gridWrap = container.querySelector('.ruview-signal-grid');
-      cells = gridWrap ? gridWrap.children : null;
+      cells = gridWrap ? gridWrap.querySelectorAll('.ruview-dot') : null;
       if(!cells) return;
     }
     
-    // Update colors in-place — no DOM creation, just style mutations
-    for(let i = 0; i < gridValues.length && i < cells.length; i++){
-      const v = Math.max(0, Math.min(1, gridValues[i] || 0));
-      const r = v < 0.5 ? Math.round(v * 2 * 100) : 255;
-      const g = v < 0.5 ? Math.round(100 + v * 2 * 155) : Math.round(255 - (v - 0.5) * 2 * 155);
-      const b = v < 0.3 ? Math.round((0.3 - v) / 0.3 * 200) : 0;
-      cells[i].style.background = 'rgb('+r+','+g+','+b+')';
-      cells[i].style.opacity = (0.3 + v * 0.7);
+    // Update colors in-place — no DOM re-creation, high performance style mutation
+    if(gridValues.length){
+      for(let i = 0; i < gridValues.length && i < cells.length; i++){
+        const v = Math.max(0, Math.min(1, gridValues[i] || 0));
+        const r = v < 0.5 ? Math.round(v * 2 * 100) : 255;
+        const g = v < 0.5 ? Math.round(100 + v * 2 * 155) : Math.round(255 - (v - 0.5) * 2 * 155);
+        const b = v < 0.3 ? Math.round((0.3 - v) / 0.3 * 200) : 0;
+        cells[i].style.background = 'rgb('+r+','+g+','+b+')';
+        cells[i].style.opacity = (0.2 + v * 0.8);
+      }
     }
   }
 

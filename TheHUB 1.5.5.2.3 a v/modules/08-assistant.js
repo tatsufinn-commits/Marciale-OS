@@ -648,6 +648,61 @@ function matchDrink(s){
   if(s.includes('mac'))return'machiato'; if(s.includes('span')||s.includes('latte'))return'spanish'; if(s.includes('350')||s.includes('large'))return'coba350'; if(s.includes('240')||s.includes('small')||s.includes('cobra')||s.includes('coba'))return'coba240';
   return null;
 }
+/* ---------- Code-Aware Payload & Tool Output Compressor (Build 45: Headroom Pattern) ---------- */
+function compressPayload(input, maxChars = 4000) {
+  if (!input) return '';
+  if (typeof input === 'string') {
+    // Strip comments, collapse excessive whitespace and blank lines
+    return input
+      .replace(/\/\*[\s\S]*?\*\//g, '')
+      .replace(/^\s*\/\/.*$/gm, '')
+      .replace(/[ \t]+/g, ' ')
+      .replace(/\n\s*\n+/g, '\n')
+      .trim()
+      .slice(0, maxChars);
+  }
+
+  if (typeof input === 'object') {
+    const prune = (val) => {
+      if (val === null || val === undefined || val === '') return undefined;
+      if (Array.isArray(val)) {
+        const arr = val.map(prune).filter(x => x !== undefined);
+        return arr.length ? arr : undefined;
+      }
+      if (typeof val === 'object') {
+        const obj = {};
+        let count = 0;
+        for (const [k, v] of Object.entries(val)) {
+          const cleaned = prune(v);
+          if (cleaned !== undefined) {
+            obj[k] = cleaned;
+            count++;
+          }
+        }
+        return count ? obj : undefined;
+      }
+      return val;
+    };
+
+    const pruned = prune(input) || {};
+    const compactJson = JSON.stringify(pruned);
+    if (compactJson.length <= maxChars) return compactJson;
+    return compactJson.slice(0, maxChars) + '...[pruned]';
+  }
+
+  return String(input);
+}
+
+function calculateCompressionMetrics(original, compressed) {
+  const oLen = typeof original === 'string' ? original.length : JSON.stringify(original || '').length;
+  const cLen = typeof compressed === 'string' ? compressed.length : JSON.stringify(compressed || '').length;
+  const savings = oLen > 0 ? Math.max(0, Math.round(((oLen - cLen) / oLen) * 100)) : 0;
+  return { originalBytes: oLen, compressedBytes: cLen, tokenSavingsPct: savings };
+}
+
+window.compressPayload = compressPayload;
+window.calculateCompressionMetrics = calculateCompressionMetrics;
+
 function hubSummary(){
   const t=dayTotals(todayStr());
   // Let the AI know the titles of all notes, but only the content of the currently open note to save tokens
@@ -675,7 +730,7 @@ function hubSummary(){
     information_center_enabled: typeof infoCenter==='function'?!!infoCenter().enabled:false,
     information_center_summary: typeof infoCenterSummary==='function'?infoCenterSummary().slice(0,1200):'',
     available_note_titles: allNotes,
-    currently_open_note_content: nText.slice(0,8000)
+    currently_open_note_content: nText.slice(0,4000)
   };
 }
 /**
@@ -689,8 +744,76 @@ function memTokens(s){ return String(s||'').toLowerCase().match(/[a-z0-9#@._-]{2
  * portal tiles, calendar events, notes, drinks, and vault metadata.
  * @returns {Array<{type:string,title:string,text:string}>}
  */
+/* ---------- Persistent Cross-Session Memory (Build 44: Claude-Mem Pattern) ---------- */
+const PERSISTENT_MEMORY_KEY = 'hub.ai.persistent_memory';
+const PERSISTENT_MEMORY_LIMIT = 100;
+
+function loadPersistentMemories() {
+  try {
+    const raw = (typeof LS !== 'undefined' && LS.get) ? LS.get(PERSISTENT_MEMORY_KEY, []) : JSON.parse(localStorage.getItem(PERSISTENT_MEMORY_KEY) || '[]');
+    return Array.isArray(raw) ? raw : [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function savePersistentMemory(fact, topic = 'general', importance = 3) {
+  if (!fact || typeof fact !== 'string') return null;
+  const list = loadPersistentMemories();
+  const cleanFact = fact.trim().slice(0, 300);
+  // Deduplicate existing identical facts
+  const existing = list.find(m => m.fact.toLowerCase() === cleanFact.toLowerCase());
+  if (existing) {
+    existing.ts = Date.now();
+    existing.importance = Math.max(existing.importance || 3, importance);
+    if (typeof LS !== 'undefined' && LS.set) LS.set(PERSISTENT_MEMORY_KEY, list);
+    else localStorage.setItem(PERSISTENT_MEMORY_KEY, JSON.stringify(list));
+    return existing;
+  }
+
+  const memory = {
+    id: 'mem_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
+    topic: String(topic || 'general').slice(0, 50),
+    fact: cleanFact,
+    importance: Math.max(1, Math.min(5, Number(importance) || 3)),
+    ts: Date.now()
+  };
+
+  list.push(memory);
+  // Cap to limit by keeping highest importance and freshest timestamps
+  const trimmed = list.sort((a, b) => (b.importance - a.importance) || (b.ts - a.ts)).slice(0, PERSISTENT_MEMORY_LIMIT);
+  if (typeof LS !== 'undefined' && LS.set) LS.set(PERSISTENT_MEMORY_KEY, trimmed);
+  else localStorage.setItem(PERSISTENT_MEMORY_KEY, JSON.stringify(trimmed));
+  return memory;
+}
+
+function removePersistentMemory(id) {
+  const list = loadPersistentMemories().filter(m => m.id !== id);
+  if (typeof LS !== 'undefined' && LS.set) LS.set(PERSISTENT_MEMORY_KEY, list);
+  else localStorage.setItem(PERSISTENT_MEMORY_KEY, JSON.stringify(list));
+  return list;
+}
+
+function persistentMemoryPromptBlock(limit = 6) {
+  const memories = loadPersistentMemories();
+  if (!memories.length) return 'PERSISTENT CROSS-SESSION OBSERVATIONS:\n- [NONE LOGGED YET]';
+  const top = memories.slice(0, limit);
+  return 'PERSISTENT CROSS-SESSION OBSERVATIONS (Claude-Mem Protocol):\n' +
+    top.map(m => `• [${m.topic.toUpperCase()}] ${m.fact}`).join('\n');
+}
+
+window.loadPersistentMemories = loadPersistentMemories;
+window.savePersistentMemory = savePersistentMemory;
+window.removePersistentMemory = removePersistentMemory;
+window.persistentMemoryPromptBlock = persistentMemoryPromptBlock;
+
 function memoryCorpus(){
   const items=[];
+  // Ingest persistent atomic cross-session memories
+  loadPersistentMemories().forEach(m => {
+    items.push({ type: 'persistent-memory', title: `Observation (${m.topic})`, text: m.fact });
+  });
+
   if(BRAIN.injectMemories && BRAIN.memories) items.push({type:'brain-memory',title:'Marciale brain memories',text:BRAIN.memories});
   if(BRAIN.injectSkills && BRAIN.skills) items.push({type:'brain-skill',title:'Marciale brain skills',text:BRAIN.skills});
   DB.forEach(b=>items.push({type:'bookmark',title:b.title,text:[b.title,b.url,b.desc,b.cat,(b.tags||[]).join(' ')].join(' ')}));
@@ -733,7 +856,7 @@ function formatMemory(hits){ return hits.map(h=>`- [${h.type}] ${h.title}: ${h.t
  * @returns {string} Complete system prompt sent to the local model.
  */
 function getSysPrompt(latestUser='') {
-  const state = JSON.stringify(hubSummary());
+  const state = compressPayload(hubSummary(), 3500);
   const relevant = formatMemory(retrieveMemory(latestUser, 8));
   const brain = brainPromptBlock();
   const infoBlock = typeof infoCenterPromptBlock==='function' ? infoCenterPromptBlock() : 'USER INFORMATION CENTER: unavailable';
@@ -750,6 +873,8 @@ Today's date is ${todayStr()}.
 
 MARCIALE BRAIN CONFIGURATION:
 ${brain}
+
+${persistentMemoryPromptBlock()}
 
 ${infoBlock}
 

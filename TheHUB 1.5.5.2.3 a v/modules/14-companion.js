@@ -449,6 +449,21 @@ function removeActivityCompanionEmbed(){
     activity.classList.remove('companion-embedded');
   }
 }
+function renderRarityCrest(rarity = 'common', size = 14) {
+  const colors = {
+    common: '#a4b0be',
+    rare: '#0984e3',
+    epic: '#6c5ce7',
+    legendary: '#d4a034',
+    mythic: '#e84393'
+  };
+  const c = colors[String(rarity).toLowerCase()] || colors.common;
+  return `<svg class="gear-crest" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${c}" stroke-width="2" style="vertical-align:middle;margin-right:5px;filter:drop-shadow(0 0 3px ${c}66);">
+    <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2" fill="${c}" fill-opacity="0.18"/>
+    <circle cx="12" cy="12" r="3" fill="${c}"/>
+  </svg>`;
+}
+
 function renderCompanionCard(){
   const experimental = typeof experimentalSettings==='function' ? experimentalSettings() : {companion:{enabled:false,showOnToday:false}};
   if(!experimental.companion?.enabled || experimental.companion.showOnToday===false){ removeCompanionCard(); removeActivityCompanionEmbed(); return; }
@@ -461,8 +476,11 @@ function renderCompanionCard(){
   const src=snap.settings.miniFrameSrc || COMPANION_MINI_SRC;
   const heroData=companionHeroData();
   const eqWeapon=heroData.equipment?.weapon?.name || 'Basic Staff';
-  const eqArmor=heroData.equipment?.armor?.name || 'Robes';
-  const eqAccessory=heroData.equipment?.accessory?.name || 'Amulet';
+  const eqWeaponRarity=heroData.equipment?.weapon?.rarity || 'common';
+  const eqArmor=heroData.equipment?.armor?.name || 'Apprentice Robes';
+  const eqArmorRarity=heroData.equipment?.armor?.rarity || 'common';
+  const eqAccessory=heroData.equipment?.accessory?.name || 'Mana Amulet';
+  const eqAccessoryRarity=heroData.equipment?.accessory?.rarity || 'rare';
   const heroName=heroData.hero?.name || 'Rudeus Greyrat';
   const heroLvl=heroData.hero?.level || snap.level || 1;
 
@@ -473,9 +491,9 @@ function renderCompanionCard(){
       <em id="companionLevelBadge">Lv ${heroLvl}</em>
     </div>
     <div class="companion-gear-status-bar">
-      <span class="gear-badge" title="Equipped Weapon">🗡️ ${esc(eqWeapon)}</span>
-      <span class="gear-badge" title="Equipped Armor">🛡️ ${esc(eqArmor)}</span>
-      <span class="gear-badge" title="Equipped Accessory">💍 ${esc(eqAccessory)}</span>
+      <span class="gear-badge" title="Equipped Weapon">${renderRarityCrest(eqWeaponRarity)}🗡️ ${esc(eqWeapon)}</span>
+      <span class="gear-badge" title="Equipped Armor">${renderRarityCrest(eqArmorRarity)}🛡️ ${esc(eqArmor)}</span>
+      <span class="gear-badge" title="Equipped Accessory">${renderRarityCrest(eqAccessoryRarity)}💍 ${esc(eqAccessory)}</span>
       <span class="gold-badge" title="Hero Gold">🪙 ${Number(heroData.gold||0).toLocaleString()} G</span>
     </div>
     <div class="companion-compact-actions">

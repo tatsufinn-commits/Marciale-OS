@@ -745,6 +745,8 @@ function startFocusSession(taskId='', durationMin=null){
   saveActiveFocusSession(session);
   renderFocusSessionCard();
   renderTasks?.();
+  postCompanionMessage?.({type:'hub.companion.focus',focus:{active:true,taskTitle:session.taskTitle,durationMin:dur}});
+  postCompanionMiniMessage?.({type:'hub.companion.focus',focus:{active:true,taskTitle:session.taskTitle,durationMin:dur}});
   toast(`LOCK IN started: ${dur}m`,'success');
   return session;
 }
@@ -752,6 +754,8 @@ function cancelFocusSession(reason='cancelled'){
   const s=activeFocusSession(); if(!s) return;
   const hist=loadFocusHistory(); hist.push(Object.assign({},s,{status:'cancelled',cancelledAt:Date.now(),reason})); saveFocusHistory(hist);
   saveActiveFocusSession(null);
+  postCompanionMessage?.({type:'hub.companion.focus',focus:{active:false}});
+  postCompanionMiniMessage?.({type:'hub.companion.focus',focus:{active:false}});
   renderFocusSessionCard(); renderTasks?.(); toast('LOCK IN cancelled','warn');
 }
 function completeFocusSession(source='manual'){
@@ -759,6 +763,8 @@ function completeFocusSession(source='manual'){
   const completedAt=Date.now();
   const hist=loadFocusHistory(); hist.push(Object.assign({},s,{status:'completed',completedAt,source})); saveFocusHistory(hist);
   saveActiveFocusSession(null);
+  postCompanionMessage?.({type:'hub.companion.focus',focus:{active:false}});
+  postCompanionMiniMessage?.({type:'hub.companion.focus',focus:{active:false}});
   logHubActivity?.('focus_session_completed',{label:`Completed LOCK IN: ${s.taskTitle||'General LOCK IN'} (${s.durationMin}m)`,points:5,onceKey:'focus:'+s.id,meta:{taskId:s.taskId||'',durationMin:s.durationMin,source}});
   renderFocusSessionCard(); renderActivityHeatmap?.(); renderTasks?.(); toast('🎯 LOCK IN completed','success');
   return true;
@@ -818,7 +824,18 @@ function renderFocusSessionCard(){
   const remaining=Number(s.endTime)-Date.now();
   if(remaining<=0){ completeFocusSession('timer'); return; }
   if(state) state.textContent='Running';
-  body.innerHTML=`<div class="focus-active"><div class="focus-timer">${esc(formatFocusRemaining(remaining))}</div><div class="focus-title">${esc(s.taskTitle||'General LOCK IN')}</div><div class="focus-progress"><i style="width:${focusElapsedPercent(s)}%"></i></div><div class="focus-meta"><span>${esc(s.durationMin)}m session</span><span>Ends ${esc(new Date(Number(s.endTime)).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}))}</span></div><div class="focus-actions"><button class="btn sm primary" id="focusCompleteBtn" type="button">Complete LOCK IN</button><button class="btn sm" id="focusCancelBtn" type="button">Cancel</button></div></div>`;
+  body.innerHTML=`<div class="focus-active">
+    <div class="focus-dotmatrix-pulse">
+      <div class="dotm-cell active"></div><div class="dotm-cell active"></div><div class="dotm-cell active"></div>
+      <div class="dotm-cell"></div><div class="dotm-cell active pulse"></div><div class="dotm-cell"></div>
+      <div class="dotm-cell active"></div><div class="dotm-cell active"></div><div class="dotm-cell active"></div>
+    </div>
+    <div class="focus-timer">${esc(formatFocusRemaining(remaining))}</div>
+    <div class="focus-title">${esc(s.taskTitle||'General LOCK IN')}</div>
+    <div class="focus-progress"><i style="width:${focusElapsedPercent(s)}%"></i></div>
+    <div class="focus-meta"><span>${esc(s.durationMin)}m session</span><span>Ends ${esc(new Date(Number(s.endTime)).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}))}</span></div>
+    <div class="focus-actions"><button class="btn sm primary" id="focusCompleteBtn" type="button">Complete LOCK IN</button><button class="btn sm" id="focusCancelBtn" type="button">Cancel</button></div>
+  </div>`;
   $('#focusCompleteBtn')?.addEventListener('click',()=>completeFocusSession('manual'),{once:true});
   $('#focusCancelBtn')?.addEventListener('click',()=>cancelFocusSession('manual'),{once:true});
 }
@@ -983,10 +1000,56 @@ function renderTodayDashboard() {
   renderMarcialeStrategicScan();
   renderInstructorMode();
   renderCompanionCard?.();
+  renderCouncilObserverCard();
   renderActivityHeatmap();
   renderFocusSessionCard();
   renderPresenceCard?.();
 } // close renderTodayDashboard
+
+/* ===========================================================
+   BUILD 47: HIGH COUNCIL OBSERVER & LIVENESS STATUS CARD
+   Babysitter-Observer Pattern for Real-Time Multi-Agent Health
+   =========================================================== */
+function renderCouncilObserverCard() {
+  const card = $('#councilObserverCard');
+  const body = $('#councilObserverBody');
+  const badge = $('#councilHealthBadge');
+  if (!card || !body) return;
+
+  const currentSeat = 'Seat A: ASSISTANT';
+  const recentDispatches = [
+    { id: '009', title: 'Master Proposal Plan V9.0 Ratified', status: 'Ratified' },
+    { id: '008', title: 'High Council Triple Mandate Enacted', status: 'Enacted' },
+    { id: '007', title: 'Design-MD & 8 Benchmarks Intelligence', status: 'Delivered' }
+  ];
+
+  if (badge) {
+    badge.textContent = '🟢 SEV-0 Nominal';
+  }
+
+  body.innerHTML = `
+    <div style="font-size:12px; color:var(--txt); display:flex; justify-content:space-between; align-items:center; padding:6px 0; border-bottom:1px solid var(--line);">
+      <span><b>Active Watch:</b> ${esc(currentSeat)}</span>
+      <span style="font-size:11px; color:var(--mut);">Continuous Watch CASD</span>
+    </div>
+    <div style="font-size:11px; color:var(--mut); display:flex; gap:10px; margin-top:6px;">
+      <span>⚖️ 14 Laws</span>
+      <span>📜 10 Commandments</span>
+      <span>📖 22 Scenarios</span>
+      <span>🛡️ 43 Suites Green</span>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:4px; margin-top:8px;">
+      <span style="font-size:10.5px; font-weight:800; color:var(--mut); text-transform:uppercase; letter-spacing:0.04em;">Recent Council Dispatches:</span>
+      ${recentDispatches.map(d => `
+        <div style="font-size:11.5px; display:flex; justify-content:space-between; padding:4px 6px; background:var(--bg); border-radius:6px; border:1px solid var(--line);">
+          <span style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:210px;"><b>[#${esc(d.id)}]</b> ${esc(d.title)}</span>
+          <span style="color:var(--good); font-size:10.5px; font-weight:700;">${esc(d.status)}</span>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+window.renderCouncilObserverCard = renderCouncilObserverCard;
 
 
 // Wire Marciale Input

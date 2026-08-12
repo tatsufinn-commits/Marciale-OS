@@ -67,4 +67,49 @@ frame.destroy();
 assert.strictEqual(testContainer.innerHTML, '', 'HubFrame.destroy should clean up');
 console.log('  ✅ HubFrame component');
 
+// --- Build 44: Persistent Memory (Claude-Mem Pattern) ---
+const memSandbox = createSandbox();
+loadScripts(memSandbox, [
+  'modules/00-storage.js',
+  'modules/00-utils-config.js',
+  'modules/08-assistant.js'
+]);
+
+assert.ok(typeof memSandbox.window.savePersistentMemory === 'function', 'savePersistentMemory should be exposed');
+const mem1 = memSandbox.window.savePersistentMemory('User requires 5.7h caffeine half-life decay modeling', 'caffeine', 5);
+assert.ok(mem1 && mem1.id, 'savePersistentMemory should return created memory object');
+assert.strictEqual(mem1.topic, 'caffeine');
+
+const mem2 = memSandbox.window.savePersistentMemory('Companion RPG must throttle to 5 FPS in background tabs', 'power', 4);
+const allMems = memSandbox.window.loadPersistentMemories();
+assert.strictEqual(allMems.length, 2, 'loadPersistentMemories should return all saved memories');
+
+const promptBlock = memSandbox.window.persistentMemoryPromptBlock();
+assert.ok(promptBlock.includes('CAFFEINE'), 'prompt block should format topic');
+assert.ok(promptBlock.includes('5.7h caffeine half-life'), 'prompt block should contain fact');
+
+memSandbox.window.removePersistentMemory(mem1.id);
+assert.strictEqual(memSandbox.window.loadPersistentMemories().length, 1, 'removePersistentMemory should delete specified memory');
+console.log('  ✅ Persistent Memory (Claude-Mem Pattern) verified');
+
+// --- Build 45: Code-Aware Tool & Payload Compressor (Headroom Pattern) ---
+assert.ok(typeof memSandbox.window.compressPayload === 'function', 'compressPayload should be exposed');
+const samplePayload = {
+  active: true,
+  emptyArray: [],
+  nullField: null,
+  emptyString: '',
+  data: { valid: 'test', redundant: null },
+  comments: '/* remove this comment */ function test() {\n  // another comment\n  return 42;\n}'
+};
+
+const compressed = memSandbox.window.compressPayload(samplePayload);
+assert.ok(!compressed.includes('nullField'), 'compressPayload should prune null keys');
+assert.ok(!compressed.includes('emptyArray'), 'compressPayload should prune empty arrays');
+assert.ok(compressed.includes('valid'), 'compressPayload should retain valid data');
+
+const metrics = memSandbox.window.calculateCompressionMetrics(samplePayload, compressed);
+assert.ok(metrics.tokenSavingsPct > 0, 'compression metrics should report positive token savings');
+console.log(`  ✅ Code-Aware Token Compressor (Headroom Pattern) verified (${metrics.tokenSavingsPct}% savings)`);
+
 console.log('✅ Hub namespace unit tests passed');
