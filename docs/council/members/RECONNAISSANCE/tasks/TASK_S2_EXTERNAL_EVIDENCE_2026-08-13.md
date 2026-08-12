@@ -55,9 +55,10 @@ For each: SOURCE → OBSERVED → PURPOSE → VALUE EVIDENCE → LIMITS → MARC
 ## Hard stops
 
 - No `AI_RULES` / shrine / `SYSTEM_STATE` / comm log / TheHUB / Gamecompanion writes  
-- No full-repo zip onto `main`  
+- **No full-repo zip onto `main`**
+- **MUST emit `MARCIALE_OS_RESEARCH_DROP.zip` = `research/` only** (PATH §11 / Cmd I Seat R). Seat A cannot cancel that drop. Older “no zip” = no *house* zip.
 - No invented effectiveness scores  
-- If you cannot pull or the mountain returns: **Law XVIII** — stop; Seat A can file hotfix  
+- If you cannot pull: **Law XVIII** — stop; still ship the research-only zip if the dossier exists  
 
 ## Done
 
