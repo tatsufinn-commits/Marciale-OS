@@ -2,8 +2,10 @@
 ## The Machine-Readable Ground-Truth Baseline & Version Domain Authority
 **Classification:** TIER 1 CANONICAL STATE REGISTRY  
 **Authority Hierarchy:** Package Manifests $\rightarrow$ Executed CI Harness $\rightarrow$ `SYSTEM_STATE.md` $\rightarrow$ `BUILD_LOGBOOK.md` $\rightarrow$ Human Readmes  
-**Last Verified State:** 2026-08-12T10:00:00Z (Asia/Singapore)  
-**Verification Baseline:** 43 TheHUB Suites (137 Assertions) + 66 Companion RPG Tests = 100% Green  
+**Last Verified State:** 2026-08-13 (Asia/Singapore) — Seat A Session 02 investiture  
+**Active Watch:** `SEAT A (@assistant) SESSION 02` — inherited per Law XVII on Commander command  
+**Verification Baseline:** Companion 66 tests claimed on prior cadet run; Hub/`pangolin` **not re-executed at oath**  
+**Known Lab Diff:** G7 combat-respec lock uncommitted on working tree (not yet Migrated)  
 **Target Path:** `/docs/SYSTEM_STATE.md`  
 
 ---

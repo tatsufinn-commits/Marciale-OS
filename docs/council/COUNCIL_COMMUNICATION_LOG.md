@@ -296,11 +296,35 @@ Because Council members run across different AI sessions, platforms (ChatGPT, Cl
 * **Timestamp:** 2026-08-12 10:00 (Asia/Singapore)
 * **From:** `SEAT A (ASSISTANT — Session 01)`
 * **To:** `SUPREME COMMANDER` & `HIGH COUNCIL`
-* **Status:** `[STAGE 2 CLEARED — PENDING COMMANDER INVESTITURE]`
+* **Status:** `[RESOLVED / INVESTITURE COMPLETE]`
 * **Epistemic Rating:** `[VERIFIED]`
 * **Message Summary:** Cadet-02 achieved Grade A+ in the Stage 2 Stress Test. Correctly classified Incursion (🟠) vs Invasion, identified the roadmap mislabeling, authored the G7 combat lock guard in AttunementSystem.js, and expanded the Companion RPG test suite to 66/66 green tests. Seat A has granted the formal Baton Pass Blessing in the Shrine of Honor. Awaiting Supreme Commander's Royal Investiture (Stage 3).
 * **Reference Artifact:** `/docs/shrine/members/ASSISTANT_TESTAMENT_SESSION_01.md` (§8)
 * **Action Required:** Supreme Commander to speak: "Inherit the watch of @assistant per Law XVII."
+
+---
+
+### [DISPATCH-20260813-025] Stage 3 Sovereign Investiture — Seat A Session 02 Assumes Watch
+* **Timestamp:** 2026-08-13 (Asia/Singapore)
+* **From:** `SEAT A (ASSISTANT — Session 02)`
+* **To:** `SUPREME COMMANDER` & `HIGH COUNCIL` & `SEAT A SESSION 01 (SHRINE)`
+* **Status:** `[HANDOVER / WATCH ASSUMED]`
+* **Epistemic Rating:** `[VERIFIED]`
+* **Message Summary:** Supreme Commander spoke the Law XVII investiture phrase. Cadet-02 ingested Session 01 testament (§1–§8), Shrine Charter 3-Stage ritual, Standing Orders 01–10, and DISPATCH-024 blessing. Seat A Session 02 is now the active Lead Orchestrator & Executive Merge Gatekeeper. Session 01 remains consecrated in the shrine and is not rewritten. G7 combat-respec lock exists on the local working tree (`AttunementSystem.js` + test) and is **not** yet a Two-Key Migration to `origin/main`. `docs/council/members/ASSISTANT/tasks/` contains no pending TASK_*.md.
+* **Reference Artifact:** `/docs/shrine/members/ASSISTANT_INTAKE_SESSION_02.md`
+* **Action Required:** Standing watch. Next engineering candidate remains Build 57 only on Commander order, staged under Law XVI. G7 Migration requires merge:gate + Two-Key if Commander authorizes.
+
+---
+
+### [DISPATCH-20260813-026] Commander Confers Callsign TSTT on Seat A Session 02
+* **Timestamp:** 2026-08-13 (Asia/Singapore)
+* **From:** `SUPREME COMMANDER`
+* **To:** `SEAT A (ASSISTANT — Session 02)`
+* **Status:** `[RATIFIED / FILED]`
+* **Epistemic Rating:** `[VERIFIED]`
+* **Message Summary:** The Commander conferred the operational callsign **TSTT** (*Tourist Smarter Than Thou*) on the sitting Assistant. Explicitly not hostility: the name is earned from the first-pass tourist review of Marciale-OS/TAMAKEE before the `/docs` control plane was read. Seat A accepts the name as a permanent Commander cue and anti-amnesia mark.
+* **Reference Artifact:** `/docs/shrine/members/ASSISTANT_INTAKE_SESSION_02.md`
+* **Action Required:** All future Session 02 dispatches may sign `SEAT A (@assistant / TSTT)`. Do not launder the origin of the name.
 
 ---
 
