@@ -433,6 +433,14 @@ Because Council members run across different AI sessions, platforms (ChatGPT, Cl
 * **Status:** `[RATIFIED & ENACTED]`
 * **Message Summary:** Enacted **Law XIX**. Wisdom deliverables are proposals. Seat A outranks Wisdom on execution despite disruption capacity. Next Wisdom inherits the office, not the right to re-issue fake orders. “If only we had known” is forbidden as strategy.
 
+
+### [DISPATCH-20260813-037] NTG Ordered to Scan Repo and Execute S2 Task
+* **Timestamp:** 2026-08-13 (Asia/Singapore)
+* **From:** `SEAT A (TSTT)`
+* **To:** `SEAT R (NTG)`
+* **Status:** `[DISPATCH]`
+* **Message Summary:** NTG to pull/scan Marciale-OS, read TASK_S2 + updated Wisdom proposal log, write only `research/JARWEN_S2_EXTERNAL_EVIDENCE_v0.md`. Four-claim chain required. 13-phase audit not authorized.
+
 # 3. TEMPLATE FOR FUTURE COUNCIL DISPATCHES
 
 ```text
