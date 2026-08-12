@@ -97,7 +97,11 @@ export class CanvasRenderer {
     } else {
       // Procedural Pixel-Art Fallback
       if (type === 'hero') {
-        this.drawProceduralHero(entity, x, y, width, height);
+        if (this._isStudying) {
+          this.drawProceduralHeroStudy(entity, x, y, width, height);
+        } else {
+          this.drawProceduralHero(entity, x, y, width, height);
+        }
       } else {
         this.drawProceduralMonster(entity, x, y, width, height);
       }
@@ -105,8 +109,45 @@ export class CanvasRenderer {
 
     if (type === 'enemy' && entity.maxHp) this.drawHealthBar(entity);
     if (type === 'hero') {
-      this.drawText(entity.displayName || 'Rudeus', x + width / 2, y - 8, '#00f0ff', 'bold 9px monospace', 'center');
+      const title = this._isStudying ? '✦ LOCK IN STUDYING' : (entity.displayName || 'Rudeus');
+      const color = this._isStudying ? '#ffd700' : '#00f0ff';
+      this.drawText(title, x + width / 2, y - 8, color, 'bold 9px monospace', 'center');
     }
+  }
+
+  setFocusState(isStudying = false, taskTitle = '') {
+    this._isStudying = Boolean(isStudying);
+    this._focusTaskTitle = String(taskTitle || '');
+  }
+
+  drawProceduralHeroStudy(entity, x, y, w, h) {
+    const time = Date.now() / 1000;
+    const breathe = Math.sin(time * 3) * 1.0;
+    const px = Math.round(x);
+    const py = Math.round(y + breathe);
+
+    // Seated / Meditative Robe Body
+    this.drawRect(px + 2, py + 14, w - 4, h - 14, '#1e3a8a');
+    this.drawRect(px + 4, py + 16, w - 8, h - 16, '#2563eb');
+    // Golden Belt
+    this.drawRect(px + 4, py + 22, w - 8, 3, '#f59e0b');
+
+    // Head / Skin
+    this.drawRect(px + 6, py + 6, w - 12, 10, '#fde047');
+    // Hair
+    this.drawRect(px + 4, py + 4, w - 8, 5, '#92400e');
+    // Focused Eyes (Cast downward at book)
+    this.drawRect(px + 9, py + 11, 3, 2, '#00f0ff');
+    this.drawRect(px + 15, py + 11, 3, 2, '#00f0ff');
+
+    // Spellbook / Ancient Tome held in lap
+    const bookPulse = (Math.sin(time * 6) + 1) / 2;
+    this.drawRect(px + 4, py + 18, w - 8, 8, '#831843'); // Burgundy leather cover
+    this.drawRect(px + 6, py + 19, w - 12, 6, '#fef08a'); // Glowing gold parchment pages
+    // Floating magic runes
+    const runeAlpha = 0.4 + bookPulse * 0.5;
+    this.drawRect(px + 9, py + 15 - Math.round(bookPulse * 4), 2, 2, `rgba(212, 160, 52, ${runeAlpha})`);
+    this.drawRect(px + 15, py + 13 - Math.round(bookPulse * 3), 2, 2, `rgba(0, 240, 255, ${runeAlpha})`);
   }
 
   drawProceduralHero(entity, x, y, w, h) {

@@ -3,7 +3,7 @@
  * Supports dual event signatures: idlehero.* (TheHUB 1.5+) and mtgame.* (Companion RPG).
  */
 export class TheHUBBridge {
-  constructor({ onReward = null, onPause = null, onResume = null, onTheme = null, hubOrigin = null } = {}) {
+  constructor({ onReward = null, onPause = null, onResume = null, onTheme = null, onFocus = null, hubOrigin = null } = {}) {
     this._ready = false;
     this._hubOrigin = hubOrigin || (typeof window !== 'undefined' && window.location && window.location.origin && window.location.origin !== 'null' ? window.location.origin : '*');
     this._pendingRewards = [];
@@ -11,6 +11,7 @@ export class TheHUBBridge {
     this._onPause = onPause;
     this._onResume = onResume;
     this._onTheme = onTheme;
+    this._onFocus = onFocus;
   }
 
   init() {
@@ -38,6 +39,10 @@ export class TheHUBBridge {
       case 'hub.companion.snapshot':
         console.debug('[HUB Bridge] Snapshot received:', data.payload || data.snapshot);
         break;
+      case 'hub.companion.focus':
+      case 'hub.focus.state':
+        this._handleFocus(data.payload || data.focus || data);
+        break;
       case 'hub.companion.pause':
         this._pauseGame();
         break;
@@ -48,6 +53,11 @@ export class TheHUBBridge {
         this._applyTheme(data.payload || data.theme);
         break;
     }
+  }
+
+  _handleFocus(focusData) {
+    if (this._onFocus) this._onFocus(focusData);
+    window.dispatchEvent(new CustomEvent('tbh-focus-state', { detail: focusData }));
   }
 
   _send(type, payload = {}) {

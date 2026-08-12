@@ -32,6 +32,16 @@ import { RosterSystem } from './systems/RosterSystem.js';
 import { ZoneContentSystem } from './systems/ZoneContentSystem.js';
 import zoneData from './data/zones.json';
 import { AudioSystem } from './systems/AudioSystem.js';
+import { QuestSystem } from './systems/QuestSystem.js';
+import { quests as questData } from './data/quests.js';
+import { AchievementSystem } from './systems/AchievementSystem.js';
+import { achievements as achievementData } from './data/achievements.js';
+import { DialogueSystem } from './systems/DialogueSystem.js';
+import { dialogueTrees } from './data/dialogue/chapters.js';
+import { AffinitySystem } from './systems/AffinitySystem.js';
+import { companionAffinities } from './data/companionAffinities.js';
+import { FactionSystem } from './systems/FactionSystem.js';
+import { factions as factionData } from './data/factions.js';
 import { TheHUBBridge } from './integration/TheHUBBridge.js';
 
 const AUTO_SAVE_INTERVAL = 120000;
@@ -76,6 +86,87 @@ async function boot() {
   document.querySelector('#zones')?.addEventListener('click', () => { const rows=zoneData.zones.map(z=>`<li><strong>${z.name}</strong> — ${zoneContentSystem.getStages(z.id).length} stages</li>`).join(''); modal.show({title:'World zones',body:`<ul class="inventory-list">${rows}</ul>`,actions:[{label:'Close',kind:'primary',onClick:()=>modal.close()}]}); });
   const rosterSystem = new RosterSystem({ stateManager, templates: heroData.weavers });
   document.querySelector('#roster')?.addEventListener('click', () => { const rows=rosterSystem.getRoster().map(x=>`<li>${x.name} — ${x.unlocked ? 'Unlocked' : 'Locked'}</li>`).join(''); modal.show({title:'Character roster',body:`<ul class="inventory-list">${rows}</ul>`,actions:[{label:'Close',kind:'primary',onClick:()=>modal.close()}]}); });
+  const questSystem = new QuestSystem({ stateManager, eventBus, events: Events, questTemplates: questData });
+  document.querySelector('#quests')?.addEventListener('click', () => {
+    const active = questSystem.getActiveQuests();
+    const rows = active.length
+      ? active.map(q => `<li><strong>${q.title}</strong> <em>(${q.type.toUpperCase()})</em><br><small>${q.description}</small> [${q.progress}/${q.targetCount}] ${q.completed ? '✅ Completed' : '⏳ In Progress'}</li>`).join('')
+      : '<li>No active quests.</li>';
+    modal.show({ title: '📜 Quest Journal', body: `<ul class="inventory-list">${rows}</ul>`, actions: [{ label: 'Close', kind: 'primary', onClick: () => modal.close() }] });
+  });
+  const achievementSystem = new AchievementSystem({ stateManager, eventBus, events: Events, achievementTemplates: achievementData });
+  eventBus.on(Events.ACHIEVEMENT_UNLOCKED, ({ achievement }) => {
+    audioSystem.play('levelup');
+    particles.addFloatingText({ x: 300, y: 145 }, `🏆 UNLOCKED: ${achievement.title}`, '#ffd700', { lifetime: 3000 });
+    particles.addBurst({ x: 300, y: 145 }, '#ffd700', 10);
+    bridge?.reportAchievement(achievement.id);
+  });
+  document.querySelector('#achievements')?.addEventListener('click', () => {
+    const list = achievementSystem.getAchievements();
+    const rows = list.length
+      ? list.map(a => `<li>${a.icon} <strong>${a.title}</strong> — ${a.description} [${a.progress}/${a.targetCount}] ${a.unlocked ? '🏆 UNLOCKED (+'+(a.rewards?.gold||0)+'G)' : '🔒 Locked'}</li>`).join('')
+      : '<li>No achievements found.</li>';
+    modal.show({ title: '🏆 Trophy Showcase', body: `<ul class="inventory-list">${rows}</ul>`, actions: [{ label: 'Close', kind: 'primary', onClick: () => modal.close() }] });
+  });
+  const dialogueSystem = new DialogueSystem({ stateManager, eventBus, events: Events, dialogueTrees });
+  const renderDialogueModal = () => {
+    const node = dialogueSystem.getCurrentNode();
+    if (!node) { modal.close(); return; }
+
+    const choicesHtml = (node.choices && node.choices.length)
+      ? node.choices.map((c, idx) => `<button class="btn dialogue-choice-btn" data-choice="${idx}" style="display:block;width:100%;margin:6px 0;text-align:left;padding:8px 12px;background:#1e293b;border:1px solid #334155;color:#f8fafc;border-radius:6px;cursor:pointer;">➤ ${c.text}</button>`).join('')
+      : '<p style="color:#94a3b8;font-style:italic;">[Scene Concluded]</p>';
+
+    modal.show({
+      title: `💬 ${node.treeTitle || 'Story Scene'} · ${node.speakerName}`,
+      body: `
+        <div class="dialogue-box" style="padding:10px 0;">
+          <p style="font-size:14px;line-height:1.5;color:#e2e8f0;margin-bottom:14px;">"${node.text}"</p>
+          <div class="dialogue-choices">${choicesHtml}</div>
+        </div>
+      `,
+      actions: (node.choices && node.choices.length) ? [] : [{ label: 'Continue Journey', kind: 'primary', onClick: () => modal.close() }]
+    });
+
+    document.querySelectorAll('.dialogue-choice-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const idx = Number(e.currentTarget.dataset.choice);
+        audioSystem.play('hit');
+        dialogueSystem.selectChoice(idx);
+        renderDialogueModal();
+      });
+    });
+  };
+  document.querySelector('#story-dialogue')?.addEventListener('click', () => {
+    dialogueSystem.startDialogue('ch1_vaela_meeting');
+    renderDialogueModal();
+  });
+  const affinitySystem = new AffinitySystem({ stateManager, eventBus, events: Events, affinityTemplates: companionAffinities });
+  eventBus.on(Events.AFFINITY_MILESTONE, ({ milestone }) => {
+    audioSystem.play('levelup');
+    particles.addFloatingText({ x: 300, y: 145 }, `💖 BOND UNLOCKED: ${milestone.tier}`, '#ff7675', { lifetime: 3200 });
+    particles.addBurst({ x: 300, y: 145 }, '#ff7675', 12);
+  });
+  document.querySelector('#affinity')?.addEventListener('click', () => {
+    const list = affinitySystem.getAllCompanionStatus();
+    const rows = list.length
+      ? list.map(c => `<li>${c.avatar} <strong>${c.name}</strong> <em>(${c.tier})</em><br><small style="color:#a4b0be;">${c.description}</small> [Affinity: ${c.affinity}/100]</li>`).join('')
+      : '<li>No companions bonded.</li>';
+    modal.show({ title: '💖 Companion Relationship Bonds', body: `<ul class="inventory-list">${rows}</ul>`, actions: [{ label: 'Close', kind: 'primary', onClick: () => modal.close() }] });
+  });
+  const factionSystem = new FactionSystem({ stateManager, eventBus, events: Events, factionTemplates: factionData });
+  eventBus.on(Events.FACTION_RANK_UNLOCKED, ({ rank }) => {
+    audioSystem.play('levelup');
+    particles.addFloatingText({ x: 300, y: 145 }, `🛡️ FACTION RANK: ${rank.name}`, '#38bdf8', { lifetime: 3200 });
+    particles.addBurst({ x: 300, y: 145 }, '#38bdf8', 12);
+  });
+  document.querySelector('#factions')?.addEventListener('click', () => {
+    const list = factionSystem.getAllFactions();
+    const rows = list.length
+      ? list.map(f => `<li>${f.icon} <strong>${f.name}</strong> [Rank: ${f.currentRank} · Rep: ${f.reputation}]<br><small style="color:#38bdf8;">Perk: ${f.perk}</small><br><small style="color:#a4b0be;">${f.description}</small></li>`).join('')
+      : '<li>No factions discovered.</li>';
+    modal.show({ title: '🛡️ Guild Factions & Reputation', body: `<ul class="inventory-list">${rows}</ul>`, actions: [{ label: 'Close', kind: 'primary', onClick: () => modal.close() }] });
+  });
   const progressionSystem = new ProgressionSystem({ stateManager, eventBus, events: Events });
   eventBus.on(Events.MONSTER_KILLED, (payload) => { lootEngine.onMonsterKilled(payload); progressionSystem.grantXp(payload.xp ?? 0); });
   eventBus.on(Events.STAGE_CLEARED, ({ stageId }) => lootEngine.dropStageChest(stageId));
@@ -132,6 +223,14 @@ async function boot() {
     onResume: () => {
       gameLoop.setTargetFPS(60);
       timeKeeper.resume();
+    },
+    onFocus: (focus) => {
+      const active = !!(focus && focus.active);
+      renderer.setFocusState(active, focus?.taskTitle || focus?.title || '');
+      if (active) {
+        particles.addFloatingText({ x: 300, y: 145 }, '✦ LOCK IN FOCUS', '#ffd700', { lifetime: 2500 });
+        particles.addBurst({ x: 300, y: 145 }, '#ffd700', 6);
+      }
     },
     onTheme: (theme) => {
       if (theme && theme.primary) document.documentElement.style.setProperty('--primary', theme.primary);

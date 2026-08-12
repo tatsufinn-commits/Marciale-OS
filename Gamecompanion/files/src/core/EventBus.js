@@ -15,6 +15,9 @@ export const Events = Object.freeze({
   WEAVER_LEVEL_UP: 'weaver:level_up', WEAVER_SKILL_UNLOCKED: 'weaver:skill_unlocked', AFFINITY_CHANGED: 'affinity:changed', AFFINITY_MILESTONE: 'affinity:milestone', PERSONAL_QUEST_PROGRESS: 'quest:personal_progress', WEAVER_DEPARTED: 'weaver:departed',
   ZONE_UNLOCKED: 'zone:unlocked', DIFFICULTY_UNLOCKED: 'difficulty:unlocked', ATTUNEMENT_POINT_EARNED: 'attunement:point',
   GOLD_CHANGED: 'gold:changed', DUST_CHANGED: 'dust:changed', GAME_SAVED: 'game:saved', OFFLINE_REWARDS_COLLECTED: 'offline:rewards', ACHIEVEMENT_UNLOCKED: 'achievement:unlocked',
+  QUEST_STARTED: 'quest:started', QUEST_PROGRESS: 'quest:progress', QUEST_COMPLETED: 'quest:completed',
+  DIALOGUE_STARTED: 'dialogue:started', DIALOGUE_CHOICE_SELECTED: 'dialogue:choice_selected', DIALOGUE_ENDED: 'dialogue:ended',
+  FACTION_REP_CHANGED: 'faction:rep_changed', FACTION_RANK_UNLOCKED: 'faction:rank_unlocked',
   HUB_ACTIVITY_RECEIVED: 'hub:activity', HUB_REWARD_ACKNOWLEDGED: 'hub:reward_ack', TAB_CHANGED: 'tab:changed', MODE_CHANGED: 'mode:changed', TOOLTIP_SHOWN: 'tooltip:shown', TOOLTIP_HIDDEN: 'tooltip:hidden'
 });
 export const eventBus = new EventBus();
