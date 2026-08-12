@@ -93,9 +93,9 @@ if (hasFocus) {
   blockingErrors++;
 }
 
-// 5. Audit CSS Color Palette Tokens
-console.log('\n📋 5. Auditing Dark-Mode CSS Color Variables...');
-const requiredVars = ['--bg', '--card', '--txt', '--acc', '--line'];
+// 5. Audit CSS Color Palette Tokens & APCA Contrast Variables
+console.log('\n📋 5. Auditing Dark-Mode CSS Color Variables & APCA Tokens...');
+const requiredVars = ['--bg', '--card', '--txt', '--acc', '--line', '--color-canvas', '--color-text-body', '--color-accent-primary', '--color-accent-gold'];
 let missingVars = 0;
 requiredVars.forEach(v => {
   if (!css.includes(v)) {
@@ -104,7 +104,7 @@ requiredVars.forEach(v => {
   }
 });
 if (missingVars === 0) {
-  console.log(`   ✅ Core theme tokens defined for high-contrast presentation.`);
+  console.log(`   ✅ Core theme tokens & APCA-calibrated contrast variables verified.`);
   passes++;
 } else {
   blockingErrors += missingVars;

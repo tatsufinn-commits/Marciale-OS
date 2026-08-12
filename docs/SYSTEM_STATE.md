@@ -37,11 +37,20 @@ RESEARCH REPO: Canonical Intelligence Archive (/home/user/Marciale-OS/research/)
 
 # 3. VERIFIED RECENT ENGINEERING BUILDS
 
-* **Build 39:** Zero-Asset Procedural Web Audio SFX Engine (`AudioSystem.js` & `window.playHubSound`).
-* **Build 40:** Pharmacokinetic Half-Life Calibration ($t_{1/2} = 5.7\text{h}$) & Iframe Origin Hardening.
-* **Milestone G01:** Web Department Integration & Constitutional Governance Amendment.
-* **Milestone G02:** `@pangolin` Autonomous Field Repair Officer & SRE Sentinel Loop (`npm run pangolin`).
-* **Master Proposal V9.0:** Next-Gen Architecture & Sequential Builds 41–48 Ratified in `/research/proposals/`.
+* **Build 41:** Linear & Raycast `Ctrl+K` Command Palette Quick-Dispatch HUD.
+* **Build 42:** Pure CSS Dot-Matrix Motion Loaders & Radar Sweep (`dotmatrix` pattern).
+* **Build 43:** Geometric Vector SVG Badges & Rarity Crests (`shapes.gallery` pattern).
+* **Build 44:** Marciale AI Persistent Cross-Session Memory Store (`claude-mem` pattern).
+* **Build 45:** Code-Aware Tool Output & Payload Compressor (`headroom` pattern).
+* **Build 46:** APCA-Calibrated Circadian Dynamic Contrast Tokens (`randoma11y` pattern).
+* **Build 47:** High Council Real-Time Observer & Liveness Status Card (`babysitter` pattern).
+* **Build 48:** Spirit City Ambient Focus Body-Doubling in Canvas RPG.
+* **Build 49 (Aetherweave Build 21):** Quest System & Daily Journal Foundation (36 RPG Tests).
+* **Build 50 (Aetherweave Build 22):** Achievement System & Trophy Showcase (38 RPG Tests).
+* **Build 51 (Aetherweave Build 23):** NPC & Branching Dialogue Engine (39 RPG Tests).
+* **Build 52 (Aetherweave Build 24):** Affinity & Companion Relationship System (40 RPG Tests).
+* **Build 53 (Aetherweave Build 25):** Faction Reputation & Guild Supply System (41 RPG Tests).
+* **Master Roadmap V9.0:** 100% COMPLETED & VERIFIED in Production across all 8 Milestones (Builds 41–48).
 
 ---
 

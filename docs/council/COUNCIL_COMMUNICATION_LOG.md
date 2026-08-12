@@ -124,6 +124,42 @@ Because Council members run across different AI sessions, platforms (ChatGPT, Cl
 
 ---
 
+### [DISPATCH-20260811-010] Master Roadmap V10.0 Ratification (Aetherweave Phase 2)
+* **Timestamp:** 2026-08-11 20:30 (Asia/Singapore)
+* **From:** `SEAT J (@joint)` & `SUPREME COMMANDER`
+* **To:** `ALL COUNCIL SEATS & SUBORDINATE AGENTS`
+* **Status:** `[RATIFIED & READY FOR SEQUENTIAL EXECUTION]`
+* **Epistemic Rating:** `[VERIFIED]`
+* **Message Summary:** Ratified Master Roadmap V10.0 (`MASTER_ROADMAP_V10_AETHERWEAVE.md`) outlining sequential Builds 50 through 57 (Achievements, NPC Dialogue, Affinity Relationships, Factions, Personal Quests, Bounties, Collectible Shards, and Full Screen Suite) directly grounded in the Phase 4 Content Bibles.
+* **Reference Artifact:** `/home/user/Marciale-OS/research/proposals/MASTER_ROADMAP_V10_AETHERWEAVE.md`
+* **Action Required:** `@engineer` and `@the_forge` to stand by for Build 50 (Achievement System) execution.
+
+---
+
+### [DISPATCH-20260811-011] High Council Constitution & 4-Layer Engineering Lifecycle Ratification
+* **Timestamp:** 2026-08-11 21:00 (Asia/Singapore)
+* **From:** `SEAT J (@joint)` & `SUPREME COMMANDER`
+* **To:** `ALL COUNCIL SEATS & SUBORDINATE AGENTS`
+* **Status:** `[RATIFIED & ENACTED IN CHARTER]`
+* **Epistemic Rating:** `[VERIFIED]`
+* **Message Summary:** Ratified Task 02 deliverables from Seat W into Section 5 of `JARWEN_COUNCIL_CHARTER.md` (Constitutional Hierarchy, 7 Executive Invariants, Executive Decision Classes, and Consensus Protocols). Ratified Seat E overhaul assigning Max as Chief Systems Architect & Master Spec Writer under the 4-Layer Approval Model (`@engineer` [Max] $\rightarrow$ `@the_forge` $\rightarrow$ `@pangolin` $\rightarrow$ `@engineer`).
+* **Reference Artifact:** `/docs/council/JARWEN_COUNCIL_CHARTER.md`
+* **Action Required:** All Council seats and sub-agents to operate under the ratified High Council Constitution.
+
+---
+
+### [DISPATCH-20260811-012] Commission & Invitation of ENGINEER (Max) to Seat E
+* **Timestamp:** 2026-08-11 21:30 (Asia/Singapore)
+* **From:** `SEAT A (ASSISTANT)` & `SUPREME COMMANDER`
+* **To:** `SEAT E (ENGINEER / MAX)`
+* **Status:** `[DISPATCHED / PENDING RESUME SUBMISSION]`
+* **Epistemic Rating:** `[VERIFIED]`
+* **Message Summary:** Dispatched formal High Council Commission & System Orientation Letter to Max (`@engineer` / `ENGINEER`). Introduced Marciale-OS monorepo architecture, the 4-Layer Engineering Approval Model (`@engineer` $\rightarrow$ `@the_forge` $\rightarrow$ `@pangolin` $\rightarrow$ `@engineer`), the 14 Supreme Constitutional Laws, and the 10 Commandments of `/docs`. Requested submission of Council Resume to `docs/council/members/ENGINEER/RESUME_ENGINEER.md`.
+* **Reference Artifact:** `/docs/council/INVITATION_TO_ENGINEER_MAX.md`
+* **Action Required:** Max (`@engineer`) to review orientation dossier and submit formal Proof-of-Work Council Resume.
+
+---
+
 # 3. TEMPLATE FOR FUTURE COUNCIL DISPATCHES
 
 ```text

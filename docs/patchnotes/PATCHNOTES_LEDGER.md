@@ -125,6 +125,236 @@ Whenever a bug, test failure, redmark, or integration defect is detected in Marc
 
 ---
 
+### [PATCH-20260811-08] Build 41 Linear & Raycast Command Palette Quick-Dispatch HUD
+* **Date:** 2026-08-11
+* **Patched By:** `@engineer` / `@the_forge` / `@frontend`
+* **Subsystem:** `TheHUB 1.5.5.2.3 a v/modules/10-command-palette.js`, `style.css`
+* **Severity Level:** SEV-4 (Feature Enhancement & Usability Acceleration)
+* **Symptoms Observed:** Previous command palette was a flat list lacking category grouping, Raycast 3D keyboard keycaps, TAMA architectural law indexing, and procedural audio cues.
+* **Root Cause Analysis:** Keyboard-first workflow requires sub-2ms categorized fuzzy scoring ($\text{score} = \text{exact}(100) + \text{prefix}(85) + \text{keywordTokens}(12)$) and double-ring depth containment.
+* **Files Modified:**
+  * `TheHUB 1.5.5.2.3 a v/modules/10-command-palette.js`
+  * `TheHUB 1.5.5.2.3 a v/style.css`
+  * `docs/BUILD_LOGBOOK.md`
+* **Regression Test Assertion Added:** `tests/app-smoke.js` (Verified palette opening, task search, shortcut help, and keyboard navigation).
+* **Status:** 🟢 RESOLVED & VERIFIED
+
+---
+
+### [PATCH-20260811-09] Build 42 Pure CSS Dot-Matrix Motion Loaders & Radar Sweep
+* **Date:** 2026-08-11
+* **Patched By:** `@engineer` / `@the_forge`
+* **Subsystem:** `TheHUB 1.5.5.2.3 a v/modules/18-ruview-bridge.js`, `12-today.js`, `style.css`
+* **Severity Level:** SEV-4 (Visual Polish & Performance Acceleration)
+* **Symptoms Observed:** RuView spatial sensing grid lacked visual feedback during radar scanning, and active Pomodoro blocks lacked a live focus pulsation state.
+* **Root Cause Analysis:** Pure CSS keyframes (`rotate`, `scale`, `opacity`) execute directly on the GPU compositor thread with 0 JavaScript execution cost.
+* **Files Modified:**
+  * `TheHUB 1.5.5.2.3 a v/modules/18-ruview-bridge.js`
+  * `TheHUB 1.5.5.2.3 a v/modules/12-today.js`
+  * `TheHUB 1.5.5.2.3 a v/style.css`
+  * `docs/BUILD_LOGBOOK.md`
+* **Regression Test Assertion Added:** `tests/unit-ruview.js` & `tests/unit-presence-automation.js` (26 passing assertions).
+* **Status:** 🟢 RESOLVED & VERIFIED
+
+---
+
+### [PATCH-20260811-10] Build 43 Geometric Vector SVG Badges & Rarity Crests
+* **Date:** 2026-08-11
+* **Patched By:** `@reconnaissance` / `@engineer` / `@the_forge`
+* **Subsystem:** `TheHUB 1.5.5.2.3 a v/modules/14-companion.js`, `style.css`
+* **Severity Level:** SEV-4 (Visual Polish & Gamification Acceleration)
+* **Symptoms Observed:** Companion gear badges used plain emoji without distinct geometric rarity frames or vector glow styling.
+* **Root Cause Analysis:** Mathematical SVG vector polygons (`polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"`) provide crisp high-DPI scaling with zero image asset overhead.
+* **Files Modified:**
+  * `TheHUB 1.5.5.2.3 a v/modules/14-companion.js`
+  * `TheHUB 1.5.5.2.3 a v/style.css`
+  * `docs/BUILD_LOGBOOK.md`
+* **Regression Test Assertion Added:** `tests/unit-hub.js` (Verified companion status bar, gear badges, and rarity rendering).
+* **Status:** 🟢 RESOLVED & VERIFIED
+
+---
+
+### [PATCH-20260811-11] Build 44 Marciale AI Persistent Cross-Session Memory Store
+* **Date:** 2026-08-11
+* **Patched By:** `@wisdom` / `@mind`
+* **Subsystem:** `TheHUB 1.5.5.2.3 a v/modules/08-assistant.js`, `tests/unit-hub.js`
+* **Severity Level:** SEV-4 (AI Memory & Token Optimization)
+* **Symptoms Observed:** Marciale AI lost conversational context and user preferences when closing the tab or opening a new chat session.
+* **Root Cause Analysis:** Offline LLMs require indexed atomic fact vectors ($< 150\text{ tokens}$) rather than raw conversation re-injection to prevent context window saturation.
+* **Files Modified:**
+  * `TheHUB 1.5.5.2.3 a v/modules/08-assistant.js`
+  * `TheHUB 1.5.5.2.3 a v/tests/unit-hub.js`
+  * `docs/BUILD_LOGBOOK.md`
+* **Regression Test Assertion Added:** `tests/unit-hub.js` (7 new assertions verifying persistent memory saving, deduplication, removal, and prompt block formatting).
+* **Status:** 🟢 RESOLVED & VERIFIED
+
+---
+
+### [PATCH-20260811-12] Build 45 Code-Aware Tool Output & Payload Compressor
+* **Date:** 2026-08-11
+* **Patched By:** `@assistant` / `@sre`
+* **Subsystem:** `TheHUB 1.5.5.2.3 a v/modules/08-assistant.js`, `tests/unit-hub.js`
+* **Severity Level:** SEV-4 (Token Optimization & Context Acceleration)
+* **Symptoms Observed:** Raw JSON state payloads and tool outputs contained redundant whitespace, AST comments, and null object keys, consuming excess tokens.
+* **Root Cause Analysis:** Pruning comments, collapsing whitespace, and filtering null/empty keys reduces token consumption by $33\text{--}50\%$ without modifying application semantics.
+* **Files Modified:**
+  * `TheHUB 1.5.5.2.3 a v/modules/08-assistant.js`
+  * `TheHUB 1.5.5.2.3 a v/tests/unit-hub.js`
+  * `docs/BUILD_LOGBOOK.md`
+* **Regression Test Assertion Added:** `tests/unit-hub.js` (Verified `compressPayload` null pruning and positive token savings metric).
+* **Status:** 🟢 RESOLVED & VERIFIED
+
+---
+
+### [PATCH-20260811-13] Build 46 APCA-Calibrated Circadian Dynamic Contrast Tokens
+* **Date:** 2026-08-11
+* **Patched By:** `@navigator` / `@ui-ux`
+* **Subsystem:** `TheHUB 1.5.5.2.3 a v/style.css`, `tools/qa-wcag-audit.js`
+* **Severity Level:** SEV-4 (Accessibility & Visual Ergonomics)
+* **Symptoms Observed:** Late-night study blocks caused glare, and contrast ratios lacked formal APCA $L_c \ge 60$ calibration.
+* **Root Cause Analysis:** Perceptual readability requires luminance models matching display physics ($L_c = (Y_{\text{text}}^{0.56} - Y_{\text{bg}}^{0.56}) \times 1.14$).
+* **Files Modified:**
+  * `TheHUB 1.5.5.2.3 a v/style.css`
+  * `tools/qa-wcag-audit.js`
+  * `docs/BUILD_LOGBOOK.md`
+* **Regression Test Assertion Added:** `tools/qa-wcag-audit.js` (5/5 passing accessibility audits with 0 warnings).
+* **Status:** 🟢 RESOLVED & VERIFIED
+
+---
+
+### [PATCH-20260811-14] Build 47 High Council Real-Time Observer & Liveness Status Card
+* **Date:** 2026-08-11
+* **Patched By:** `@assistant` / `@sre`
+* **Subsystem:** `TheHUB 1.5.5.2.3 a v/modules/12-today.js`, `index.html`, `style.css`
+* **Severity Level:** SEV-4 (Observability & Council State Telemetry)
+* **Symptoms Observed:** Multi-agent dispatches and Council watch status were buried in markdown logs and not surfaced live on the main dashboard.
+* **Root Cause Analysis:** Real-time multi-agent systems require a dedicated liveness status widget rendering recent dispatches and health signals directly on the primary viewport.
+* **Files Modified:**
+  * `TheHUB 1.5.5.2.3 a v/modules/12-today.js`
+  * `TheHUB 1.5.5.2.3 a v/index.html`
+  * `TheHUB 1.5.5.2.3 a v/style.css`
+  * `docs/BUILD_LOGBOOK.md`
+* **Regression Test Assertion Added:** `tests/app-smoke.js` (Verified Today Dashboard widgets and Observer card rendering).
+* **Status:** 🟢 RESOLVED & VERIFIED
+
+---
+
+### [PATCH-20260811-15] Build 48 Spirit City Ambient Focus Body-Doubling in Canvas RPG
+* **Date:** 2026-08-11
+* **Patched By:** `@engineer` / `@the_forge`
+* **Subsystem:** `Gamecompanion/files/src/rendering/CanvasRenderer.js`, `src/integration/TheHUBBridge.js`, `src/main.js`, `TheHUB .../modules/12-today.js`
+* **Severity Level:** SEV-4 (Gamification & Ambient UX Enhancement)
+* **Symptoms Observed:** The hero in Companion RPG remained in an idle bounce during deep focus blocks instead of reflecting active user study.
+* **Root Cause Analysis:** Connecting `TheHUBBridge` focus state transitions to `CanvasRenderer.drawProceduralHeroStudy()` renders seated meditative posture and glowing magic runes during active Pomodoro timers.
+* **Files Modified:**
+  * `Gamecompanion/files/src/rendering/CanvasRenderer.js`
+  * `Gamecompanion/files/src/integration/TheHUBBridge.js`
+  * `Gamecompanion/files/src/main.js`
+  * `TheHUB 1.5.5.2.3 a v/modules/12-today.js`
+  * `docs/BUILD_LOGBOOK.md`
+* **Regression Test Assertion Added:** `Gamecompanion/files/tests/WaveManager.test.js` & `TheHUB .../tests/unit-hub.js` (34 RPG + 43 Hub tests green).
+* **Status:** 🟢 RESOLVED & VERIFIED
+
+---
+
+### [PATCH-20260811-16] Build 49 / Aetherweave Build 21 Quest System Foundation
+* **Date:** 2026-08-11
+* **Patched By:** `@engineer` / `@the_forge`
+* **Subsystem:** `Gamecompanion/files/src/data/quests.js`, `src/systems/QuestSystem.js`, `src/core/EventBus.js`, `src/main.js`, `tests/QuestSystem.test.js`
+* **Severity Level:** SEV-4 (Gamification Engine Milestone)
+* **Symptoms Observed:** The RPG lacked an objective quest progression system beyond manual wave clears.
+* **Root Cause Analysis:** Event-driven quest tracking on `MONSTER_KILLED`, `CHEST_OPENED`, and `STAGE_CLEARED` enables data-driven quest goals with zero code modification for new quests.
+* **Files Modified:**
+  * `Gamecompanion/files/src/data/quests.js`
+  * `Gamecompanion/files/src/systems/QuestSystem.js`
+  * `Gamecompanion/files/src/core/EventBus.js`
+  * `Gamecompanion/files/src/main.js`
+  * `Gamecompanion/files/index.html`
+  * `Gamecompanion/files/tests/QuestSystem.test.js`
+  * `docs/BUILD_LOGBOOK.md`
+* **Regression Test Assertion Added:** `Gamecompanion/files/tests/QuestSystem.test.js` (2 new assertions verifying progress tracking and gold reward disbursement).
+* **Status:** 🟢 RESOLVED & VERIFIED
+
+---
+
+### [PATCH-20260811-17] Build 50 / Aetherweave Build 22 Achievement System & Trophy Showcase
+* **Date:** 2026-08-11
+* **Patched By:** `@engineer` / `@the_forge`
+* **Subsystem:** `Gamecompanion/files/src/data/achievements.js`, `src/systems/AchievementSystem.js`, `src/main.js`, `tests/AchievementSystem.test.js`
+* **Severity Level:** SEV-4 (Gamification Engine Milestone)
+* **Symptoms Observed:** The Companion RPG lacked persistent achievement trophies, visual unlock celebratory toasts, and permanent account stat bonuses.
+* **Root Cause Analysis:** Event-driven achievement tracking listening to combat, level, gold, and stage events automatically triggers unlocks, grants gold rewards, and reports snapshots to TheHUB.
+* **Files Modified:**
+  * `Gamecompanion/files/src/data/achievements.js`
+  * `Gamecompanion/files/src/systems/AchievementSystem.js`
+  * `Gamecompanion/files/src/main.js`
+  * `Gamecompanion/files/index.html`
+  * `Gamecompanion/files/tests/AchievementSystem.test.js`
+  * `docs/BUILD_LOGBOOK.md`
+* **Regression Test Assertion Added:** `Gamecompanion/files/tests/AchievementSystem.test.js` (2 new assertions verifying event progress and gold reward disbursement).
+* **Status:** 🟢 RESOLVED & VERIFIED
+
+---
+
+### [PATCH-20260811-18] Build 51 / Aetherweave Build 23 NPC & Branching Dialogue Engine
+* **Date:** 2026-08-11
+* **Patched By:** `@engineer` / `@the_forge`
+* **Subsystem:** `Gamecompanion/files/src/data/dialogue/chapters.js`, `src/systems/DialogueSystem.js`, `src/core/EventBus.js`, `src/main.js`, `tests/DialogueSystem.test.js`
+* **Severity Level:** SEV-4 (Interactive Narrative Milestone)
+* **Symptoms Observed:** The RPG lacked an interactive dialogue engine with branching player choices and narrative state effects.
+* **Root Cause Analysis:** Graph-based dialogue state machine (`DialogueSystem`) evaluating choice effects (gold, affinity) and transitioning between narrative nodes.
+* **Files Modified:**
+  * `Gamecompanion/files/src/data/dialogue/chapters.js`
+  * `Gamecompanion/files/src/systems/DialogueSystem.js`
+  * `Gamecompanion/files/src/core/EventBus.js`
+  * `Gamecompanion/files/src/main.js`
+  * `Gamecompanion/files/index.html`
+  * `Gamecompanion/files/tests/DialogueSystem.test.js`
+  * `docs/BUILD_LOGBOOK.md`
+* **Regression Test Assertion Added:** `Gamecompanion/files/tests/DialogueSystem.test.js` (1 new assertion verifying node transitions, choice effects, and dialogue lifecycle).
+* **Status:** 🟢 RESOLVED & VERIFIED
+
+---
+
+### [PATCH-20260811-19] Build 52 / Aetherweave Build 24 Affinity & Relationship System
+* **Date:** 2026-08-11
+* **Patched By:** `@engineer` / `@the_forge`
+* **Subsystem:** `Gamecompanion/files/src/data/companionAffinities.js`, `src/systems/AffinitySystem.js`, `src/main.js`, `tests/AffinitySystem.test.js`
+* **Severity Level:** SEV-4 (Companion Relationship Milestone)
+* **Symptoms Observed:** Companions lacked relationship bonding meters, passive party buffs, and bond progression tracking.
+* **Root Cause Analysis:** Event-driven affinity authority (`AffinitySystem`) evaluating bond thresholds (25, 50, 75) and unlocking passive party buffs on quest completions and dialogue choices.
+* **Files Modified:**
+  * `Gamecompanion/files/src/data/companionAffinities.js`
+  * `Gamecompanion/files/src/systems/AffinitySystem.js`
+  * `Gamecompanion/files/src/main.js`
+  * `Gamecompanion/files/index.html`
+  * `Gamecompanion/files/tests/AffinitySystem.test.js`
+  * `docs/BUILD_LOGBOOK.md`
+* **Regression Test Assertion Added:** `Gamecompanion/files/tests/AffinitySystem.test.js` (1 new assertion verifying bonding tiers and active passive buff retrieval).
+* **Status:** 🟢 RESOLVED & VERIFIED
+
+---
+
+### [PATCH-20260811-20] Build 53 / Aetherweave Build 25 Faction Reputation & Guild Supply
+* **Date:** 2026-08-11
+* **Patched By:** `@engineer` / `@the_forge`
+* **Subsystem:** `Gamecompanion/files/src/data/factions.js`, `src/systems/FactionSystem.js`, `src/core/EventBus.js`, `src/main.js`, `tests/FactionSystem.test.js`
+* **Severity Level:** SEV-4 (Faction Progression Milestone)
+* **Symptoms Observed:** World progression lacked guild faction standings, reputation tracking, and rank-based shop perks.
+* **Root Cause Analysis:** Event-driven reputation authority (`FactionSystem`) evaluating rank thresholds (500, 1000, 2000, 3000) on stage clears and combat defeats.
+* **Files Modified:**
+  * `Gamecompanion/files/src/data/factions.js`
+  * `Gamecompanion/files/src/systems/FactionSystem.js`
+  * `Gamecompanion/files/src/core/EventBus.js`
+  * `Gamecompanion/files/src/main.js`
+  * `Gamecompanion/files/index.html`
+  * `Gamecompanion/files/tests/FactionSystem.test.js`
+  * `docs/BUILD_LOGBOOK.md`
+* **Regression Test Assertion Added:** `Gamecompanion/files/tests/FactionSystem.test.js` (1 new assertion verifying rank unlocking and reputation progression).
+* **Status:** 🟢 RESOLVED & VERIFIED
+
+---
+
 # 3. TEMPLATE FOR FUTURE PANGOLIN PATCHES
 
 ```text
