@@ -1,9 +1,2 @@
-MARCIALE_OS_COMPLETE.zip
-Commandment I — Seat A Session 02 / TSTT
-Packaged: 2026-08-13
-Source tree: /home/user/Marciale-OS
-Git origin/main at pack time: 4d2e9c6 (plus local uncommitted G7 + Session 02 docs)
-Companion tests this pack: 66 pass / 0 fail [VERIFIED]
-Hub npm test / pangolin: NOT RUN this pack [NOT VERIFIED]
-Includes: resume TSTT, intake Session 02, DISPATCH-025/026, G7 Attunement lock + test
-Excluded: node_modules, .git, nested .zip
+Commandment I 2026-08-13 Seat A TSTT
+Laws I-XVIII enacted. Shrine Identity + Feint East.
