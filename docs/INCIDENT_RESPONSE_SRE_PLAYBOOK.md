@@ -119,6 +119,25 @@ Assign the appropriate specialized AI persona:
 
 ---
 
+### 🚨 PLAYBOOK D: Autonomous Git Push Regression & Rapid Rollback (SEV-1 / SEV-2)
+* **Trigger:** An autonomous Git push by `@engineer` introduces an unexpected breaking change or test regression in production.
+* **Immediate Triage:**
+  1. **Immediate Execution Freeze:** Run `npm run pangolin` to capture exact failing test suites and error traces.
+  2. **Automated Hotfix Staging:** If the issue cannot be resolved in a single surgical diff, `@sre` triggers `tools/sre-auto-sentinel.js` to package `[BUILD_NAME] - HOTFIX PROPOSAL.zip` in the root workspace.
+  3. **Rollback Execution:**
+     * To revert a bad Git commit:
+       ```bash
+       git revert HEAD --no-edit
+       npm test
+       ```
+     * To restore pre-migration storage data:
+       ```javascript
+       localStorage.setItem('hub.data', localStorage.getItem('hub.backup.pre_migration'));
+       ```
+  4. **Post-Rollback Verification:** Run `npm test` and `npm run audit:governance` to ensure the repository has returned to the Last Known Good State (LKGS).
+
+---
+
 # 4. POST-INCIDENT REVIEW (PIR) TEMPLATE
 
 When an incident is resolved, file this record in `docs/` for historical tracking:

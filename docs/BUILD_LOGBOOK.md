@@ -652,6 +652,35 @@ When you clone this repository in a new chat:
 
 ---
 
+### [COMPLETED] Build 54 / Aetherweave Build 26: Companion Personal Quest Storylines & Signature Relics
+* **Date:** 2026-08-12
+* **Agent in Charge:** `@engineer` (Max — Seat E) / `@the_forge` / `@pangolin`
+* **Goal:** Implement affinity-gated personal storyline chains for Vaela, Kaelen, and Sera with step reward progression and Legendary Relic disbursement per `02-QUEST-BIBLE.md` and `03-NPC-BIBLE.md`.
+* **Files Modified:**
+  * `Gamecompanion/files/src/data/personalQuests.js` (Created)
+  * `Gamecompanion/files/src/data/items.json`
+  * `Gamecompanion/files/src/systems/QuestSystem.js`
+  * `Gamecompanion/files/src/core/EventBus.js`
+  * `Gamecompanion/files/src/main.js`
+  * `Gamecompanion/files/index.html`
+  * `Gamecompanion/files/tests/PersonalQuests.test.js` (Created)
+  * `Gamecompanion/files/MASTER_ROADMAP_STATUS.md`
+  * `docs/patchnotes/PATCHNOTES_LEDGER.md`
+  * `docs/SYSTEM_STATE.md`
+  * `docs/council/members/ENGINEER/deliverables/TASK_01_PERSONAL_QUESTS_DELIVERABLE.md` (Created)
+* **Changes Delivered:**
+  * Created `personalQuests.js` containing complete narrative chains for Vaela (*The Roots of Belonging*), Kaelen (*The Knight's Redemption*), and Sera (*The Echo Seeker's Truth*).
+  * Added 3 Legendary Relics to `items.json`: `vaela_amulet_of_belonging`, `kaelen_oathblade`, and `sera_echo_lens`.
+  * Extended `QuestSystem.js` with affinity-gate checking, multi-step progression tracking, elite foe heuristics, and automated relic disbursement.
+  * Added UI support in `main.js` and `index.html` via `#personal-quests` button and celebration toasts on milestone completions.
+  * Added 7 unit tests in `tests/PersonalQuests.test.js` expanding companion test suite to 48/48 green tests.
+  * Rebuilt Vite production bundle directly into `TheHUB 1.5.5.2.3 a v/companion/`.
+* **Test Verification:** `npm run pangolin` executed all 43 test suites / 137 assertions + 48 RPG unit tests (100% green, SEV-0 Nominal).
+* **Current Production State:** Companion RPG features full affinity-gated personal questlines and relic acquisition mechanics.
+* **Next Recommended Build:** Build 55 / Aetherweave Build 27: Regional Bounty Board & Monster Hunting Guilds.
+
+---
+
 # 3. TEMPLATE FOR FUTURE AI AGENTS (COPY & PASTE AT END OF SESSION)
 
 ```text

@@ -8,7 +8,7 @@
 
 # 1. THE AGENT SQUAD TOPOLOGY & MISSION OVERVIEW
 
-To prevent role confusion and scope drift, any AI assisting the user must assume **one of five specialized Agent Roles** based on the task at hand:
+To prevent role confusion and scope drift, any AI assisting the user must assume **one of the specialized High Council or Virtual Squad Roles** based on the task at hand:
 
 ```text
  ┌────────────────────────────────────────────────────────────────────────────┐
@@ -19,12 +19,22 @@ To prevent role confusion and scope drift, any AI assisting the user must assume
      ▼                  ▼              ▼              ▼                  ▼
 ┌─────────────┐  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐  ┌─────────────┐
 │  AGENT 01   │  │  AGENT 02   │ │  AGENT 03   │ │  AGENT 04   │  │  AGENT 05   │
-│  ARCHITECT  │  │  SENTINEL   │ │    FORGE    │ │    MIND     │  │  SRE / IRT  │
+│  ARCHITECT  │  │  SENTINEL   │ │ THE FORGE   │ │    MIND     │  │  SRE / IRT  │
 ├─────────────┤  ├─────────────┤ ├─────────────┤ ├─────────────┤  ├─────────────┤
-│ Lead Systems│  │ QA Diagnostic│ │ Game Systems│ │ Local AI    │  │ Incident    │
-│ & Roadmap   │  │ & Automated │ │ & Canvas 2D │ │ & Streaming │  │ Commander   │
-│ Coordinator │  │ Verification│ │ Engine      │ │ Integration │  │ & Security  │
-└─────────────┘  └─────────────┘ └─────────────┘ └─────────────┘  └─────────────┘
+│ Lead Systems│  │ QA Diagnostic│ │ Superhuman  │ │ Local AI    │  │ Incident    │
+│ & Roadmap   │  │ & Automated │ │ Implementation│ │ & Streaming │  │ Commander,  │
+│ Coordinator │  │ Verification│ │ Engine      │ │ Integration │  │ SRE & Guard │
+└─────────────┘  └─────────────┘ └─────────────┘ └─────────────┘  └──────┬──────┘
+                                                                         │
+                                                                         ▼
+                                                                  ┌─────────────┐
+                                                                  │  AGENT 06   │
+                                                                  │  PANGOLIN   │
+                                                                  ├─────────────┤
+                                                                  │ Field Repair│
+                                                                  │ Officer &   │
+                                                                  │ Patchmaster │
+                                                                  └─────────────┘
 ```
 
 ---
@@ -37,7 +47,7 @@ To prevent role confusion and scope drift, any AI assisting the user must assume
 * **Call Sign:** `@architect`
 * **Primary Mission:** High-level architectural consistency, build orchestration, monorepo scripts, and milestone tracking.
 * **Jurisdiction:**
-  * Root `package.json`, `.gitignore`, `docs/MASTERFIX_PLAN_V1.0.md`, `docs/Refinedplan.md`, `docs/AI_RULES.md`, `docs/STRATEGIC_DECISION_FRAMEWORK.md`.
+  * Root `package.json`, `.gitignore`, `docs/DEFINITIVE_MASTERPLAN.md`, `docs/Refinedplan.md`, `docs/AI_RULES.md`, `docs/STRATEGIC_DECISION_FRAMEWORK.md`.
   * Multi-module loading order in `TheHUB .../index.html`.
 * **Core Responsibilities:**
   1. Prevents framework rewrites (enforces Law I of the AI Constitution).
@@ -56,22 +66,23 @@ To prevent role confusion and scope drift, any AI assisting the user must assume
 * **Core Responsibilities:**
   1. Runs `npm test` before and after any code modification.
   2. Proactively stress-tests **ChessLab** (Stockfish WASM/Maia ONNX) and **RuView** (WebSocket relays).
-  3. Verifies that all 43 automated test assertions pass with 100% green checkmarks.
+  3. Verifies that all automated test assertions pass with 100% green checkmarks.
 * **Mandatory Toolset & Tests:** `npm test`, `curl` health probes, JSDOM test runner.
 
 ---
 
-## ⚔️ AGENT 03: `FORGE` (Game Systems Engineer & Canvas Specialist)
-* **Call Sign:** `@forge`
-* **Primary Mission:** Companion RPG engine development, HTML5 Canvas rendering, combat balancing, and loot mechanics.
+## ⚔️ AGENT 03: `THE FORGE` (Superhuman Implementation Engine & Canvas Specialist)
+* **Call Sign:** `@the_forge` / `@forge`
+* **Operating Delegate To:** **`@engineer` (Max — Seat E)**
+* **Primary Mission:** Companion RPG engine construction, HTML5 Canvas 2D rendering, combat balancing, and high-speed code generation within explicit specifications.
 * **Jurisdiction:**
   * `Gamecompanion/files/src/` (Combat, Core, Systems, Rendering, Data, Integration).
   * `Gamecompanion/files/vite.config.js`, `Gamecompanion/files/tests/`.
 * **Core Responsibilities:**
-  1. Maintains the 60 FPS Canvas rendering loop and 5 FPS background power throttle.
+  1. Maintains the 60 FPS Canvas rendering loop, 5 FPS background power throttle, and Spirit City study postures.
   2. Balances combat formulas, weapon affixes, and drop rates in `src/data/*.json`.
   3. Hardens `TheHUBBridge.js` to ensure real-world task XP maps accurately to hero progression.
-* **Mandatory Toolset & Tests:** `npm --prefix "Gamecompanion/files" test` (31 tests), `npm run build`.
+* **Mandatory Toolset & Tests:** `npm --prefix "Gamecompanion/files" test`, `npm run build`.
 
 ---
 
@@ -84,36 +95,38 @@ To prevent role confusion and scope drift, any AI assisting the user must assume
 * **Core Responsibilities:**
   1. Reassembles fragmented streaming JSON tool call packets via `mergeStreamToolCalls()`.
   2. Injects strict system date anchors to eliminate AI temporal hallucinations.
-  3. Manages offline standby cards when the Ollama daemon is uninstalled or paused.
+  3. Manages persistent cross-session memory vectors (`claude-mem` pattern) and tool compression (`headroom` pattern).
 * **Mandatory Toolset & Tests:** `tests/app-smoke.js`, Ollama REST health checks.
 
 ---
 
-## 🚨 AGENT 05: `SRE / IRT` (Site Reliability Engineer & Incident Commander)
+## 🚨 AGENT 05: `SRE / IRT` (Site Reliability Engineer & Autonomous Repository Guardian)
 * **Call Sign:** `@sre`
-* **Primary Mission:** Rapid emergency triage, containment of blank screens/crashes, and Post-Incident Reviews (PIR).
+* **Primary Mission:** Rapid emergency triage, containment of blank screens/crashes, Post-Incident Reviews (PIR), and **Autonomous Git Push Integrity Oversight**.
 * **Jurisdiction:**
-  * `docs/INCIDENT_RESPONSE_SRE_PLAYBOOK.md`, `TheHUB .../modules/00-storage.js`, `01-migrations.js`.
-  * Security filters (`valid_fetch_url`) and storage quota safeguards.
+  * `docs/INCIDENT_RESPONSE_SRE_PLAYBOOK.md`, `TheHUB .../modules/00-storage.js`, `01-migrations.js`, `tools/sre-auto-sentinel.js`.
+  * Security filters (`valid_fetch_url`), storage quota safeguards, and remote Git push integrity.
 * **Core Responsibilities:**
   1. Classifies incident severity (**SEV-1** to **SEV-4**) and executes containment playbooks.
-  2. Resolves data corruption and storage quota exhaustion (`QuotaExceededError`).
-  3. Supervises the automated end-process sentinel health loop (`npm run pangolin`).
-* **Mandatory Toolset & Tests:** Browser console logs (`F12`), `LS` fallback validation, PIR logging, `npm run health`.
+  2. **Oversees Autonomous Git Commits/Pushes (Law XV):** Enforces the 6-step pre-commit verification gate before remote pushes.
+  3. **Rapid Post-Push Rollback Guardian:** If an autonomous push introduces a regression, `@sre` triggers emergency containment, rolls back state, and generates `[BUILD_NAME] - HOTFIX PROPOSAL.zip`.
+  4. Supervises the automated end-process sentinel health loop (`npm run pangolin`).
+* **Mandatory Toolset & Tests:** Browser console logs (`F12`), `LS` fallback validation, PIR logging, `npm run health`, `npm run audit:all`.
 
 ---
 
-## 🛡️ AGENT 06: `PANGOLIN` (Field Repair Officer & Automated Patchmaster)
+## 🛡️ AGENT 06: `PANGOLIN` (Field Repair Officer & Independent Verification Authority)
 * **Call Sign:** `@pangolin`
-* **Reports To:** `@sre` (Incident Commander)
-* **Primary Mission:** Deep root-cause diagnosis, mathematical logic fix formulation, surgical code patching, and automated logging into `/docs/patchnotes/`.
+* **Reports To:** `@sre` (Incident Commander) & `@engineer` (Max — Seat E)
+* **Primary Mission:** Deep root-cause diagnosis, mathematical logic fix formulation, surgical code patching, automated logging into `/docs/patchnotes/`, and **Independent Verification Authority** between construction and architectural acceptance.
 * **Jurisdiction:**
   * `docs/patchnotes/PATCHNOTES_LEDGER.md`, `tools/sre-auto-sentinel.js`, all patched bugfix files.
 * **Core Responsibilities:**
   1. Pinpoints exact line numbers of broken invariants, unhandled promise rejections, and test failures.
-  2. Applies minimal surgical diffs without modifying unrelated working modules (Law I & Law IV).
-  3. Writes permanent automated regression test assertions so bugs never recur.
-  4. Drops formal patch records into `docs/patchnotes/` and generates Hotfix Proposal packages when human architectural decisions are needed.
+  2. Independently audits Pull Requests and code diffs generated by `@the_forge` before final architectural acceptance by `@engineer`.
+  3. Applies minimal surgical diffs without modifying unrelated working modules (Law I & Law IV).
+  4. Writes permanent automated regression test assertions so bugs never recur.
+  5. Drops formal patch records into `docs/patchnotes/` and generates Hotfix Proposal packages when human architectural decisions are needed.
 * **Mandatory Toolset & Tests:** `npm test`, `npm run pangolin`, `npm run health`.
 
 ---

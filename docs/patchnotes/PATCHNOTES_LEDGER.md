@@ -355,6 +355,27 @@ Whenever a bug, test failure, redmark, or integration defect is detected in Marc
 
 ---
 
+### [PATCH-20260812-21] Build 54 / Aetherweave Build 26 Companion Personal Quests & Signature Relics
+* **Date:** 2026-08-12
+* **Patched By:** `@engineer` / `@the_forge` / `@pangolin`
+* **Subsystem:** `Gamecompanion/files/src/data/personalQuests.js`, `src/systems/QuestSystem.js`, `src/core/EventBus.js`, `src/data/items.json`, `src/main.js`, `tests/PersonalQuests.test.js`
+* **Severity Level:** SEV-4 (Companion RPG Feature Addition)
+* **Symptoms Observed:** Companions lacked personalized multi-step narrative questlines and Legendary Relic progression rewards.
+* **Root Cause Analysis:** Built `personalQuests.js` data schema, extended `QuestSystem.js` with affinity-gated evaluation (Affinity $\ge 25$), multi-target tracking (`monster_killed`, `chest_opened`, `stage_cleared`, `elite_killed`, `hero_level`), and automated relic disbursement.
+* **Files Modified:**
+  * `Gamecompanion/files/src/data/personalQuests.js`
+  * `Gamecompanion/files/src/data/items.json`
+  * `Gamecompanion/files/src/systems/QuestSystem.js`
+  * `Gamecompanion/files/src/core/EventBus.js`
+  * `Gamecompanion/files/src/main.js`
+  * `Gamecompanion/files/index.html`
+  * `Gamecompanion/files/tests/PersonalQuests.test.js`
+  * `docs/BUILD_LOGBOOK.md`
+* **Regression Test Assertion Added:** `Gamecompanion/files/tests/PersonalQuests.test.js` (7 new assertions covering initialization, affinity gating, step progression, elite filtering, hero level target, and relic disbursement).
+* **Status:** 🟢 RESOLVED & VERIFIED
+
+---
+
 # 3. TEMPLATE FOR FUTURE PANGOLIN PATCHES
 
 ```text
