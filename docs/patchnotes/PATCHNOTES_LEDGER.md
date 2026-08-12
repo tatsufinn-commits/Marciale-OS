@@ -376,6 +376,26 @@ Whenever a bug, test failure, redmark, or integration defect is detected in Marc
 
 ---
 
+### [PATCH-20260812-22] Build 55 / Aetherweave Build 27 Regional Bounty Board & Hunter Guild
+* **Date:** 2026-08-12
+* **Patched By:** `@engineer` / `@the_forge` / `@assistant`
+* **Subsystem:** `Gamecompanion/files/src/data/bounties.js`, `src/systems/BountyBoardSystem.js`, `src/core/EventBus.js`, `src/main.js`, `tests/BountyBoardSystem.test.js`
+* **Severity Level:** SEV-4 (Companion RPG Feature Milestone)
+* **Symptoms Observed:** Players lacked repeatable regional monster hunting contracts and Hunter Guild progression standing.
+* **Root Cause Analysis:** Built `BountyBoardSystem` evaluating target regex patterns, active contract tracking, guild reputation accumulation, rank promotion events, and UI modal controls.
+* **Files Modified:**
+  * `Gamecompanion/files/src/data/bounties.js`
+  * `Gamecompanion/files/src/systems/BountyBoardSystem.js`
+  * `Gamecompanion/files/src/core/EventBus.js`
+  * `Gamecompanion/files/src/main.js`
+  * `Gamecompanion/files/index.html`
+  * `Gamecompanion/files/tests/BountyBoardSystem.test.js`
+  * `docs/BUILD_LOGBOOK.md`
+* **Regression Test Assertion Added:** `Gamecompanion/files/tests/BountyBoardSystem.test.js` (5 new assertions verifying contract acceptance, pattern kill matching, boss tracking, reward claiming, and rank promotions).
+* **Status:** 🟢 RESOLVED & VERIFIED
+
+---
+
 # 3. TEMPLATE FOR FUTURE PANGOLIN PATCHES
 
 ```text

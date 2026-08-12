@@ -681,6 +681,33 @@ When you clone this repository in a new chat:
 
 ---
 
+### [COMPLETED] Build 55 / Aetherweave Build 27: Regional Bounty Board & Monster Hunting Guilds
+* **Date:** 2026-08-12
+* **Agent in Charge:** `@engineer` (Max — Seat E) / `@the_forge` / `@assistant`
+* **Goal:** Implement regional monster hunting contracts, 5-tier Hunter Guild standings (*Novice $\rightarrow$ Hunter $\rightarrow$ Tracker $\rightarrow$ Veteran $\rightarrow$ Master*), and interactive Bounty Board UI per `02-QUEST-BIBLE.md` and `07-WORLD-PROGRESSION-BIBLE.md`.
+* **Files Modified:**
+  * `Gamecompanion/files/src/data/bounties.js` (Created)
+  * `Gamecompanion/files/src/systems/BountyBoardSystem.js` (Created)
+  * `Gamecompanion/files/src/core/EventBus.js`
+  * `Gamecompanion/files/src/main.js`
+  * `Gamecompanion/files/index.html`
+  * `Gamecompanion/files/tests/BountyBoardSystem.test.js` (Created)
+  * `Gamecompanion/files/MASTER_ROADMAP_STATUS.md`
+  * `docs/patchnotes/PATCHNOTES_LEDGER.md`
+  * `docs/SYSTEM_STATE.md`
+  * `docs/council/members/ENGINEER/deliverables/TASK_02_BOUNTY_BOARD_DELIVERABLE.md` (Created)
+* **Changes Delivered:**
+  * Authored `bounties.js` containing regional contracts across Fittoa Outskirts, Crystal Expanse, and Verdant Weave, plus 5 Hunter Guild Ranks.
+  * Built `BountyBoardSystem.js` handling contract acceptance, target pattern matching (`monster_killed`, `boss_defeated`, `elite_killed`), reputation calculations, and rank promotions.
+  * Added `#bounties` UI button and Hunter's Guild Board modal with live contract tracking, claim triggers, and rank toasts.
+  * Added 5 unit tests in `tests/BountyBoardSystem.test.js` expanding companion test suite to 53/53 green tests.
+  * Rebuilt Vite production bundle directly into `TheHUB 1.5.5.2.3 a v/companion/`.
+* **Test Verification:** `npm run pangolin` executed all 43 test suites / 137 assertions + 53 RPG unit tests (100% green, SEV-0 Nominal).
+* **Current Production State:** Companion RPG features full regional monster hunting contracts, Hunter Guild progression, and bounty board modal.
+* **Next Recommended Build:** Build 56 / Aetherweave Build 28: Attunement Skill Tree & Branching Talents.
+
+---
+
 # 3. TEMPLATE FOR FUTURE AI AGENTS (COPY & PASTE AT END OF SESSION)
 
 ```text

@@ -75,7 +75,7 @@ Everything runs completely locally on consumer laptop hardware with zero cloud s
 | Subsystem / Deliverable | Version | Test Status | Live Code Reality |
 |---|:---:|:---:|---|
 | **TheHUB Web Shell** | v1.5.5 | 🟢 12/12 Passing | 20 Vanilla JS modules, storage quota guard, pre-migration backups, CSP/CORS proxy. |
-| **Companion RPG Engine** | v0.3.0 | 🟢 48/48 Passing | Canvas 2D engine, StateManager, wired `TheHUBBridge.js` XP receiver. |
+| **Companion RPG Engine** | v0.3.0 | 🟢 53/53 Passing | Canvas 2D engine, StateManager, wired `TheHUBBridge.js` XP receiver. |
 | **Combined Monorepo CI** | Unified | 🟢 43/43 Passing | Root `package.json` runs all 43 tests / 131 assertions in ~27s. |
 | **TAMA Academic Engine** | v2.0.0 | 🟢 52/52 Checks | 7-Cluster Vault, Canonical BT3 & BU3 Level 5 modules, 50-item simulation, Anki TSV. |
 | **TAMAplugin for TheHUB** | v1.0.0 | 🟢 Verified | Exam Countdown Card, `mapua_architect` Brain Profile, +200 Study XP bridge live. |
