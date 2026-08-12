@@ -228,6 +228,8 @@ After every code build or fix, `@engineer` is responsible for:
 
 # 9. LIVE PRE-COMMIT VERIFICATION GATE
 
+**Pre-push hook (Joint 2026-08-13):** `scripts/git-hooks/pre-push` runs `npm test` before `git push`. Install with `npm run hooks:install` (**Node**, not WSL bash). Bypass only `MARCIALE_HOOK_SKIP=1` (Commander / Seat A; log it). This does **not** replace Two-Key `npm run merge:gate`.
+
 Before pushing any commit to GitHub, Max (`@engineer`) **MUST execute this 6-step gate**:
 $$\text{Verify Build (`npm run build`)} \longrightarrow \text{Run CI (`npm test`)} \longrightarrow \text{SRE Sentinel (`npm run pangolin`)} \longrightarrow \text{Check Hygiene (`git status`)} \longrightarrow \text{Log Ledger} \longrightarrow \text{Package Zip (Cmd I)}$$
 

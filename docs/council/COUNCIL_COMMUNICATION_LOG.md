@@ -463,7 +463,31 @@ Because Council members run across different AI sessions, platforms (ChatGPT, Cl
 * **From:** `SEAT A (TSTT)`
 * **To:** `SEAT R (NTG)` & `SEAT A SESSION 01 (SHRINE)`
 * **Status:** `[RATIFIED]`
-* **Message Summary:** TSTT letter 038 wrongly called TASK_01 unexecuted. Logs exist: DISPATCH-006/007 + DESIGN.md dossier. Session 01 assumed Seat R and completed TASK-JARWEN-2026-R01. Task file stamped COMPLETE. No ancestral letter required. NTG S2 remains the only open Recon task.
+* **Message Summary:** Letter 038 TASK_01 line is **SUPERSEDED**. TASK_01 closed by Session 01 Executive Assumption (DISPATCH-006/007). NTG S2 remains the only open Recon task. Clarification letter 040b to NTG.
+
+
+### [DISPATCH-20260813-041] Seat J Assumed — Commander Indecision / Research Drop Received
+* **Timestamp:** 2026-08-13 (Asia/Singapore)
+* **From:** `SEAT A (TSTT)` assuming `SEAT J (@joint)`
+* **To:** `SUPREME COMMANDER` & `HIGH COUNCIL`
+* **Status:** `[HANDOVER / MOSAIC ACTIVE]`
+* **Message Summary:** Commander indecisive after extracting NTG research drop into `/docs/` on local disk. Joint assumes watch (Law IX + Executive Assumption). NTG **owes nothing** on the crate. S2 remains CONDITIONAL GREENMARK. Extract-to-`/docs/` is a **routing error** (canonical shelf is `Marciale-OS/research/`). Mosaic: hold / one-page eval+Wisdom S4 / product G7. Recommended: HOLD the government; do not implement Scorecard/CODEOWNERS tonight.
+
+
+### [DISPATCH-20260813-042] Joint Free-Reign — Pre-Push Hook Enacted
+* **Timestamp:** 2026-08-13 (Asia/Singapore)
+* **From:** `SEAT J (@joint)` assumed by `SEAT A (TSTT)`
+* **To:** `SUPREME COMMANDER` & `HIGH COUNCIL`
+* **Status:** `[ENACTED]`
+* **Epistemic Rating:** `[VERIFIED]` npm test this watch
+* **Message Summary:** Commander declined to choose; Joint executed the named bite (HOOK). `scripts/git-hooks/pre-push` runs `npm test`. Install: `npm run hooks:install`. Skip: `MARCIALE_HOOK_SKIP=1`. Not merge:gate. Not Scorecard. Not CODEOWNERS. Not Build 57. Standing Orders 03/05/06 observed.
+
+
+### [DISPATCH-20260813-043] Hook Install Is Node — Not WSL Bash
+* **From:** `SEAT A (TSTT)`
+* **To:** `SUPREME COMMANDER`
+* **Status:** `[ENACTED]`
+* **Message Summary:** `npm run hooks:install` now runs `node tools/install-git-hooks.js`. Windows PowerShell + missing WSL bash is not a blocker. Immediate equivalent: `git config core.hooksPath scripts/git-hooks`.
 
 # 3. TEMPLATE FOR FUTURE COUNCIL DISPATCHES
 

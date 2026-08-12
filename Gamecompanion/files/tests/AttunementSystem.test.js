@@ -300,6 +300,51 @@ test('StatEngine stacks base stats + gear + multi-branch attunement modifiers ac
   assert.equal(Math.round(finalStats.critChance * 100) / 100, 0.09, 'Base 0.05 + 0.04 Fire talent');
 });
 
+test('G7: AttunementSystem rejects respec during active combat without mutating state', () => {
+  const stateManager = new MockStateManager();
+  const eventBus = new EventBus();
+
+  const attunementSystem = new AttunementSystem({
+    stateManager,
+    eventBus,
+    events: Events,
+    branches: attunementBranches
+  });
+
+  attunementSystem.grantLevelPoints(10);
+  const invest = attunementSystem.investNode('earth_skin', 1);
+  assert.equal(invest.success, true);
+
+  const nodesBefore = structuredClone(stateManager.get('player.attunements.nodes'));
+  const availableBefore = attunementSystem.getAvailablePoints();
+  const investedBefore = stateManager.get('player.attunements.investedPoints');
+
+  // Ghost Incursion setup: live fight + in-flight skill cooldown
+  stateManager.set('combat.state', 'fighting');
+  stateManager.set('combat.hero.attackCooldown', 420);
+  stateManager.set('combat.enemies', [
+    { id: 'boss-01', type: 'enemy', isAlive: true, isBoss: true, hp: 400, maxHp: 400 }
+  ]);
+
+  const respec = attunementSystem.respecAttunements();
+
+  assert.equal(respec.success, false);
+  assert.equal(respec.reason, 'COMBAT_ACTIVE');
+  assert.equal(respec.pointsRefunded, 0);
+  assert.equal(attunementSystem.getAvailablePoints(), availableBefore);
+  assert.equal(stateManager.get('player.attunements.investedPoints'), investedBefore);
+  assert.deepEqual(stateManager.get('player.attunements.nodes'), nodesBefore);
+  assert.equal(attunementSystem.getNodeRank('earth_skin'), 1);
+
+  // After combat ends, the same respec must succeed (guard is not sticky)
+  stateManager.set('combat.state', 'preview');
+  stateManager.set('combat.hero.attackCooldown', 0);
+  stateManager.set('combat.enemies', []);
+  const after = attunementSystem.respecAttunements();
+  assert.equal(after.success, true);
+  assert.equal(attunementSystem.getNodeRank('earth_skin'), 0);
+});
+
 test('Attunement state snapshot serializes and survives game state export/import', () => {
   const stateManager = new MockStateManager();
   const eventBus = new EventBus();

@@ -156,8 +156,30 @@ export class AttunementSystem {
     return { success: true, rank: newRank, branchMastered: branchMasteredNow };
   }
 
+  /**
+   * G7 — Combat lock: respec is forbidden while a fight is live or a skill
+   * is still on cooldown. Mid-combat respec drops maxHp/armor under an
+   * in-flight hit and corrupts save + CanvasRenderer particle math.
+   * Must not mutate attunement or combat state on reject.
+   */
+  _isCombatRespecLocked() {
+    const combat = this.stateManager?.get('combat') || {};
+    if (combat.state === 'fighting') return true;
+    const enemies = Array.isArray(combat.enemies) ? combat.enemies : [];
+    if (enemies.some((e) => e?.isAlive)) return true;
+    const hero = combat.hero || {};
+    if (Number(hero.attackCooldown) > 0) return true;
+    return false;
+  }
+
   respecAttunements() {
-    if (!this.stateManager) return { success: false, pointsRefunded: 0 };
+    if (!this.stateManager) return { success: false, pointsRefunded: 0, reason: 'NO_STATE_MANAGER' };
+
+    // G7: reject in-combat / in-flight cooldown respec without mutating state
+    if (this._isCombatRespecLocked()) {
+      return { success: false, reason: 'COMBAT_ACTIVE', pointsRefunded: 0 };
+    }
+
     const att = this.stateManager.get('player.attunements') || { availablePoints: 0, investedPoints: 0 };
     const refunded = att.investedPoints || 0;
     const totalAvailable = (att.availablePoints || 0) + refunded;

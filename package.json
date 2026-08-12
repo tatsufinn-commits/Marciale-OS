@@ -24,7 +24,8 @@
     "build:companion": "npm --prefix \"Gamecompanion/files\" run build",
     "dev": "npm --prefix \"Gamecompanion/files\" run dev",
     "dev:companion": "npm --prefix \"Gamecompanion/files\" run dev",
-    "install:all": "npm --prefix \"TheHUB 1.5.5.2.3 a v\" install && npm --prefix \"Gamecompanion/files\" install"
+    "install:all": "npm --prefix \"TheHUB 1.5.5.2.3 a v\" install && npm --prefix \"Gamecompanion/files\" install",
+    "hooks:install": "node tools/install-git-hooks.js"
   },
   "keywords": [
     "personal-os",

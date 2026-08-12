@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Marciale-OS pre-push hook — Joint 2026-08-13 (NTG S2 §2.4 / ECC Adaptation 1)
+# Blocks push if npm test fails. Does NOT replace Two-Key merge:gate.
+# Emergency skip (Commander / Seat A only): MARCIALE_HOOK_SKIP=1 git push
+set -euo pipefail
+ROOT="$(git rev-parse --show-toplevel)"
+cd "$ROOT"
+
+if [ "${MARCIALE_HOOK_SKIP:-}" = "1" ]; then
+  echo "⚠️  MARCIALE_HOOK_SKIP=1 — pre-push bypassed (must be logged)."
+  exit 0
+fi
+
+echo "🛡️  Marciale-OS pre-push: npm test (Law V / Law X)"
+npm test
+echo "✅ pre-push green — push may proceed. Two-Key still required for main."
+exit 0

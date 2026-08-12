@@ -735,6 +735,21 @@ When you clone this repository in a new chat:
 
 ---
 
+### [COMPLETED] Joint Watch — Pre-Push Hook (C4 / NTG S2 §2.4)
+* **Date:** 2026-08-13
+* **Agent in Charge:** `@joint` assumed by `@assistant` / TSTT (Commander free-reign + Standing Orders)
+* **Goal:** Make Law V mechanical on `git push` without new agents or Scorecard religion.
+* **Files Modified:** `scripts/git-hooks/pre-push`, `tools/install-git-hooks.sh`, `package.json` (`hooks:install`), `docs/PATH.md` §9
+* **Changes Delivered:**
+  * Pre-push runs `npm test`. Bypass: `MARCIALE_HOOK_SKIP=1` (Commander / Seat A only; must log).
+  * Reversible: `git config --unset core.hooksPath`.
+  * Does **not** replace Two-Key `npm run merge:gate`.
+* **Test Verification:** `npm test` this watch `[VERIFIED]`: TheHUB 12-file harness all passed; Companion **66/66** (incl. G7). App-smoke still warns TAMAplugin 404 if server down. Hub `npm install` reported **4 high** vulns (not force-fixed).
+* **Current Production State:** Hook is in-repo; clones must run `npm run hooks:install`.
+* **Next Recommended Build:** Still Build 57 if product; else hold.
+
+---
+
 # 3. TEMPLATE FOR FUTURE AI AGENTS (COPY & PASTE AT END OF SESSION)
 
 ```text
