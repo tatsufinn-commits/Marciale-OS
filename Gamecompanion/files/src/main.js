@@ -43,6 +43,8 @@ import { AffinitySystem } from './systems/AffinitySystem.js';
 import { companionAffinities } from './data/companionAffinities.js';
 import { FactionSystem } from './systems/FactionSystem.js';
 import { factions as factionData } from './data/factions.js';
+import { BountyBoardSystem } from './systems/BountyBoardSystem.js';
+import { bounties as bountyData, guildRanks } from './data/bounties.js';
 import { TheHUBBridge } from './integration/TheHUBBridge.js';
 
 const AUTO_SAVE_INTERVAL = 120000;
@@ -188,6 +190,82 @@ async function boot() {
       ? list.map(f => `<li>${f.icon} <strong>${f.name}</strong> [Rank: ${f.currentRank} · Rep: ${f.reputation}]<br><small style="color:#38bdf8;">Perk: ${f.perk}</small><br><small style="color:#a4b0be;">${f.description}</small></li>`).join('')
       : '<li>No factions discovered.</li>';
     modal.show({ title: '🛡️ Guild Factions & Reputation', body: `<ul class="inventory-list">${rows}</ul>`, actions: [{ label: 'Close', kind: 'primary', onClick: () => modal.close() }] });
+  });
+
+  // ── Build 55: Regional Bounty Board & Monster Hunting Guilds ────────────
+  const bountyBoardSystem = new BountyBoardSystem({
+    stateManager,
+    eventBus,
+    events: Events,
+    bountyTemplates: bountyData,
+    rankTemplates: guildRanks
+  });
+
+  eventBus.on(Events.GUILD_RANK_UNLOCKED, ({ rank }) => {
+    audioSystem.play('levelup');
+    particles.addFloatingText({ x: 300, y: 145 }, `🏹 HUNTER RANK: ${rank.name}`, '#f59e0b', { lifetime: 3500 });
+    particles.addBurst({ x: 300, y: 145 }, '#f59e0b', 14);
+  });
+
+  eventBus.on(Events.BOUNTY_COMPLETED, ({ bounty, rewards }) => {
+    audioSystem.play('levelup');
+    particles.addFloatingText({ x: 300, y: 145 }, `🎯 BOUNTY CLAIMED: +${rewards.gold}G +${rewards.guildRep} Rep`, '#10b981', { lifetime: 3200 });
+    particles.addBurst({ x: 300, y: 145 }, '#10b981', 10);
+    if (rewards.xp) progressionSystem.grantXp(rewards.xp);
+  });
+
+  document.querySelector('#bounties')?.addEventListener('click', () => {
+    const rank = bountyBoardSystem.getGuildRank();
+    const rep = bountyBoardSystem.getReputation();
+    const list = bountyBoardSystem.getAvailableBounties();
+
+    const rows = list.length
+      ? list.map(b => {
+          let actionBtn = '';
+          if (b.isLocked) {
+            actionBtn = `<span style="color:#94a3b8;font-size:11px;">🔒 Req: ${b.requiredRank} Rep</span>`;
+          } else if (b.isReadyToClaim) {
+            actionBtn = `<button class="btn btn-sm btn-claim-bounty" data-id="${b.id}" style="padding:4px 8px;background:#10b981;border:none;border-radius:4px;color:#fff;cursor:pointer;">Claim Reward</button>`;
+          } else if (b.isActive) {
+            actionBtn = `<span style="color:#38bdf8;font-size:11px;">⏳ In Progress [${b.progress}/${b.targetCount}]</span>`;
+          } else {
+            actionBtn = `<button class="btn btn-sm btn-accept-bounty" data-id="${b.id}" style="padding:4px 8px;background:#3b82f6;border:none;border-radius:4px;color:#fff;cursor:pointer;">Accept Contract</button>`;
+          }
+
+          return `
+            <li style="margin-bottom:8px;padding:8px;background:#1e293b;border-radius:6px;border:1px solid #334155;">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <strong>🎯 ${b.title}</strong>
+                <div>${actionBtn}</div>
+              </div>
+              <small style="color:#a4b0be;">${b.description}</small><br>
+              <small style="color:#f59e0b;">Region: ${b.regionName} · Rewards: +${b.rewards.gold}G, +${b.rewards.xp}XP, +${b.rewards.guildRep} Rep</small>
+            </li>
+          `;
+        }).join('')
+      : '<li>No active hunting bounties available.</li>';
+
+    modal.show({
+      title: `🏹 Hunter's Guild Board · ${rank.name} (${rep} Rep)`,
+      body: `<ul class="inventory-list" style="list-style:none;padding:0;">${rows}</ul>`,
+      actions: [{ label: 'Close', kind: 'primary', onClick: () => modal.close() }]
+    });
+
+    document.querySelectorAll('.btn-accept-bounty').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const bid = e.currentTarget.dataset.id;
+        bountyBoardSystem.acceptBounty(bid);
+        document.querySelector('#bounties')?.click();
+      });
+    });
+
+    document.querySelectorAll('.btn-claim-bounty').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const bid = e.currentTarget.dataset.id;
+        bountyBoardSystem.claimBounty(bid);
+        document.querySelector('#bounties')?.click();
+      });
+    });
   });
   const progressionSystem = new ProgressionSystem({ stateManager, eventBus, events: Events });
   eventBus.on(Events.MONSTER_KILLED, (payload) => { lootEngine.onMonsterKilled(payload); progressionSystem.grantXp(payload.xp ?? 0); });

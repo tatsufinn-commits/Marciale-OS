@@ -18,6 +18,7 @@ export const Events = Object.freeze({
   QUEST_STARTED: 'quest:started', QUEST_PROGRESS: 'quest:progress', QUEST_COMPLETED: 'quest:completed',
   DIALOGUE_STARTED: 'dialogue:started', DIALOGUE_CHOICE_SELECTED: 'dialogue:choice_selected', DIALOGUE_ENDED: 'dialogue:ended',
   FACTION_REP_CHANGED: 'faction:rep_changed', FACTION_RANK_UNLOCKED: 'faction:rank_unlocked',
+  BOUNTY_ACCEPTED: 'bounty:accepted', BOUNTY_PROGRESS: 'bounty:progress', BOUNTY_COMPLETED: 'bounty:completed', GUILD_RANK_UNLOCKED: 'guild:rank_unlocked',
   HUB_ACTIVITY_RECEIVED: 'hub:activity', HUB_REWARD_ACKNOWLEDGED: 'hub:reward_ack', TAB_CHANGED: 'tab:changed', MODE_CHANGED: 'mode:changed', TOOLTIP_SHOWN: 'tooltip:shown', TOOLTIP_HIDDEN: 'tooltip:hidden'
 });
 export const eventBus = new EventBus();
