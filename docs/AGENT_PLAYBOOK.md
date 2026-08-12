@@ -3,7 +3,7 @@
 **Target System:** Marciale-OS JARWEN Council & Virtual Agent Squad  
 **Governing Standard:** Reverse-Prompt Intent Interpretation (Zero User Cognitive Burden)  
 **Co-Authored By:** WISDOM (Seat W) & ASSISTANT (Seat A)  
-**Parent Governance:** `/docs/AI_RULES.md` (Laws I through XIV), `/docs/council/JARWEN_COUNCIL_CHARTER.md`  
+**Parent Governance:** `/docs/AI_RULES.md` (Laws I through XVIII), `/docs/council/JARWEN_COUNCIL_CHARTER.md`  
 **Status:** Authoritative Operational Playbook  
 
 ---
@@ -89,6 +89,8 @@ When the Supreme Commander sends an input, any active Council member must match 
 | *"I have to switch chats / my AI limit is running out"* | Rate-limit handover / session transition | **Operational** | **Outgoing Lead** | **Seat A $\rightarrow$ W** | **Scenario 15:** Compile Watch-Relief Dossier with Last Known Good State. |
 | *"Update the zip file / package the changes"* | Release distribution packaging | **Operational** | `@sre` / `@architect` | **Seat A** | Execute Python zip packaging, verify green tests, present zip deliverable. |
 | *"Delete that old zip / cleanup scratch files"* | Workspace hygiene & storage preservation | **Operational** | `@sre` | **Seat A** | Purge redundant archives and temporary test artifacts from root workspace. |
+
+| *\"This will fail / 90% sure / scrap the task\"* | Near-certain failure; do not fake green | **SEV-2 / 3** | Filing seat + `@sre` | **Seat A** | **Law XVIII Feint East, Strike West:** halt; file `docs/hotfix/` from `FEINT_EAST_STRIKE_WEST_TEMPLATE.md`. |
 
 ---
 
