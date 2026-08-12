@@ -42,7 +42,7 @@ When modifying, building, or committing files in **`Marciale-OS`**, follow this 
 │
 ├── package.json                         <- ROOT MONOREPO CONTROLLER (Scripts & Test Harness)
 ├── .gitignore                           <- IGNORE RULES (node_modules, build caches, .env)
-├── README.md                            <- MAIN ENTRY POINT (14 Laws, 22 Scenarios, Command Table)
+├── README.md                            <- MAIN ENTRY POINT (19 Laws, 22 Scenarios, Command Table)
 ├── DESIGN.md                            <- CANONICAL UI DESIGN SYSTEM (W3C DTCG Token Specs)
 ├── VERSIONING_GUIDE.md                  <- 5-Tier Semantic Subsystem Version Authorities
 │
@@ -97,7 +97,7 @@ When modifying, building, or committing files in **`Marciale-OS`**, follow this 
 │
 └── docs/                                <- GOVERNANCE, AUDIT & HIGH COUNCIL SUITE
     ├── THE_10_COMMANDMENTS_OF_DOCS.md   <- Inviolable Bible of Documentation & Releases
-    ├── AI_RULES.md                      <- The AI Constitution (17 Supreme Laws)
+    ├── AI_RULES.md                      <- The AI Constitution (19 Supreme Laws)
     ├── AGENT_PLAYBOOK.md                <- Reverse-Intent Decoder & Autonomous Severity Matrix
     ├── AGENTS.md                        <- Virtual Squad Registry (6 Core Roles + 7 Web Roles)
     ├── PROMPT_PLAYBOOK.md               <- 22 Master Scenario Prompt Templates
@@ -261,11 +261,12 @@ Seat R is **research-specialized**. High Council (**Seat A / TSTT**, **Seat E / 
 
 * `docs/AI_RULES.md`, Commandments, Charters, shrine ancestral testaments, `SYSTEM_STATE.md`, `COUNCIL_COMMUNICATION_LOG.md` (append only via Seat A paste), TheHUB, Gamecompanion, root `package.json`, TAMAKEE vault.
 
-### Upload / zip
+### Upload / zip — RESEARCH DROP IS MANDATORY (Commander 2026-08-13)
 
 * **Never** GitHub “Add files via upload” over the whole tree or explode `MARCIALE_OS_COMPLETE.zip` onto `main`.
-* A Seat R zip, if any, contains **only** `research/` (and optional desk pointers). Commandment I for a *research drop*, not a full-repo overwrite.
-* `git pull --ff-only` before any remote write. If pull is impossible: **Law XVIII** Feint East → `docs/hotfix/` (Seat A may file the hotfix if Recon cannot touch that path).
+* **Seat R Commandment I (narrow privilege):** After any material write under `research/`, Recon **MUST** produce a zip whose payload is **`Marciale-OS/research/` only** (example name: `MARCIALE_OS_RESEARCH_DROP.zip`). No TheHUB, no Gamecompanion, no `docs/` constitutions, no `node_modules`.
+* **This privilege counteracts over-broad High Command hard stops** — including Seat A. Assistant may forbid a *full-repo* zip. Assistant **may not** forbid or cancel the **research-only** zip. If a task says “no zip,” read it as “no house zip.” The library still ships in a box.
+* `git pull --ff-only` before any remote write. If pull is impossible: **Law XVIII** Feint East (Seat A may file the hotfix path if Recon cannot touch `docs/hotfix/`). The research-only zip still ships if the dossier exists.
 
 ### Consumption flow
 

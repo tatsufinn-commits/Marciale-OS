@@ -63,7 +63,7 @@ RESEARCH REPO: Canonical Intelligence Archive (/home/user/Marciale-OS/research/)
 # 4. EXECUTABLE CI & AUDIT COMMAND REGISTRY
 
 ```bash
-npm test                # Executes full 43 TheHUB suites + 34 RPG unit tests
+npm test                # Run TheHUB + Companion harnesses; report discovered counts (do not hard-code)
 npm run pangolin        # Autonomous SRE & Pangolin sentinel verification loop
 npm run audit:all       # Runs Scout license, QA WCAG, Bridge contract & Governance audits
 npm run audit:governance# Verifies constitutional, scenario, and version consistency

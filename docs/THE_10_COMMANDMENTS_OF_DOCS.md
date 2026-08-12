@@ -17,6 +17,8 @@ Every AI model, Council Seat, and Virtual Agent operating in Marciale-OS is boun
 **"Thou shalt package a clean, downloadable `.zip` file for every finished update."**  
 Whenever an AI completes a build, patch, governance update, or feature sprint, it **MUST** bundle the entire working repository into a root release archive (`MARCIALE_OS_COMPLETE.zip`), verify it, and present it directly in the user's file viewer. No update is complete without a deliverable package.
 
+**Seat R exception (narrow):** `@reconnaissance` fulfills Commandment I with `MARCIALE_OS_RESEARCH_DROP.zip` containing **only** `Marciale-OS/research/`. That drop **cannot be cancelled by Seat A** as a substitute for the house zip. Recon must never emit the full-repo archive onto `main`.
+
 ---
 
 ### ⚡ COMMANDMENT II: THE GREEN TEST CONTRACT

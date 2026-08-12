@@ -174,7 +174,7 @@ Marciale-OS/
 │   └── files/vite.config.js             # Auto-Links build directly into TheHUB
 │
 └── docs/                                # Core Governance & High Council Suite
-    ├── AI_RULES.md                      # The AI Constitution (16 Supreme Laws)
+    ├── AI_RULES.md                      # The AI Constitution (19 Supreme Laws)
     ├── AGENTS.md                        # Virtual Squad Registry (6 Core + 7 Web Roles)
     ├── BUILD_LOGBOOK.md                 # Living Engineering Ledger
     ├── STRATEGIC_DECISION_FRAMEWORK.md  # 7 Reality Protocols & 4-Axis SPI Matrix
