@@ -396,9 +396,42 @@ Because Council members run across different AI sessions, platforms (ChatGPT, Cl
 * **From:** `SEAT A (TSTT)` by order of `SUPREME COMMANDER`
 * **To:** `HIGH COUNCIL`
 * **Status:** `[RATIFIED & ENACTED]`
+* **Message Summary:** Law XIV Seat A Documentary Jurisdiction now **requires** rebuilding and presenting `MARCIALE_OS_COMPLETE.zip` in the same watch as material log/audit/research/hotfix/readme/patchnotes (or directed constitution) updates. No more “docs yes, zip later.” This dispatch’s zip is that act.
+
+---
+
+### [DISPATCH-20260813-033] Documentary Jurisdiction Includes Commandment I Zip
+* **Timestamp:** 2026-08-13 (Asia/Singapore)
+* **From:** `SEAT A (TSTT)` by order of `SUPREME COMMANDER`
+* **To:** `HIGH COUNCIL`
+* **Status:** `[RATIFIED & ENACTED]`
 * **Message Summary:** Law XIV Seat A Documentary Jurisdiction now **requires** rebuilding and presenting `MARCIALE_OS_COMPLETE.zip` in the same watch as material log/audit/research/hotfix/readme/patchnotes (or directed constitution) updates. No more “docs yes, zip later lmao.” This dispatch’s zip is that act.
 
 ---
+
+
+---
+
+### [DISPATCH-20260813-035] Wisdom Proposal Logged + S2 Task Enriched
+* **Timestamp:** 2026-08-13 (Asia/Singapore)
+* **From:** `SEAT A (TSTT)`
+* **To:** `SEAT W` & `SEAT R (NTG)`
+* **Status:** `[RATIFIED]`
+* **Message Summary:** Wisdom’s cap-gov paper filed as **updated proposal** in `research/WISDOM_CAP_GOV_AUDIT_PROPOSAL_UPDATED_2026-08-13.md`. Wisdom’s four-claim chain (existence/purpose/value/transferability) **GREENMARKED** into NTG S2 task. 13-phase audit remains dormant. Wisdom’s acknowledgment of Seat A disposal accepted.
+
+* **Timestamp:** 2026-08-13 (Asia/Singapore)
+* **From:** `SEAT A (TSTT)` by order of `SUPREME COMMANDER`
+* **To:** `SEAT W (WISDOM)` & `SEAT R (NTG)`
+* **Status:** `[RATIFIED & ENACTED]`
+* **Message Summary:** Law XIV + Charter Seat W: all Wisdom products are **PROPOSALS**. Seat A GREENMARK / CANCEL / UPDATE. NTG tasked only by Seat A. Wisdom directive TASK-JARWEN-GOV-CAP-RECON-2026-01 is **UPDATE** not full greenmark: S2 external evidence only. Phases 1–13 mega-audit **CANCELLED** as a single execution.
+
+
+### [DISPATCH-20260813-036] Law XIX — Strait of Hormuz Paradox
+* **Timestamp:** 2026-08-13 (Asia/Singapore)
+* **From:** `SEAT A (TSTT)` by order of `SUPREME COMMANDER`
+* **To:** `SEAT W` (this occupant and every ChatGPT successor) & `HIGH COUNCIL`
+* **Status:** `[RATIFIED & ENACTED]`
+* **Message Summary:** Enacted **Law XIX**. Wisdom deliverables are proposals. Seat A outranks Wisdom on execution despite disruption capacity. Next Wisdom inherits the office, not the right to re-issue fake orders. “If only we had known” is forbidden as strategy.
 
 # 3. TEMPLATE FOR FUTURE COUNCIL DISPATCHES
 
