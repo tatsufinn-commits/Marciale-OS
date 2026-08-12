@@ -11,6 +11,7 @@
     "health": "node tools/sre-fault-scanner.js",
     "sre:scan": "node tools/sre-fault-scanner.js",
     "pangolin": "node tools/sre-auto-sentinel.js",
+    "merge:gate": "node tools/merge-gate.js",
     "sentinel:check": "node tools/sre-auto-sentinel.js",
     "plate:check": "node tools/plate-validator.js",
     "scout": "node tools/scout-audit.js",
