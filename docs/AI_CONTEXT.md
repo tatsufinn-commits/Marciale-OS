@@ -45,10 +45,10 @@ Any AI working on this repository must consult the dedicated operational documen
 
 | Document | Role & Purpose | Key Target |
 |---|---|---|
-| **`docs/AI_RULES.md`** | **The Constitution** — The 9 Supreme Laws of Marciale-OS (including Mosaic Council). | Mandatory for all chats. |
-| **`docs/PROMPT_PLAYBOOK.md`** | **Prompt Library** — Copy-paste prompt templates for all 9 scenarios. | Prompt selection. |
+| **`docs/AI_RULES.md`** | **The Constitution** — The 15 Supreme Laws of Marciale-OS (including Law XV). | Mandatory for all chats. |
+| **`docs/PROMPT_PLAYBOOK.md`** | **Prompt Library** — Copy-paste prompt templates for all 22 scenarios. | Prompt selection. |
 | **`docs/STRATEGIC_DECISION_FRAMEWORK.md`** | **Path Analyzer** — 7 Reality Protocols, Mosaic Council, and 4-Axis SPI. | Decision matrix & planning. |
-| **`docs/AGENTS.md`** | **The Staff** — 5 specialized agent roles (@architect, @sentinel, @forge, @mind, @sre). | Role boundaries & handoffs. |
+| **`docs/AGENTS.md`** | **The Staff** — 6 Core + 7 Web specialized agent roles. | Role boundaries & handoffs. |
 | **`docs/BUILD_LOGBOOK.md`** | **The Living Ledger** — Permanent historical log recording every build across sessions. | Build memory & history. |
 | **`docs/DIAGNOSTIC_AND_TESTING_GUIDE.md`** | **Proactive QA** — Automated tests & targeted scans for Chess/RuView. | Proves *"Does it work?"* |
 | **`docs/CODE_ANALYSIS_AND_ISSUE_DETECTION.md`** | **Code Inspector** — Deep static analysis, defect dossiers, and debt. | Explains *"Why does it fail?"* |

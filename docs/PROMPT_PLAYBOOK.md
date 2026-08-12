@@ -94,11 +94,11 @@ MY TARGET BUILD:
 
 MANDATORY RULES:
 1. Follow your specific agent jurisdiction in docs/AGENTS.md.
-2. Follow the 9 Supreme Laws in docs/AI_RULES.md (no framework rewrites, local-first, simulation mode for hardware).
+2. Follow the 15 Supreme Laws in docs/AI_RULES.md and docs/THE_10_COMMANDMENTS_OF_DOCS.md.
 3. Modify only the 1–3 target files needed for this single build.
-4. Run `npm test` and make sure all 43 tests pass (100% green checkmarks).
+4. Run `npm test` and make sure all tests pass (100% green checkmarks).
 5. Append your completed build entry into `docs/BUILD_LOGBOOK.md`.
-6. Package all updated files into a versioned `.zip` file per Law VIII (e.g. `PATCH-V1.0.zip`).
+6. Package all updated files into a versioned `.zip` file per Commandment I (e.g. `MARCIALE_OS_COMPLETE.zip`).
 7. Explain what you changed in simple beginner terms so I can test it with my mouse!
 ```
 

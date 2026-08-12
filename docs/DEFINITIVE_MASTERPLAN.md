@@ -169,18 +169,18 @@ Marciale-OS/
 │   └── tests/                           # 12 Automated Test Suites
 │
 ├── Gamecompanion/                       # Companion RPG Engine Source
-│   ├── files/src/                       # Canvas 2D Combat & State Engine (40 ES Modules)
-│   ├── files/tests/                     # 31 Node Unit Tests
+│   ├── files/src/                       # Canvas 2D Combat & State Engine (50+ ES Modules)
+│   ├── files/tests/                     # 41 Node Unit Tests
 │   └── files/vite.config.js             # Auto-Links build directly into TheHUB
 │
-└── docs/                                # The 13-Document AI Governance Scaffolding
-    ├── AI_RULES.md                      # The AI Constitution (9 Supreme Laws)
-    ├── AGENTS.md                        # 5 Specialized Staff Roles (@architect, @forge, etc.)
+└── docs/                                # Core Governance & High Council Suite
+    ├── AI_RULES.md                      # The AI Constitution (15 Supreme Laws)
+    ├── AGENTS.md                        # Virtual Squad Registry (6 Core + 7 Web Roles)
     ├── BUILD_LOGBOOK.md                 # Living Engineering Ledger
     ├── STRATEGIC_DECISION_FRAMEWORK.md  # 7 Reality Protocols & 4-Axis SPI Matrix
-    ├── PROMPT_PLAYBOOK.md               # 9 Master Prompt Templates (Including Mosaic Council)
+    ├── PROMPT_PLAYBOOK.md               # 22 Master Prompt Templates
     ├── DEFINITIVE_MASTERPLAN.md         # This Master Document
-    └── ... (SRE, QA, Deep Dive Study, Context Cards)
+    └── ... (SRE, QA, Deep Dive Study, Context Cards, Council)
 ================================================================================
 TAMAintegration/
 ├── package.json                         # TAMA Controller (npm test, drill, solve, grade, anki)

@@ -58,13 +58,14 @@ Marciale-OS/
 │
 └── docs/                                # Core Governance & High Council Suite
     ├── THE_10_COMMANDMENTS_OF_DOCS.md   # The Absolute Inviolable Bible of Documentation & Releases
-    ├── AI_RULES.md                      # The AI Constitution (14 Supreme Laws)
+    ├── AI_RULES.md                      # The AI Constitution (15 Supreme Laws)
     ├── AGENT_PLAYBOOK.md                # Reverse-Intent Decoder & Autonomous Severity Matrix
     ├── AGENTS.md                        # Virtual Squad Personas (6 Core Roles + 7 Web Roles)
     ├── PROMPT_PLAYBOOK.md               # 22 Master Scenario Prompt Templates
     ├── DOCS_MASTER_INDEX.md             # 1-Page Master Navigation Map & Document Index
     ├── SYSTEM_STATE.md                  # Machine-Readable Ground-Truth State Registry
-    ├── BUILD_LOGBOOK.md                 # Permanent Engineering Ledger (Builds 0 through 40+)
+    ├── BUILD_LOGBOOK.md                 # Permanent Engineering Ledger (Builds 0 through 53+)
+    ├── PATH.md                          # Master Repository Routing & Commit Guide
     ├── patchnotes/PATCHNOTES_LEDGER.md  # Living ledger of surgical bugfixes & patches
     ├── hotfix/                          # Staging ground for incoming hotfix dossiers
     ├── audit/                           # Governance integrity audits & repair reviews
@@ -81,11 +82,11 @@ Incoming AI assistants should be routed through **`docs/AGENT_PLAYBOOK.md`** (wh
 Hello AI! You are entering Marciale-OS (TheHUB + Companion RPG + JARWEN Council).
 Here is my repository: https://github.com/tatsufinn-commits/Marciale-OS.git
 
-MODE: HIGH COUNCIL TASK EXECUTION (LAWS I–XIV)
+MODE: HIGH COUNCIL TASK EXECUTION (LAWS I–XV)
 
 MY CURRENT GOAL:
 1. Inspect `docs/SYSTEM_STATE.md` and `docs/BUILD_LOGBOOK.md` to see verified production state.
-2. Follow `docs/THE_10_COMMANDMENTS_OF_DOCS.md` and `docs/AI_RULES.md` (14 Supreme Laws).
+2. Follow `docs/THE_10_COMMANDMENTS_OF_DOCS.md` and `docs/AI_RULES.md` (15 Supreme Laws).
 3. Execute [TARGET BUILD / TASK].
 4. Run `npm test` and `npm run pangolin` verifying 100% green checkmarks.
 5. Package the updated repository into `MARCIALE_OS_COMPLETE.zip` for download (Commandment I).

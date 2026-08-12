@@ -17,7 +17,7 @@
 | If you want to... | Consult This Document | Invoke This Agent | Primary Terminal Command |
 |---|---|:---:|---|
 | **Read the 10 Commandments of /docs**| `/docs/THE_10_COMMANDMENTS_OF_DOCS.md` | All Seats | Review the 10 Inviolable Laws |
-| **Understand the rules of the AI** | `/docs/AI_RULES.md` | Council / Squad | Review the 14 Supreme Laws |
+| **Understand the rules of the AI** | `/docs/AI_RULES.md` | Council / Squad | Review the 15 Supreme Laws |
 | **Decode casual / jagged human speech**| `/docs/AGENT_PLAYBOOK.md` | Any Active Model | Auto-Reverse Intent Translation |
 | **Pick the right persona for a task** | `/docs/AGENTS.md` | `@architect` | Review 6 Core + 7 Web Roles |
 | **Review Council governance & seats** | `/docs/council/JARWEN_COUNCIL_CHARTER.md` | `@joint` / Seat A | Review 5 Council Seats & Protocol |
@@ -30,6 +30,7 @@
 | **See history of completed builds** | `/docs/BUILD_LOGBOOK.md` | `@architect` | Check latest completed milestone |
 | **Fix a blank screen, crash, or bug** | `/docs/INCIDENT_RESPONSE_SRE_PLAYBOOK.md` | `@sre` | `npm run health` |
 | **Apply surgical patch & log patchnote**| `/docs/patchnotes/PATCHNOTES_LEDGER.md` | `@pangolin` | `npm run pangolin` |
+| **Check repository paths & commit rules**| `/docs/PATH.md` | `@engineer` / Max | Inspect directory map & commit gate |
 | **Review integrity audits & repair plans**| `/docs/audit/` | `@architect` / Seat W | Inspect audit dossiers |
 | **Stage incoming hotfix proposals** | `/docs/hotfix/` | `@sre` / `@pangolin` | Triage incoming hotfixes |
 | **Run tests or diagnose failures** | `/docs/DIAGNOSTIC_AND_TESTING_GUIDE.md` | `@sentinel` | `npm test` |
@@ -50,7 +51,7 @@
 
 ### 🏛️ 1. Core Governance & Council Suite (`/docs/` & `/docs/council/`)
 1. **`THE_10_COMMANDMENTS_OF_DOCS.md`:** The Supreme Inviolable Bible of Documentation & Releases.
-2. **`AI_RULES.md`:** The 14 Supreme Constitutional Laws of Marciale-OS (Law XIV: Continuous Watch & Duty Mandate).
+2. **`AI_RULES.md`:** The 15 Supreme Constitutional Laws of Marciale-OS (Law XV: Engineer Autonomous Push & Resume Protocol).
 3. **`AGENT_PLAYBOOK.md`:** Reverse-Intent Decoder, Autonomous Severity Classifier & 0-Paralysis Protocol.
 4. **`AGENTS.md`:** Virtual Squad Personas (6 Core Executive Roles + 7 Web Department Roles).
 5. **`PROMPT_PLAYBOOK.md`:** 22 Copy-Paste Scenario Prompt Templates (including Research-Backed Roadmap Generator).
@@ -61,8 +62,9 @@
 10. **`STRATEGIC_DECISION_FRAMEWORK.md`:** 7 Reality Protocols, SPI Scoring & Mosaic Council.
 11. **`BUILD_LOGBOOK.md`:** Living ledger of all 40+ completed engineering milestones.
 12. **`patchnotes/PATCHNOTES_LEDGER.md`:** The permanent patchnotes dropbox for surgical fixes.
-13. **`audit/`:** Complete governance integrity audits and repair design reviews.
-14. **`hotfix/`:** Staging ground for hotfix proposals and automated packaging.
+13. **`PATH.md`:** The Master Repository Routing Blueprint & Live Commit Guide for @engineer.
+14. **`audit/`:** Complete governance integrity audits and repair design reviews.
+15. **`hotfix/`:** Staging ground for hotfix proposals and automated packaging.
 15. **`INCIDENT_RESPONSE_SRE_PLAYBOOK.md`:** SEV-1 to SEV-4 SRE emergency playbooks.
 16. **`DIAGNOSTIC_AND_TESTING_GUIDE.md`:** Test execution, JSDOM probes & smoke checks.
 17. **`DEFINITIVE_MASTERPLAN.md`:** Canonical master blueprint uniting Marciale-OS and TAMAKEE.

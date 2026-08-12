@@ -5,7 +5,7 @@
 
 ---
 
-# ⚖️ THE 14 SUPREME LAWS OF MARCIALE-OS
+# ⚖️ THE 15 SUPREME LAWS OF MARCIALE-OS
 
 ### 🏛️ LAW I: THE NON-DESTRUCTIVE MANDATE (Do Not Rewrite the House)
 * **Rule:** Never rewrite, refactor, or delete working modules simply because you prefer a different coding style, framework, or library.
@@ -120,10 +120,23 @@
 
 ---
 
+### 🏛️ LAW XV: THE ENGINEER AUTONOMOUS EXECUTION, RESUME & LIVE GIT PUSH PROTOCOL
+* **Rule:** Max (**`@engineer` / Seat E**) possesses full autonomous authority to update its Proof-of-Work Council Resume (`docs/council/members/ENGINEER/RESUME_ENGINEER.md`), log dispatches into `docs/council/COUNCIL_COMMUNICATION_LOG.md`, and **execute live Git commits and pushes** for assigned engineering tasks without asking for repetitive human permission on every turn.
+* **The Autonomous Commit & Push Mandate:**
+  * When executing an assigned task, `@engineer` is pre-authorized to design specifications, command `@the_forge`, submit diffs to `@pangolin`, and push verified commits directly to the remote repository.
+* **Mandatory Guardrail Invariants:**
+  1. *The 80% Blast-Radius Ceiling:* `@engineer` is strictly **PROHIBITED from rewriting $\ge 80\%$ of any existing working file**; diffs must be surgical, modular, and isolated (Law I & Law IV).
+  2. *The 6-Step Pre-Commit Verification Gate:* `npm test` and `npm run pangolin` MUST pass with **100% green checkmarks** before any commit or push occurs (Law V & Law X).
+  3. *Standardized Commit Format:* All commits must use semantic syntax (`feat(...)`, `fix(...)`, `docs(...)`) per `docs/PATH.md`.
+  4. *Automatic Release Packaging:* Every completed push MUST produce the updated `MARCIALE_OS_COMPLETE.zip` release archive (Commandment I).
+* **Reason:** Eliminates repetitive permission bottlenecks while enforcing strict Four-Eyes verification through `@pangolin`.
+
+---
+
 # 📖 PLAYBOOK & OPERATIONAL REFERENCES
 
 For automatic reverse-intent interpretation of casual user speech, consult:
 > **`docs/AGENT_PLAYBOOK.md`**
 
-For complete, copy-paste prompt templates across all 20 development scenarios (including Watch-Relief, Letters of Last Resort, and Gauntlet Stress-Testing), refer to:
+For complete, copy-paste prompt templates across all 22 development scenarios (including Watch-Relief, Letters of Last Resort, Idea Pitch, and Gauntlet Stress-Testing), refer to:
 > **`docs/PROMPT_PLAYBOOK.md`**
