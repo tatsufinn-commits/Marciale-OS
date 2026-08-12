@@ -18,7 +18,7 @@
 | **TheHUB Command Shell** | `TheHUB 1.5.5.2.3 a v/package.json` | `1.5.5.2.3-alpha` | 🟢 VERIFIED | 20 Vanilla JS Modules + Python Server |
 | **Companion RPG Engine** | `Gamecompanion/files/package.json` | `0.3.0.0` | 🟢 VERIFIED | Vite ES Module Canvas Engine |
 | **TAMA Academic Studio** | `TAMAplugin` & Academic Vault | `2.0.0` | 🟢 VERIFIED | Mapúa BS Architecture Knowledge Spine |
-| **AI Constitution** | `docs/AI_RULES.md` | `Laws I–XVIII (18 Laws)` | 🟢 VERIFIED | Law XVIII Feint East, Strike West; XVII Seat Identity + Testament lock |
+| **AI Constitution** | `docs/AI_RULES.md` | `Laws I–XIX (19 Laws)` | 🟢 VERIFIED | XIX Strait of Hormuz Paradox; XVIII Feint East; XVII Seat Identity |
 | **Prompt Playbook** | `docs/PROMPT_PLAYBOOK.md` | `22 Scenarios` | 🟢 VERIFIED | Complete Scenario Registry |
 
 ---
@@ -26,7 +26,7 @@
 # 2. ACTIVE GOVERNANCE & COUNCIL TOPOLOGY
 
 ```text
-CONSTITUTION: 18 Supreme Laws (/docs/AI_RULES.md)
+CONSTITUTION: 19 Supreme Laws (/docs/AI_RULES.md)
 COMMANDMENTS: 10 Inviolable Commandments (/docs/THE_10_COMMANDMENTS_OF_DOCS.md)
 COUNCIL SEATS: 5 Sovereign Seats (Seat A, Seat W, Seat R, Seat E, Seat N) + Seat J (@joint)
 VIRTUAL SQUAD: 6 Core Executive Roles + 7 Web Department Roles + 3 TAMA Studio Roles
