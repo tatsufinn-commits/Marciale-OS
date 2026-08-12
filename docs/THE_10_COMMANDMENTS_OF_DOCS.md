@@ -2,7 +2,7 @@
 ## The Absolute, Inviolable Bible of Documentation, Releases & Institutional Truth
 **Classification:** SUPREME CANONICAL BIBLE OF `/docs`  
 **Ratified By:** Supreme Commander (Director) & `@joint` (The High Council)  
-**Parent Governance:** `/docs/AI_RULES.md` (Laws I through XVIII)  
+**Parent Governance:** `/docs/AI_RULES.md` (Laws I through XVI)  
 **Target Path:** `/docs/THE_10_COMMANDMENTS_OF_DOCS.md`  
 
 ---
@@ -27,7 +27,7 @@ An AI developer **MUST NOT** claim a build succeeded, a bug is fixed, or a featu
 
 ### ⚡ COMMANDMENT III: PRESERVATION OF HISTORICAL PROVENANCE
 **"Thou shalt not erase or rewrite historical records."**  
-Outdated roadmaps (`MASTER_ROADMAP_V7.md`), parked blueprints (`Proposal v3.0.txt`), and historical repair dossiers are valuable forensic evidence. The system shall **never** delete, sanitize, or rewrite past historical logs to match current numbers. **Ancestral Testaments** in `/docs/shrine/members/` are a stricter subset: only the Supreme Commander may alter another occupant’s will; only a retiring member may write **their own** (Shrine Charter §V, Law XVII).
+Outdated roadmaps (`MASTER_ROADMAP_V7.md`), parked blueprints (`Proposal v3.0.txt`), and historical repair dossiers are valuable forensic evidence. The system shall **never** delete, sanitize, or rewrite past historical logs to match current numbers.
 
 ---
 
