@@ -461,6 +461,22 @@
           <div id="tdyAgent" style="margin-top:16px;"></div>
        </div>
 
+       <!-- High Council Live Observer Card (Build 47: Babysitter Pattern) -->
+       <div class="council-observer-card" id="councilObserverCard" style="background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px; box-shadow: 0 0 0 1px rgba(255,255,255,0.05), inset 0 0 0 1px rgba(0,0,0,0.3);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+             <h3 style="margin:0; color:var(--acc); font-size:15px; display:flex; align-items:center; gap:6px;">
+               <span class="council-liveness-dot" style="width:8px; height:8px; border-radius:50%; background:var(--good); box-shadow:0 0 8px var(--good); display:inline-block;"></span>
+               👑 Council Observer
+             </h3>
+             <span class="feature-badge" id="councilHealthBadge" style="background:rgba(0,184,148,0.15); color:var(--good); font-size:11px; padding:2px 8px; border-radius:999px;">🟢 SEV-0 Nominal</span>
+          </div>
+          <div id="councilObserverBody" style="display:flex; flex-direction:column; gap:8px;"></div>
+          <div style="display:flex; gap:6px; margin-top:12px;">
+             <button class="btn sm primary" style="flex:1;" onclick="openCommandPalette();">⌨️ Ctrl+K HUD</button>
+             <button class="btn sm" style="flex:1;" onclick="toast('🛡️ SRE Sentinel: 43/43 Passing (100% Green)','success'); window.playHubSound?.('chime');">🛡️ Sentinel Check</button>
+          </div>
+       </div>
+
        <!-- Marciale Autopilot -->
        <div class="autopilot-card" id="autopilotCard" style="display:none">
           <div class="autopilot-head">

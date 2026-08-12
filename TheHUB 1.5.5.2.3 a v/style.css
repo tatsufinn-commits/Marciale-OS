@@ -19,19 +19,41 @@
    ========================================================== */
 
 /* ==========================================================
-   SECTION 00: Reset & Design Tokens
+   SECTION 00: Reset & Design Tokens (Build 46: APCA / Randoma11y)
    ========================================================== */
 :root{
-    --bg:#121212; --bg2:#181818; --card:#181818; --card2:#282828;
-    --line:#2a2a2a; --txt:#ffffff; --mut:#b3b3b3; --acc:#1db954; --acc2:#1ed760;
-    --good:#1db954; --warn:#ffb454; --danger:#ff6b6b; --r:12px;
+    --bg:#0b0c10; --bg2:#13151b; --card:#13151b; --card2:#1a1d26;
+    --line:rgba(255, 255, 255, 0.08); --line-strong:rgba(255, 255, 255, 0.16);
+    --txt:#f1f2f6; --mut:#a4b0be; --acc:#6c5ce7; --acc2:#8272f3;
+    --good:#00b894; --warn:#fdcb6e; --danger:#e17055; --r:12px;
+    
+    /* APCA-Calibrated Tokens (Randoma11y Pattern: Lc >= 60) */
+    --color-canvas:#0b0c10;
+    --color-surface-1:#13151b;
+    --color-surface-2:#1a1d26;
+    --color-text-body:#f1f2f6;      /* APCA Lc 88 */
+    --color-text-muted:#a4b0be;     /* APCA Lc 64 */
+    --color-accent-primary:#6c5ce7; /* APCA Lc 62 */
+    --color-accent-gold:#d4a034;    /* APCA Lc 74 */
+    --hub-primary:#6c5ce7;
+    --hub-accent-gold:#d4a034;
+    --hub-semantic-success:#00b894;
+  }
+  
+  /* Circadian Wind-Down Mode: Warm Spectral Shift & Enhanced Contrast */
+  body.circadian-winddown,
+  [data-circadian="winddown"] {
+    --bg:#12100e; --bg2:#1a1613; --card:#1a1613; --card2:#241f1a;
+    --line:rgba(255, 220, 180, 0.09);
+    --txt:#faf4ee; --mut:#bfaea1;
+    --acc:#e8a55a; --acc2:#f5bb76;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{
     font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background:
-      radial-gradient(900px 500px at 85% -10%, rgba(29, 185, 84, 0.08), transparent),
-      radial-gradient(700px 500px at -10% 110%, rgba(29, 185, 84, 0.05), transparent),
+      radial-gradient(900px 500px at 85% -10%, rgba(108, 92, 231, 0.08), transparent),
+      radial-gradient(700px 500px at -10% 110%, rgba(212, 160, 52, 0.05), transparent),
       var(--bg);
     color:var(--txt); min-height:100vh; -webkit-font-smoothing:antialiased;
   }
@@ -993,13 +1015,44 @@ footer{
 .skip-link{position:fixed;left:14px;top:14px;z-index:9999;transform:translateY(-140%);background:var(--popover);color:var(--foreground);border:1px solid var(--border);border-radius:var(--radius-md);padding:10px 12px;box-shadow:var(--shadow-lg);font-weight:750}.skip-link:focus{transform:translateY(0);outline:none;box-shadow:var(--focus-ring),var(--shadow-lg)}
 #appMain:focus{outline:none}
 
-/* Command palette */
-#cmdOverlay .modal{overflow:hidden}.cmd-empty{padding:18px;color:var(--muted-foreground);text-align:center;border:1px dashed var(--border);border-radius:var(--radius-lg);background:var(--secondary)}
-.cmd-item{display:grid;grid-template-columns:36px minmax(0,1fr) auto;gap:10px;align-items:center;padding:11px;border:1px solid transparent;border-radius:var(--radius-lg);cursor:pointer;transition:background var(--transition-fast),border-color var(--transition-fast),transform var(--transition-fast)}
-.cmd-item:hover,.cmd-item.selected{background:color-mix(in srgb,var(--acc) 9%,var(--secondary));border-color:color-mix(in srgb,var(--acc) 38%,var(--border));transform:translateX(1px)}
-.cmd-ico{width:34px;height:34px;border:1px solid var(--border);border-radius:var(--radius-md);display:grid;place-items:center;background:var(--surface);box-shadow:var(--shadow-sm)}
-.cmd-main{min-width:0}.cmd-title{font-weight:750;color:var(--foreground);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.cmd-sub{font-size:12px;color:var(--muted-foreground);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}.cmd-type{font-size:11px;font-weight:800;color:var(--muted-foreground);border:1px solid var(--border);border-radius:999px;background:var(--surface);padding:3px 7px}
-#cmdResults{padding:4px;display:grid;gap:4px}
+/* Command palette — Build 41 Linear & Raycast Quick-Dispatch HUD */
+#cmdOverlay .modal{
+  overflow:hidden;
+  background:var(--card)!important;
+  border:1px solid rgba(255, 255, 255, 0.12)!important;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), inset 0 0 0 1px rgba(0, 0, 0, 0.4), 0 24px 64px rgba(0, 0, 0, 0.6)!important;
+  border-radius:12px!important;
+  backdrop-filter:blur(16px);
+}
+.cmd-empty{padding:24px;color:var(--muted-foreground);text-align:center;border:1px dashed var(--border);border-radius:var(--radius-lg);background:var(--secondary)}
+.cmd-section-header{
+  font-size:11px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  color:var(--muted-foreground);
+  padding:8px 12px 4px 12px;
+  opacity:0.85;
+}
+.cmd-item{display:grid;grid-template-columns:36px minmax(0,1fr) auto;gap:12px;align-items:center;padding:9px 12px;border:1px solid transparent;border-radius:var(--radius-md);cursor:pointer;transition:background var(--transition-fast),border-color var(--transition-fast),transform var(--transition-fast)}
+.cmd-item:hover,.cmd-item.selected{background:color-mix(in srgb,var(--acc) 12%,var(--secondary));border-color:color-mix(in srgb,var(--acc) 45%,var(--border));transform:translateX(2px)}
+.cmd-ico{width:34px;height:34px;border:1px solid var(--border);border-radius:var(--radius-md);display:grid;place-items:center;background:var(--surface);box-shadow:var(--shadow-sm);font-size:16px}
+.cmd-main{min-width:0}.cmd-title{font-weight:750;color:var(--foreground);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:14px}.cmd-sub{font-size:12px;color:var(--muted-foreground);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}.cmd-type{font-size:11px;font-weight:750;color:var(--muted-foreground);border:1px solid var(--border);border-radius:999px;background:var(--surface);padding:3px 8px}
+.cmd-kbd{
+  display:inline-flex;
+  align-items:center;
+  padding:2px 7px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:11px;
+  font-weight:700;
+  color:var(--foreground);
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-bottom:2px solid color-mix(in srgb,var(--foreground) 30%,var(--border));
+  border-radius:5px;
+  box-shadow:var(--shadow-sm);
+}
+#cmdResults{padding:6px;display:grid;gap:2px}
 
 /* Shortcut help */
 .shortcut-modal{max-width:560px!important}.shortcut-grid{display:grid;gap:10px;margin:14px 0}.shortcut-grid div{display:grid;grid-template-columns:auto 1fr;gap:8px 12px;align-items:center;padding:10px;border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--secondary)}.shortcut-grid span{color:var(--muted-foreground);font-size:13px}.shortcut-grid kbd{display:inline-grid;place-items:center;min-width:28px;height:26px;padding:0 7px;border:1px solid var(--border);border-bottom-width:2px;border-radius:7px;background:var(--surface);color:var(--foreground);font:700 12px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;box-shadow:var(--shadow-sm)}
@@ -1022,9 +1075,63 @@ footer{
 }
 
 /* ===========================================================
-   MARCIALE GROK-INSPIRED UI/UX REFRESH
-   Dark, spacious AI workspace while keeping Hub themes/tools.
+   BUILD 42: PURE CSS DOT-MATRIX MOTION LOADERS & RADAR SWEEP
    =========================================================== */
+@keyframes ruviewRadarRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes dotmPulseGlow {
+  0%, 100% { opacity: 0.3; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.15); box-shadow: 0 0 10px var(--hub-primary, #6c5ce7); }
+}
+
+.ruview-radar-rings {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 184, 148, 0.15);
+  box-shadow: 
+    inset 0 0 0 30px rgba(0, 184, 148, 0.03),
+    inset 0 0 0 60px rgba(0, 184, 148, 0.05),
+    inset 0 0 0 90px rgba(0, 184, 148, 0.08);
+}
+
+.ruview-radar-sweep {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg at 50% 50%, rgba(0, 184, 148, 0.25) 0deg, rgba(0, 184, 148, 0.08) 45deg, transparent 90deg, transparent 360deg);
+  animation: ruviewRadarRotate 3s infinite linear;
+}
+
+.focus-dotmatrix-pulse {
+  display: grid;
+  grid-template-columns: repeat(3, 8px);
+  gap: 4px;
+  justify-content: center;
+  margin: 0 auto 12px auto;
+}
+
+.dotm-cell {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.dotm-cell.active {
+  background: var(--hub-primary, #6c5ce7);
+}
+
+.dotm-cell.active.pulse {
+  background: var(--hub-accent-gold, #d4a034);
+  animation: dotmPulseGlow 1.6s infinite ease-in-out;
+}
+
 .grok-ai-page{
   --grok-line:color-mix(in srgb,var(--border) 62%,transparent);
   --grok-surface:color-mix(in srgb,var(--bg) 70%,var(--surface) 30%);
@@ -1756,7 +1863,9 @@ body:not(.sidebar-collapsed) .sidebar-backdrop{position:fixed;inset:0;background
 .today-sleep-warning.ok{background:color-mix(in srgb,#22c55e 15%,var(--card));border-color:color-mix(in srgb,#22c55e 45%,var(--line));color:#86efac}
 
 .companion-gear-status-bar{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:8px}
-.companion-gear-status-bar .gear-badge{font-size:11px;padding:3px 8px;border-radius:6px;background:color-mix(in srgb,var(--bg) 80%,var(--card));border:1px solid var(--line);color:var(--txt);font-weight:600;white-space:nowrap}
+.companion-gear-status-bar .gear-badge{display:inline-flex;align-items:center;font-size:11px;padding:3px 8px;border-radius:6px;background:color-mix(in srgb,var(--bg) 80%,var(--card));border:1px solid var(--line);color:var(--txt);font-weight:600;white-space:nowrap}
+.companion-gear-status-bar .gear-crest{flex-shrink:0;transition:transform var(--transition-fast)}
+.companion-gear-status-bar .gear-badge:hover .gear-crest{transform:scale(1.15) rotate(15deg)}
 .companion-gear-status-bar .gold-badge{font-size:11px;padding:3px 8px;border-radius:6px;background:color-mix(in srgb,#f59e0b 18%,var(--card));border:1px solid color-mix(in srgb,#f59e0b 40%,var(--line));color:#fbbf24;font-weight:800;white-space:nowrap;margin-left:auto}
 
 /* ChessLab 2.0 Tactical Coach Overlay (Build V8.5) */
