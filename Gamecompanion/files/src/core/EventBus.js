@@ -12,7 +12,7 @@ export const Events = Object.freeze({
   GAME_LOADED: 'game:loaded', GAME_RESET: 'game:reset', GAME_TICK: 'game:tick', GAME_PAUSED: 'game:paused', GAME_RESUMED: 'game:resumed', STATE_CHANGED: 'state:changed', DAMAGE_DEALT: 'combat:damage_dealt', SKILL_USED: 'skill:used',
   MONSTER_KILLED: 'monster:killed', WAVE_CLEARED: 'wave:cleared', STAGE_CLEARED: 'stage:cleared', BOSS_DEFEATED: 'boss:defeated', HERO_DAMAGED: 'hero:damaged', HERO_DIED: 'hero:died', HERO_REVIVED: 'hero:revived',
   CHEST_DROPPED: 'chest:dropped', CHEST_OPENED: 'chest:opened', ITEM_EQUIPPED: 'item:equipped', ITEM_SHATTERED: 'item:shattered', ITEM_FUSED: 'item:fused',
-  WEAVER_LEVEL_UP: 'weaver:level_up', WEAVER_SKILL_UNLOCKED: 'weaver:skill_unlocked', AFFINITY_CHANGED: 'affinity:changed', AFFINITY_MILESTONE: 'affinity:milestone', PERSONAL_QUEST_PROGRESS: 'quest:personal_progress', WEAVER_DEPARTED: 'weaver:departed',
+  WEAVER_LEVEL_UP: 'weaver:level_up', WEAVER_SKILL_UNLOCKED: 'weaver:skill_unlocked', AFFINITY_CHANGED: 'affinity:changed', AFFINITY_MILESTONE: 'affinity:milestone', PERSONAL_QUEST_PROGRESS: 'quest:personal_progress', PERSONAL_QUEST_CHAIN_COMPLETED: 'quest:personal_chain_completed', WEAVER_DEPARTED: 'weaver:departed',
   ZONE_UNLOCKED: 'zone:unlocked', DIFFICULTY_UNLOCKED: 'difficulty:unlocked', ATTUNEMENT_POINT_EARNED: 'attunement:point',
   GOLD_CHANGED: 'gold:changed', DUST_CHANGED: 'dust:changed', GAME_SAVED: 'game:saved', OFFLINE_REWARDS_COLLECTED: 'offline:rewards', ACHIEVEMENT_UNLOCKED: 'achievement:unlocked',
   QUEST_STARTED: 'quest:started', QUEST_PROGRESS: 'quest:progress', QUEST_COMPLETED: 'quest:completed',

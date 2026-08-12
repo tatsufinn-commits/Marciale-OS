@@ -180,6 +180,36 @@
       "stats": { "holyResistance": 0.1, "maxHp": 15 },
       "description": "A silver cross pendant with a circle at the intersection. Symbol of the Milis faith.",
       "sprite": "accessory_milis-cross_32x32.png"
+    },
+    {
+      "id": "vaela_amulet_of_belonging",
+      "name": "Vaela's Amulet of Belonging",
+      "slot": "accessory1",
+      "rarity": "legendary",
+      "level": 25,
+      "stats": { "castSpeed": 0.15, "magicDamage": 0.10 },
+      "description": "A half-elf heritage pendant pulsing with arcane resilience. Sourced from Vaela's personal quest.",
+      "sprite": "accessory_greyrat-ring_32x32.png"
+    },
+    {
+      "id": "kaelen_oathblade",
+      "name": "Kaelen's Oathblade",
+      "slot": "weapon",
+      "rarity": "legendary",
+      "level": 25,
+      "stats": { "attackDamage": 35, "mitigation": 0.20 },
+      "description": "The blade of a fallen paladin, restored by true purpose. Sourced from Kaelen's personal quest.",
+      "sprite": "weapon_paul-sword_32x32.png"
+    },
+    {
+      "id": "sera_echo_lens",
+      "name": "Sera's Echo Lens",
+      "slot": "offhand",
+      "rarity": "legendary",
+      "level": 25,
+      "stats": { "xpMultiplier": 0.25, "manaRegen": 0.15 },
+      "description": "An Aether-attuned focusing lens that reveals hidden resonances. Sourced from Sera's personal quest.",
+      "sprite": "offhand_magic-orb_32x32.png"
     }
   ],
   "materials": [

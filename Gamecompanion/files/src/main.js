@@ -34,6 +34,7 @@ import zoneData from './data/zones.json';
 import { AudioSystem } from './systems/AudioSystem.js';
 import { QuestSystem } from './systems/QuestSystem.js';
 import { quests as questData } from './data/quests.js';
+import { personalQuests as personalQuestData } from './data/personalQuests.js';
 import { AchievementSystem } from './systems/AchievementSystem.js';
 import { achievements as achievementData } from './data/achievements.js';
 import { DialogueSystem } from './systems/DialogueSystem.js';
@@ -86,13 +87,34 @@ async function boot() {
   document.querySelector('#zones')?.addEventListener('click', () => { const rows=zoneData.zones.map(z=>`<li><strong>${z.name}</strong> — ${zoneContentSystem.getStages(z.id).length} stages</li>`).join(''); modal.show({title:'World zones',body:`<ul class="inventory-list">${rows}</ul>`,actions:[{label:'Close',kind:'primary',onClick:()=>modal.close()}]}); });
   const rosterSystem = new RosterSystem({ stateManager, templates: heroData.weavers });
   document.querySelector('#roster')?.addEventListener('click', () => { const rows=rosterSystem.getRoster().map(x=>`<li>${x.name} — ${x.unlocked ? 'Unlocked' : 'Locked'}</li>`).join(''); modal.show({title:'Character roster',body:`<ul class="inventory-list">${rows}</ul>`,actions:[{label:'Close',kind:'primary',onClick:()=>modal.close()}]}); });
-  const questSystem = new QuestSystem({ stateManager, eventBus, events: Events, questTemplates: questData });
+  const questSystem = new QuestSystem({
+    stateManager,
+    eventBus,
+    events: Events,
+    questTemplates: questData,
+    personalQuestTemplates: personalQuestData
+  });
   document.querySelector('#quests')?.addEventListener('click', () => {
     const active = questSystem.getActiveQuests();
     const rows = active.length
       ? active.map(q => `<li><strong>${q.title}</strong> <em>(${q.type.toUpperCase()})</em><br><small>${q.description}</small> [${q.progress}/${q.targetCount}] ${q.completed ? '✅ Completed' : '⏳ In Progress'}</li>`).join('')
       : '<li>No active quests.</li>';
     modal.show({ title: '📜 Quest Journal', body: `<ul class="inventory-list">${rows}</ul>`, actions: [{ label: 'Close', kind: 'primary', onClick: () => modal.close() }] });
+  });
+  document.querySelector('#personal-quests')?.addEventListener('click', () => {
+    const chains = questSystem.getPersonalQuests();
+    const rows = chains.length
+      ? chains.map(c => {
+          const step = c.steps[c.currentStepIndex];
+          const statusText = c.completed
+            ? '🏆 COMPLETED (Relic Acquired)'
+            : c.unlocked && step
+              ? `Step ${c.currentStepIndex + 1}/${c.steps.length}: ${step.title} [${step.progress}/${step.targetCount}]`
+              : `🔒 Locked (Requires Affinity ≥ ${c.unlockAffinity})`;
+          return `<li><strong>${c.companionName} · ${c.chainTitle}</strong><br><small style="color:${c.completed ? '#ffd700' : c.unlocked ? '#38bdf8' : '#94a3b8'};">${statusText}</small><br><small style="color:#a4b0be;">Relic: 💎 ${c.relic.name} (${c.relic.rarity.toUpperCase()})</small></li>`;
+        }).join('')
+      : '<li>No companion questlines available.</li>';
+    modal.show({ title: '💎 Companion Personal Quests', body: `<ul class="inventory-list">${rows}</ul>`, actions: [{ label: 'Close', kind: 'primary', onClick: () => modal.close() }] });
   });
   const achievementSystem = new AchievementSystem({ stateManager, eventBus, events: Events, achievementTemplates: achievementData });
   eventBus.on(Events.ACHIEVEMENT_UNLOCKED, ({ achievement }) => {
@@ -178,6 +200,24 @@ async function boot() {
   eventBus.on(Events.WEAVER_LEVEL_UP, () => {
     audioSystem.play('levelup');
   });
+
+  // ── Build 54: Personal Quest Storylines & Relic Disbursement ────────────
+  eventBus.on(Events.PERSONAL_QUEST_PROGRESS, ({ step, rewards }) => {
+    if (rewards?.xp) progressionSystem.grantXp(rewards.xp);
+    particles.addFloatingText({ x: 300, y: 145 }, `📜 QUEST STEP: ${step.title}`, '#38bdf8', { lifetime: 2500 });
+    particles.addBurst({ x: 300, y: 145 }, '#38bdf8', 8);
+  });
+
+  eventBus.on(Events.PERSONAL_QUEST_CHAIN_COMPLETED, ({ chain, relic }) => {
+    audioSystem.play('levelup');
+    particles.addFloatingText({ x: 300, y: 145 }, `💎 RELIC ACQUIRED: ${relic.name}`, '#fc9c0c', { lifetime: 4000 });
+    particles.addBurst({ x: 300, y: 145 }, '#fc9c0c', 16);
+    if (relic?.itemId) inventorySystem.addItem(relic.itemId, 1, 'legendary');
+  });
+
+  // Evaluate initial affinity-gates on boot
+  questSystem.setAffinityProvider((id) => affinitySystem.getAffinity(id));
+  questSystem.evaluatePersonalQuests();
   const economyManager = new EconomyManager({ stateManager });
   document.querySelector('#sell-first')?.addEventListener('click', () => { const item=stateManager.get('inventory.items')[0]; const result=item && economyManager.sell(item.uid); setSaveStatus(result?.sold ? `Sold for ${result.value} gold` : 'Nothing to sell', result?.sold ? 'success' : 'neutral'); });
   const craftingSystem = new CraftingSystem({ stateManager, inventorySystem, recipes });
