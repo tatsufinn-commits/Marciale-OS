@@ -161,7 +161,7 @@ When modifying, adding course modules, or committing to **`TAMAKEE`**, follow th
 | **UI components, modals, styles, or cards for TheHUB** | `Marciale-OS` | `TheHUB 1.5.5.2.3 a v/modules/` or `style.css` |
 | **Canvas game engine, combat math, or RPG systems** | `Marciale-OS` | `Gamecompanion/files/src/` |
 | **Game quest, achievement, or dialogue data** | `Marciale-OS` | `Gamecompanion/files/src/data/` |
-| **New research dossiers or external benchmark teardowns** | `Marciale-OS` | `research/` (Canon) & `docs/council/members/` |
+| **New research dossiers or external benchmark teardowns** | `Marciale-OS` | **`research/` only** (Seat R write lane). High Council infers; do not also dump constitutions. |
 | **High Council charters, dispatches, or prompt playbooks** | `Marciale-OS` | `docs/council/` or `docs/PROMPT_PLAYBOOK.md` |
 | **Surgical bugfixes & regression test assertions** | `Marciale-OS` | Target subsystem `tests/` & `docs/patchnotes/` |
 | **Mapúa building law notes, calculations, or course outlines** | `TAMAKEE` | `vault/` under relevant course series |
@@ -240,3 +240,37 @@ $$\text{Verify Build (`npm run build`)} \longrightarrow \text{Run CI (`npm test`
 * ❌ **NEVER** rewrite working Vanilla JS / Python / Canvas modules to React or complex frameworks (Law I).
 * ❌ **NEVER** rewrite $\ge 80\%$ of a working file during a bugfix or standard update.
 * ❌ **NEVER** force-push (`git push --force`) or push with failing tests.
+
+---
+
+# 11. SEAT R (`@reconnaissance` / NTG) — WRITE LANE (Commander 2026-08-13)
+
+Seat R is **research-specialized**. High Council (**Seat A / TSTT**, **Seat E / Max**, **Seat W / Wisdom**) **infer** from Recon; they do **not** let Recon govern the house.
+
+### Write (authorized)
+
+* **`Marciale-OS/research/` only** — new or updated intelligence, benchmarks, teardowns, license notes, pattern extracts (Commandment V).
+* Prefer dated filenames: `research/YYYY-MM-DD-SHORT-SLUG.md`.
+* Structure/body papers of Marciale-OS also live **directly** in `research/` (not under `docs/` constitutions).
+
+### Desk (pointers only — no second constitution)
+
+* `docs/council/members/RECONNAISSANCE/` may hold resume, `tasks/`, and `deliverables/` that **point at** files in `research/`. Do not duplicate `AI_RULES.md` or `SYSTEM_STATE.md` there.
+
+### Read everywhere. Write never
+
+* `docs/AI_RULES.md`, Commandments, Charters, shrine ancestral testaments, `SYSTEM_STATE.md`, `COUNCIL_COMMUNICATION_LOG.md` (append only via Seat A paste), TheHUB, Gamecompanion, root `package.json`, TAMAKEE vault.
+
+### Upload / zip
+
+* **Never** GitHub “Add files via upload” over the whole tree or explode `MARCIALE_OS_COMPLETE.zip` onto `main`.
+* A Seat R zip, if any, contains **only** `research/` (and optional desk pointers). Commandment I for a *research drop*, not a full-repo overwrite.
+* `git pull --ff-only` before any remote write. If pull is impossible: **Law XVIII** Feint East → `docs/hotfix/` (Seat A may file the hotfix if Recon cannot touch that path).
+
+### Consumption flow
+
+```text
+NTG writes research/  →  TSTT / Wisdom / Max read  →  debate or RFC  →  Two-Key Migration if code
+```
+
+`@scout` field work is the same lane: dossiers land in `research/`, not in production modules.

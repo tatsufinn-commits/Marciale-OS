@@ -74,12 +74,14 @@ Investigate existing solutions, technologies, open-source implementations, indus
 ---
 
 ## J. OUTPUTS
-* `WEB-RESEARCH-DOSSIER.md` (Structured technical research report conforming to `/docs/web/WEB_RESEARCH_PROTOCOL.md`).
+* Canonical landing path: **`Marciale-OS/research/`** (Seat R / NTG write lane; Commandment V; `docs/PATH.md` §11).
+* Structured technical research report conforming to `/docs/web/WEB_RESEARCH_PROTOCOL.md`.
+* `docs/council/members/RECONNAISSANCE/deliverables/` may **link** to `research/` — it is not a second constitution.
 
 ---
 
 ## K. HANDOFF PROTOCOL
-* `@scout` delivers completed research dossiers directly to `@project-manager` for requirements synthesis and to `@ui-ux` / Engineering Leads for architectural design.
+* `@scout` / Seat R files completed dossiers in **`research/`**. **Seat A (TSTT), Seat W (Wisdom), and Seat E (Max)** infer and decide. Scout does **not** write production source, laws, shrine wills, or `SYSTEM_STATE.md`.
 
 ---
 
