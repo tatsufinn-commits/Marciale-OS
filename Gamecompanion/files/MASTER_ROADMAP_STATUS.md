@@ -12,7 +12,8 @@
 | **Build 25 — Faction System** | **0.3.0.5.a** | **Complete** | **FactionSystem, 5-tier reputation ranks (Loomguard & Unravelers), faction shop perks, 41 unit tests.** |
 | **Build 26 — Companion Personal Quests** | **0.3.0.6.a** | **Complete** | **Personal quest chains (Vaela, Kaelen, Sera), affinity gating, relic disbursement, 48 unit tests.** |
 | **Build 27 — Regional Bounty Board** | **0.3.0.7.a** | **Complete** | **Regional monster contracts, Hunter Guild ranks (Novice to Master), bounty modal, 53 unit tests.** |
-| Build 28 — Attunement Skill Tree | 0.3.0.8.a | Next | Queued for development. |
+| **Build 28 — Attunement Skill Tree** | **0.3.0.8.a** | **Complete** | **7 magic branches, 14 talent nodes, level point economy, mastery capstones, 61 unit tests.** |
+| Build 29 — Full UI Screen Suite & Window Mode System | 0.3.0.9.a | Next | Queued for development. |
 
 ## Offline rules
 - Cap: 8 hours

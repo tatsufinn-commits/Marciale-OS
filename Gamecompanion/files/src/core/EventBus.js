@@ -13,7 +13,7 @@ export const Events = Object.freeze({
   MONSTER_KILLED: 'monster:killed', WAVE_CLEARED: 'wave:cleared', STAGE_CLEARED: 'stage:cleared', BOSS_DEFEATED: 'boss:defeated', HERO_DAMAGED: 'hero:damaged', HERO_DIED: 'hero:died', HERO_REVIVED: 'hero:revived',
   CHEST_DROPPED: 'chest:dropped', CHEST_OPENED: 'chest:opened', ITEM_EQUIPPED: 'item:equipped', ITEM_SHATTERED: 'item:shattered', ITEM_FUSED: 'item:fused',
   WEAVER_LEVEL_UP: 'weaver:level_up', WEAVER_SKILL_UNLOCKED: 'weaver:skill_unlocked', AFFINITY_CHANGED: 'affinity:changed', AFFINITY_MILESTONE: 'affinity:milestone', PERSONAL_QUEST_PROGRESS: 'quest:personal_progress', PERSONAL_QUEST_CHAIN_COMPLETED: 'quest:personal_chain_completed', WEAVER_DEPARTED: 'weaver:departed',
-  ZONE_UNLOCKED: 'zone:unlocked', DIFFICULTY_UNLOCKED: 'difficulty:unlocked', ATTUNEMENT_POINT_EARNED: 'attunement:point',
+  ZONE_UNLOCKED: 'zone:unlocked', DIFFICULTY_UNLOCKED: 'difficulty:unlocked', ATTUNEMENT_POINT_EARNED: 'attunement:point', ATTUNEMENT_NODE_RANKED: 'attunement:node_ranked', ATTUNEMENT_BRANCH_MASTERED: 'attunement:branch_mastered',
   GOLD_CHANGED: 'gold:changed', DUST_CHANGED: 'dust:changed', GAME_SAVED: 'game:saved', OFFLINE_REWARDS_COLLECTED: 'offline:rewards', ACHIEVEMENT_UNLOCKED: 'achievement:unlocked',
   QUEST_STARTED: 'quest:started', QUEST_PROGRESS: 'quest:progress', QUEST_COMPLETED: 'quest:completed',
   DIALOGUE_STARTED: 'dialogue:started', DIALOGUE_CHOICE_SELECTED: 'dialogue:choice_selected', DIALOGUE_ENDED: 'dialogue:ended',

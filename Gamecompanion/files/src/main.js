@@ -45,6 +45,8 @@ import { FactionSystem } from './systems/FactionSystem.js';
 import { factions as factionData } from './data/factions.js';
 import { BountyBoardSystem } from './systems/BountyBoardSystem.js';
 import { bounties as bountyData, guildRanks } from './data/bounties.js';
+import { AttunementSystem } from './systems/AttunementSystem.js';
+import { attunementBranches } from './data/attunementTree.js';
 import { TheHUBBridge } from './integration/TheHUBBridge.js';
 
 const AUTO_SAVE_INTERVAL = 120000;
@@ -264,6 +266,101 @@ async function boot() {
         const bid = e.currentTarget.dataset.id;
         bountyBoardSystem.claimBounty(bid);
         document.querySelector('#bounties')?.click();
+      });
+    });
+  });
+
+  // ── Build 56: Attunement Skill Tree & Branching Talents ─────────────────
+  const attunementSystem = new AttunementSystem({
+    stateManager,
+    eventBus,
+    events: Events,
+    branches: attunementBranches
+  });
+
+  eventBus.on(Events.ATTUNEMENT_POINT_EARNED, ({ points, totalAvailable }) => {
+    audioSystem.play('levelup');
+    particles.addFloatingText({ x: 300, y: 145 }, `✨ +${points} ATTUNEMENT POINT (${totalAvailable} Avail)`, '#a855f7', { lifetime: 3200 });
+    particles.addBurst({ x: 300, y: 145 }, '#a855f7', 12);
+  });
+
+  eventBus.on(Events.ATTUNEMENT_NODE_RANKED, ({ nodeName, rank }) => {
+    audioSystem.play('levelup');
+    particles.addFloatingText({ x: 300, y: 145 }, `⚡ TALENT: ${nodeName} (Rank ${rank})`, '#38bdf8', { lifetime: 2800 });
+    particles.addBurst({ x: 300, y: 145 }, '#38bdf8', 10);
+  });
+
+  eventBus.on(Events.ATTUNEMENT_BRANCH_MASTERED, ({ capstone }) => {
+    audioSystem.play('levelup');
+    particles.addFloatingText({ x: 300, y: 145 }, `🌟 MASTERY: ${capstone.title}`, '#fbbf24', { lifetime: 4000 });
+    particles.addBurst({ x: 300, y: 145 }, '#fbbf24', 18);
+  });
+
+  document.querySelector('#attune')?.addEventListener('click', () => {
+    const hero = stateManager.get('combat.hero') || {};
+    const heroLevel = Number(hero.level) || 1;
+    const availPoints = attunementSystem.getAvailablePoints();
+    const branchStatus = attunementSystem.getAllBranchStatus(heroLevel);
+
+    const branchCards = branchStatus.map(b => {
+      const nodesHtml = b.nodes.map(n => {
+        let actionBtn = '';
+        if (n.isMaxRank) {
+          actionBtn = `<span style="color:#10b981;font-size:11px;font-weight:bold;">MAXED (${n.currentRank}/${n.maxRank})</span>`;
+        } else if (n.canUpgrade) {
+          actionBtn = `<button class="btn btn-sm btn-upgrade-node" data-id="${n.id}" style="padding:4px 8px;background:#8b5cf6;border:none;border-radius:4px;color:#fff;cursor:pointer;">Invest (${n.costPerRank}pt)</button>`;
+        } else if (!n.levelSatisfied) {
+          actionBtn = `<span style="color:#94a3b8;font-size:11px;">🔒 Req Lv${n.requiredHeroLevel}</span>`;
+        } else if (!n.parentsSatisfied) {
+          actionBtn = `<span style="color:#94a3b8;font-size:11px;">🔒 Need Prereq</span>`;
+        } else {
+          actionBtn = `<span style="color:#94a3b8;font-size:11px;">Cost ${n.costPerRank}pt</span>`;
+        }
+
+        return `
+          <div style="margin:4px 0;padding:6px;background:#0f172a;border-radius:4px;display:flex;justify-content:space-between;align-items:center;">
+            <div>
+              <strong style="color:#e2e8f0;font-size:12px;">${n.name}</strong> <small style="color:#94a3b8;">[${n.currentRank}/${n.maxRank}]</small><br>
+              <small style="color:#cbd5e1;font-size:11px;">${n.description}</small>
+            </div>
+            <div>${actionBtn}</div>
+          </div>
+        `;
+      }).join('');
+
+      return `
+        <div style="margin-bottom:10px;padding:10px;background:#1e293b;border-radius:6px;border:1px solid #334155;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+            <strong style="color:#f8fafc;font-size:14px;">${b.name}</strong>
+            <small style="color:${b.isMastered ? '#fbbf24' : '#94a3b8'};font-weight:bold;">${b.isMastered ? `🌟 MASTERED (${b.capstone.title})` : `Points: ${b.totalPointsInvested}/${b.capstone.pointsRequired}`}</small>
+          </div>
+          <small style="color:#94a3b8;">${b.description}</small>
+          <div style="margin-top:6px;">${nodesHtml}</div>
+        </div>
+      `;
+    }).join('');
+
+    modal.show({
+      title: `✨ Attunement Skill Trees · ${availPoints} Points Available (Hero Lv${heroLevel})`,
+      body: `
+        <div style="max-height:360px;overflow-y:auto;padding-right:4px;">
+          ${branchCards}
+        </div>
+      `,
+      actions: [
+        { label: 'Reset / Respec Points', kind: 'secondary', onClick: () => {
+          attunementSystem.respecAttunements();
+          document.querySelector('#attune')?.click();
+        }},
+        { label: 'Close', kind: 'primary', onClick: () => modal.close() }
+      ]
+    });
+
+    document.querySelectorAll('.btn-upgrade-node').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const nid = e.currentTarget.dataset.id;
+        attunementSystem.investNode(nid, heroLevel);
+        document.querySelector('#attune')?.click();
       });
     });
   });
