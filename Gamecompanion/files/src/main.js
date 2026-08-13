@@ -11,6 +11,7 @@ import { ParticleSystem } from './rendering/ParticleSystem.js';
 import { spriteAtlas } from './rendering/SpriteAtlas.js';
 import { hud } from './rendering/HUD.js';
 import { Modal } from './ui/components/Modal.js';
+import { ScreenManager } from './ui/ScreenManager.js';
 import { EntityFactory } from './entities/EntityFactory.js';
 import { CombatEngine } from './combat/CombatEngine.js';
 import enemyData from './data/enemies.json';
@@ -98,12 +99,27 @@ async function boot() {
     questTemplates: questData,
     personalQuestTemplates: personalQuestData
   });
-  document.querySelector('#quests')?.addEventListener('click', () => {
+  // Build 57 P1 — Quests window shell (modal | full) via ScreenManager
+  const screenManager = new ScreenManager({ root: document.querySelector('#ui-overlay') });
+  const renderQuestsBody = () => {
     const active = questSystem.getActiveQuests();
     const rows = active.length
       ? active.map(q => `<li><strong>${q.title}</strong> <em>(${q.type.toUpperCase()})</em><br><small>${q.description}</small> [${q.progress}/${q.targetCount}] ${q.completed ? '✅ Completed' : '⏳ In Progress'}</li>`).join('')
       : '<li>No active quests.</li>';
-    modal.show({ title: '📜 Quest Journal', body: `<ul class="inventory-list">${rows}</ul>`, actions: [{ label: 'Close', kind: 'primary', onClick: () => modal.close() }] });
+    return `<ul class="inventory-list">${rows}</ul>`;
+  };
+  screenManager.register('quests', { render: renderQuestsBody });
+  document.querySelector('#quests')?.addEventListener('click', () => {
+    screenManager.open('quests', 'modal');
+    const toggle = document.querySelector('#quests-mode');
+    if (toggle) toggle.textContent = '⛶ Full';
+  });
+  document.querySelector('#quests-mode')?.addEventListener('click', () => {
+    if (!screenManager.isOpen()) return;
+    const next = screenManager.getMode() === 'full' ? 'modal' : 'full';
+    screenManager.setMode(next);
+    const toggle = document.querySelector('#quests-mode');
+    if (toggle) toggle.textContent = next === 'full' ? '⇱ Window' : '⛶ Full';
   });
   document.querySelector('#personal-quests')?.addEventListener('click', () => {
     const chains = questSystem.getPersonalQuests();

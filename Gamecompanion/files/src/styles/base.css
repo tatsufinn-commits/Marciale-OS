@@ -159,3 +159,76 @@ html, body {
   background: var(--bg-tertiary);
   border-radius: 3px;
 }
+
+/* ── Build 57 P1: ScreenManager window shell (Quests modal | full) ───────── */
+.screen-modal {
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(10, 12, 18, 0.72);
+  pointer-events: auto;
+}
+.screen-modal > h2,
+.screen-full > h2 {
+  margin: 0 0 8px;
+  font-size: 15px;
+  color: var(--text-accent);
+}
+.screen-modal .screen-body,
+.screen-full .screen-body {
+  font-size: 12px;
+  color: #c5cad8;
+  max-height: 300px;
+  overflow-y: auto;
+}
+.screen-modal .screen-body {
+  background: var(--bg-panel);
+  border: 1px solid #616780;
+  padding: var(--panel-padding);
+  width: min(320px, 100%);
+}
+.screen-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-top: 14px;
+}
+.screen-actions button {
+  border: 1px solid #616780;
+  padding: 5px 8px;
+  background: #252936;
+  color: var(--text-primary);
+  cursor: pointer;
+  font: 11px system-ui, sans-serif;
+}
+.screen-actions .screen-toggle {
+  border-color: #4a9ad9;
+  color: #9ecbff;
+}
+.screen-actions .screen-close {
+  border-color: #b88b2d;
+  background: #6a4a12;
+}
+
+/* Full panel: fills the companion canvas area */
+.screen-full {
+  position: absolute;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  padding: 14px;
+  background: var(--bg-panel);
+  border: 1px solid var(--bg-tertiary);
+  color: var(--text-primary);
+  pointer-events: auto;
+}
+.screen-full .screen-body {
+  flex: 1;
+  background: var(--bg-secondary);
+  border: 1px solid var(--bg-tertiary);
+  padding: var(--panel-padding);
+}

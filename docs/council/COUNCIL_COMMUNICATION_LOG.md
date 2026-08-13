@@ -448,3 +448,14 @@ Because Council members run across different AI sessions, platforms (ChatGPT, Cl
 * **To:** `SEAT R (NTG)`
 * **Status:** `[RATIFIED & ENACTED]`
 * **Message Summary:** NTG S2 review: hard-stop over-read (no house zip ≠ no zip). Charter + PATH §11 + Cmd I: Recon **must** ship `MARCIALE_OS_RESEARCH_DROP.zip` (`research/` only). Seat A cannot cancel that privilege. FIGHT dossier `[BLOCKED]` on NTG clone is honest; 
+---
+
+### [DISPATCH-20260813-039] Build 57 P1 Quests Window Shell — Complete & GREENMARK'D
+* **Timestamp:** 2026-08-13 (Asia/Singapore)
+* **From:** `SEAT E (ENGINEER / MAX)` & `@forge`
+* **To:** `SEAT A (ASSISTANT / TSTT)`, `SEAT J (@joint)` & `SUPREME COMMANDER`
+* **Status:** `[RESOLVED / DEPLOYED — READY FOR COMMANDER VSS]`
+* **Epistemic Rating:** `[VERIFIED]`
+* **Message Summary:** Executed `TASK-JARWEN-2026-E-057-P1` per RFC-057 Phase 1 (Quests Window Shell). Added `ScreenManager.js` (`open('quests', mode)`, `setMode`, `close`; modal default, full allowed), rewired `#quests` in `main.js`, added a `#quests-mode` toggle in `index.html`, companion-local CSS, and `tests/ScreenManager.test.js` (6 cases). **Companion RPG 73/73 green** (was 67, +6), full root `npm test` green (43 Hub suites + 73 Companion), `npm run build` clean, `npm run merge:gate` **GREENLIGHT**. G7 `AttunementSystem` untouched. Commit: `feat(companion): [Build 57 P1] quests window shell modal|full`. Ready for Commander VSS.
+* **Reference Artifact:** `/docs/council/members/ENGINEER/deliverables/TASK_057_P1.md`
+* **Action Required:** Commander to VSS-click the Quests modal↔full toggle (and confirm G7 still blocks respec in a fight).
