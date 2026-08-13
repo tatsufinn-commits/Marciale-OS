@@ -19,7 +19,7 @@
 | **Companion RPG Engine** | `Gamecompanion/files/package.json` | `0.3.0.0` | 🟢 VERIFIED | Vite ES Module Canvas Engine |
 | **TAMA Academic Studio** | `TAMAplugin` & Academic Vault | `2.0.0` | 🟢 VERIFIED | Mapúa BS Architecture Knowledge Spine |
 | **AI Constitution** | `docs/AI_RULES.md` | `Laws I–XXII (22 Laws)` | 🟢 VERIFIED | XXII Captain Now; XXI 13VIII; XX Hammer Down **DORMANT** |
-| **Prompt Playbook** | `docs/PROMPT_PLAYBOOK.md` | `23 Scenarios` | 🟢 VERIFIED | +23 CCC / Captain Now |
+| **Prompt Playbook** | `docs/PROMPT_PLAYBOOK.md` | `24 Scenarios` | 🟢 VERIFIED | +24 @colony intake |
 
 ---
 

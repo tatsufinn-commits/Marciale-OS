@@ -25,7 +25,7 @@
 | **Track post-merge incidents / PIRs** | `/docs/council/MII_INCIDENT_LEDGER.md` | `@sre` / `@pangolin`| Inspect M.I.I. Incident Ledger |
 | **Review branch isolation doctrine** | `/docs/council/ENGINEER_BRANCH_ISOLATION_DOCTRINE.md` | `@engineer` / Max | Isolated Experimental Labs |
 | **Visit the Shrine of Honor & Wills** | `/docs/shrine/SHRINE_CHARTER.md` | All Successors | Memorial Testaments & Resignations |
-| **Commander Coherence Cue (CCC)** | `/docs/COMMANDER_COHERENCE_CUE.md` | Seat A / Joint | NORMAL / DEGRADED / FALLEN / Captain Now |
+| **@colony intake (under Recon)** | `/docs/council/members/RECONNAISSANCE/COLONY.md` | Commander → Colony → Seat A | Link wash + upgrade audit |
 | **Commander fallen (Law XX)** | `/docs/council/STAND_ORDERS_HAMMER_DOWN.md` | `@joint` | Hammer Down / Second Sun / Whiskey Hotel |
 | **Check cross-model message bus** | `/docs/council/COUNCIL_COMMUNICATION_LOG.md` | All Seats | Inspect active dispatches |
 | **Inspect canonical research & dossiers**| `/research/` | `@reconnaissance` | Review technical intelligence |

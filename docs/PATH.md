@@ -120,6 +120,8 @@ When modifying, building, or committing files in **`Marciale-OS`**, follow this 
             ├── ASSISTANT/               <- tasks/ and deliverables/ for Seat A
             ├── WISDOM/                  <- tasks/ and deliverables/ for Seat W
             ├── RECONNAISSANCE/          <- tasks/ and deliverables/ for Seat R
+            │   ├── COLONY.md            <- @colony intake cell (Commander links → audit → Seat A)
+            │   └── templates/COLONY_AUDIT_TEMPLATE.md
             ├── ENGINEER/                <- tasks/ and deliverables/ for Seat E (Max)
             └── NAVIGATOR/               <- tasks/ and deliverables/ for Seat N
 ```

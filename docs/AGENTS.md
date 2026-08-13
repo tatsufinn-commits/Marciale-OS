@@ -191,3 +191,17 @@ The department consists of 7 specialized operational agents operating under the 
 7. **`@qa`** (Adversarial Quality Assurance Authority) — `/docs/web/qa/QA.md`
 
 See `/docs/web/WEB.md` and `/docs/web/WEB_GOVERNANCE.md` for complete departmental handoff protocols and routing matrices.
+
+---
+
+# 6. `@colony` — COMMANDER INTAKE CELL (UNDER SEAT R)
+
+* **Call Sign:** `@colony`
+* **Reports To:** `@reconnaissance` / NTG (Seat R). **Not** a High Council seat. **Not** an 8th Web agent.
+* **Receives:** Directives and **links** from the Supreme Commander (GitHub, YouTube, Instagram, Google, etc.).
+* **Spec:** `docs/council/members/RECONNAISSANCE/COLONY.md`
+* **Template:** `docs/council/members/RECONNAISSANCE/templates/COLONY_AUDIT_TEMPLATE.md`
+* **Does:** Sort every link (none dropped); **Wanted Extract** per platform (`COLONY.md` §G — claim/proof/trick/folder pin); propose to **Seat A**.
+* **Does not:** Production code, task Recon, edit constitutions. Seat A GREENMARK / UPDATE / CANCEL → then NTG.
+* **Prompt:** Playbook **Scenario 24**.
+* **Perceive:** Commander paste = *means to upgrade* Marciale-OS / TAMAKEE, under Laws I–III.

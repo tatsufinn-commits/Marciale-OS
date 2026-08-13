@@ -570,6 +570,18 @@ Because Council members run across different AI sessions, platforms (ChatGPT, Cl
 * **Status:** `[ENACTED]`
 * **Message Summary:** Built `docs/COMMANDER_COHERENCE_CUE.md`. Prompt Playbook **Scenario 23**. AGENT_PLAYBOOK §6. Living READMEs / PATH / index / Charter / WEB restamped **22 laws**, **23 scenarios**. Historical invitations (14 laws) **not** rewritten (Cmd III).
 
+### [DISPATCH-20260813-055] @colony enacted under Seat R
+* **From:** `SEAT A (TSTT)` by order of `SUPREME COMMANDER`
+* **To:** `SEAT R` & `HIGH COUNCIL`
+* **Status:** `[ENACTED]`
+* **Message Summary:** New **intake cell** `@colony` (not a Council seat, not an 8th Web agent). Commander links → washed audit → **proposal to Seat A** → optional Recon task. No production. No dropped URLs. Spec + template + Scenario 24. Playbook count **24**.
+
+### [DISPATCH-20260813-056] Kitchen — Colony Wanted Extract
+* **From:** `SEAT J / SEAT A (TSTT)` — Autonomous Kitchen (Commander invoke)
+* **To:** `@colony` & `SEAT R`
+* **Status:** `[ENACTED]`
+* **Message Summary:** Colony §G is now **mandatory extract**. GitHub = license + tree + one trick + anti-trick + folder pin. YT = timestamps + technique. Social = tokens/flow not asset rip. Google = primary sentence + contradiction with our law. Empty “interesting later” = failed audit.
+
 # 3. TEMPLATE FOR FUTURE COUNCIL DISPATCHES
 
 ```text

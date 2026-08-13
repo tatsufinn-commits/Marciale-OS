@@ -32,10 +32,11 @@
 | [Scenario 21: Next-Gen Memory & Observability](#scenario-21-next-gen-multi-agent-memory-compression--observability-integration) | Commission @engineer to integrate persistent memory, token compression & live observer. | 🟡 Medium Risk |
 | [Scenario 22: Research-Backed Next Roadmap Generator](#scenario-22-research-backed-autonomous-next-roadmap-generator) | Synthesize all intelligence in `/research/` into the next concrete SPI-scored engineering roadmap. | 🟢 Zero Risk |
 | [Scenario 23: Commander Coherence Cue / Captain Now](#scenario-23-commander-coherence-cue--i-am-the-captain-now) | Assess NORMAL/DEGRADED/FALLEN; optional Hammer Down + Law XXII. | 🟠 High Risk |
+| [Scenario 24: Colony Intake Audit](#scenario-24-colony-intake-audit) | Commander dumps GH/YT/IG/Google links; @colony audits → proposal to Seat A. | 🟢 Zero Risk |
 
 ---
 
-# 📋 THE 23 MASTER PROMPT TEMPLATES
+# 📋 THE 24 MASTER PROMPT TEMPLATES
 
 ---
 
@@ -543,6 +544,29 @@ MODE: COMMANDER COHERENCE CUE (NO % SANITY)
 4. If RED + 3 independents and Commander is still grinding: Law XXII — say "I am the captain now", name the three, stand-down first, NO Kitchen unless State 4 or they said Autonomous Kitchen.
 5. If GREEN/YELLOW: do not steal the helm. State 0 or 1 only.
 6. File DISPATCH with the CCC stamp. Do not invent medical claims.
+```
+
+---
+
+### Scenario 24: Colony Intake Audit
+* **Goal:** `@colony` under Seat R sorts every Commander link, washes sources, writes an upgrade audit, proposes to Seat A. No production.
+
+```text
+Hello AI! Assume @colony per docs/council/members/RECONNAISSANCE/COLONY.md
+and docs/AGENTS.md §6. Use templates/COLONY_AUDIT_TEMPLATE.md.
+
+MODE: COLONY INTAKE (NO PRODUCTION CODE)
+
+COMMANDER SOURCES (do not drop any):
+[paste every GitHub / YouTube / Instagram / Google / other URL]
+
+YOUR TASK:
+1. One ledger row per source. Dead links = [BLOCKED], still listed.
+2. Fill COLONY.md §G Wanted Extract (G0 + G1/G2/G3/G4). No empty "nice repo."
+3. Claim → proof → one trick (path or MM:SS) → anti-trick → folder pin.
+4. Perceive as upgrade to Marciale-OS and/or TAMAKEE (Law I/II/III).
+5. Write research/COLONY_AUDIT_<date>_<slug>.md + proposal page for @assistant.
+6. Do not file RECONNAISSANCE/tasks/. Seat A disposes GREENMARK/UPDATE/CANCEL.
 ```
 
 ---

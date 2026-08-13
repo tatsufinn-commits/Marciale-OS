@@ -114,3 +114,4 @@ Investigate existing solutions, technologies, open-source implementations, indus
 * **With `@ui-ux`:** Supplies benchmark UI/UX patterns and WCAG interaction references from modern applications.
 * **With `@frontend` / `@backend`:** Provides verified API schemas and technical implementation references.
 * **With `@architect`:** Collaborates on evaluating long-term technology choices and library adoptions.
+* **With `@colony` (sibling under Seat R):** Colony intakes **Commander-pasted** links and proposes to Seat A. Scout hunts *questions*. Colony does not replace Scout; Scout does not steal Colony’s ledger. Both write `research/` only.
