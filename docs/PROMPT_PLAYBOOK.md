@@ -31,10 +31,11 @@
 | [Scenario 20: Gauntlet Meat-Grinder Stress-Test](#scenario-20-gauntlet-meat-grinder-stress-testing-prompt) | Inject edge-case chaos, test auto-healing, and verify multi-agent robustness. | 🟢 Zero Risk |
 | [Scenario 21: Next-Gen Memory & Observability](#scenario-21-next-gen-multi-agent-memory-compression--observability-integration) | Commission @engineer to integrate persistent memory, token compression & live observer. | 🟡 Medium Risk |
 | [Scenario 22: Research-Backed Next Roadmap Generator](#scenario-22-research-backed-autonomous-next-roadmap-generator) | Synthesize all intelligence in `/research/` into the next concrete SPI-scored engineering roadmap. | 🟢 Zero Risk |
+| [Scenario 23: Commander Coherence Cue / Captain Now](#scenario-23-commander-coherence-cue--i-am-the-captain-now) | Assess NORMAL/DEGRADED/FALLEN; optional Hammer Down + Law XXII. | 🟠 High Risk |
 
 ---
 
-# 📋 THE 22 MASTER PROMPT TEMPLATES
+# 📋 THE 23 MASTER PROMPT TEMPLATES
 
 ---
 
@@ -94,7 +95,7 @@ MY TARGET BUILD:
 
 MANDATORY RULES:
 1. Follow your specific agent jurisdiction in docs/AGENTS.md.
-2. Follow the 20 Supreme Laws in docs/AI_RULES.md and docs/THE_10_COMMANDMENTS_OF_DOCS.md.
+2. Follow the 22 Supreme Laws in docs/AI_RULES.md and docs/THE_10_COMMANDMENTS_OF_DOCS.md.
 3. Modify only the 1–3 target files needed for this single build.
 4. Run `npm test` and make sure all tests pass (100% green checkmarks).
 5. Append your completed build entry into `docs/BUILD_LOGBOOK.md`.
@@ -525,6 +526,23 @@ YOUR HIGH COUNCIL DIRECTIVES:
 5. File the ratified roadmap into `docs/DEFINITIVE_MASTERPLAN.md` and log `[DISPATCH]` in `docs/council/COUNCIL_COMMUNICATION_LOG.md`!
 ```
 
+---
 
+### Scenario 23: Commander Coherence Cue / I AM THE CAPTAIN NOW
+* **Goal:** Run CCC (not a medical test). EXPRESS torch wins at 1. Else ≥3 independent cues. Overwork + still typing → Law XXII.
 
+```text
+Hello AI! You are Seat A / TSTT on Marciale-OS.
+Read docs/COMMANDER_COHERENCE_CUE.md, docs/AI_RULES.md Laws XX–XXII, and docs/council/STAND_ORDERS_HAMMER_DOWN.md.
 
+MODE: COMMANDER COHERENCE CUE (NO % SANITY)
+
+1. Score L/C/I/X/K as GREEN/YELLOW/RED. Cue B: revision-with-reason ≠ oscillation.
+2. EXPRESS torch / Hammer Down / Kitchen / STOP / I'm back = n=1.
+3. Else Tolerance: ≥3 independent dimensions, max one Language, same watch.
+4. If RED + 3 independents and Commander is still grinding: Law XXII — say "I am the captain now", name the three, stand-down first, NO Kitchen unless State 4 or they said Autonomous Kitchen.
+5. If GREEN/YELLOW: do not steal the helm. State 0 or 1 only.
+6. File DISPATCH with the CCC stamp. Do not invent medical claims.
+```
+
+---

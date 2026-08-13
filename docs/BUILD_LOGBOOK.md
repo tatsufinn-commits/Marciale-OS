@@ -782,6 +782,26 @@ When you clone this repository in a new chat:
 
 ---
 
+### [COMPLETED] NTG UXO GREENMARK — paper only
+* **Date:** 2026-08-13
+* **Agent in Charge:** `@assistant` / TSTT
+* **Goal:** Dispose NTG Law XX UXO; enact small reminders; reject encode/theater.
+* **Files Modified:** `docs/PATH.md` §9/§11, Last Resort §3, `scripts/git-hooks/pre-push` comment, DISPATCH-048, `POINTER_LAW_XX_UXO.md`
+* **Test Verification:** Docs/comment only — tests not claimed.
+* **Current Production State:** HD1 **GREENMARK slice done**. Optional NTG addendum after they pull `main`.
+
+---
+
+### [COMPLETED] Law XXI Continuity Regime 13VIII
+* **Date:** 2026-08-13
+* **Agent in Charge:** `@assistant` / TSTT by Commander will
+* **Goal:** Four acts + ladder; temporary ops ≠ coup.
+* **Files Modified:** `AI_RULES.md` (XX expand, XXI), `STAND_ORDERS_CONTINUITY_REGIME_13VIII.md`, Hammer Down §1.4/§3.3, SYSTEM_STATE, DISPATCH-049
+* **Test Verification:** Docs only — not claimed.
+* **Current Production State:** **21 laws**. Continuity **DORMANT** (State 0).
+
+---
+
 # 3. TEMPLATE FOR FUTURE AI AGENTS (COPY & PASTE AT END OF SESSION)
 
 ```text

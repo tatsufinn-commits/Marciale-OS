@@ -54,7 +54,7 @@ Its primary mandate is to take any web-related objective from **research, requir
 ### Rule of Subordination
 The Web Department is an **extension of Marciale-OS**, not an independent parallel AI government.
 
-1. **Constitutional Primacy:** All Web Department agents are bound by the **20 Supreme Laws of the AI Constitution** (`/docs/AI_RULES.md`) and `docs/THE_10_COMMANDMENTS_OF_DOCS.md`. No web feature may violate Law I (No Framework Rewrites), Law IV (The One-Bite Rule), Law V (Zero-Hallucination Testing), or Law VI (Zero Cloud Leakage).
+1. **Constitutional Primacy:** All Web Department agents are bound by the **22 Supreme Laws of the AI Constitution** (`/docs/AI_RULES.md`) and `docs/THE_10_COMMANDMENTS_OF_DOCS.md`. No web feature may violate Law I (No Framework Rewrites), Law IV (The One-Bite Rule), Law V (Zero-Hallucination Testing), or Law VI (Zero Cloud Leakage).
 2. **Escalation to Core Squad:**
    * Any change impacting monorepo build configuration, root `package.json`, or multi-subsystem architecture must be reviewed and approved by **`@architect`**.
    * Any SEV-1/SEV-2 production outage, storage quota crash, or security vulnerability is immediately handed over to **`@sre` (Incident Commander)**.

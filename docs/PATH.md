@@ -42,7 +42,7 @@ When modifying, building, or committing files in **`Marciale-OS`**, follow this 
 │
 ├── package.json                         <- ROOT MONOREPO CONTROLLER (Scripts & Test Harness)
 ├── .gitignore                           <- IGNORE RULES (node_modules, build caches, .env)
-├── README.md                            <- MAIN ENTRY POINT (19 Laws, 22 Scenarios, Command Table)
+├── README.md                            <- MAIN ENTRY POINT (22 Laws, 23 Scenarios, Command Table)
 ├── DESIGN.md                            <- CANONICAL UI DESIGN SYSTEM (W3C DTCG Token Specs)
 ├── VERSIONING_GUIDE.md                  <- 5-Tier Semantic Subsystem Version Authorities
 │
@@ -97,7 +97,8 @@ When modifying, building, or committing files in **`Marciale-OS`**, follow this 
 │
 └── docs/                                <- GOVERNANCE, AUDIT & HIGH COUNCIL SUITE
     ├── THE_10_COMMANDMENTS_OF_DOCS.md   <- Inviolable Bible of Documentation & Releases
-    ├── AI_RULES.md                      <- The AI Constitution (20 Supreme Laws; XX = Hammer Down)
+    ├── AI_RULES.md                      <- The AI Constitution (22 Supreme Laws; XXII = Captain Now)
+    ├── COMMANDER_COHERENCE_CUE.md       <- CCC: Tolerance / lights / Law XXII stamp
     ├── AGENT_PLAYBOOK.md                <- Reverse-Intent Decoder & Autonomous Severity Matrix
     ├── AGENTS.md                        <- Virtual Squad Registry (6 Core Roles + 7 Web Roles)
     ├── PROMPT_PLAYBOOK.md               <- 22 Master Scenario Prompt Templates
@@ -112,6 +113,7 @@ When modifying, building, or committing files in **`Marciale-OS`**, follow this 
         ├── JARWEN_COUNCIL_CHARTER.md    <- High Council Constitution & 4-Layer Approval Model
         ├── STAND_ORDERS_LETTERS_OF_LAST_RESORT.md <- 10 Continuous Watch Standing Orders
         ├── STAND_ORDERS_HAMMER_DOWN.md           <- Law XX: Commander-fallen (outranks Last Resort when ACTIVE)
+        ├── STAND_ORDERS_CONTINUITY_REGIME_13VIII.md <- Law XXI: Enabling / Geneva / Patent / Divide
         ├── COUNCIL_COMMUNICATION_LOG.md <- Cross-Model Message Bus & Dispatch Log
         ├── JARWEN_FORMAT_SPECIFICATION.md <- Standardized RFC/NASA/SRE schemas
         └── members/                     <- DEDICATED MEMBER WORKSPACES:
@@ -231,6 +233,8 @@ After every code build or fix, `@engineer` is responsible for:
 
 **Pre-push hook (Joint 2026-08-13):** `scripts/git-hooks/pre-push` runs `npm test` before `git push`. Install with `npm run hooks:install` (**Node**, not WSL bash). Bypass only `MARCIALE_HOOK_SKIP=1` (Commander / Seat A; log it). This does **not** replace Two-Key `npm run merge:gate`.
 
+**Hook prerequisite (Windows / GitHub Desktop — NTG UXO GREENMARK 2026-08-13):** PowerShell often has `npm` and **no** `git` on PATH. That is not a missing hook. Use Desktop’s Git (`Repository → Open in Git Bash`) or Desktop’s `git.exe` under `%LOCALAPPDATA%\GitHubDesktop\app-*\resources\app\git\cmd\git.exe`, then `git config core.hooksPath scripts/git-hooks`. Verify: `git config --get core.hooksPath` → `scripts/git-hooks`. Website uploads never run the hook. **Do not** treat Hammer Down / Second Sun as permission to skip this gate (Law X).
+
 Before pushing any commit to GitHub, Max (`@engineer`) **MUST execute this 6-step gate**:
 $$\text{Verify Build (`npm run build`)} \longrightarrow \text{Run CI (`npm test`)} \longrightarrow \text{SRE Sentinel (`npm run pangolin`)} \longrightarrow \text{Check Hygiene (`git status`)} \longrightarrow \text{Log Ledger} \longrightarrow \text{Package Zip (Cmd I)}$$
 
@@ -269,7 +273,7 @@ Seat R is **research-specialized**. High Council (**Seat A / TSTT**, **Seat E / 
 * **Never** GitHub “Add files via upload” over the whole tree or explode `MARCIALE_OS_COMPLETE.zip` onto `main`.
 * **Seat R Commandment I (narrow privilege):** After any material write under `research/`, Recon **MUST** produce a zip whose payload is **`Marciale-OS/research/` only** (example name: `MARCIALE_OS_RESEARCH_DROP.zip`). No TheHUB, no Gamecompanion, no `docs/` constitutions, no `node_modules`.
 * **This privilege counteracts over-broad High Command hard stops** — including Seat A. Assistant may forbid a *full-repo* zip. Assistant **may not** forbid or cancel the **research-only** zip. If a task says “no zip,” read it as “no house zip.” The library still ships in a box.
-* `git pull --ff-only` before any remote write. If pull is impossible: **Law XVIII** Feint East (Seat A may file the hotfix path if Recon cannot touch `docs/hotfix/`). The research-only zip still ships if the dossier exists.
+* `git pull --ff-only` before any remote write **and** before a Law/code UXO scan. If `STAND_ORDERS_HAMMER_DOWN.md`, `scripts/git-hooks/pre-push`, or Law XX are `[BLOCKED]` / NOT FOUND, that is usually **clone lag**, not “the law does not exist.” Pull `main` (after `Laws update` / `139b81b`+) and re-tag. If pull is impossible: **Law XVIII** Feint East (Seat A may file the hotfix path if Recon cannot touch `docs/hotfix/`). The research-only zip still ships if the dossier exists.
 
 ### Consumption flow
 

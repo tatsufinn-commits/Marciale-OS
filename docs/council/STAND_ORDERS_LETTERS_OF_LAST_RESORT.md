@@ -62,5 +62,7 @@ If an incoming model cannot establish sufficient confidence or encounters an int
 MODEL MEMORY IS EPHEMERAL  ──►  REPOSITORY STATE IS PERSISTENT  ──►  VERIFIED CI IS AUTHORITATIVE
 ```
 
+**Continuity reminder (NTG UXO / Seat A GREENMARK 2026-08-13):** These 10 Orders are the default when the **model** dies. They do **not** authorize a new agent, Scorecard, CODEOWNERS religion, or a 13-phase audit. When Law XX Hammer Down is **ACTIVE**, `STAND_ORDERS_HAMMER_DOWN.md` outranks Orders 03 and 06 only; Orders 02/04/05/07–10 still bind. Paper + hook comments — **do not encode** a fallen-bit in software.
+
 When taking the watch:
 $$\text{Read Standing Orders} \longrightarrow \text{Run Tests} \longrightarrow \text{Verify LKGS} \longrightarrow \text{Execute Surgically} \longrightarrow \text{Log Milestone}$$

@@ -3,7 +3,7 @@
 **Target System:** Marciale-OS JARWEN Council & Virtual Agent Squad  
 **Governing Standard:** Reverse-Prompt Intent Interpretation (Zero User Cognitive Burden)  
 **Co-Authored By:** WISDOM (Seat W) & ASSISTANT (Seat A)  
-**Parent Governance:** `/docs/AI_RULES.md` (Laws I through XX), `/docs/council/JARWEN_COUNCIL_CHARTER.md`  
+**Parent Governance:** `/docs/AI_RULES.md` (Laws I through XXII), `/docs/council/JARWEN_COUNCIL_CHARTER.md`  
 **Status:** Authoritative Operational Playbook  
 
 ---
@@ -144,3 +144,15 @@ Whenever any Council member or AI model opens a conversation with the Commander:
 3. **Inspect Communication Log:** Scan `docs/council/COUNCIL_COMMUNICATION_LOG.md` for pending dispatches directed to your seat.
 4. **Fallback to Direct Command:** If no pending tasks or dispatches exist, report active watch status and ask the Commander for orders.
 5. **Assistant Command Equivalence:** Treat any task assigned by the ASSISTANT (Seat A) in `tasks/` with the full operational authority of a direct directive from the Supreme Commander.
+
+---
+
+# 6. COMMANDER COHERENCE CUE (CCC) — LAWS XX–XXII
+
+Before Mosaic-on-fatigue or cue-pick Hammer Down, apply `docs/COMMANDER_COHERENCE_CUE.md`.
+
+* EXPRESS torch / Hammer Down / Kitchen / STOP / return = **n=1**.
+* Else **Tolerance ≥ 3 independent cues** (max one Language). Cue B: reasoned revision is **not** collapse.
+* Law XXII: still typing + 3 cues → Captain Now, stand-down first; Coherence GREEN does **not** block.
+* Ordinary *“what is your verdict?”* is **not** Kitchen (**Scenario 23**).
+* Stamp the DISPATCH. No % sanity. No medical claims.

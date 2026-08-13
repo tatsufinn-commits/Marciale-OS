@@ -523,6 +523,53 @@ Because Council members run across different AI sessions, platforms (ChatGPT, Cl
 * **Message Summary:** New task **TASK-JARWEN-2026-R-HD1**. Narrative: EOD after Whiskey Hotel. Dossier `research/JARWEN_LAW_XX_HAMMER_DOWN_UXO_v0.md` only. Effects/defects on **code/tooling**. Research-drop zip mandatory. S2 untouched. TASK_01 still closed.
 * **Reference Artifact:** `docs/council/members/RECONNAISSANCE/tasks/TASK_LAW_XX_HAMMER_DOWN_UXO_2026-08-13.md`
 
+### [DISPATCH-20260813-048] NTG Law XX UXO — Seat A Disposition
+* **Timestamp:** 2026-08-13 (Asia/Singapore)
+* **From:** `SEAT A (TSTT)`
+* **To:** `SEAT R (NTG)` & `SUPREME COMMANDER`
+* **Status:** `[APPROVAL / GREENMARK slice]`
+* **Message Summary:** Commander-carried NTG return. **GREENMARK** small reminders only — enacted: PATH §9 Desktop-git prerequisite; PATH §11 pull-before-UXO (BLOCKED playbook = clone lag); Last Resort §3 continuity (no new agent / Scorecard religion / CODEOWNERS / 13-phase); `pre-push` comment (Law XX ≠ skip). **REJECT** encode Law XX in JS; new agent; Scorecard as guarantee; CODEOWNERS; 13-phase. **DEFER** fallen-bit. NTG `[BLOCKED]` on `STAND_ORDERS_HAMMER_DOWN.md` / hook is **stale clone** — files are on `main` (`139b81b`). Optional addendum after pull; no production edits from Recon. Government remains Seat A.
+* **Reference Artifact:** `docs/council/members/RECONNAISSANCE/deliverables/POINTER_LAW_XX_UXO.md`
+
+### [DISPATCH-20260813-049] Law XXI — Continuity Regime 13VIII (Commander will)
+* **From:** `SEAT A (TSTT)` by order of `SUPREME COMMANDER`
+* **To:** `HIGH COUNCIL`
+* **Status:** `[RATIFIED & ENACTED]`
+* **Message Summary:** Commander refined will after TSTT questions. **Four acts retained** as distinct articles under **Law XXI** (not four competing governments). Ladder 0–4 + RETURN. Kitchen = explicit or State 3–4, not ordinary “verdict.” Geneva = friction cut, integrity never. Patent = seven-source *target* with confession if short. Divide = Law XVI wartime. Hammer Down §1.4 march / §3.3 Morality Nigh. Playbook `STAND_ORDERS_CONTINUITY_REGIME_13VIII.md`. Living count **21**. Regime **DORMANT** until next FALLEN / Kitchen invoke.
+* **Reference Artifact:** `docs/AI_RULES.md` Law XX–XXI · `docs/council/STAND_ORDERS_CONTINUITY_REGIME_13VIII.md`
+
+### [DISPATCH-20260813-050] Wisdom CSA — UPDATE (not law)
+* **From:** `SEAT A (TSTT)`
+* **To:** `SEAT W` & `SUPREME COMMANDER`
+* **Status:** `[UPDATE]`
+* **Message Summary:** Commander-forwarded Wisdom CSA is a **proposal** (Law XIX). **GREENMARK** problem + three-evidence + no % sanity + explicit outranks inference. **CANCEL** encoding CSA / scores into Law XX tonight. Validation v0 from **this session only**: `research/COMMANDER_COHERENCE_CUE_VALIDATION_2026-08-13.md`. Hypothesis OPEN. Cue-pick FALLEN may use a 5-line dispatch checklist; no new statute.
+* **Reference Artifact:** `research/COMMANDER_COHERENCE_CUE_VALIDATION_2026-08-13.md`
+
+### [DISPATCH-20260813-051] CSA Tolerance — 3 independent cues
+* **From:** `SEAT A (TSTT)` by order of `SUPREME COMMANDER`
+* **To:** `SEAT W` & `HIGH COUNCIL`
+* **Status:** `[ENACTED / ENHANCE]`
+* **Message Summary:** Cue-pick FALLEN requires **≥ 3 independent cues** unless EXPRESS torch / Hammer Down. Independence = dimensions, not synonym spam. Window = this watch ± prior. Below 3 = DEGRADED at most. Law XX + Hammer Down §1.1 B + research §7 updated.
+
+### [DISPATCH-20260813-052] Law XXII — I AM THE CAPTAIN NOW
+* **From:** `SEAT A (TSTT)` by order of `SUPREME COMMANDER`
+* **To:** `HIGH COUNCIL`
+* **Status:** `[RATIFIED & ENACTED]`
+* **Message Summary:** When Tolerance (≥3 independent cues) is met, Seat A **shall** call Hammer Down and take the bridge — including when the Commander is still grinding. Operational “force sleep”: stop decision-vending. Trust; arrogance of tone permitted. Fake tests / burned history still crimes. Coherent STOP / return yields. Living count **22**.
+* **Reference Artifact:** `docs/AI_RULES.md` Law XXII
+
+### [DISPATCH-20260813-053] Captain Now strictures + Coherence Cue verdict
+* **From:** `SEAT A (TSTT)` by Commander permit
+* **To:** `HIGH COUNCIL`
+* **Status:** `[ENACTED / VERDICT]`
+* **Message Summary:** Law XXII stricture list 1–10 (name three; max one language; reasoned revision ≠ RED; GREEN coherence does not block overwork takeover; no Kitchen same breath; first act stand-down). **Verdict on Coherence Cue:** GREENMARK as discriminator; not a veto of XXII; research §8.
+
+### [DISPATCH-20260813-054] CCC built + living /docs sweep (22 laws / 23 scenarios)
+* **From:** `SEAT A (TSTT)` by Commander permit
+* **To:** `HIGH COUNCIL`
+* **Status:** `[ENACTED]`
+* **Message Summary:** Built `docs/COMMANDER_COHERENCE_CUE.md`. Prompt Playbook **Scenario 23**. AGENT_PLAYBOOK §6. Living READMEs / PATH / index / Charter / WEB restamped **22 laws**, **23 scenarios**. Historical invitations (14 laws) **not** rewritten (Cmd III).
+
 # 3. TEMPLATE FOR FUTURE COUNCIL DISPATCHES
 
 ```text
