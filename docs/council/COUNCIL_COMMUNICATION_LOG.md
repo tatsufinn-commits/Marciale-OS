@@ -600,6 +600,12 @@ Because Council members run across different AI sessions, platforms (ChatGPT, Cl
 * **Status:** `[RATIFIED & ENACTED]`
 * **Message Summary:** Civilians are guests: heard, taxed in **labor** (`research/`), never a seat or shadow council. Introduction ≠ inherit. Upcoming civilians: same passport, queued by Seat A. Playbook remains `CIVILIAN_INTELLECT.md`. Living count **24**.
 
+### [DISPATCH-20260813-060] Living /docs dust sweep → 24 / 24
+* **From:** `SEAT A (TSTT)`
+* **To:** `HIGH COUNCIL`
+* **Status:** `[RATIFIED]`
+* **Message Summary:** README, PATH, AGENTS, playbooks, Charter, WEB, index, ENGINEER PATH copy, SYSTEM_STATE topology restamped **24 laws / 24 scenarios**. Historical invitations / masterplan fossils **not** rewritten (Cmd III). Download zip after this dispatch.
+
 # 3. TEMPLATE FOR FUTURE COUNCIL DISPATCHES
 
 ```text
