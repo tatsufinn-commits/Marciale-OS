@@ -2,7 +2,7 @@
 **ID:** `TASK-JARWEN-2026-E-G7`  
 **From:** Seat A / TSTT · Mosaic **Option A** · Commander approved  
 **To:** `@engineer` / Max (Seat E)  
-**Status:** **OPEN** — **Build 57 is forbidden on this task**  
+**Status:** **CLOSED** — Seat A 2026-08-13. Verification path. G7 on `origin/main` (`AttunementSystem.js`). Engineer commit `5fb06d0` on `arena/019ff477-marciale-os` (dossier; branch ahead). No Build 57.  
 **Charter:** 4-layer `@engineer` → `@the_forge` → `@pangolin` → `@engineer`  
 **Laws:** I, IV, V, X, XV, XVI (this is **one bite**)
 

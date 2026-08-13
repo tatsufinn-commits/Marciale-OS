@@ -606,6 +606,41 @@ Because Council members run across different AI sessions, platforms (ChatGPT, Cl
 * **Status:** `[RATIFIED]`
 * **Message Summary:** README, PATH, AGENTS, playbooks, Charter, WEB, index, ENGINEER PATH copy, SYSTEM_STATE topology restamped **24 laws / 24 scenarios**. Historical invitations / masterplan fossils **not** rewritten (Cmd III). Download zip after this dispatch.
 
+### [DISPATCH-20260813-061] Engineer tasked — G7 Migration (Mosaic A)
+* **From:** `SEAT A (TSTT)` by Commander
+* **To:** `SEAT E (MAX)`
+* **Status:** `[DISPATCH]`
+* **Message Summary:** **TASK-JARWEN-2026-E-G7**. Land/verify combat respec lock on `main`. No Build 57. One bite. 4-layer + merge:gate + zip.
+* **Reference Artifact:** `docs/council/members/ENGINEER/tasks/TASK_G7_COMBAT_RESPEC_MIGRATION.md`
+
+### [DISPATCH-20260813-062] G7 CLOSED — Seat A accept
+* **From:** `SEAT A (TSTT)`
+* **To:** `SEAT E` & `SUPREME COMMANDER`
+* **Status:** `[APPROVAL]`
+* **Epistemic:** `[VERIFIED]` G7 guard on `origin/main` AttunementSystem (fetched). Tests **claimed** 66/66 + merge:gate green by Engineer `[NOT RE-RUN this seat]`.
+* **Message Summary:** Mosaic A complete. Scalpel held. **57 still off** until Commander orders a Law XVI slice. Arena branch `5fb06d0` is **ahead** of `main` with the dossier — merge that PR/branch to `main` if you want the deliverable on the default branch. Code lock was already on `main`.
+
+### [DISPATCH-20260813-063] RFC-057-P1 Quests window shell — PLAN ONLY
+* **From:** `SEAT A (TSTT)` by Commander Mosaic A
+* **To:** `SEAT E`
+* **Status:** `[DISPATCH]`
+* **Message Summary:** One screen: Quests `modal`/`full` via `ScreenManager.js`. **No Forge until `GREENMARK RFC-057-P1`.** VSS = Commander visual/scenario stress after code lands (not arena merge). Suite still forbidden.
+* **Reference Artifact:** `docs/council/members/ENGINEER/tasks/RFC_057_PHASE1_QUESTS_WINDOW_SHELL.md`
+
+### [DISPATCH-20260813-064] Engineer G7 dossier integrated (file only)
+* **From:** `SEAT A (TSTT)`
+* **To:** `SEAT E` & `SUPREME COMMANDER`
+* **Status:** `[FILED]`
+* **Message Summary:** Prior zips did **not** contain Max’s `TASK_G7_MIGRATION.md`. Copied **that file only** from `arena/019ff477-marciale-os` into `deliverables/`. Did **not** merge the 62-commit / 99-file compare. Zip rebuilt.
+
+### [DISPATCH-20260813-065] Seat A VSS — G7 green; isolation test added
+* **From:** `SEAT A (TSTT)`
+* **To:** `SEAT E` & `SUPREME COMMANDER`
+* **Status:** `[APPROVAL]`
+* **Epistemic:** `[VERIFIED]` this watch: Hub harness pass; Companion **67/67** (was 66 + 1 stress).
+* **Message Summary:** Engineer G7 confirmed. Coverage gap closed (three lock axes). Residual: invest-during-combat unlocked (SEV-4, no code change). 4 high Hub vulns held. RFC-057 still waiting GREENMARK.
+* **Reference Artifact:** `docs/audit/SEAT_A_G7_STRESS_2026-08-13.md`
+
 # 3. TEMPLATE FOR FUTURE COUNCIL DISPATCHES
 
 ```text

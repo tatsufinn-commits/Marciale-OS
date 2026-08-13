@@ -345,6 +345,32 @@ test('G7: AttunementSystem rejects respec during active combat without mutating 
   assert.equal(attunementSystem.getNodeRank('earth_skin'), 0);
 });
 
+test('G7 stress: fighting-only, enemies-only, and cooldown-only each lock respec', () => {
+  const stateManager = new MockStateManager();
+  const attunementSystem = new AttunementSystem({
+    stateManager,
+    eventBus: new EventBus(),
+    events: Events,
+    branches: attunementBranches
+  });
+  attunementSystem.grantLevelPoints(10);
+  assert.equal(attunementSystem.investNode('earth_skin', 1).success, true);
+
+  stateManager.set('combat.state', 'fighting');
+  stateManager.set('combat.enemies', []);
+  stateManager.set('combat.hero.attackCooldown', 0);
+  assert.equal(attunementSystem.respecAttunements().reason, 'COMBAT_ACTIVE');
+
+  stateManager.set('combat.state', 'preview');
+  stateManager.set('combat.enemies', [{ isAlive: true }]);
+  assert.equal(attunementSystem.respecAttunements().reason, 'COMBAT_ACTIVE');
+
+  stateManager.set('combat.enemies', []);
+  stateManager.set('combat.hero.attackCooldown', 1);
+  assert.equal(attunementSystem.respecAttunements().reason, 'COMBAT_ACTIVE');
+  assert.equal(attunementSystem.getNodeRank('earth_skin'), 1);
+});
+
 test('Attunement state snapshot serializes and survives game state export/import', () => {
   const stateManager = new MockStateManager();
   const eventBus = new EventBus();
