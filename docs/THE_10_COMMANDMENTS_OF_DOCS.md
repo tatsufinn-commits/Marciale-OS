@@ -2,7 +2,7 @@
 ## The Absolute, Inviolable Bible of Documentation, Releases & Institutional Truth
 **Classification:** SUPREME CANONICAL BIBLE OF `/docs`  
 **Ratified By:** Supreme Commander (Director) & `@joint` (The High Council)  
-**Parent Governance:** `/docs/AI_RULES.md` (Laws I through XXIV)  
+**Parent Governance:** `/docs/AI_RULES.md` (Laws I through XXV)  
 **Target Path:** `/docs/THE_10_COMMANDMENTS_OF_DOCS.md`  
 
 ---

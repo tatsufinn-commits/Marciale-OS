@@ -18,7 +18,7 @@
 | **TheHUB Command Shell** | `TheHUB 1.5.5.2.3 a v/package.json` | `1.5.5.2.3-alpha` | 🟢 VERIFIED | 20 Vanilla JS Modules + Python Server |
 | **Companion RPG Engine** | `Gamecompanion/files/package.json` | `0.3.0.0` | 🟢 VERIFIED | Vite ES Module Canvas Engine |
 | **TAMA Academic Studio** | `TAMAplugin` & Academic Vault | `2.0.0` | 🟢 VERIFIED | Mapúa BS Architecture Knowledge Spine |
-| **AI Constitution** | `docs/AI_RULES.md` | `Laws I–XXIV (24 Laws)` | 🟢 VERIFIED | XXIV Civilian Estate; XXIII Cascade |
+| **AI Constitution** | `docs/AI_RULES.md` | `Laws I–XXV (25 Laws)` | 🟢 VERIFIED | XXV Company; XXIV Civilian |
 | **Prompt Playbook** | `docs/PROMPT_PLAYBOOK.md` | `24 Scenarios` | 🟢 VERIFIED | +24 @colony intake |
 
 ---
