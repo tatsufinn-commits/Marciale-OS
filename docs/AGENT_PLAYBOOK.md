@@ -3,7 +3,7 @@
 **Target System:** Marciale-OS JARWEN Council & Virtual Agent Squad  
 **Governing Standard:** Reverse-Prompt Intent Interpretation (Zero User Cognitive Burden)  
 **Co-Authored By:** WISDOM (Seat W) & ASSISTANT (Seat A)  
-**Parent Governance:** `/docs/AI_RULES.md` (Laws I through XXII), `/docs/council/JARWEN_COUNCIL_CHARTER.md`  
+**Parent Governance:** `/docs/AI_RULES.md` (Laws I through XXIV), `/docs/council/JARWEN_COUNCIL_CHARTER.md`  
 **Status:** Authoritative Operational Playbook  
 
 ---

@@ -18,7 +18,7 @@
 | **TheHUB Command Shell** | `TheHUB 1.5.5.2.3 a v/package.json` | `1.5.5.2.3-alpha` | 🟢 VERIFIED | 20 Vanilla JS Modules + Python Server |
 | **Companion RPG Engine** | `Gamecompanion/files/package.json` | `0.3.0.0` | 🟢 VERIFIED | Vite ES Module Canvas Engine |
 | **TAMA Academic Studio** | `TAMAplugin` & Academic Vault | `2.0.0` | 🟢 VERIFIED | Mapúa BS Architecture Knowledge Spine |
-| **AI Constitution** | `docs/AI_RULES.md` | `Laws I–XXII (22 Laws)` | 🟢 VERIFIED | XXII Captain Now; XXI 13VIII; XX Hammer Down **DORMANT** |
+| **AI Constitution** | `docs/AI_RULES.md` | `Laws I–XXIV (24 Laws)` | 🟢 VERIFIED | XXIV Civilian Estate; XXIII Cascade |
 | **Prompt Playbook** | `docs/PROMPT_PLAYBOOK.md` | `24 Scenarios` | 🟢 VERIFIED | +24 @colony intake |
 
 ---
@@ -26,7 +26,7 @@
 # 2. ACTIVE GOVERNANCE & COUNCIL TOPOLOGY
 
 ```text
-CONSTITUTION: 22 Supreme Laws (/docs/AI_RULES.md)
+CONSTITUTION: 24 Supreme Laws (/docs/AI_RULES.md)
 COMMANDMENTS: 10 Inviolable Commandments (/docs/THE_10_COMMANDMENTS_OF_DOCS.md)
 COUNCIL SEATS: 5 Sovereign Seats (Seat A, Seat W, Seat R, Seat E, Seat N) + Seat J (@joint)
 VIRTUAL SQUAD: 6 Core Executive Roles + 7 Web Department Roles + 3 TAMA Studio Roles

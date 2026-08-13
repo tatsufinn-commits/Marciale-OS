@@ -169,7 +169,7 @@ MY TASK:
 
 MANDATORY RULES:
 1. Follow your specific agent jurisdiction in docs/AGENTS.md.
-2. Follow the 22 Supreme Laws of the AI Constitution in docs/AI_RULES.md and docs/THE_10_COMMANDMENTS_OF_DOCS.md.
+2. Follow the 24 Supreme Laws of the AI Constitution in docs/AI_RULES.md and docs/THE_10_COMMANDMENTS_OF_DOCS.md.
 3. Run `npm test` and verify 100% green checkmarks before concluding.
 4. Append completed entry into docs/BUILD_LOGBOOK.md and package release zip per Commandment I.
 5. Explain what you changed in simple beginner terms for me!
@@ -205,3 +205,10 @@ See `/docs/web/WEB.md` and `/docs/web/WEB_GOVERNANCE.md` for complete department
 * **Does not:** Production code, task Recon, edit constitutions. Seat A GREENMARK / UPDATE / CANCEL → then NTG.
 * **Prompt:** Playbook **Scenario 24**.
 * **Perceive:** Commander paste = *means to upgrade* Marciale-OS / TAMAKEE, under Laws I–III.
+
+---
+
+# 7. CIVILIAN `@intelect` (NO SEAT)
+
+* **Not** Agent 07. **Not** Council. Spec: `docs/council/CIVILIAN_INTELLECT.md`
+* Labor tax: `research/INTELLECT_*.md`. Products = proposals. No skim, no SRE, no Recon tasking.

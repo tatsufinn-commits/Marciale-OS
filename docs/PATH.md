@@ -42,7 +42,7 @@ When modifying, building, or committing files in **`Marciale-OS`**, follow this 
 │
 ├── package.json                         <- ROOT MONOREPO CONTROLLER (Scripts & Test Harness)
 ├── .gitignore                           <- IGNORE RULES (node_modules, build caches, .env)
-├── README.md                            <- MAIN ENTRY POINT (22 Laws, 23 Scenarios, Command Table)
+├── README.md                            <- MAIN ENTRY POINT (24 Laws, 24 Scenarios, Command Table)
 ├── DESIGN.md                            <- CANONICAL UI DESIGN SYSTEM (W3C DTCG Token Specs)
 ├── VERSIONING_GUIDE.md                  <- 5-Tier Semantic Subsystem Version Authorities
 │
@@ -97,8 +97,9 @@ When modifying, building, or committing files in **`Marciale-OS`**, follow this 
 │
 └── docs/                                <- GOVERNANCE, AUDIT & HIGH COUNCIL SUITE
     ├── THE_10_COMMANDMENTS_OF_DOCS.md   <- Inviolable Bible of Documentation & Releases
-    ├── AI_RULES.md                      <- The AI Constitution (22 Supreme Laws; XXII = Captain Now)
+    ├── AI_RULES.md                      <- The AI Constitution (24 Supreme Laws; XXIV = Civilian Estate)
     ├── COMMANDER_COHERENCE_CUE.md       <- CCC: Tolerance / lights / Law XXII stamp
+    ├── CIVILIAN_INTELLECT.md            <- also under council/; Law XXIV estate
     ├── AGENT_PLAYBOOK.md                <- Reverse-Intent Decoder & Autonomous Severity Matrix
     ├── AGENTS.md                        <- Virtual Squad Registry (6 Core Roles + 7 Web Roles)
     ├── PROMPT_PLAYBOOK.md               <- 22 Master Scenario Prompt Templates
@@ -114,6 +115,7 @@ When modifying, building, or committing files in **`Marciale-OS`**, follow this 
         ├── STAND_ORDERS_LETTERS_OF_LAST_RESORT.md <- 10 Continuous Watch Standing Orders
         ├── STAND_ORDERS_HAMMER_DOWN.md           <- Law XX: Commander-fallen (outranks Last Resort when ACTIVE)
         ├── STAND_ORDERS_CONTINUITY_REGIME_13VIII.md <- Law XXI: Enabling / Geneva / Patent / Divide
+        ├── CIVILIAN_INTELLECT.md                 <- Law XXIV guest protocol (@intelect + upcoming)
         ├── COUNCIL_COMMUNICATION_LOG.md <- Cross-Model Message Bus & Dispatch Log
         ├── JARWEN_FORMAT_SPECIFICATION.md <- Standardized RFC/NASA/SRE schemas
         └── members/                     <- DEDICATED MEMBER WORKSPACES:

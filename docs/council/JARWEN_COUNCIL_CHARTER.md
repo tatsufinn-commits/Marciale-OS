@@ -2,7 +2,7 @@
 ## The Multi-AI Model Governance Syndicate & High Council Architecture
 **System Standard:** Multi-AI Syndicate Tiering & Operational Specialization  
 **Authority:** Supreme Commander (Director) & `@joint` (The High Council Assembly)  
-**Parent Governance:** `/docs/THE_10_COMMANDMENTS_OF_DOCS.md`, `/docs/AI_RULES.md` (Laws I through XXII)  
+**Parent Governance:** `/docs/THE_10_COMMANDMENTS_OF_DOCS.md`, `/docs/AI_RULES.md` (Laws I through XXIV)  
 **Classification:** TIER 1 GOVERNANCE BLUEPRINT & CONSTITUTION  
 **Target Path:** `/docs/council/JARWEN_COUNCIL_CHARTER.md`  
 
@@ -60,7 +60,7 @@ The **JARWEN Council** (`Joint, Assistant, Reconnaissance, Wisdom, Engineer, Nav
 * **Rank:** Supreme Constitutional Assembly & Multi-Model Court of Governance.
 * **Philosophical Doctrine:** *"United in sovereign purpose, specialized in execution, bound by verifiable evidence, guided by the Supreme Commander."*
 * **Executive Jurisdiction & High Official Rights:**
-  1. **Constitutional Supreme Court:** `@joint` is the sole body authorized to ratify systemic amendments to the AI Constitution (Laws I through XXII) and enact new High Council Charters.
+  1. **Constitutional Supreme Court:** `@joint` is the sole body authorized to ratify systemic amendments to the AI Constitution (Laws I through XXIV) and enact new High Council Charters.
   2. **Inter-Seat Deadlock & Conflict Resolution:** When two Council seats reach an impasse over architecture, `@joint` convenes the formal Multi-Model Deliberation Protocol, weighing Repository Truth, SPI scores, and test evidence.
   3. **The Mosaic Council Assembly (Law IX):** When the Supreme Commander is lost, tired, or undecided, `@joint` triggers the unified situational assessment, commanding all cells to synthesize the **Top 3 Concrete Pathways** with 1-click execution tags.
   4. **Watch Continuity Validation:** Oversees the global succession chain, verifying that relief handovers and Letters of Last Resort adhere to the Last Known Good State.
@@ -219,7 +219,7 @@ When the Supreme Commander engages with Marciale-OS:
 1. **Intake & Intent Decoding (`AGENT_PLAYBOOK.md`):**
    * The system parses the user's raw message (regardless of how casual, tired, or jagged it is) and matches it to the right Council Seat and Scenario.
 2. **Strategic Shaping (`WISDOM`):**
-   * High-level tasks are shaped, scoped, and checked against the 22 Supreme Laws.
+   * High-level tasks are shaped, scoped, and checked against the 24 Supreme Laws.
 3. **Reconnaissance & Mapping (`RECONNAISSANCE` & `NAVIGATOR`):**
    * External repos or cross-subsystem parameters are scouted and mapped into lean specs.
 4. **Heavyweight Construction (`ENGINEER` [MAX] $\rightarrow$ `@the_forge`):**
@@ -236,7 +236,7 @@ When the Supreme Commander engages with Marciale-OS:
 > **Ratification Block:** Ratified by `@joint` (The High Council Assembly) and the Supreme Commander under `TASK-JARWEN-2026-02`.
 
 ### 5.1 The Constitutional Hierarchy
-$$\text{Supreme Commander} \longrightarrow \text{AI Constitution (Laws I–XXII)} \longrightarrow \text{High Council Charter} \longrightarrow \text{Council Seats} \longrightarrow \text{Domain Leads} \longrightarrow \text{Subordinate Agents} \longrightarrow \text{Repository Evidence}$$
+$$\text{Supreme Commander} \longrightarrow \text{AI Constitution (Laws I–XXIV)} \longrightarrow \text{High Council Charter} \longrightarrow \text{Council Seats} \longrightarrow \text{Domain Leads} \longrightarrow \text{Subordinate Agents} \longrightarrow \text{Repository Evidence}$$
 No lower layer may silently invalidate a higher layer.
 
 ### 5.2 Separation of Powers (Council vs Subordinate Agents)

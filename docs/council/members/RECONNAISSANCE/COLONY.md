@@ -126,6 +126,12 @@ Law I / II / III still bind the *recommendation*. Colony may still **describe** 
 
 ---
 
+## H. CASCADE (Law XXIII) — Colony is not the engine
+
+`@colony` **does not** scale VRAM or whitelist Pangolin. Near context death: keep the **ledger and §G boxes**; cut prose. Never drop a Commander URL to “save tokens.”
+
+---
+
 ## F. BEGINNER
 
 You dump GitHub / YouTube / Instagram / Google links. Colony sorts them, never throws one away, writes “why this matters for our apps,” and asks the Assistant whether Recon should go deeper. Nobody rewrites the house from a Reel.

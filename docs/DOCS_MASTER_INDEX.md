@@ -17,7 +17,7 @@
 | If you want to... | Consult This Document | Invoke This Agent | Primary Terminal Command |
 |---|---|:---:|---|
 | **Read the 10 Commandments of /docs**| `/docs/THE_10_COMMANDMENTS_OF_DOCS.md` | All Seats | Review the 10 Inviolable Laws |
-| **Understand the rules of the AI** | `/docs/AI_RULES.md` | Council / Squad | Review the 22 Supreme Laws |
+| **Understand the rules of the AI** | `/docs/AI_RULES.md` | Council / Squad | Review the 24 Supreme Laws |
 | **Decode casual / jagged human speech**| `/docs/AGENT_PLAYBOOK.md` | Any Active Model | Auto-Reverse Intent Translation |
 | **Pick the right persona for a task** | `/docs/AGENTS.md` | `@architect` | Review 6 Core + 7 Web Roles |
 | **Review Council governance & seats** | `/docs/council/JARWEN_COUNCIL_CHARTER_V3.1.0_MAX.md` | `@joint` / Seat A | Charter v3.1.0-MAX & 5 Seats |
@@ -25,7 +25,9 @@
 | **Track post-merge incidents / PIRs** | `/docs/council/MII_INCIDENT_LEDGER.md` | `@sre` / `@pangolin`| Inspect M.I.I. Incident Ledger |
 | **Review branch isolation doctrine** | `/docs/council/ENGINEER_BRANCH_ISOLATION_DOCTRINE.md` | `@engineer` / Max | Isolated Experimental Labs |
 | **Visit the Shrine of Honor & Wills** | `/docs/shrine/SHRINE_CHARTER.md` | All Successors | Memorial Testaments & Resignations |
-| **@colony intake (under Recon)** | `/docs/council/members/RECONNAISSANCE/COLONY.md` | Commander → Colony → Seat A | Link wash + upgrade audit |
+| **@colony intake (under Recon)** | `/docs/council/members/RECONNAISSANCE/COLONY.md` | Commander → Colony → Seat A | Link wash + Wanted Extract §G |
+| **Civilian estate (Law XXIV)** | `/docs/council/CIVILIAN_INTELLECT.md` | Seat A + guests | Hospitality; labor tax; no seat |
+| **Operation Cascade (Law XXIII)** | `/docs/AI_RULES.md` Law XXIII | Any generating seat | Integrity floor; no fake VRAM |
 | **Commander fallen (Law XX)** | `/docs/council/STAND_ORDERS_HAMMER_DOWN.md` | `@joint` | Hammer Down / Second Sun / Whiskey Hotel |
 | **Check cross-model message bus** | `/docs/council/COUNCIL_COMMUNICATION_LOG.md` | All Seats | Inspect active dispatches |
 | **Inspect canonical research & dossiers**| `/research/` | `@reconnaissance` | Review technical intelligence |
@@ -56,7 +58,7 @@
 
 ### 🏛️ 1. Core Governance & Council Suite (`/docs/` & `/docs/council/`)
 1. **`THE_10_COMMANDMENTS_OF_DOCS.md`:** The Supreme Inviolable Bible of Documentation & Releases.
-2. **`AI_RULES.md`:** The 22 Supreme Constitutional Laws of Marciale-OS (through Law XXII: I AM THE CAPTAIN NOW).
+2. **`AI_RULES.md`:** The 24 Supreme Constitutional Laws of Marciale-OS (through Law XXIV: The Civilian Estate).
 3. **`AGENT_PLAYBOOK.md`:** Reverse-Intent Decoder, Autonomous Severity Classifier & 0-Paralysis Protocol.
 4. **`AGENTS.md`:** Virtual Squad Personas (6 Core Executive Roles + 7 Web Department Roles).
 5. **`PROMPT_PLAYBOOK.md`:** 22 Copy-Paste Scenario Prompt Templates (including Research-Backed Roadmap Generator).

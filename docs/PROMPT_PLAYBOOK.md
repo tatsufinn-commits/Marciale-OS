@@ -96,7 +96,7 @@ MY TARGET BUILD:
 
 MANDATORY RULES:
 1. Follow your specific agent jurisdiction in docs/AGENTS.md.
-2. Follow the 22 Supreme Laws in docs/AI_RULES.md and docs/THE_10_COMMANDMENTS_OF_DOCS.md.
+2. Follow the 24 Supreme Laws in docs/AI_RULES.md and docs/THE_10_COMMANDMENTS_OF_DOCS.md.
 3. Modify only the 1–3 target files needed for this single build.
 4. Run `npm test` and make sure all tests pass (100% green checkmarks).
 5. Append your completed build entry into `docs/BUILD_LOGBOOK.md`.

@@ -18,7 +18,7 @@
                                        ▼
                    ┌───────────────────────────────────────┐
                    │ LEVEL 1: THE AI CONSTITUTION          │
-                   │ (/docs/AI_RULES.md — 22 Supreme Laws) │
+                   │ (/docs/AI_RULES.md — 24 Supreme Laws) │
                    └───────────────────┬───────────────────┘
                                        │
                                        ▼
@@ -90,7 +90,7 @@ To keep Marciale-OS agile and prevent administrative paralysis, the following pr
 1. **Rejected: Departmental SRE Sub-Playbook:**
    * *Why Rejected:* Creating a second incident response system would cause conflicting command during emergencies. All SEV-1 to SEV-4 incidents flow directly to the unified `/docs/INCIDENT_RESPONSE_SRE_PLAYBOOK.md`.
 2. **Rejected: Duplicate Departmental Constitution:**
-   * *Why Rejected:* A second constitution would undermine constitutional primacy. The 22 Supreme Laws in `/docs/AI_RULES.md` remain the single supreme legal standard.
+   * *Why Rejected:* A second constitution would undermine constitutional primacy. The 24 Supreme Laws in `/docs/AI_RULES.md` remain the single supreme legal standard.
 3. **Rejected: Mandatory Research Dossiers for Minor Fixes:**
    * *Why Rejected:* Forcing `@scout` dossiers on 1-line CSS or typo fixes creates destructive friction. The Adaptive 4-Tier Workflow permits Tier 1 Micro fast-paths.
 
@@ -98,7 +98,7 @@ To keep Marciale-OS agile and prevent administrative paralysis, the following pr
 
 # 5. FINAL DECISION GATE VERIFICATION
 
-* **Consistency:** All 22 Supreme Laws, 6 Core Squad roles, and 7 Web Department roles are mutually non-contradictory.
+* **Consistency:** All 24 Supreme Laws, 6 Core Squad roles, and 7 Web Department roles are mutually non-contradictory.
 * **Completeness:** Every engineering discipline has an explicit owner, clear handoff artifact, and defined escalation boundary.
 * **Release Safety:** `@qa` holds absolute release gating veto authority, verified by `@sentinel`'s root `npm test` harness.
 * **Traceability:** All technical choices flow through `@scout`'s 5-tier evidence classification and are recorded in `docs/BUILD_LOGBOOK.md`.
