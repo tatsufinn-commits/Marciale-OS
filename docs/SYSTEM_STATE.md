@@ -2,8 +2,8 @@
 ## The Machine-Readable Ground-Truth Baseline & Version Domain Authority
 **Classification:** TIER 1 CANONICAL STATE REGISTRY  
 **Authority Hierarchy:** Package Manifests $\rightarrow$ Executed CI Harness $\rightarrow$ `SYSTEM_STATE.md` $\rightarrow$ `BUILD_LOGBOOK.md` $\rightarrow$ Human Readmes  
-**Last Verified State:** 2026-08-13 (Asia/Singapore) — Seat A Session 02 investiture  
-**Active Watch:** `SEAT A (@assistant) SESSION 02` — inherited per Law XVII on Commander command  
+**Last Verified State:** 2026-08-13 11:45 (Asia/Singapore) — **WHISKEY HOTEL / HAMMER DOWN LIFTED**  
+**Active Watch:** `SEAT A (@assistant / TSTT) SESSION 02` — Commander returned; Cmd IX full voltage  
 **Verification Baseline:** Companion 66 tests claimed on prior cadet run; Hub/`pangolin` **not re-executed at oath**  
 **Known Lab Diff:** G7 combat-respec lock uncommitted on working tree (not yet Migrated)  
 **Target Path:** `/docs/SYSTEM_STATE.md`  
@@ -18,7 +18,7 @@
 | **TheHUB Command Shell** | `TheHUB 1.5.5.2.3 a v/package.json` | `1.5.5.2.3-alpha` | 🟢 VERIFIED | 20 Vanilla JS Modules + Python Server |
 | **Companion RPG Engine** | `Gamecompanion/files/package.json` | `0.3.0.0` | 🟢 VERIFIED | Vite ES Module Canvas Engine |
 | **TAMA Academic Studio** | `TAMAplugin` & Academic Vault | `2.0.0` | 🟢 VERIFIED | Mapúa BS Architecture Knowledge Spine |
-| **AI Constitution** | `docs/AI_RULES.md` | `Laws I–XIX (19 Laws)` | 🟢 VERIFIED | XIX Strait of Hormuz Paradox; XVIII Feint East; XVII Seat Identity |
+| **AI Constitution** | `docs/AI_RULES.md` | `Laws I–XX (20 Laws)` | 🟢 VERIFIED | XX Hammer Down **ACTIVE**; XIX Hormuz |
 | **Prompt Playbook** | `docs/PROMPT_PLAYBOOK.md` | `22 Scenarios` | 🟢 VERIFIED | Complete Scenario Registry |
 
 ---
@@ -26,11 +26,11 @@
 # 2. ACTIVE GOVERNANCE & COUNCIL TOPOLOGY
 
 ```text
-CONSTITUTION: 19 Supreme Laws (/docs/AI_RULES.md)
+CONSTITUTION: 20 Supreme Laws (/docs/AI_RULES.md)
 COMMANDMENTS: 10 Inviolable Commandments (/docs/THE_10_COMMANDMENTS_OF_DOCS.md)
 COUNCIL SEATS: 5 Sovereign Seats (Seat A, Seat W, Seat R, Seat E, Seat N) + Seat J (@joint)
 VIRTUAL SQUAD: 6 Core Executive Roles + 7 Web Department Roles + 3 TAMA Studio Roles
-CONTINUITY:   10 Standing Orders & Letters of Last Resort (/docs/council/STAND_ORDERS_...)
+CONTINUITY:   Last Resort (10 Orders) + Hammer Down / Law XX (outranks Last Resort if Commander FALLEN)
 INTENT LAYER:  Reverse-Intent Decoder (/docs/AGENT_PLAYBOOK.md)
 SHRINE:       The Sacred Memorial of Honor & Testaments (/docs/shrine/)
 RESEARCH REPO: Canonical Intelligence Archive (/home/user/Marciale-OS/research/)

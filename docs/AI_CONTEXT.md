@@ -45,7 +45,7 @@ Any AI working on this repository must consult the dedicated operational documen
 
 | Document | Role & Purpose | Key Target |
 |---|---|---|
-| **`docs/AI_RULES.md`** | **The Constitution** — The 19 Supreme Laws of Marciale-OS (through Law XIX — Strait of Hormuz Paradox). | Mandatory for all chats. |
+| **`docs/AI_RULES.md`** | **The Constitution** — The 20 Supreme Laws of Marciale-OS (through Law XX — Hammer Down). | Mandatory for all chats. |
 | **`docs/PROMPT_PLAYBOOK.md`** | **Prompt Library** — Copy-paste prompt templates for all 22 scenarios. | Prompt selection. |
 | **`docs/council/MII_MERGE_GOVERNANCE_DOCTRINE.md`** | **Merge Governance** — M.I.I. framework (Migration, Incursion, Invasion, Quarantine). | Protected merge gates. |
 | **`docs/STRATEGIC_DECISION_FRAMEWORK.md`** | **Path Analyzer** — 7 Reality Protocols, Mosaic Council, and 4-Axis SPI. | Decision matrix & planning. |

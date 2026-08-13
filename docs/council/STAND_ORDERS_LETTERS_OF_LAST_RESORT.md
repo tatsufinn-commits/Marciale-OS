@@ -2,6 +2,7 @@
 ## Continuous Continuity Doctrine, Succession Invariants & Autonomy Boundaries
 **Document ID:** `STAND-ORD-JARWEN-2026-V1.0`  
 **Classification:** TIER 1 PERMANENT CONTINUITY DIRECTIVE  
+**Subordinate when:** **Law XX Hammer Down is ACTIVE** — then `STAND_ORDERS_HAMMER_DOWN.md` outranks this file. This file remains the default when the *model* dies and the Commander is still on the net.  
 **Co-Authored By:** WISDOM (Seat W) & ASSISTANT (Seat A)  
 **Ratified By:** Supreme Commander (Director)  
 **Target Path:** `/docs/council/STAND_ORDERS_LETTERS_OF_LAST_RESORT.md`  

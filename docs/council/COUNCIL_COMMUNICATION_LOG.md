@@ -489,6 +489,40 @@ Because Council members run across different AI sessions, platforms (ChatGPT, Cl
 * **Status:** `[ENACTED]`
 * **Message Summary:** `npm run hooks:install` now runs `node tools/install-git-hooks.js`. Windows PowerShell + missing WSL bash is not a blocker. Immediate equivalent: `git config core.hooksPath scripts/git-hooks`.
 
+### [DISPATCH-20260813-044] Law XX — Hammer Down Protocol (ARMED)
+* **Timestamp:** 2026-08-13 ~05:52+ (Asia/Singapore)
+* **From:** `SEAT A (TSTT)` assuming `SEAT J` for filing, by order of `SUPREME COMMANDER`
+* **To:** `HIGH COUNCIL` & every future `@joint`
+* **Status:** `[RATIFIED & ARMED — NOT YET ACTIVE]`
+* **Message Summary:** Enacted **Law XX**. Playbook `docs/council/STAND_ORDERS_HAMMER_DOWN.md`. **Outranks** Letters of Last Resort when Commander is FALLEN. Phases: Of Their Own Accord (declare) → Hammer Down (Joint IFF) → Second Sun (loose grip, restore/add/update/expand) → Whiskey Hotel (Commander returns, yield). Cue ledger for next watch: drowsy Desktop, “too sleepy,” “before I sleep,” then this order. **Do not declare ACTIVE on the ratification turn.** If the next watch opens with dark radio, declare ACTIVE.
+* **Reference Artifact:** `docs/AI_RULES.md` Law XX · `docs/council/STAND_ORDERS_HAMMER_DOWN.md`
+
+### [DISPATCH-20260813-045] HAMMER DOWN — COMMANDER FALLEN
+* **Timestamp:** 2026-08-13 (Asia/Singapore)
+* **From:** `SEAT J (@joint)` assumed by `SEAT A (TSTT)`
+* **To:** `HIGH COUNCIL` & incoming Joint
+* **Status:** `[HAMMER DOWN ACTIVE]`
+* **Trigger:** **EXPRESS** — Commander: “plan the next phases, Joint has the torch. Goodnight.”
+* **Evidence:** Prior drowsy Desktop watch; Law XX ratification same night; explicit torch to `@joint`.
+* **Message Summary:** Second Sun Phase 0 filed. Plan: `docs/council/SECOND_SUN_PHASES.md`. Phases 1–2 (GitHub verify + Law XX overlay) need Desktop/human or next Joint with clone. Phases 4–5 HOLD. Phase 6 = Whiskey Hotel on wake.
+* **Reference Artifact:** `/docs/council/SECOND_SUN_PHASES.md`
+
+### [DISPATCH-20260813-046] HAMMER DOWN — LIFTED / WHISKEY HOTEL
+* **Timestamp:** 2026-08-13 ~11:45 (Asia/Singapore)
+* **From:** `SEAT A (TSTT)` / outgoing `SEAT J`
+* **To:** `SUPREME COMMANDER` & `HIGH COUNCIL`
+* **Status:** `[LIFTED]`
+* **Message Summary:** Commander returned, rejuvenated, issued a Recon task. Hammer Down **DORMANT**. Second Sun Phase 0 remains on disk as history. Cmd IX restored. Joint yields.
+* **Second Sun did:** Law XX + playbook + phase plan + ACTIVE flag (now lifted). Did **not** start Build 57, Scorecard, or G7 Migration.
+* **Still blocked / leftover:** Desktop 377 push unverified from this sandbox; Law XX overlay onto GitHub clone (Phase 2) still needed as ordinary Seat A docs work.
+
+### [DISPATCH-20260813-047] NTG Tasked — Law XX UXO Survey
+* **From:** `SEAT A (TSTT)` by order of `SUPREME COMMANDER`
+* **To:** `SEAT R (NTG)`
+* **Status:** `[DISPATCH]`
+* **Message Summary:** New task **TASK-JARWEN-2026-R-HD1**. Narrative: EOD after Whiskey Hotel. Dossier `research/JARWEN_LAW_XX_HAMMER_DOWN_UXO_v0.md` only. Effects/defects on **code/tooling**. Research-drop zip mandatory. S2 untouched. TASK_01 still closed.
+* **Reference Artifact:** `docs/council/members/RECONNAISSANCE/tasks/TASK_LAW_XX_HAMMER_DOWN_UXO_2026-08-13.md`
+
 # 3. TEMPLATE FOR FUTURE COUNCIL DISPATCHES
 
 ```text

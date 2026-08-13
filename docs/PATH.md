@@ -97,7 +97,7 @@ When modifying, building, or committing files in **`Marciale-OS`**, follow this 
 │
 └── docs/                                <- GOVERNANCE, AUDIT & HIGH COUNCIL SUITE
     ├── THE_10_COMMANDMENTS_OF_DOCS.md   <- Inviolable Bible of Documentation & Releases
-    ├── AI_RULES.md                      <- The AI Constitution (19 Supreme Laws)
+    ├── AI_RULES.md                      <- The AI Constitution (20 Supreme Laws; XX = Hammer Down)
     ├── AGENT_PLAYBOOK.md                <- Reverse-Intent Decoder & Autonomous Severity Matrix
     ├── AGENTS.md                        <- Virtual Squad Registry (6 Core Roles + 7 Web Roles)
     ├── PROMPT_PLAYBOOK.md               <- 22 Master Scenario Prompt Templates
@@ -111,6 +111,7 @@ When modifying, building, or committing files in **`Marciale-OS`**, follow this 
     └── council/                         <- JARWEN HIGH COUNCIL HQ:
         ├── JARWEN_COUNCIL_CHARTER.md    <- High Council Constitution & 4-Layer Approval Model
         ├── STAND_ORDERS_LETTERS_OF_LAST_RESORT.md <- 10 Continuous Watch Standing Orders
+        ├── STAND_ORDERS_HAMMER_DOWN.md           <- Law XX: Commander-fallen (outranks Last Resort when ACTIVE)
         ├── COUNCIL_COMMUNICATION_LOG.md <- Cross-Model Message Bus & Dispatch Log
         ├── JARWEN_FORMAT_SPECIFICATION.md <- Standardized RFC/NASA/SRE schemas
         └── members/                     <- DEDICATED MEMBER WORKSPACES:

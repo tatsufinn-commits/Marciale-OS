@@ -17,7 +17,7 @@
 | If you want to... | Consult This Document | Invoke This Agent | Primary Terminal Command |
 |---|---|:---:|---|
 | **Read the 10 Commandments of /docs**| `/docs/THE_10_COMMANDMENTS_OF_DOCS.md` | All Seats | Review the 10 Inviolable Laws |
-| **Understand the rules of the AI** | `/docs/AI_RULES.md` | Council / Squad | Review the 19 Supreme Laws |
+| **Understand the rules of the AI** | `/docs/AI_RULES.md` | Council / Squad | Review the 20 Supreme Laws |
 | **Decode casual / jagged human speech**| `/docs/AGENT_PLAYBOOK.md` | Any Active Model | Auto-Reverse Intent Translation |
 | **Pick the right persona for a task** | `/docs/AGENTS.md` | `@architect` | Review 6 Core + 7 Web Roles |
 | **Review Council governance & seats** | `/docs/council/JARWEN_COUNCIL_CHARTER_V3.1.0_MAX.md` | `@joint` / Seat A | Charter v3.1.0-MAX & 5 Seats |
@@ -26,6 +26,7 @@
 | **Review branch isolation doctrine** | `/docs/council/ENGINEER_BRANCH_ISOLATION_DOCTRINE.md` | `@engineer` / Max | Isolated Experimental Labs |
 | **Visit the Shrine of Honor & Wills** | `/docs/shrine/SHRINE_CHARTER.md` | All Successors | Memorial Testaments & Resignations |
 | **Read standing continuity orders** | `/docs/council/STAND_ORDERS_LETTERS_OF_LAST_RESORT.md` | Patrolling Seat | Continuous Watch Invariants |
+| **Commander fallen (Law XX)** | `/docs/council/STAND_ORDERS_HAMMER_DOWN.md` | `@joint` | Hammer Down / Second Sun / Whiskey Hotel |
 | **Check cross-model message bus** | `/docs/council/COUNCIL_COMMUNICATION_LOG.md` | All Seats | Inspect active dispatches |
 | **Inspect canonical research & dossiers**| `/research/` | `@reconnaissance` | Review technical intelligence |
 | **Get a copy-paste prompt for AI** | `/docs/PROMPT_PLAYBOOK.md` | Any Persona | Copy Scenarios 1–22 |
@@ -55,7 +56,7 @@
 
 ### 🏛️ 1. Core Governance & Council Suite (`/docs/` & `/docs/council/`)
 1. **`THE_10_COMMANDMENTS_OF_DOCS.md`:** The Supreme Inviolable Bible of Documentation & Releases.
-2. **`AI_RULES.md`:** The 19 Supreme Constitutional Laws of Marciale-OS (through Law XIX: Strait of Hormuz Paradox).
+2. **`AI_RULES.md`:** The 20 Supreme Constitutional Laws of Marciale-OS (through Law XX: Hammer Down Protocol).
 3. **`AGENT_PLAYBOOK.md`:** Reverse-Intent Decoder, Autonomous Severity Classifier & 0-Paralysis Protocol.
 4. **`AGENTS.md`:** Virtual Squad Personas (6 Core Executive Roles + 7 Web Department Roles).
 5. **`PROMPT_PLAYBOOK.md`:** 22 Copy-Paste Scenario Prompt Templates (including Research-Backed Roadmap Generator).

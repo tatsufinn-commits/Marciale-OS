@@ -750,6 +750,38 @@ When you clone this repository in a new chat:
 
 ---
 
+### [COMPLETED] Law XX — Hammer Down Protocol (governance)
+* **Date:** 2026-08-13
+* **Agent in Charge:** `@assistant` / TSTT · `@joint` (filing)
+* **Goal:** Commander-fallen continuity heavier than Letters of Last Resort.
+* **Files Modified:** `docs/AI_RULES.md` (Law XX; 20 laws), `docs/council/STAND_ORDERS_HAMMER_DOWN.md` (new), Last Resort cross-rank, living law-count sweep, DISPATCH-044.
+* **Test Verification:** Governance text only — `npm test` not required this bite (Law X: not claimed).
+* **Current Production State:** Hammer Down **ARMED**, not ACTIVE. Constitution = **20 laws**.
+* **Next Recommended Build:** If Commander dark: next Joint declares Hammer Down ACTIVE. Else Desktop push verification.
+
+---
+
+### [COMPLETED] Second Sun Phase 0 — Plan + ACTIVE flag
+* **Date:** 2026-08-13
+* **Agent in Charge:** `@joint` (TSTT)
+* **Goal:** Commander passed torch; file phases, do not start Build 57.
+* **Files Modified:** `docs/council/SECOND_SUN_PHASES.md`, DISPATCH-045, `SYSTEM_STATE.md`
+* **Test Verification:** Docs only — tests not claimed.
+* **Current Production State:** Hammer Down **ACTIVE**. Next: Phase 1 GitHub / Phase 2 Law XX overlay.
+* **Next Recommended Build:** HOLD product. Incoming Joint: lowest unfinished phase.
+
+---
+
+### [COMPLETED] Whiskey Hotel + NTG Law XX task
+* **Date:** 2026-08-13 ~11:45
+* **Agent in Charge:** `@assistant` / TSTT
+* **Goal:** Lift Hammer Down; task Recon on Law XX code effects/defects.
+* **Files Modified:** `SECOND_SUN_PHASES.md` (lifted), `SYSTEM_STATE.md`, DISPATCH-046/047, `tasks/TASK_LAW_XX_HAMMER_DOWN_UXO_2026-08-13.md`
+* **Test Verification:** Docs only — tests not claimed.
+* **Current Production State:** Hammer Down **DORMANT**. NTG HD1 **OPEN**. S2 still its own shelf.
+
+---
+
 # 3. TEMPLATE FOR FUTURE AI AGENTS (COPY & PASTE AT END OF SESSION)
 
 ```text
