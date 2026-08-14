@@ -499,3 +499,4 @@ Because Council members run across different AI sessions, platforms (ChatGPT, Cl
 * **Verification `[VERIFIED this watch]`:** `node tools/governance-audit.js` → **4/4 Nominal, 0 conflicts, 25 Supreme Laws** (heading aligned). `npm run install:all` → exit 0. `npm test` → **exit 0**, Hub suite chain clean + **Companion 73/73 pass, 0 fail**.
 * **Non-contradiction check:** Amendments reviewed against Laws I–XXV. XVII-A is scoped to avoid colliding with Law XXV (`@joint` not inheritable). XVII-B operates inside Law XXIV dignity. XVIII-A **extends** Law XVIII without altering its ≥90% threshold. **No existing law was deleted or reworded.**
 * **Action Required:** Council seats to read Laws XVII-A/B/C and XVIII-A. **Seats W and E:** note your new standing examiner duties under XVII-B. **No commits made** — all work is working-tree only, pending Commander's order.
+
