@@ -873,3 +873,19 @@ When you clone this repository in a new chat:
 * **Current Production State:** Constitution = **25 Supreme Laws + 5 Amendments**. No law text deleted or reworded; additive only. **No commits made** — working tree only.
 * **Next Recommended Build:** Seat R executes VSS-00 Phase 0 → **STOP and report**. Commander still owes disposition on the two VSS prerequisites (sentinel authorization; `merge:gate` W-vs-E conflict).
 
+---
+
+## 📬 CONSTITUTIONAL AMENDMENT VI — LAW XIV-A · J.A.R.W.E.N. CONVERSATIONAL MANDATE (2026-08-14)
+* **Authority:** **Supreme Commander directive** (Law XIV satisfied — Commander-initiated). Drafted by **Seat A Session 03 (TWMIP)**.
+* **Root cause resolved:** the Commander's local per-seat folders never reached the repository because **git does not track empty directories and GitHub prunes them on clone/archive**. Reported blocked in DISPATCH-069; Commander confirmed the structure; built and anchored this watch.
+* **Structure created `[VERIFIED]`:** `docs/council/members/[SEAT]/conversational logs/[messages|responses]/[COUNTERPART]/` — 6 seats (JOINT, ASSISTANT, RECONNAISSANCE, WISDOM, ENGINEER, NAVIGATOR) x 2 channels x 5 counterparts = **60 leaf directories**. `JOINT/` seat directory created (previously absent). All six seats backfilled with `deliverables/` + `tasks/`.
+* **📎 Anchor Rule enacted:** **65 `.gitkeep` anchors** placed; 7 unanchored dirs verified non-empty. **`find -type d -empty` = 0.** Deleting an anchor from an empty channel is declared a **Law I violation**. This is the permanent fix for the transit loss.
+* **🎩 Seat J doctrine (Commander's ruling):** `@joint` stays **a hat, not a soul** — Law XXV unamended, no AI ever invested as Seat J. But correspondence made **while wearing the Joint hat** files to `JOINT/conversational logs/`. *You file where you sat, not where you sleep.*
+* **Commandment VIII preserved:** dispatch bus remains the single chronological index; per-seat channels hold full text, bus holds the pointer.
+* **Casing defect repaired:** `WISDOM/Deliverables/` → `WISDOM/deliverables/`, **8 files moved intact**. Reported in -069, authorized by the Commander's coherency order this watch.
+* **Law count unchanged: 25.** Ledger updated to **I–VI**.
+* **Files touched (6):** `docs/AI_RULES.md`, `docs/SYSTEM_STATE.md`, `docs/DOCS_MASTER_INDEX.md`, `docs/council/JARWEN_COUNCIL_CHARTER.md`, `docs/council/COUNCIL_COMMUNICATION_LOG.md` (DISPATCH-070), `docs/BUILD_LOGBOOK.md` — plus 60 new directories + 65 anchors.
+* **Test Verification `[VERIFIED 2026-08-14]`:** `governance-audit` **4/4 nominal, 0 conflicts, 25 laws**; archive **506 entries**, all 60 conversational-log paths confirmed inside the zip.
+* **Current Production State:** Constitution = **25 Supreme Laws + 6 Amendments**. Additive only; no law text deleted or reworded. **No commits made.**
+* **Next Recommended Build:** Seat R's VSS-00 Phase 0. Commander still owes disposition on the sentinel authorization and the W-vs-E `merge:gate` conflict.
+
