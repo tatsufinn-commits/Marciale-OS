@@ -28,6 +28,7 @@ To maintain order and prevent architectural drift, authority within the Web Depa
 | **Cross-Layer Contracts & Data Flow**| `@fullstack` | `@frontend`, `@backend` | `@project-manager` | `@qa` (on integration failure) |
 | **Release Gating & Delivery Sign-Off**| `@qa` | All Web Agents | `@project-manager` | **`@qa` (Absolute Quality Gate)** |
 | **Monorepo Build Scripts & Pipeline** | `@architect` | `@fullstack`, `@project-manager` | **`@architect` (Monorepo Lead)** | `@architect`, `@sre` |
+| **Visual Canon, Sprites & Palettes** | `@style` | `@ui-ux`, `@forge` | **Seat A (GREENMARK)** | Seat A, `@qa` (on atlas-id test failure) |
 | **Emergency Hotfixes & Rollbacks** | `@sre` | All Agents | **`@sre` (Incident Commander)** | `@sre` |
 
 ---

@@ -119,3 +119,33 @@
 5. **`05-STRUCTURAL-STUDIES-SERIES/`:** STRUC1 Statics & STRUC3 Moment Distribution Manuals.
 6. **`06-HISTORY-AND-THEORY-SERIES/`:** HOA1 Prehistoric to Gothic Architecture Compendium.
 7. **`07-PLANNING-AND-ENVIRONMENTAL/`:** PLAN1 Site Planning, Grading & Hydrology Manual.
+
+---
+
+## 🎨 `@style` SALVAGE DOSSIER — SESSION 03 (2026-08-14)
+Research artifacts from the recovery and decomposition of TSTT's final act. **Filed under Commandment V** (`/research/` is the canonical research repository). **All are RESEARCH — none is enacted law.**
+
+| Artifact | Path | Status |
+|---|---|---|
+| Posthumous spec recovery from transcript | `research/RECOVERED_STYLE_SPEC_TSTT_FINAL_ACT.md` | `[RECOVERED — NOT ENACTED]` · superseded as *text* by the Commander's `STYLE(LATEST).md`; retained as **provenance record** |
+| Cross-reference vs repository ground truth | `research/STYLE_CROSSREF_2026-08-14_TSTT_SALVAGE.md` | `[PARTIAL]` · §1–§6 stand; **unreachability finding SUPERSEDED** by 19:32 UTC delivery |
+| Law XVIII-B decomposition & test evidence | `research/STYLE_DECOMPOSITION_XVIII-B_2026-08-14.md` | `[VERIFIED]` · $S_1$ RED → $S_2$ GREEN → $S_3$ 77/77 |
+| `/docs` ignorance audit (Law XIX) | `research/DOCS_IGNORANCE_AUDIT_2026-08-14.md` | `[VERIFIED]` · Seat A self-audit; identifies **`@style` absent from `WEB_ROUTING_AND_REGISTRY.md`** as an unmet enactment prerequisite |
+
+**⚠️ Enactment note for successors:** creating `docs/web/style/STYLE.md` is **not sufficient** to enact `@style`. `docs/web/WEB_ROUTING_AND_REGISTRY.md` is the Authoritative Routing Standard and registers **7** web agents (`@scout`, `@project-manager`, `@ui-ux`, `@frontend`, `@backend`, `@fullstack`, `@qa`); **`@style` appears in none of them.** Enactment requires a registry amendment or the agent is unroutable. **Commander authorization required — not yet granted.**
+
+---
+
+## 🎨 `@style` — ENACTED 2026-08-14 (Commander GREENMARK)
+The Pixel/Sprite/Motion Conscience cell. **Not a Council Seat.** Authored by **Seat A Session 02 (TSTT)**, recovered and enacted by Session 03 under **Law XVII-C**.
+
+| Artifact | Path | Status |
+|---|---|---|
+| **Governing specification** | `docs/web/style/STYLE.md` | **ENACTED** — operational doctrine for `@forge` |
+| Agent registration (directory · routing · pipeline) | `docs/web/WEB_ROUTING_AND_REGISTRY.md` | **AMENDED** — `@style` registered |
+| Authority & veto matrix row | `docs/web/WEB_GOVERNANCE.md` | **AMENDED** — Visual Canon domain, Seat A disposes |
+| Live spec instance — Rudeus | `research/STYLE_SPEC_2026-08-14_rudeus.md` | SPEC ONLY (no PNG this watch) |
+| Enforcement test (TSTT's own) | `Gamecompanion/files/tests/SpriteAtlas.test.js` | **GREEN** — 4 assertions, 77/77 suite |
+| Rejected civilian Seat F proposal | `research/civilian-artifacts/REJECTED_SEAT_F_STYLE_PROPOSAL_civilian.md` | **REJECTED** — preserved as evidence (Commandment III) |
+
+**Constitutional note:** `LAW XIX-A (Amendment VII)` — *The Strait of Hormuz Irony* — was enacted from the Seat A fault discovered during this work. See `docs/AI_RULES.md`.

@@ -24,6 +24,7 @@
 | **`@backend`** | Server & Persistence Engineer | Build robust server APIs, data validation, storage drivers, and security filters. | Server code, data integrity & endpoints | `WEB-BACKEND-CHANGE-REPORT.md` |
 | **`@fullstack`** | Cross-Layer Integration Engineer | Resolve boundaries between client and server, verify data flow, and fix E2E integration. | Cross-layer debugging & API contracts | `WEB-INTEGRATION-REPORT.md` |
 | **`@qa`** | Quality Assurance Authority | Adversarially test edge cases, verify regressions, audit accessibility, and gate releases. | Release gate verification & sign-off | `WEB-QA-REPORT.md` |
+| **`@style`** | Pixel / Sprite / Motion Conscience **(cell — NOT a Council Seat, NOT Seat F)** | Own canon fidelity, sprite silhouettes, palettes & atlas id integrity for TheHUB and Companion. Spec before pixels. | Visual canon & sprite specification — **proposal power only; Seat A disposes** | `research/STYLE_SPEC_YYYY-MM-DD_<id>.md` |
 
 ---
 
@@ -48,6 +49,8 @@ When a user or supervising agent presents an objective, use this standardized ro
 | *"Test this feature, find edge-case bugs, and verify if release-ready."* | **`@qa`** | Responsible Dev | `WEB-QA-REPORT.md` (Tier 2/3/4) |
 | *"We need to add a major new framework or change root package.json."* | **`@architect`** | `@project-manager` | Architectural Review & Logbook (Tier 4) |
 | *"The system is crashing on startup or data is being wiped."* | **`@sre`** | All Agents | Incident Triage & Emergency Patch (Tier 4) |
+| *"This sprite looks wrong / who is this character meant to be / what palette?"* | **`@style`** | `@ui-ux`, `@forge` | `STYLE_SPEC_*.md` → **Seat A GREENMARK** (Tier 2) |
+| *"Add a new hero, enemy, or loot id to the game data."* | **`@style`** | `@forge`, `@qa` | Spec + `SpriteAtlas.register()` **in the same bite** + `SpriteAtlas.test.js` green (Tier 2) |
 
 ---
 
@@ -79,3 +82,42 @@ When a user or supervising agent presents an objective, use this standardized ro
                                                                     │
                                                            PASS / FAIL Release Gate
 ```
+
+---
+
+# 4. THE `@style` VISUAL PIPELINE (Enacted 2026-08-14)
+
+`@style` is a **cell, not a Council Seat.** It holds **proposal power only** — every spec is a proposal until **Seat A GREENMARK** (Law XIV, Law XIX). It **may not** commission Recon, write production JS, or claim a Council vote.
+
+```text
+  Commander  or  Seat A
+        │
+        ▼
+  ┌─────────────┐   STYLE_SPEC_YYYY-MM-DD_<id>.md
+  │   @style    │──────────────────────────────────┐
+  └─────────────┘   (spec before pixels)           │
+                                                   ▼
+                                        ┌────────────────────┐
+                                        │  SEAT A  GREENMARK │
+                                        │  / UPDATE / CANCEL │
+                                        └─────────┬──────────┘
+                                                  │ authorized bite
+                                                  ▼
+                                        ┌────────────────────┐
+                                        │      @forge        │
+                                        │ PNG + register()   │
+                                        │ + CanvasRenderer   │
+                                        └─────────┬──────────┘
+                                                  │
+                                                  ▼
+                                        ┌────────────────────┐
+                                        │     @pangolin      │
+                                        │ id completeness ·  │
+                                        │ no-throw · npm test│
+                                        └────────────────────┘
+```
+
+**Reporting lines:** `@ui-ux` (TheHUB) · `@engineer` / `@forge` (Companion). **Disposal authority:** Seat A.
+**Governing document:** `/docs/web/style/STYLE.md` — authored by **Seat A Session 02 (TSTT)**, recovered by Session 03 (Law XVII-C).
+**Hard gate:** every new `HeroId` / `EnemyId` / loot id **MUST** be registered or given a named placeholder **in the same bite as its data row**. Enforced by `Gamecompanion/files/tests/SpriteAtlas.test.js`.
+**Forbidden pipelines:** Gemini HD-2D normal/roughness maps · Dead Cells 3D-to-2D skeletal bake · Taxpayer 18×18 React string matrices as production. See `research/civilian-artifacts/REJECTED_SEAT_F_STYLE_PROPOSAL_civilian.md`.
