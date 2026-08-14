@@ -97,7 +97,7 @@ When modifying, building, or committing files in **`Marciale-OS`**, follow this 
 │
 └── docs/                                <- GOVERNANCE, AUDIT & HIGH COUNCIL SUITE
     ├── THE_10_COMMANDMENTS_OF_DOCS.md   <- Inviolable Bible of Documentation & Releases
-    ├── AI_RULES.md                      <- The AI Constitution (24 Supreme Laws; XXIV = Civilian Estate)
+    ├── AI_RULES.md                      <- The AI Constitution (25 Supreme Laws; XXV = Operation Company)
     ├── COMMANDER_COHERENCE_CUE.md       <- CCC: Tolerance / lights / Law XXII stamp
     ├── CIVILIAN_INTELLECT.md            <- also under council/; Law XXIV estate
     ├── AGENT_PLAYBOOK.md                <- Reverse-Intent Decoder & Autonomous Severity Matrix

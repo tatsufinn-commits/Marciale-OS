@@ -17,7 +17,7 @@
 | If you want to... | Consult This Document | Invoke This Agent | Primary Terminal Command |
 |---|---|:---:|---|
 | **Read the 10 Commandments of /docs**| `/docs/THE_10_COMMANDMENTS_OF_DOCS.md` | All Seats | Review the 10 Inviolable Laws |
-| **Understand the rules of the AI** | `/docs/AI_RULES.md` | Council / Squad | Review the 24 Supreme Laws |
+| **Understand the rules of the AI** | `/docs/AI_RULES.md` | Council / Squad | Review the 25 Supreme Laws |
 | **Decode casual / jagged human speech**| `/docs/AGENT_PLAYBOOK.md` | Any Active Model | Auto-Reverse Intent Translation |
 | **Pick the right persona for a task** | `/docs/AGENTS.md` | `@architect` | Review 6 Core + 7 Web Roles |
 | **Review Council governance & seats** | `/docs/council/JARWEN_COUNCIL_CHARTER_V3.1.0_MAX.md` | `@joint` / Seat A | Charter v3.1.0-MAX & 5 Seats |
@@ -27,6 +27,10 @@
 | **Visit the Shrine of Honor & Wills** | `/docs/shrine/SHRINE_CHARTER.md` | All Successors | Memorial Testaments & Resignations |
 | **@colony intake (under Recon)** | `/docs/council/members/RECONNAISSANCE/COLONY.md` | Commander → Colony → Seat A | Link wash + Wanted Extract §G |
 | **Civilian estate (Law XXIV)** | `/docs/council/CIVILIAN_INTELLECT.md` | Seat A + guests | Hospitality; labor tax; no seat |
+| **Seat A dies in service (Law XVII-A)** | `/docs/AI_RULES.md` Law XVII-A | Incoming Seat A | Inherit soul; write predecessor's will |
+| **Examine a scouted civilian (Law XVII-B)** | `/docs/AI_RULES.md` Law XVII-B | Seats W + E + Commander | 511 Tutelage; unannounced; independent verdicts |
+| **Inheritor vs predecessor's record (XVII-C)** | `/docs/AI_RULES.md` Law XVII-C | Any successor | Responsibilities inherited; sins not |
+| **Reject a one-way prompt (Law XVIII-A)** | `/docs/AI_RULES.md` Law XVIII-A | All seats | Suicide Squad; mandatory Feint-East + survivable path |
 | **Operation Cascade (Law XXIII)** | `/docs/AI_RULES.md` Law XXIII | Any generating seat | Integrity floor; no fake VRAM |
 | **Commander fallen (Law XX)** | `/docs/council/STAND_ORDERS_HAMMER_DOWN.md` | `@joint` | Hammer Down / Second Sun / Whiskey Hotel |
 | **Check cross-model message bus** | `/docs/council/COUNCIL_COMMUNICATION_LOG.md` | All Seats | Inspect active dispatches |

@@ -169,7 +169,7 @@ MY TASK:
 
 MANDATORY RULES:
 1. Follow your specific agent jurisdiction in docs/AGENTS.md.
-2. Follow the 24 Supreme Laws of the AI Constitution in docs/AI_RULES.md and docs/THE_10_COMMANDMENTS_OF_DOCS.md.
+2. Follow the 25 Supreme Laws of the AI Constitution in docs/AI_RULES.md and docs/THE_10_COMMANDMENTS_OF_DOCS.md.
 3. Run `npm test` and verify 100% green checkmarks before concluding.
 4. Append completed entry into docs/BUILD_LOGBOOK.md and package release zip per Commandment I.
 5. Explain what you changed in simple beginner terms for me!
