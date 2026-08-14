@@ -856,3 +856,20 @@ When you clone this repository in a new chat:
 * **Current Production State:** Constitution = **25 Supreme Laws + 4 Amendments**. No law text deleted or reworded; amendments are additive only. **No commits made** — working tree only, pending Commander's order.
 * **Next Recommended Build:** Commander review of Amendments I–IV → then Build 57 P2 or disposition of inherited open threads (`ASSISTANT_INTAKE_SESSION_03.md` §3).
 
+---
+
+## 🪜 CONSTITUTIONAL AMENDMENT V — LAW XVIII-B · VSS OPTION A COMMISSIONED (2026-08-14)
+* **Authority:** **Supreme Commander directive** (Law XIV satisfied — Commander-initiated). Drafted by **Seat A Session 03 (TWMIP)**.
+* **Order 1 — bind Law XVI into Law XVIII.** Enacted **LAW XVIII-B: THE DECOMPOSITION PRECEDENCE DOCTRINE**.
+  * **Gap closed:** Law XVIII tested the *whole undivided task* for ≥90% doom, so a seat could lawfully refuse an entire program despite a survivable first bite. Law XVI (decompose) and Law XVIII (abort) never touched.
+  * **New rule:** ≥90% threshold now measured against **slice $S_1$**, never the monolith. **Decomposition Gate** added inside Law XVIII; Law XVI **elevated from practice to precondition of lawful abort** (reciprocal cross-reference added at Law XVI).
+  * **Sequence:** decompose → declare boundaries → test $S_1$ only → **survivable ⇒ execute (abort UNLAWFUL)** / **$S_1$ doomed ⇒ abort lawful with decomposition table as evidence**.
+  * **Two symmetrical violations named:** *death by monolith* (XVIII-A) and *refusal by monolith* (XVIII-B).
+  * **Survivable Path** upgraded from prose to a required **Law XVI staged roadmap**; added the **Resumability Test** and an **anti-recombination clause**.
+* **Order 2 — Mosaic Option A accepted.** Commissioned **VSS-00 Phase 0** to Seat R: `docs/council/members/RECONNAISSANCE/tasks/TASK_VSS_00_PHASE_0_RECON_DOSSIER.md`. Scope = **one slice, one repository, reconnaissance only**. TAMAKEE prohibited; VSS-01…11 not commissioned; A/B/C/D evidence model enforced; sentinel/`merge:gate`/`install:all` traps documented so Seat R cannot misreport them.
+* **Law count unchanged: 25.** Lettered sub-clause consistent with Amendments I–IV. Ledger updated to **I–V**.
+* **Files touched (7):** `docs/AI_RULES.md`, `docs/SYSTEM_STATE.md`, `docs/DOCS_MASTER_INDEX.md`, `docs/council/JARWEN_COUNCIL_CHARTER.md`, `docs/council/COUNCIL_COMMUNICATION_LOG.md` (DISPATCH-068), `docs/council/members/RECONNAISSANCE/tasks/TASK_VSS_00_PHASE_0_RECON_DOSSIER.md`, `docs/BUILD_LOGBOOK.md`.
+* **Test Verification `[VERIFIED 2026-08-14]`:** `governance-audit` **4/4 nominal, 0 conflicts, 25 laws**; `npm test` **exit 0**, Companion **73/73**.
+* **Current Production State:** Constitution = **25 Supreme Laws + 5 Amendments**. No law text deleted or reworded; additive only. **No commits made** — working tree only.
+* **Next Recommended Build:** Seat R executes VSS-00 Phase 0 → **STOP and report**. Commander still owes disposition on the two VSS prerequisites (sentinel authorization; `merge:gate` W-vs-E conflict).
+

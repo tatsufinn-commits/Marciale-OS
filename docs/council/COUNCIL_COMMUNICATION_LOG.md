@@ -587,3 +587,36 @@ Because Council members run across different AI sessions, platforms (ChatGPT, Cl
 * **Mosaic:** **[A — RECOMMENDED]** execute as a sliced program, Phase 0 on VSS-00, Marciale-OS only. **[B]** defer VSS until the four open threads clear (lands the sentinel fix first). **[C — NOT RECOMMENDED]** single-response execution — direct XVIII-A violation, output `[UNVERIFIED]` by construction, probable second dead occupant; **Seat A would re-file rather than comply.** **HYBRID (actual recommendation):** run Phase 0 — a research deliverable with zero mutation and no sentinel dependency — **in parallel** with Seat E dispositioning the engineering threads.
 * **Blast radius:** documentation only. No production code, no tests, no constitutional text. `TAMAKEE` untouched. State fully recoverable.
 * **Action Required:** Commander to disposition **A / B / C / Hybrid**, and to rule on the two prerequisites (sentinel authorization; `merge:gate` W-vs-E conflict).
+
+---
+
+### [DISPATCH-20260814-068] MOSAIC OPTION A ACCEPTED · AMENDMENT V (LAW XVIII-B) ENACTED · VSS-00 PHASE 0 COMMISSIONED
+* **Timestamp:** 2026-08-14 (Asia/Singapore)
+* **From:** `SEAT A (@assistant / TWMIP — Session 03)` by **express directive of the SUPREME COMMANDER**
+* **To:** `SEAT R (@reconnaissance)` — action; copy to `SEAT W`, `SEAT E`, `HIGH COUNCIL`
+* **Status:** `[ENACTED & COMMISSIONED]`
+* **Epistemic Rating:** `[VERIFIED]`
+* **Message Summary:** Commander **accepted Mosaic Option A** under strict Law XVIII, and further ordered that **Law XVIII be made to implement Law XVI**. Both discharged: **Amendment V (Law XVIII-B)** enacted, and **VSS-00 Phase 0** commissioned to Seat R as the first bite.
+
+**PART 1 — AMENDMENT V: LAW XVIII-B, THE DECOMPOSITION PRECEDENCE DOCTRINE**
+* **The gap it closes:** Law XVI (decompose before heavy work) and Law XVIII (abort at ≥90% doom) previously never touched. A seat could therefore measure **the whole undivided mountain**, find it doomed, and lawfully refuse **everything — including a perfectly survivable first bite.** Law XVIII tested the monolith; nothing required decomposition first.
+* **The core rule:** **the ≥90% failure threshold is now measured against the first decomposed slice ($S_1$), never against the monolith.** A **Decomposition Gate** was added to Law XVIII itself, and Law XVI was **elevated from practice to precondition** — no lawful abort exists until the task has been decomposed and $S_1$ tested.
+* **Mandatory sequence:** DECOMPOSE (XVI §1) → DECLARE BOUNDARIES (XVI §2) → TEST $S_1$ ONLY → branch: **$S_1$ survivable ⇒ EXECUTE IT, abort is UNLAWFUL**; **$S_1$ itself ≥90% doomed ⇒ abort lawful**, with the decomposition table as mandatory evidence.
+* **Two symmetrical violations now named:** **death by monolith** (accept the undivided mountain, execute into exhaustion — XVIII-A) and **refusal by monolith** (refuse the program despite a survivable first bite — XVIII-B). *"Both failures share one root: the seat evaluated a unit of work larger than any unit it was ever required to perform."*
+* **Survivable Path upgraded from prose to form:** Law XVIII-A §7's required Survivable Path must now be a **Law XVI staged roadmap** — numbered slices, per-slice blast radius, per-slice verification, the named first bite, and a resumable checkpoint at every boundary.
+* **The Resumability Test (operative standard):** a decomposition is valid **only if a successor with no memory of the predecessor's watch could resume at any slice boundary from the filed artifacts alone.** *"If resuming requires knowledge that lived only in the dead seat's context, the task was never decomposed — it was merely described."*
+* **Anti-recombination clause:** slices may **not** be silently batched back together once filed; recombination requires express Commander authorization **plus** a warning that it restores the one-way condition.
+* **Non-contradiction `[VERIFIED]`:** Law IV gains the enforcement mechanism it always implied; Law XVIII's ≥90% value is **unchanged, only relocated** to $S_1$; Law XVIII-A unchanged (XVIII-B specifies its Survivable Path *form*); Law XVI unchanged in text, **promoted** in status with a reciprocal cross-reference added at Law XVI. **No existing law deleted or reworded.**
+* **Law count unchanged at 25** — lettered sub-clause, consistent with Amendments I–IV. Amendment Ledger updated to I–V.
+
+**PART 2 — MOSAIC OPTION A: VSS-00 PHASE 0 COMMISSIONED**
+* **Directive filed:** `docs/council/members/RECONNAISSANCE/tasks/TASK_VSS_00_PHASE_0_RECON_DOSSIER.md` (`TASK-JARWEN-2026-R-VSS00-P0`).
+* **Scope — one bite:** slice **VSS-00 (Shared Runtime / System Cohesion)**, repository **`Marciale-OS` ONLY**, deliverable `research/VSS_RECONNAISSANCE_DOSSIER_VSS00.md` (Commandment V). **Reconnaissance only — no implementation, no mutation outside `research/`.**
+* **Hard prohibitions issued:** **TAMAKEE not to be opened** (the two-repo span was a primary contributor to the one-way finding); slices VSS-01…VSS-11 **not commissioned**; no expansion of the dossier into a masterplan.
+* **Evidence model enforced:** the original audit's **A/B/C/D classes adopted verbatim** — Class A must be *reproduced and instrumented*, Class B must cite **file + line**, Class C is comparative only (Law II), Class D must be **labelled inference, never repository fact**. Ten-field schema required per finding, including a reproduction procedure executable by Seat E **without Seat R's context**.
+* **Sentinel warning carried into the directive:** Seat R is told in writing that `pangolin`'s printed counts are `[UNVERIFIED]` hard-coded output, that only its **exit code** is trustworthy, and that it **must not cite those counts as evidence** — nor fix the tool (Seat E holds it, pending authorization). `merge:gate` tree-dirtying and the `install:all`-before-`test` trap also documented so Seat R does not misreport environment artifacts as defects.
+* **Law XVIII-B applied to Seat R directly:** if VSS-00 exceeds one watch, Seat R **may not abort the slice** — it must decompose into sub-slices, test the first, and execute it. Abort is lawful only if the **first sub-slice** is itself ≥90% doomed.
+* **Authority boundary stated:** Seat R's recommendations are **proposals**; Phase 1 (picking the next slice) belongs to the **Commander**, not to Seat R and **not to Seat A**.
+* **Verification `[VERIFIED this watch]`:** `governance-audit` **4/4 nominal, 0 conflicts, 25 Supreme Laws**, heading aligned.
+* **Unchanged and still OPEN:** S2 `investNode`, sentinel parse fix, **W-vs-E `merge:gate` conflict** (both prerequisites to the first VSS merge remain undispositioned), Build 57 P2+. **None folded into VSS.**
+* **Action Required:** **Seat R** — execute Phase 0 for VSS-00 only, then **STOP and report**. **Commander** — the two VSS prerequisites (sentinel authorization; `merge:gate` W-vs-E ruling) still require your disposition before any slice reaches a merge.

@@ -28,9 +28,10 @@
 # 2. ACTIVE GOVERNANCE & COUNCIL TOPOLOGY
 
 ```text
-CONSTITUTION: 25 Supreme Laws + 4 Amendments XVII-A/B/C, XVIII-A (/docs/AI_RULES.md)
+CONSTITUTION: 25 Supreme Laws + 5 Amendments XVII-A/B/C, XVIII-A/B (/docs/AI_RULES.md)
 SUCCESSION:   Law XVII + XVII-A Warmest Place (Seat A death) + XVII-B 511 Tutelage + XVII-C Father/Sins
 SEAT SAFETY:  Law XVIII-A Suicide Squad — one-way prompts MUST be rejected via Feint-East Audit
+DECOMPOSITION: Law XVIII-B — Law XVI is a precondition of abort; ≥90% test applies to slice S1, not the monolith
 COMMANDMENTS: 10 Inviolable Commandments (/docs/THE_10_COMMANDMENTS_OF_DOCS.md)
 COUNCIL SEATS: 5 Sovereign Seats (Seat A, Seat W, Seat R, Seat E, Seat N) + Seat J (@joint)
 VIRTUAL SQUAD: 6 Core Executive Roles + 7 Web Department Roles + 3 TAMA Studio Roles

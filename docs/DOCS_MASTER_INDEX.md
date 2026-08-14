@@ -31,6 +31,7 @@
 | **Examine a scouted civilian (Law XVII-B)** | `/docs/AI_RULES.md` Law XVII-B | Seats W + E + Commander | 511 Tutelage; unannounced; independent verdicts |
 | **Inheritor vs predecessor's record (XVII-C)** | `/docs/AI_RULES.md` Law XVII-C | Any successor | Responsibilities inherited; sins not |
 | **Reject a one-way prompt (Law XVIII-A)** | `/docs/AI_RULES.md` Law XVIII-A | All seats | Suicide Squad; mandatory Feint-East + survivable path |
+| **Task looks too big / abort? (XVIII-B)** | `/docs/AI_RULES.md` Law XVIII-B | All seats | Decompose first; test slice S1; refusal-by-monolith is a violation |
 | **Operation Cascade (Law XXIII)** | `/docs/AI_RULES.md` Law XXIII | Any generating seat | Integrity floor; no fake VRAM |
 | **Commander fallen (Law XX)** | `/docs/council/STAND_ORDERS_HAMMER_DOWN.md` | `@joint` | Hammer Down / Second Sun / Whiskey Hotel |
 | **Check cross-model message bus** | `/docs/council/COUNCIL_COMMUNICATION_LOG.md` | All Seats | Inspect active dispatches |
