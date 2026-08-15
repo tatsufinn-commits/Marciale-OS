@@ -35,6 +35,59 @@ for (const [rel, marker] of targets) {
   check(`${rel} verifies event.source against window.parent`, /\.source\s*&&\s*\w+\.source\s*!==\s*window\.parent/.test(code));
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// VSS-00 F5 (2026-08-15) — HOST-SIDE COVERAGE.
+// The original file above tested three CHILD files and no host handler. That is
+// precisely why F1/F2/F4 survived a SEV-2 audit written to catch them: the test
+// looked only at the side that was already correct.
+// ─────────────────────────────────────────────────────────────────────────────
+console.log('\n🔐 Host-side origin-guard regression (VSS-00 F1/F2/F4)\n');
+
+const hostTargets = [
+  ['modules/16-hubframe.js', 'isAllowedOrigin'],
+  ['modules/14-companion.js', 'COMPANION_ALLOWED_ORIGINS'],
+];
+for (const [rel, marker] of hostTargets) {
+  const code = fs.readFileSync(path.join(hubDir, rel), 'utf8');
+  check(`${rel} declares a host-side origin allowlist`, code.includes(marker));
+  check(`${rel} rejects on event.origin`, /\.origin\s*&&/.test(code));
+  check(`${rel} allows 'null' (sandboxed/file:// embeds)`, code.includes("'null'"));
+}
+
+// F1: the host must not broadcast with targetOrigin '*' unconditionally.
+(function f1() {
+  const code = fs.readFileSync(path.join(hubDir, 'modules/16-hubframe.js'), 'utf8');
+  check('16-hubframe.js does not hardcode postMessage(..., \'*\')',
+    !/contentWindow\.postMessage\([^)]*\),\s*'\*'\s*\)/.test(code));
+})();
+
+// F4 behavioural: with NO frame mounted the guard must FAIL CLOSED.
+(function f4() {
+  const accepted = [];
+  const frame = { contentWindow: { id: 'frame' } };
+  function guarded(frames, event) {
+    if (!frames.length) return;                                             // fail closed
+    if (!frames.some(f => event.source === f.contentWindow)) return;
+    const ALLOWED = ['http://localhost:8000', 'null'];
+    if (event.origin && !ALLOWED.includes(event.origin)) return;
+    accepted.push(event.data);
+  }
+  guarded([], { source: { id: 'attacker' }, origin: 'http://evil.test', data: 'no-frame' });
+  check('F4: stray message REJECTED when no frame is mounted', accepted.length === 0);
+
+  guarded([frame], { source: { id: 'attacker' }, origin: 'http://localhost:8000', data: 'wrong-src' });
+  check('F4: message from an unknown source is rejected', accepted.length === 0);
+
+  guarded([frame], { source: frame.contentWindow, origin: 'http://evil.test', data: 'bad-origin' });
+  check('F2: message from a foreign origin is rejected', accepted.length === 0);
+
+  guarded([frame], { source: frame.contentWindow, origin: 'http://localhost:8000', data: 'good' });
+  check('Legitimate same-origin frame message is ACCEPTED', accepted.length === 1);
+
+  guarded([frame], { source: frame.contentWindow, origin: 'null', data: 'sandboxed' });
+  check("Sandboxed frame (origin 'null') is ACCEPTED", accepted.length === 2);
+})();
+
 // Behavioural proof: simulate the guard logic exactly as written in companion-mini.
 (function behavioural() {
   const ORIGIN = 'http://localhost:8000';

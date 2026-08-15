@@ -114,11 +114,13 @@ npm run audit:bridge   npm run health    npm run build         npm run merge:gat
 ## ⚠️ TWO WARNINGS — READ BEFORE YOU RUN ANYTHING
 
 1. **`npm run install:all` FIRST.** A fresh tree has no `node_modules`; `npm test` fails with `Cannot find module 'jsdom'` before install. **That is an environment artifact, not a defect — do not report it as a finding.**
-2. **`sre-auto-sentinel.js:42` MANUFACTURES EVIDENCE.** `npm run pangolin` prints `"All 43 test suites / 137 assertions passed"` as a **hard-coded literal it never parses**. `[VERIFIED — confirmed on disk by Seat A and independently by Seat E]`
-   * Its **exit code** is trustworthy.
-   * Its **printed counts are `[UNVERIFIED]`. Do NOT cite them as evidence in your dossier.**
-   * True counts this watch: Hub suite chain clean; **Companion 73/73**.
-   * **Do not fix this** — Seat E has accepted the repair; it awaits Commander authorization.
+2. **⚠️ OBSOLETE WARNING — CORRECTED 2026-08-15.** `sre-auto-sentinel.js` once printed a
+   hardcoded "43 test suites / 137 assertions" it never parsed. **It is REPAIRED on both trees**
+   (`a6cef19` == `030f3db`, sha `1395deb5…`); `npm run pangolin` now prints
+   `77/77 … measured from harness output`. The literal survives only in the line-64 HOTFIX
+   comment recording its removal. **Seat R flagged the staleness; the fault was in this
+   directive, not in any tree. Do not report this as a live defect.**
+
 3. **`npm run merge:gate` DIRTIES THE TREE.** It runs a Vite build over tracked `companion/assets/`. If you run it, recover with `git checkout -- "TheHUB 1.5.5.2.3 a v/companion/"`. **Prefer not to run it at all.**
 
 ---

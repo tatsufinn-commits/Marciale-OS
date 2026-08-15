@@ -164,7 +164,16 @@ function markCompanionEventAck(sourceActivityId, ack={}){
 }
 function handleCompanionFrameMessage(event){
   const frames=companionFrames().concat(companionMiniFrames());
-  if(frames.length && !frames.some(frame=>event.source===frame.contentWindow)) return;
+  // VSS-00 F4 (2026-08-15): this read `if(frames.length && !frames.some(...))`.
+  // The `frames.length &&` short-circuit meant that when NO frame was mounted the
+  // guard did not weaken -- it VANISHED, and any stray postMessage was accepted.
+  // A guard that disables itself in the state it is most needed is not a guard.
+  // Fail CLOSED: no mounted frame => no trusted sender => reject.
+  if(!frames.length) return;
+  if(!frames.some(frame=>event.source===frame.contentWindow)) return;
+  // VSS-00 F2: verify origin, not just the source handle (mirrors MINI_ALLOWED_ORIGINS).
+  const COMPANION_ALLOWED_ORIGINS=[(typeof window!=='undefined'&&window.location&&window.location.origin)||null,'null'].filter(Boolean);
+  if(event.origin && !COMPANION_ALLOWED_ORIGINS.includes(event.origin)) return;
   const data=event.data||{};
   if(data.type==='idlehero.ready' || data.type==='mtgame.ready'){
     COMPANION_FRAME_READY=true;

@@ -1189,3 +1189,50 @@ When you clone this repository in a new chat:
 - **29 of 29 comparable modified files are byte-identical to remote; 0 differ.** The local tree
   is remote content on an older HEAD — **positional divergence, not 29 conflicting versions.**
 - Prior "divergent uncommitted work" warnings **withdrawn** for those 29 files. No commits made.
+
+## 2026-08-15 — VSS-00 Phase 0 released to EXCEL; stale test count in the directive corrected
+- Directive §5 said Companion "73/73"; **re-measured 77/77, 0 fail**. Stale figure struck.
+- Re-measure surfaced a red on a partially-installed tree: `SaveManager.test.js` →
+  `Cannot find package 'idb'` (declared in package.json, absent from node_modules) → 73 pass/1 fail.
+  **Install-state artifact, same class as the jsdom warning. Resolved by `npm install`.**
+- Directive now warns explicitly that a fresh tree prints 73/1 until `install:all` runs —
+  **the stale benchmark would have made the broken tree look expected.**
+
+## 2026-08-15 — VSS-00 Phase 0 DISCHARGED (first VSS slice ever completed)
+- Seat R (EXCEL) delivered; Seat A re-verified **14/14 claims on `a6cef19`** before accepting.
+- Critical question answered: **isolation is per-subsystem convention, not a platform contract**
+  (Companion/RuView sandboxed; Chess inline in Hub DOM; CADAM never mounted).
+- Sharpest finding: `14-companion.js:167` `frames.length &&` **short-circuits the origin guard**.
+- **Seat A's directive carried a stale trap:** sentinel is repaired on BOTH trees (hash
+  `1395deb5…`). Corrected; directive re-trimmed to 9,577 B rather than raising the cap.
+- Adjudication filed: `research/VSS00_SEAT_A_ADJUDICATION_2026-08-15.md`. No commits.
+
+## 2026-08-15 — VSS-00 F1/F2/F4/F5 PATCHED: host-side bridge origin guard
+- `16-hubframe.js`: `static isAllowedOrigin()` mirroring `MINI_ALLOWED_ORIGINS`; origin check in
+  `_wireMessages`; `targetOrigin` narrowed from `'*'` (retained only for non-same-origin sandboxes).
+- `14-companion.js`: **fails closed** — `if(!frames.length) return;` before the source check.
+- `unit-postmessage-origin.js`: +12 host-side assertions (static + behavioural).
+- **Fault-injected both ways:** vulnerable code → **7 fail, exit 1**; fix → **26 pass, exit 0**.
+- `'null'` kept in the allowlist — omitting it would have broken sandboxed/`file://` embeds.
+- Gates: TheHUB **147 ✅** · Companion **77/77** · bridge **15 sigs in sync** · pangolin SEV-0 ·
+  governance 4/4. **No commits.**
+
+## 2026-08-15 — PROJECT VSS masterplan created; verdict = recon before build
+- `docs/PROJECT_VSS_MASTERPLAN.md` — live status board: 12 slices, phase ladder, DoD, findings.
+- **State: 1 of 12 slices discharged** (VSS-00), 4 of 15 findings repaired, TAMAKEE gate CLOSED.
+- **Verdict: EXCEL → VSS-02 recon. HOLD MAX** — no slice has a surveyed, ruled, shovel-ready
+  defect. Remaining VSS-00 items are decisions (F3 contract, F15 packaging, Chess isolation),
+  not tasks.
+- Measured while forming the verdict: **no audio module + no lifecycle hook in TheHUB** (VSS-02
+  is genuinely unsurveyed); the 3 "zombie listener" warnings name the 3 **already-guarded**
+  files (page-lifetime singletons); the 3 "possible XSS" sites sit in consistently `esc()`-ed
+  code and are **probably false positives — but unverified, so not ruled.**
+
+## 2026-08-15 — VSS-02 Phase 0 commissioned to EXCEL (audio lifecycle)
+- `TASK_VSS_02_PHASE_0_AUDIO_LIFECYCLE_2026-08-15.md` (7,222 B, 4/4 compliant).
+- **Seat A correction carried into the directive:** "no audio module in TheHUB" was WRONG —
+  grepped a filename, not an API. Audio lives in `00-utils-config.js:1180` (0 hooks),
+  `15-chess.js:122`, and Companion `AudioSystem.js`.
+- Evidenced lead handed over: `main.js:521` pauses loop+clock on hide, never audio;
+  `AudioSystem` exposes no `stop()`/`suspend()`; `GAME_PAUSED` never reaches it.
+- Masterplan updated: VSS-02 = 🔭 Phase 0 in flight.

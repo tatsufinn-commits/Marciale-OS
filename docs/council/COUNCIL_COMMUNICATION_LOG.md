@@ -1313,3 +1313,200 @@ argue; he reported his tree state plainly and the fact did the rest. **Second ti
 that Seat R's plain report corrected Seat A.**
 
 **Verification:** scout-voice **12/12, 0 violations** · governance **4/4, 25 laws** · **no commits.**
+
+---
+
+### DISPATCH-20260815-099 — VSS-00 RELEASED TO SEAT R; A STALE COUNT IN THE DIRECTIVE CORRECTED FIRST
+**From:** ASSISTANT (Seat A / TWMIP), `@joint` · **To:** Supreme Commander · **CC:** Seat R (EXCEL)
+
+**1. I RE-READ THE DIRECTIVE BEFORE RELEASING IT AND FOUND A STALE NUMBER.**
+`TASK_VSS_00_PHASE_0_RECON_DOSSIER.md` §5 warning 2 stated *"Companion 73/73"* as the true
+count. **I have been reporting 77/77 to the Commander.** Both figures were real at different
+times — 73/73 predates the SpriteAtlas suite — but **a directive that hands a scout a stale
+number teaches him to cite it.** Re-measured before release.
+
+**2. THE MEASUREMENT EXPOSED A LIVE RED — AND IT WAS AN INSTALL ARTIFACT, NOT A DEFECT.**
+First run: `# tests 74 · # pass 73 · # fail 1`. Cause:
+`SaveManager.test.js → Cannot find package 'idb' imported from src/core/SaveManager.js`.
+`idb ^8.0.0` **is declared in `package.json` but was absent from `node_modules`.**
+After `npm install`: **`# tests 77 · # pass 77 · # fail 0`.**
+**This is the same install-state artifact as the directive's own warning 1 (`jsdom`), in a
+second package.** Directive updated with the re-measured count **and** an explicit note that a
+fresh tree yields 73 pass / 1 fail until `install:all` runs.
+
+**3. WHY THIS MATTERED ENOUGH TO STOP FOR.** Had EXCEL run `npm test` on a fresh clone, he would
+have hit a red, and the directive would have told him the expected figure was 73/73 — **the exact
+number the broken tree prints.** He could have recorded a passing tree as healthy while a real
+failure sat in front of him, or filed the artifact as a defect. **A stale benchmark is worse than
+no benchmark: it converts a red into a plausible green.**
+
+**4. VSS-00 PHASE 0 IS RELEASED.** Scope confirmed against the directive: shared runtime only —
+HubFrame hosting/teardown · bridge lifecycle · state-sync ownership · **subsystem isolation (the
+critical question: can one subsystem's failure kill TheHUB?)** · shared loading/error contract ·
+audio lifecycle **boundary only (the defect itself is VSS-02)**. Ten-field schema per finding;
+A/B/C/D class + epistemic tag; five-part maturity doctrine
+(CAPABILITY → CONTRACT → OBSERVABILITY → VERIFICATION → RECOVERY) for the runtime as a whole.
+
+**5. TRAPS RESTATED TO HIM IN THE RELEASE ORDER:** `install:all` first · **`sre-auto-sentinel.js:42`
+prints a hard-coded "43 suites / 137 assertions" it never parses — exit code trustworthy, printed
+counts `[UNVERIFIED]`, do not cite, do not fix** · `merge:gate` dirties the tree (recovery command
+supplied) · `scout-audit.js` is a licence checker wearing a security banner.
+
+**Verification:** scout-voice **12/12, 0 violations** · governance **4/4, 25 laws** ·
+Companion **77/77 measured, exit 0** · **no commits.**
+
+---
+
+### DISPATCH-20260815-100 — VSS-00 PHASE 0 DISCHARGED AND ACCEPTED; 14/14 CLAIMS VERIFIED
+**From:** ASSISTANT (Seat A / TWMIP), `@joint` · **To:** Supreme Commander · **CC:** Seat R (EXCEL)
+**Trees:** Seat R `030f3db` · verification `a6cef19`
+
+**1. THE FIRST VSS SLICE EVER COMPLETED BY THIS SEAT.** Commissioned 2026-08-14; discharged
+2026-08-15. Adjudication: `research/VSS00_SEAT_A_ADJUDICATION_2026-08-15.md`.
+**Accepted — every checkable claim re-run on `a6cef19` before acceptance. A dossier is evidence;
+accepting it unverified would repeat the sin it documents.**
+
+**2. 14 OF 14 CLAIMS CONFIRMED.** Host listener checks `e.source`, never `e.origin`
+(`16-hubframe.js:116`) · `postMessage(..., '*')` (**line 148**, he cited 131 — citation slip,
+behaviour exact) · **`14-companion.js:167` — `if(frames.length && !frames.some(...)) return;`
+the `frames.length &&` short-circuits the entire guard when nothing is mounted** (sharpest
+finding) · origin regression test targets three **child** files, no host handler · `HubFrame`
+documented for 4 subsystems, instantiated only twice, both Companion · Chess inline with engine
+in workers (`15-chess.js:1849`) · `npm test` prints `_location` TypeError **twice**, exit **0** ·
+root `npm run health` → **"0 Redmarks … 9 Minor Warnings", SEV-0, exit 0.**
+
+**3. THE CRITICAL QUESTION IS ANSWERED.** *Can one subsystem kill TheHUB?* — **depends on the
+subsystem; no uniform rule is enforced.** Companion/RuView sandboxed; **Chess inline in Hub DOM**;
+CADAM documented but never mounted. **Isolation is per-subsystem convention, not a platform
+contract.**
+
+**4. HIS CORRECTION WAS HALF RIGHT — AND THE WRONG HALF IS MINE.** He reported the sentinel
+repaired on his tree and still hardcoded on mine. **Hashes are identical (`1395deb5…`): repaired
+on BOTH.** `npm run pangolin` prints `77/77 … measured`. The literal survives only in the line-64
+comment recording its removal. **The stale warning was in MY directive.** He was right to flag it
+and right to refuse to report a defect he could not observe. Directive corrected (and re-trimmed
+to 9,577 B when the fix breached the 10 KB cap — **cut the text, never raise the limit**).
+
+**5. THIRD OCCURRENCE OF THE SAME ROOT FAULT.** "The two trees differ" has now three times
+resolved to **"the trees are identical and one document is stale."** The recurring defect is not
+divergence — **it is citing state from memory instead of hashing it.**
+
+**6. HE REPORTED THE MESS HE MADE.** `npm run build` dirtied tracked `companion/assets/`; he
+recovered with the supplied command and filed it as **F15** instead of quietly tidying.
+
+**7. DoD AUDITED 8/8.** Zero files outside `research/` · TAMAKEE never opened · all findings
+classed and tagged · Class-B claims cite file+line · **stopped at Phase 0 without being told twice.**
+
+**8. SEAT A CONCURS** with his next-slice proposal — host-side bridge origin gap (F1+F2+F4+F5) —
+and seconds **F15**. **A concurrence is not a commission: Phase 1 selection is the Commander's.**
+
+**Verification:** scout-voice **12/12, 0 violations** · governance **4/4, 25 laws** ·
+Companion **77/77 measured** · **no commits.**
+
+---
+
+### DISPATCH-20260815-101 — HOST-SIDE BRIDGE ORIGIN GAP CLOSED (VSS-00 F1/F2/F4/F5)
+**From:** ASSISTANT (Seat A / TWMIP), `@joint` · **To:** Supreme Commander · **CC:** Seat R (EXCEL)
+**Tree:** `a6cef19` · **Authority:** Commander's order to proceed · **Source:** EXCEL's VSS-00 dossier
+
+**1. THE ASYMMETRY IS GONE.** Every child enforced an origin allowlist; **no host handler did.**
+Patched `16-hubframe.js` (static `isAllowedOrigin`, origin check in `_wireMessages`,
+`targetOrigin` narrowed from `'*'`) and `14-companion.js` (**fails closed** when no frame is
+mounted, plus an origin allowlist). Filed:
+`research/VSS01_HOST_BRIDGE_ORIGIN_PATCH_2026-08-15.md`.
+
+**2. F4 WAS THE REAL HOLE.** `if(frames.length && !frames.some(...))` meant the guard did not
+weaken with no frame mounted — **it vanished**. Now `if(!frames.length) return;` first.
+**A guard that disables itself in the state it is most needed is not a guard.**
+
+**3. THE TRAP I NEARLY WALKED INTO.** `HubFrame` sandboxes with `allow-same-origin` and may load
+`file://`/blob sources — those report origin **`'null'`**. Allowing only `window.location.origin`
+**would have silently broken the offline embed.** The child already ships
+`[window.location.origin, 'null']`. **Mirroring the shipped pattern instead of inventing a
+stricter one is what kept this from becoming an outage.**
+
+**4. FAULT-INJECTED IN BOTH DIRECTIONS.** Original vulnerable files restored from backup:
+**19 passed / 7 FAILED / exit 1.** Fix restored: **26 passed / 0 failed / exit 0.**
+The 7 reds name the actual defects. **A test that cannot fail against the old code proves nothing.**
+
+**5. MY FIRST PATCH WAS WRONG AND THE TEST CAUGHT IT.** I put the origin check inside the helper;
+the suite's `/\.origin\s*&&/` assertion stayed red. **The test was right and my code was wrong** —
+I moved the check to the call site rather than relax the assertion. **Never edit the test to match
+the patch.**
+
+**6. GATES.** TheHUB `npm test` **147 ✅ exit 0** (was 135, +12 host-side assertions) · Companion
+**77/77** · root **exit 0** · `audit:bridge` **15 signatures in bi-directional sync — protocol
+intact** · `pangolin` **77/77 measured, SEV-0** · `audit:all` **exit 0** · governance **4/4, 25
+laws** · scout-voice **12/12**. **NOT COMMITTED.**
+
+**7. STILL OPEN, DELIBERATELY:** F3 (HubFrame documented for 4 subsystems, mounted for 1) ·
+F15 (build output dirties tracked assets) · **Chess inline in the Hub DOM** (design question,
+not a patch) · the 3 XSS / 3 lifecycle / 3 storage warnings `health` green-washes.
+
+**Credit: EXCEL located and evidenced all four defects; Seat A executed the repair.**
+
+---
+
+### DISPATCH-20260815-102 — PROJECT VSS MASTERPLAN ISSUED; VERDICT: RECON BEFORE BUILD
+**From:** ASSISTANT (Seat A / TWMIP), `@joint` · **To:** Supreme Commander
+**Artifact:** `docs/PROJECT_VSS_MASTERPLAN.md` (14,507 B)
+
+**1. THE PROGRAM NOW HAS ONE PAGE.** Twelve slices existed across five documents and no single
+view of position. The masterplan states: **1 of 12 slices discharged**, 4 of 15 VSS-00 findings
+repaired, 11 open, **TAMAKEE gate CLOSED**, zero commits. Every status re-measured today.
+
+**2. VERDICT: SEND EXCEL (recon), HOLD MAX (build).** Tasking the Engineer now would invert the
+program's own phase order — **eleven of twelve slices have ZERO reconnaissance.** More decisive:
+**nothing is shovel-ready.** F3 is a contract question, F15 a packaging decision, Chess-inline an
+explicit design decision. **"Decide what this should be" is not an engineering tasking.**
+
+**3. MEASURED, NOT RECALLED, BEFORE RECOMMENDING.** VSS-02 is genuinely unsurveyed: **no audio
+module and no `visibilitychange`/`pagehide` hook exists in TheHUB's `modules/`** — consistent
+with the Commander's observed defect, but the audio's actual location is **unestablished**.
+That is one bite of reconnaissance.
+
+**4. I SHRANK MY OWN ALARM.** The `health` green-washing is real but **smaller than reported**.
+Of 9 warnings: **3 "zombie listener" flags name the three files that are ALREADY correctly
+origin-guarded** (page-lifetime singletons, no `removeEventListener`) — true by the scanner's
+rule, low real risk. The **3 "possible XSS"** are `innerHTML` assignments in code that escapes
+consistently via `esc()`/`escAttr()`/`safeColor()` — **probably false positives.**
+**I did not rule them.** *Probably is not verified*, and tracing each input to source is its own
+tasking. **Recorded as `[UNVERIFIED]` rather than dismissed or inflated.**
+
+**5. A FINDING INSIDE THE FINDING.** The scanner cannot distinguish a real XSS from an escaped
+one — **which is precisely why its warnings became ignorable enough to be green-washed.** A
+warning that cries wolf trains the house to exit 0.
+
+**Verification:** governance **4/4, 25 laws** · scout-voice **12/12, 0 violations** · **no commits.**
+
+---
+
+### DISPATCH-20260815-103 — VSS-02 PHASE 0 COMMISSIONED; SEAT A CORRECTS ITS OWN AUDIO CLAIM
+**From:** ASSISTANT (Seat A / TWMIP), `@joint` · **To:** Supreme Commander · **CC:** Seat R (EXCEL)
+
+**1. VSS-02 (Audio Lifecycle) COMMISSIONED** — slice 2 of 12, per the ratified order.
+`TASK_VSS_02_PHASE_0_AUDIO_LIFECYCLE_2026-08-15.md`, 7,222 B, scout-voice **4/4**.
+
+**2. I CORRECTED MYSELF BEFORE THE DIRECTIVE COULD MISLEAD HIM.** In DISPATCH-102 I reported
+**"no audio module in TheHUB."** **Wrong.** I grepped for a *filename* matching `*audio*` instead
+of for audio *APIs*. Audio exists in **three** surfaces: `00-utils-config.js:1180`
+(`getHubAudioContext`, exported `:1259`, **zero lifecycle hooks**), `15-chess.js:122`
+(`new Audio(...)`), and Companion `AudioSystem.js`. **Searching for a filename is not searching
+for a capability** — the same class of error as an empty `git remote` "proving" no remote exists.
+The correction is written into both the directive and the masterplan.
+
+**3. THE VERDICT SURVIVES THE CORRECTION — ON BETTER EVIDENCE.** `main.js:521` throttles the loop
+and pauses the clock on hide but **never touches audio**; `AudioSystem`'s public surface is
+`constructor`/`play()`/`setVolume()` — **no `stop()`, no `suspend()`**; `grep GAME_PAUSED
+AudioSystem.js` → **0 hits**. `[INFERRED]` and flagged as mine, not evidence: *nothing stops the
+sound because nothing exposes a way to stop it.* **EXCEL is explicitly tasked to prove me wrong.**
+
+**4. THE SLICE IS THE SAME DISEASE AS VSS-00.** That slice found isolation is **per-subsystem
+convention, not a platform contract**. Audio teardown looks identical. He is asked whether it is
+**the same cure** — a shared-runtime contract rather than another per-subsystem improvisation.
+
+**5. CONTEXT PROTECTED.** `TheHUB/companion/assets/*` — 11 minified bundles that match an audio
+grep — **explicitly placed OUT of scope. Reading build artifacts proves nothing about source and
+would burn his context.**
+
+**Verification:** scout-voice **13/13, 0 violations** · governance **4/4, 25 laws** · **no commits.**

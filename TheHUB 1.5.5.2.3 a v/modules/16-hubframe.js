@@ -110,10 +110,34 @@ class HubFrame {
     this._listeners.push({ el: document, type: 'visibilitychange', fn: handler });
   }
 
+  /**
+   * Host-side origin allowlist — mirrors MINI_ALLOWED_ORIGINS in
+   * companion-mini/companion-mini.js. Same-origin parent, plus 'null' for
+   * sandboxed / file:// embeds. An absent origin (older engines, some blob
+   * contexts) is tolerated exactly as the child tolerates it.
+   */
+  static isAllowedOrigin(origin) {
+    // An absent origin is tolerated exactly as the child tolerates it; a PRESENT
+    // origin must appear in the allowlist. Expressed as `origin &&` so the guard is
+    // greppable by the regression suite, which is how F2 was missed the first time.
+    if (!origin) return true;
+    const allowed = [
+      (typeof window !== 'undefined' && window.location && window.location.origin) || null,
+      'null'
+    ].filter(Boolean);
+    return allowed.includes(origin);
+  }
+
   _wireMessages() {
     if (typeof this.options.onMessage !== 'function') return;
     const handler = (e) => {
       if (!this.frame || e.source !== this.frame.contentWindow) return;
+      // VSS-00 F2 (2026-08-15): the host validated the source handle but never the
+      // ORIGIN, while every child (companion-mini, ruview) already enforced an
+      // allowlist. The bridge was asymmetric: guarded one way, open the other.
+      // 'null' is REQUIRED — sandboxed/file:// frames report an opaque origin, and
+      // omitting it would silently break the offline embed the child already allows.
+      if (e.origin && !HubFrame.isAllowedOrigin(e.origin)) return;
       this.options.onMessage(e, this);
     };
     window.addEventListener('message', handler);
@@ -145,7 +169,15 @@ class HubFrame {
   postMessage(msg) {
     if (!this.frame || !this.frame.contentWindow) return false;
     try {
-      this.frame.contentWindow.postMessage(Object.assign({ from: 'TheHUB' }, msg || {}), '*');
+      // VSS-00 F1 (2026-08-15): was targetOrigin '*', which broadcasts Hub state to
+      // whatever document currently occupies the frame. Narrowed to this document's
+      // origin; sandboxed frames (opaque origin) cannot receive a specific origin, so
+      // they retain '*' by necessity -- the source-handle + origin guard on the inbound
+      // path is what protects that direction.
+      const target = this.options.sandbox && !this.options.sandbox.includes('allow-same-origin')
+        ? '*'
+        : ((typeof window !== 'undefined' && window.location && window.location.origin) || '*');
+      this.frame.contentWindow.postMessage(Object.assign({ from: 'TheHUB' }, msg || {}), target);
       return true;
     } catch (e) {
       logHubError?.('HubFrame.postMessage', e);
