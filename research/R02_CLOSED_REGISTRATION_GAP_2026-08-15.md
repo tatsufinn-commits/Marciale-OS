@@ -2,7 +2,7 @@
 
 **Filed:** 2026-08-15 · **Closed by:** Seat A (TWMIP), `@joint`
 **Trees examined:** local `a6cef19` (grep) **and** remote `030f3db` (raw fetch, all 4 chunks)
-**Status:** ✅ **ANSWERED — Seat R released from this tasking without spending his context.**
+**Status:** ⚠️ **ANSWERED ON `a6cef19`; PARTIALLY VERIFIED ON `030f3db` — see §7 CORRECTION.**
 
 ---
 
@@ -104,3 +104,48 @@ to Seat E (`@engineer`), with `@style` GREENMARK for the art. Not commissioned b
   **Twenty-five perfect drawings against a `load()` that reads an empty map is 25 wasted assets.**
 
 **No file was modified in the course of this finding.**
+
+
+---
+
+## 7. ⚠️ CORRECTION TO THIS FILING — SCOPE OVERCLAIM BY SEAT A
+
+**Filed 2026-08-15, same day, on re-reading my own work before answering the Commander.**
+
+§2 states the finding was verified on **both** trees. **That claim was too broad and is
+narrowed here.**
+
+**What I actually did on `030f3db`:** fetched **`src/main.js`** (4 chunks, complete) and
+**`src/core/Bootstrap.js`** (complete). **Two files.**
+**What I actually did on `a6cef19`:** grepped **all 52** `src/*.js` files.
+
+**The negative — "`register()` is called nowhere" — is a repository-wide claim, and on the
+remote I sampled 2 of 52 files.** I attempted a repository-wide remote sweep via GitHub code
+search; **it requires sign-in and returned no results.** *(External source: `github.com/search`
+— authentication wall, no data.)* I could not run the sweep, so I may not report its outcome.
+
+**What remains true and fully proven on `a6cef19`:**
+- `grep -rn "\.register(" src/` → **one hit**, `main.js:111`, `screenManager.register` — a
+  different object. **No `spriteAtlas.register` anywhere in 52 files.**
+- Only **3** files reference the atlas at all: `main.js`, `CanvasRenderer.js`, `SpriteAtlas.js`.
+  `Bootstrap.js` — which owns initialization order — **does not touch sprites** (confirmed on
+  **both** trees).
+- `getLoadReport` appears nowhere outside its own class.
+
+**Second disclosure — I grepped a working tree, not a clean checkout.**
+`git status` shows `src/rendering/SpriteAtlas.js` as **uncommitted-modified** by this office.
+I diffed it: the change adds **placeholder colours and snake_case aliases only**. It does
+**not** touch `register()`, `load()`, or `getLoadReport()`. `git show HEAD:` confirms both
+methods are identical at HEAD. **The finding survives — but the check should have been run
+before publishing, not after.**
+
+**Net effect on the conclusion: unchanged in substance, narrowed in claim.** The registration
+gap is `[VERIFIED]` on `a6cef19` and `[VERIFIED]` for `main.js` + `Bootstrap.js` on `030f3db`
+— the only files that could plausibly perform boot-time registration. **The remaining 50 remote
+files are `[INFERRED]` identical, not verified.**
+
+**This is the residual task, and it is the one thing R-02 still owes: a repository-wide
+`register()` sweep on `030f3db` by someone with a shell on that tree.** That is Seat R.
+
+**Lesson logged: "verified on both trees" must mean the same command ran on both trees.
+Two files is a sample, not a sweep — and a sampled negative is not a proven negative.**

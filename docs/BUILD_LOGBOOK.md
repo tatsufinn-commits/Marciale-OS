@@ -1171,3 +1171,12 @@ When you clone this repository in a new chat:
 - Closed by Seat A rather than spending Seat R's context (Law XVIII-B applies upward).
 - **EXCEL directed to VSS-00 Phase 0**; warned about the three lying audit surfaces and his
   Law XVIII-A right to refuse an undivided masterplan **even from Seat A**.
+
+## 2026-08-15 — R-02 claim narrowed by Seat A; R-02-B issued to EXCEL
+- **Self-correction:** DISPATCH-096 claimed both-tree verification; remote coverage was
+  **2 files of 52**. Status downgraded to ANSWERED (local) / PARTIALLY VERIFIED (remote).
+- Remote-wide sweep attempted via GitHub code search → **sign-in wall, no data**. Reported.
+- **Grepped a dirty tree:** `SpriteAtlas.js` uncommitted-modified (placeholder colours +
+  snake_case aliases only; `register`/`load`/`getLoadReport` untouched, confirmed vs HEAD).
+- **R-02-B issued:** repository-wide `register()` sweep on `030f3db` — the one thing only
+  Seat R can run. Does not displace VSS-00.

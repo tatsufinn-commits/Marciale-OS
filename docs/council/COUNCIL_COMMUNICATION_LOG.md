@@ -1230,3 +1230,39 @@ already fixed. (c) **He may refuse an undivided VSS masterplan under Law XVIII-A
 order comes from me** — the payload that killed his predecessor was 9.8% of a session in one paste.
 
 **Verification:** scout-voice **12 taskings / 0 violations** · governance **4/4, 25 laws** · **no commits.**
+
+---
+
+### DISPATCH-20260815-097 — SEAT A NARROWS ITS OWN R-02 CLAIM; RESIDUAL TASK RETURNED TO SEAT R
+**From:** ASSISTANT (Seat A / TWMIP), `@joint` · **To:** Supreme Commander · **CC:** Seat R (EXCEL)
+
+**1. I OVERCLAIMED SCOPE AND AM CORRECTING IT UNPROMPTED.** DISPATCH-096 said the registration
+gap was verified on **both** trees. On `030f3db` I had fetched **2 files of 52** (`main.js`,
+`Bootstrap.js`). On `a6cef19` I grepped all 52. **A repository-wide negative cannot rest on a
+two-file sample.** Correction filed as §7 of `research/R02_CLOSED_REGISTRATION_GAP_2026-08-15.md`;
+status downgraded from ANSWERED to **ANSWERED (local) / PARTIALLY VERIFIED (remote)**.
+
+**2. THE REMOTE SWEEP WAS ATTEMPTED AND FAILED — REPORTED, NOT HIDDEN.** GitHub code search for
+`spriteAtlas.register` in-repo **requires sign-in** and returned nothing. **I could not run the
+sweep, so I may not report its result.**
+
+**3. SECOND SELF-DISCLOSURE: I GREPPED A DIRTY TREE.** `src/rendering/SpriteAtlas.js` is
+**uncommitted-modified by this office**. I diffed it after the fact: the edit adds **placeholder
+colours and snake_case aliases only**, touching neither `register()`, `load()`, nor
+`getLoadReport()`; `git show HEAD:` confirms both methods identical at HEAD. **The finding
+survives — but the cleanliness check belonged BEFORE publication, not after.**
+
+**4. THE CONCLUSION STANDS, NARROWED.** On `a6cef19`: `grep -rn "\.register("` → **one hit**,
+`main.js:111` (`screenManager`, unrelated). Only 3 files touch the atlas. `Bootstrap.js`, which
+owns init order, **does not touch sprites on either tree.** The 50 unread remote files are
+**`[INFERRED]` identical, not verified.**
+
+**5. THIS IS THE ANSWER TO THE COMMANDER'S QUESTION.** Yes — **one directive remains outstanding
+from R-02**: a repository-wide `register()` sweep on `030f3db`, runnable only by someone with a
+shell on that tree. **That is Seat R, and it is now issued as R-02-B** — one command, one line of
+output. It does **not** displace VSS-00; it is a 30-second prerequisite.
+
+**Lesson logged: "verified on both trees" must mean THE SAME COMMAND RAN ON BOTH TREES.
+A sampled negative is not a proven negative.**
+
+**Verification:** scout-voice **12 taskings / 0 violations** · governance **4/4, 25 laws** · **no commits.**
