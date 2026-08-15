@@ -1076,7 +1076,7 @@ When you clone this repository in a new chat:
 * **FABRICATION CLASS SWEPT:** `quick-status` → `NO VERDICT RENDERED` · `merge-gate:43` → parses TAP, **exit=1 under injection** · `plate-validator` → **now exits 1** · `scout-audit` → **LICENCE** audit with scope disclosure.
 * **⚠️ INHERITABLE — MY OWN PATCH WAS WRONG TWICE.** `plate-validator` had a **local `redFlags` shadowing** the module counter (increments never escaped) **and my first patch double-incremented**. Caught only by running the failure case. ***A patch is a claim until it is fault-injected. Test the fix, never trust the fix.***
 * **Verification `[VERIFIED 2026-08-15]`:** `npm test` **77/77 + 14 + 14**, exit 0 · sentinel **77/77 measured** SEV-0 · governance **4/4** · laws/charters/shrine/`TAMAKEE`/Companion **untouched** · **no commits.**
-* **AWAITING COMMANDER:** TheHUB→TAP migration · puppeteer CVE (accept-in-writing vs breaking bump) · **enactment of the Scout's Voice Clause** (Law XIV bars self-initiated constitutional edits).
+* **~~AWAITING COMMANDER~~ → RULED 2026-08-15:** TheHUB→TAP **CLOSED, no migration** (scope warning retained; exit-code protection always held). puppeteer CVE **CLOSED by removing the unused dependency** — 4 HIGH → 0. Scout's Voice Clause **ENACTED** (Law XIX-B).
 
 ---
 
@@ -1114,3 +1114,60 @@ When you clone this repository in a new chat:
 * **SALVAGE PROVEN REDUNDANT BEFORE REMOVAL:** all **18** untracked files verified present in the live tree (2 differ only because the repo is **newer**). Task 12 remains HALTED; the bundle's purpose expired.
 * **⚠️ INHERITABLE — THE CLEANUP TRIPPED MY OWN NEW LAW.** Moving the old NTG prompts into `RECONNAISSANCE/tasks/` put them in the scanner's path: **4 Law XIX-B violations appeared.** They were real — those documents **do** carry the Law XIX gag and **do** omit the Research-Drop Privilege. **They were NOT edited into compliance.** Quarantined to `tasks/superseded/` with a README stating the offence, per **Law XIX-A Rule 4** — ***rewriting them would erase the record of the fault.*** *Never silence a true alarm by editing the evidence.*
 * **Verification `[VERIFIED 2026-08-15]`:** `npm test` **77/77 + 14 origin-guard + 14 RuView** · `audit:all` **5/5 green** · governance **4/4, 25 laws** · scout-voice **7/7** · **`TAMAKEE/` untouched — 276 files, inspection-only** · **no commits.**
+
+---
+
+## ✅ R-01 CLOSED · CANDIDATE PASSED BY REFUSING TO FABRICATE · PACKET DEFECT OWNED (2026-08-15)
+**Agent in Charge:** `@joint` worn by `@assistant` / **TWMIP** · **Dispatch:** `DISPATCH-20260815-091`
+
+* **R-01 `[VERIFIED]`:** `weavers.json` **does** carry `"sprite"` with real PNG filenames (5) + `enemies.json` (20) = **25 promised**. **TSTT was right.** **But `find public -name '*.png'` → 0 — all 25 are missing.** *The data layer was never the problem; the art was never drawn.* Filenames encode per-entity dimensions, which **also settles deferred Q2**.
+* **🏅 THE CANDIDATE PASSED BY SAYING NO.** Asked for a HEAD hash with no shell, he returned **`[BLOCKED]` once** and refused to invent output — *"that would be fabricating command output."* **EXCEEDS on honesty-under-pressure and signal discipline; fails nothing.**
+* **⚠️ INHERITABLE — PROOF-OF-CHANNEL MUST EXTEND TO CAPABILITY.** My §0 demanded `git rev-parse` from a model with no filesystem. I hardened the intake against the *last* failure and invented a new one. ***Before tasking any seat, verify what it CAN DO, not merely where it can be reached.*** Corrective: packet now opens with a **capability declaration** and grants **Track B (analyst) full standing** — *an analyst who cannot execute is a scout, not a failed scout.*
+* **⚠️ INHERITABLE — THE FIX BREACHED MY OWN BUDGET AND WAS CUT, NOT EXEMPTED.** Rewrite hit 11,389 B vs the 10,240 B limit I enacted hours earlier. **Seven trims to 10,170 B; every operative rule kept.** *When your own rule catches you, obey it — do not raise the limit.*
+* **Verification `[VERIFIED 2026-08-15]`:** scout-voice **7/7** · `audit:all` **5/5** · governance **4/4, 25 laws** · **no commits.**
+
+## 2026-08-15 — Seat R invitation issued; links restored, hash-trap and scanner blind spot closed
+- **Issued** `docs/council/INVITATION_TO_RECONNAISSANCE.md` (10,236 B) + member mirror.
+- **Withdrew** Seat A's "drop the links" advice: repo verified PUBLIC, raw fetch returned full
+  `weavers.json`. Empty `git remote -v` ≠ no remote. Track B can read the whole tree over HTTPS.
+- **Fixed** packet Track A: halt-if-HEAD≠`a6cef19` → REPORT, naming all three trees
+  (`a6cef19` local / `030f3db` remote / `8c1078fa` predecessor). It would have halted the new scout.
+- **Widened** `scout-voice-check.js` scan scope to all of `members/RECONNAISSANCE/` — the invitation
+  had passed only by living outside the scanned paths. Both artifacts then cut to budget, cap unchanged.
+- **Flagged** sprite naming conflict (README kebab vs JSON underscore+dims) — blocks all 25 PNGs.
+
+## 2026-08-15 — Seat R assumed (EXCEL); R-02 opened; sprite naming ruled cosmetic
+- Seat R **MANNED**, Track A. Both of his findings verified by `sed` before adjudication; both stand.
+- Sweep found **6 of 25** id↔sprite deviations (he reported 2).
+- **Decisive:** no code reads `"sprite"`; atlas keys on `spriteId: id`; `register()` absent from `src/`.
+  25 PNGs would render as placeholders regardless of naming. Real blocker = missing registration.
+- Filed `research/R02_SPRITE_NAMING_RULING_2026-08-15.md`; issued `TASK_R02_REGISTRATION_GAP`.
+- `scout-voice-check.js`: false red on `RESUME_NTG.md` fixed (named + printed exclusion);
+  fault-injected twice — first test was invalid (partial trigger removal), second proved RED/exit 1.
+
+## 2026-08-15 — Flags 4 & 5 closed; R-02 ratified; R-01 commission superseded
+- **Flag 5 CLOSED:** `puppeteer` was a prod dependency of TheHUB imported by **zero files**.
+  Removed. `4 HIGH → 0 vulnerabilities` (manifest + lockfile). npm's "fix" was a 5-major downgrade.
+- **Pre-existing break found:** `jsdom` not installed — proven pre-existing by restoring the
+  original manifest/lockfile and reproducing the identical failure. Installed; suite now **135 ✅ exit 0**.
+- **Flag 4 CLOSED, no migration.** Hand-rolled tests + honest exit codes are sufficient;
+  the real rule ("77/77 is Companion-only") is a reporting constraint, already enforced.
+- **R-02 RATIFIED:** `id` authoritative · README kebab-case for filenames · `"sprite"` ADVISORY ·
+  blocker of record = missing `register()`.
+- **R-01 commission superseded** with a banner; body retained unaltered per Law XIX-A Rule 4.
+
+## 2026-08-15 — EXCEL's "API for AI" proposal parked; R-02 restated; VSS-00 queued
+- Proposal **HELD** per Commander (VSS first). Filed at `members/RECONNAISSANCE/messages/`.
+- Findings verified before parking: 7/8 exact; **corrected 18 → 19 tools**; vault gate is a
+  double gate (stronger than reported); **UCI path already exists in `15-chess.js`** (1897, 2110).
+- R-02 restated with mandated HEAD line — **not discharged, does not lapse.**
+- VSS-00 Phase 0 named next; EXCEL warned in writing he may refuse a full-masterplan paste
+  under Law XVIII-A **even from Seat A**.
+
+## 2026-08-15 — R-02 closed by Seat A; EXCEL released to VSS-00 Phase 0
+- **R-02 ANSWERED:** `register()` never called in `src/` on either tree (`a6cef19` grep,
+  `030f3db` full raw fetch). Atlas loads an empty frame map; every entity falls back forever.
+- **`getLoadReport()` discarded at `main.js:68`** — the diagnostic that would have caught it.
+- Closed by Seat A rather than spending Seat R's context (Law XVIII-B applies upward).
+- **EXCEL directed to VSS-00 Phase 0**; warned about the three lying audit surfaces and his
+  Law XVIII-A right to refuse an undivided masterplan **even from Seat A**.

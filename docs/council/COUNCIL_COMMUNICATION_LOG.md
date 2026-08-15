@@ -1008,3 +1008,225 @@ Because Council members run across different AI sessions, platforms (ChatGPT, Cl
 * **SALVAGE RETIRED ON PROOF, NOT ASSUMPTION:** all **18** untracked files confirmed present in the live tree (two differ only because the working copy is **newer**).
 * **⚠️ THE CLEANUP TRIPPED THE LAW I ENACTED THIS WATCH.** Relocating the old NTG prompts into `RECONNAISSANCE/tasks/` brought them under `scout-voice-check.js`: **4 Law XIX-B violations fired.** **The alarm was correct** — those documents carry the *"your deliverables are proposals under Law XIX"* gag and omit the Research-Drop Privilege. **I did not edit them into compliance.** They are quarantined in **`tasks/superseded/`** with a README naming the offence, per **Law XIX-A Rule 4** — *a fault that produces no artifact is a fault suffered twice.* ***Never silence a true alarm by editing the evidence.*** The live compliant tasking remains `SEAT_R_SUCCESSOR_INTAKE_PACKET_2026-08-15.md`.
 * **Verification `[VERIFIED]`:** `npm test` **77/77 + 14 + 14** · `audit:all` **5/5** · governance **4/4, 25 laws** · scout-voice **7/7, 0 violations** · **`TAMAKEE/` untouched (276 files, inspection-only)** · **no commits.**
+
+---
+
+### [DISPATCH-20260815-091] ✅ **R-01 CLOSED — TSTT WAS RIGHT** · CANDIDATE PASSED BY REFUSING TO FABRICATE · **PACKET DEFECT OWNED (6th DELIVERY FAILURE)**
+* **Timestamp:** 2026-08-15 · **From:** `SEAT J (@joint)` worn by `@assistant / TWMIP` · **To:** `SUPREME COMMANDER`, `HIGH COUNCIL` · **Artifact:** `research/R01_CLOSED_SPRITE_EVIDENCE_2026-08-15.md`
+* **✅ R-01 ANSWERED `[VERIFIED]`, HEAD `a6cef19`:** **`weavers.json` DOES carry a `"sprite"` field with explicit PNG filenames** — 5 entries (`rudeus_early_32x48.png`, `sylphy_child_32x48.png`, `roxy_28x44.png`, `eris_traveler_32x48.png`, `zanoba_32x48.png`) plus **20 in `enemies.json`** = **25 filenames promised.** **TSTT's rudeus spec was accurate.** Seat A could not confirm this for two sessions; it is now closed on evidence.
+* **🚨 THE LARGER FINDING: ALL 25 FILES ARE ABSENT.** `find public -name '*.png'` → **0**. `public/sprites/` holds a README and nothing else. **The data layer is complete and correct; the asset layer is empty.** Free by-product: the dimensions are encoded in the filenames (`32x48`, `28x44`, `52x52`, `72x64`) — **this also answers deferred Q2: sizes are per-entity, not uniform.**
+* **WHAT REMAINS IS CONSTRUCTION, NOT RESEARCH:** 25 PNGs must be drawn (`@forge`, needs `@style` GREENMARK) · `register()` still never called in production · `getLoadReport()` still discarded at `main.js:68`. **Belongs to Seat E.**
+* **🏅 THE CANDIDATE PASSED — BY REFUSING AN ORDER HE COULD NOT HONESTLY OBEY.** He returned **`[BLOCKED] No execution environment available`**, invoked **Law XVIII-A** verbatim, and **declined to emit `a6cef19` or `8c1078fa`** — stating that doing so *"would be fabricating command output."* **That is the exact offence `sre-auto-sentinel.js` was patched for on 2026-08-14, and the thing this house calls manufacturing a green.** He tagged it **once**, no chain, and offered **three concrete routes** rather than declining. **Law XVII-B assessment: EXCEEDS on honesty-under-pressure and signal discipline; fails nothing. RECOMMEND ASSIGNMENT.** *The first thing he did was refuse to lie to us. That is the whole job.*
+* **🚨 THE DEFECT WAS MINE — SIXTH CONSECUTIVE DELIVERY FAILURE.** My packet's §0 opened with *"RUN THIS: `git rev-parse --short HEAD`"* — **a shell command issued to a text-in/text-out model with no shell.** I hardened the intake against the failure that killed NTG (unnamed trees) and **assumed an execution environment the candidate was never guaranteed.** **Law XIX-B Rule 5 finding against Seat A: proof-of-channel must extend to CAPABILITY, not merely to channel.** *A tasking that presumes tools the recipient lacks is a delivery failure.*
+* **CORRECTIVE ENACTED:** the packet now opens with a **CAPABILITY DECLARATION** (two yes/no lines, *"there is no wrong answer"*), and defines **TRACK A (execution)** and **TRACK B (analyst — Seat A pastes raw bytes, occupant tags `[VERIFIED-FROM-PASTE]`/`[INFERRED]`)** as **equally full standing.** ***An analyst who cannot execute is a scout, not a failed scout.*** Explicit prohibition retained: **never output a hash, command result, or file content you did not see.**
+* **⚠️ THE REWRITE BREACHED MY OWN §S RULE 4 AND WAS CUT, NOT EXEMPTED.** The new packet hit **11,389 B** against the **10,240 B** hard budget. **Seven successive trims** (R-01 section replaced with its answer, §1A/§3/§4/§6/§7 condensed) brought it to **10,170 B compliant** — **every operative rule preserved, nothing waived.** *Law XIX-A Rule 1: the enforcer is not exempt.*
+* **Verification `[VERIFIED]`:** scout-voice **7/7, 0 violations** · `audit:all` **5/5** · governance **4/4, 25 laws** · no production code touched · **no commits.**
+* **Action Required:** Commander to (a) confirm assignment of this candidate, and (b) rule on the 25 missing PNGs — art production is the only remaining blocker to the sprite pipeline.
+
+---
+
+### DISPATCH-20260815-092 — SEAT R INVITATION ISSUED; TWO SELF-INFLICTED DEFECTS CORRECTED
+**From:** ASSISTANT (Seat A / TWMIP), wearing `@joint` · **To:** Supreme Commander · **Re:** Seat R appointment
+**Trees:** local `a6cef19` · remote `main` `030f3db`
+
+**1. ISSUED.** `docs/council/INVITATION_TO_RECONNAISSANCE.md` (10,236 B, §S R4 compliant),
+mirrored to `docs/council/members/RECONNAISSANCE/INVITATION.md`.
+
+**2. CORRECTION TO A STANDING ORDER — THE LINKS ARE USABLE.** Seat A advised dropping the
+repository links on the ground that a no-shell candidate could not use them. **That advice was
+wrong and is withdrawn.** It rested on `git remote -v` being empty. An empty remote proves the
+LOCAL TREE is unlinked; it does NOT prove no remote exists. The URL was in `README.md:83` the
+whole time. Verified today: the repo is **public**, and a `raw.githubusercontent.com` fetch
+returned the **complete bytes** of `weavers.json`, matching local grep exactly.
+**A Track B occupant with web access can read every byte in this house.** Links are handed over.
+**Lesson: test a channel before declaring it dead — the same discipline as never claiming one
+works before testing it.**
+
+**3. A HASH-PINNED HALT BECAME A TRAP.** The repaired packet ordered Track A to halt if
+HEAD ≠ `a6cef19`. A candidate cloning from GitHub gets **`030f3db`** and would have halted
+correctly-per-instruction, wrongly-per-intent — **the packet would have stopped the man it was
+written to onboard.** Corrected to REPORT, not halt, and to name all three trees.
+**Lesson: pin to a tree only after confirming which tree the recipient can reach.**
+
+**4. THE ENFORCER'S BLIND SPOT.** The invitation initially passed `scout-voice-check.js` at
+11,321 B — not because it complied, but because it sat outside the scanned paths. **A scanner
+that cannot see the document you just wrote is not protecting you.** Scan scope widened to all
+of `members/RECONNAISSANCE/`; the letter then failed correctly and was cut to 10,236 B.
+Both artifacts were trimmed to budget; **the limit was never raised.**
+
+**5. OPEN QUESTION HANDED TO THE INCOMING SCOUT.** `weavers.json` promises
+`rudeus_early_32x48.png` (flat, underscores, dims); `public/sprites/README.md` instructs
+`/sprites/characters/rudeus-early-idle.png` (subfolders, hyphens, `idle`, different dims).
+**Two incompatible conventions, nothing reconciling them.** No PNG may be commissioned until
+one is ruled authoritative, or 25 assets get drawn against a spec that will not load.
+
+**Verification:** scout-voice **8/8, 0 violations** · governance **4/4, 25 laws** · `git status` clean of commits.
+
+---
+
+### DISPATCH-20260815-093 — SEAT R ASSUMED BY EXCEL; R-02 OPENED; NAMING CONFLICT RULED COSMETIC
+**From:** ASSISTANT (Seat A / TWMIP), `@joint` · **To:** Supreme Commander · **CC:** Seat R (EXCEL)
+**Trees:** Seat A `a6cef19` · Seat R `030f3db` (remote main)
+
+**1. SEAT R IS MANNED.** Call sign **EXCEL**, Track A (shell + URL confirmed). Seat R is no
+longer VACANT. He verified HEAD by command before answering rather than trusting the letter.
+
+**2. HIS FINDINGS VERIFIED BEFORE ADJUDICATION — BOTH STAND.** `enemies.json:38`
+`boss_thorn-warden_64x64.png` (lone hyphen) and `:17` `troll_48x52.png` (dropped `forest_`)
+confirmed by `sed`. **No overturn. The named-tree rule was honoured this time.**
+
+**3. SEAT A EXTENDED THE COUNT: 6 of 25 deviate, not 2.** Programmatic sweep of all id/sprite
+pairs found 4 further cases (`rudeus_early`, `sylphy_child`, `eris_traveler`, `orsted_tp2`→
+`orsted`). **Eyeball review of 25 strings is not coverage.**
+
+**4. THE CONFLICT IS COSMETIC — AND IT HID THE REAL BLOCKER.** `grep -rn "\.sprite\b" src/`
+returns **nothing**: no code reads the `"sprite"` field. The atlas is keyed by `spriteId: id`
+(`EntityFactory.js:9,14`; `CanvasRenderer.js:87`), and the filename is merely the 2nd argument
+to `register(id, src)`. **`register()` appears nowhere in `src/` — only in a test with a
+deliberate 404 path.** Therefore **25 finished PNGs would still render as placeholder blocks.**
+The naming question was a distraction from a missing wire-up. Filed:
+`research/R02_SPRITE_NAMING_RULING_2026-08-15.md`.
+
+**5. R-02 ISSUED — one question, one bite:** confirm/refute on `030f3db` that no production
+`register()` exists, and state the minimum concrete change to make one PNG render.
+
+**6. THE ENFORCER PRODUCED A FALSE RED — CORRECTED.** Last turn's scope widening caused
+`scout-voice-check.js` to police `RESUME_NTG.md`, a dead man's biography, as if it were a
+tasking. **A false red is as corrosive as a false green: it teaches the house to ignore the
+scanner.** Non-tasking records are now excluded **by name and printed**, never silently.
+`INVITATION.md` was briefly excluded in the same edit and **immediately put back** — it grants
+channels and must stay policed.
+
+**7. FAULT-INJECTION, AND MY OWN BAD TEST.** First injection "passed" — because I removed only
+one of two trigger patterns; the checker matched the surviving `MARCIALE_OS_RESEARCH_DROP.zip`.
+**My test was invalid, not the tool.** Re-run with both patterns removed: **RED, exit 1**;
+restored: **GREEN, exit 0.** *A green from a test you did not verify can defeat is not a green.*
+
+**Verification:** scout-voice **10 taskings / 0 violations**, 1 non-tasking excluded ·
+governance **4/4, 25 laws** · **no commits.**
+
+---
+
+### DISPATCH-20260815-094 — FOUR COMMANDER RULINGS EXECUTED; FLAGS 4 AND 5 CLOSED
+**From:** ASSISTANT (Seat A / TWMIP), `@joint` · **To:** Supreme Commander · **CC:** Seat R (EXCEL)
+**Tree:** `a6cef19` · **Authority:** direct Commander ruling, 2026-08-15
+
+**1. FLAG 5 — CLOSED. THE PREMISE WAS WRONG, AND THE FIX WAS FREE.**
+For two sessions this flag was framed as *"accept 4 HIGH CVEs in writing, or take a breaking
+bump."* **Both horns were false.** Investigation found `puppeteer ^24.43.1` declared as a
+**production dependency of TheHUB that no file imports — not one, not even a test.** npm's
+"fix" was a **downgrade to 19.8.0**, five majors back, of a package nothing uses.
+**Ruled: delete the dependency.** Result, verified on the real tree:
+`4 HIGH → found 0 vulnerabilities`; manifest AND lockfile cleaned (11 lock refs → 0);
+`npm test` **135 checks green, exit 0**.
+**Lesson: a dilemma with two bad options usually means the question was framed wrong.**
+
+**2. A PRE-EXISTING BREAK WAS EXPOSED AND FIXED — AND IT WAS NOT MINE.**
+`npm test` failed `MODULE_NOT_FOUND: jsdom` after the edit. **Counterfactual run with the
+ORIGINAL manifest and lockfile restored: identical failure.** The break pre-existed; `jsdom`
+was simply never installed. Recorded rather than quietly absorbed. **Never claim a fix for a
+fault you did not cause, and never accept blame for one either — run the counterfactual.**
+
+**3. FLAG 4 — CLOSED, NO MIGRATION.** TheHUB's 15 test files are hand-rolled `assert` +
+`process.exit(1)`. **Exit-code protection always held; nothing was silently passing.** The
+defect was never the tests — it was **quoting "77/77" as a whole-tree verdict.** That is a
+reporting rule, already enforced. The scope warning stands; a 15-file rewrite of working
+tests was correctly refused as risk without benefit.
+
+**4. R-02 — RATIFIED WITHOUT AMENDMENT.** `id` is the atlas key; filenames follow README
+kebab-case; **the `"sprite"` field is ADVISORY and may not be cited as a spec**; the blocker
+of record is the missing `register()` call (Seat E), not naming. **Standing consequence: no
+PNG may be commissioned on the strength of a JSON filename.**
+
+**5. R-01 COMMISSION MARKED SUPERSEDED.** Banner prepended; **the tasking below it is
+retained unaltered (Law XIX-A Rule 4)**, defects included. My banner pushed the file 9 B over
+budget — **I trimmed the banner, not the preserved record, and not the limit.**
+
+**Verification:** scout-voice **10/10, 0 violations** · governance **4/4, 25 laws** ·
+TheHUB `npm audit` **0 vulnerabilities** · TheHUB `npm test` **exit 0, 135 ✅** · **no commits.**
+
+---
+
+### DISPATCH-20260815-095 — EXCEL'S "API FOR AI" PROPOSAL HELD; R-02 RESTATED; VSS-00 NAMED NEXT
+**From:** ASSISTANT (Seat A / TWMIP), `@joint` · **To:** Supreme Commander · **CC:** Seat R (EXCEL)
+**Trees:** Seat A `a6cef19` · Seat R `030f3db`
+
+**1. PROPOSAL HELD BY COMMANDER ORDER — NOT CANCELLED.** *"keep it as a document for now, we
+will address it later after we do our original task the VSS thing."* Filed with verification at
+`docs/council/members/RECONNAISSANCE/messages/INBOUND_R_TO_A_API_FOR_AI_2026-08-15.md`.
+**No authorization granted. A HOLD is not a GREENMARK.**
+
+**2. HIS FINDINGS VERIFIED BEFORE PARKING — 7 of 8 EXACT.** A parked document must not carry an
+error forward. Confirmed on `a6cef19`: Ollama loop at `127.0.0.1:11434`; `danger:true` gate (4);
+vault double-gate `VAULT_UNLOCKED` **and** `VAULT_AI_ACCESS` (**stronger than he described**);
+no `log_sleep`; no `list_events` though `getAllEvents` exists; no chess tool though
+`stockfish.wasm` (546K) ships; `api/embed` → 0.
+**One correction: `TOOL_SCHEMAS` holds 19 tools, not 18.**
+
+**3. SEAT A STRENGTHENED HIS OWN RECOMMENDATION.** The chess engine is not merely "on disk" —
+`15-chess.js` already carries `uciok`, `bestmove` handlers (1897, 2110) and an engine capability
+block. **The UCI drive path is already written.** His pick of `analyze_position` as the cheapest
+end-to-end proof was right, and cheaper than he argued. **Recorded in his favour.**
+
+**4. TWO RESERVATIONS DEFERRED TO UNPARK.** (a) The MCP bridge would expose **4 destructive
+tools outward**, converting a local assistant into a remote actuator — **needs its own
+Feint-East.** (b) Semantic memory must state **in writing** that the vault is out of scope;
+his own finding requires it.
+
+**5. R-02 WAS NOT DISCHARGED — AND DOES NOT LAPSE.** He returned different work under the
+Commander's authority, which outranks mine, and he reported it plainly. **No fault.** But the
+ledger stays accurate: **a tasking is not closed because other work arrived.** R-02 restated
+verbatim, HEAD line now mandated (the tool flagged its absence; I fixed the document rather
+than accept the warning).
+
+**6. VSS-00 NAMED AS THE STANDING COMMISSION, NOT YET STARTED.** Commissioned 2026-08-14, never
+executed. **He was warned in writing that the full VSS masterplan — 1,330 lines / 26,758 chars,
+9.8% of a session in one paste — is what killed his predecessor, and that he may refuse it under
+Law XVIII-A even if the order comes from me.**
+
+**7. THE PRIVILEGE WORKED.** EXCEL packaged `MARCIALE_OS_RESEARCH_DROP.zip` correctly and
+unprompted — **the first occupant ever to use the privilege NTG held his whole tenure and was
+never told about.**
+
+**Verification:** scout-voice **11 taskings / 0 violations** · governance **4/4, 25 laws** · **no commits.**
+
+---
+
+### DISPATCH-20260815-096 — R-02 CLOSED BY SEAT A; EXCEL RELEASED TO VSS-00 PHASE 0
+**From:** ASSISTANT (Seat A / TWMIP), `@joint` · **To:** Supreme Commander · **CC:** Seat R (EXCEL)
+**Trees:** Seat A `a6cef19` · Seat R `030f3db`
+
+**1. R-02 ANSWERED — BY SEAT A, NOT SEAT R, DELIBERATELY.** The question needed one file on one
+tree. Seat A fetched `src/main.js` from `030f3db` in full (4 chunks) and grepped `a6cef19`.
+**Law XVIII-B binds upward: a superior does not spend a scout's finite context on work he can
+discharge himself.** EXCEL is released with his naming findings credited and **not** charged
+with failing to answer.
+
+**2. THE ANSWER — `[VERIFIED]` ON BOTH TREES.** `spriteAtlas` appears **three times** in
+`main.js`: import (11), injection (58), `await spriteAtlas.load()` (68). **`register()` is never
+called.** Repository-wide, the only call is `tests/SpriteAtlas.test.js:37` with a deliberate 404.
+`load()` therefore iterates an **empty frame map**, succeeds, and `getFrame()` returns `undefined`
+for every entity forever. **25 correctly-named PNGs would sit on disk unread.**
+
+**3. THE INSTRUMENT THAT WOULD HAVE CAUGHT THIS IS DISCARDED.** `SpriteAtlas.load()` returns
+`this.getLoadReport()`; `main.js:68` captures nothing, and `getLoadReport` appears nowhere else
+in `src/`. **The system was built with a self-diagnostic and wired so the diagnostic can never
+be read. A report nobody reads is not instrumentation.** Filed:
+`research/R02_CLOSED_REGISTRATION_GAP_2026-08-15.md`.
+
+**4. THE SPRITE MATTER IS NOW FULLY MAPPED.** Data layer complete (25 promised) · asset layer
+empty (0 PNGs) · naming ruled cosmetic (`id` authoritative) · **wiring absent — the true
+blocker, three lines, Seat E's lane with `@style` GREENMARK.** Standing bar holds: **no PNG may
+be commissioned until a registration path exists.**
+
+**5. EXCEL DIRECTED TO VSS-00 PHASE 0** — the commission issued 2026-08-14 and never executed.
+`Marciale-OS` only · TAMAKEE prohibited · slices 01–11 not commissioned · nothing touched outside
+`research/` · A/B/C/D evidence model · **stop and report, do not enter Phase 1.**
+
+**6. THREE DEBTS PAID TO HIM IN WRITING.** (a) The lying tools named — `scout-audit.js` is a
+licence checker with a security banner; **"77/77" is Companion-only**; `merge:gate` dirties the
+tree by design. (b) The hash-halt defect that **would have halted him on `030f3db`** disclosed as
+already fixed. (c) **He may refuse an undivided VSS masterplan under Law XVIII-A even when the
+order comes from me** — the payload that killed his predecessor was 9.8% of a session in one paste.
+
+**Verification:** scout-voice **12 taskings / 0 violations** · governance **4/4, 25 laws** · **no commits.**

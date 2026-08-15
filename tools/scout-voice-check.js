@@ -28,18 +28,39 @@ console.log('======================================================\n');
 const scanDirs = [
   path.join(rootDir, 'docs/council/members/RECONNAISSANCE/tasks'),
   path.join(rootDir, 'docs/council/members/RECONNAISSANCE/conversational logs/messages/ASSISTANT'),
+  // 2026-08-15: the Seat R INVITATION is an intake artifact and is bound by the
+  // same rules. It was written OUTSIDE these paths and therefore passed unchecked
+  // -- a blind spot, not compliance. A scanner that cannot see the document you
+  // just wrote is not protecting you. Added rather than exploited.
+  path.join(rootDir, 'docs/council/members/RECONNAISSANCE'),
 ];
 
 let docs = [];
+let skipped = [];
+// This tool polices TASKINGS ISSUED TO Seat R. Historical/biographical records are
+// not taskings -- no one is being ordered, so no channel can go undisclosed. Judging
+// NTG's resume by a tasking rule produces a FALSE RED, and a false red is as
+// corrosive as a false green: it teaches the house to ignore the scanner. Excluded
+// BY NAME and PRINTED below, never silently dropped.
+const NON_TASKING = new Set(['RESUME_NTG.md']);
 for (const d of scanDirs) {
   if (!fs.existsSync(d)) continue;
   for (const f of fs.readdirSync(d)) {
-    if (f.endsWith('.md') && !f.startsWith('.')) docs.push(path.join(d, f));
+    if (f.endsWith('.md') && !f.startsWith('.')) {
+      if (NON_TASKING.has(f)) { skipped.push(path.join(d, f)); continue; }
+      docs.push(path.join(d, f));
+    }
     // 'superseded/' is a quarantine of historical faults, deliberately NOT repaired
     // (Law XIX-A Rule 4: the offence is preserved as the artifact). It is a
     // subdirectory, so readdirSync never descends into it -- noted here so no
     // successor "fixes" the scanner by widening the walk.
   }
+}
+
+if (skipped.length) {
+  console.log('   ℹ️  Excluded as NON-TASKING records (not orders, no channel to grant):');
+  for (const f of skipped) console.log(`      - ${path.relative(rootDir, f)}`);
+  console.log('');
 }
 
 let violations = 0;

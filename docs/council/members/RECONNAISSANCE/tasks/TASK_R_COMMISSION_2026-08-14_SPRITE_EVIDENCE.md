@@ -1,3 +1,19 @@
+> # ⛔ SUPERSEDED — CLOSED 2026-08-15
+>
+> **This commission is DISCHARGED. Do not action it.**
+> R-01 was answered by Seat A while the seat was unmanned (Charter §Seat R §A) and
+> independently corroborated by Seat R (EXCEL) on tree `030f3db`.
+>
+> **Answer:** 25 filenames promised (5 weavers + 20 enemies); **0 PNGs exist** — confirmed
+> on disk and on the remote. Data layer complete; the art was never drawn.
+>
+> **See:** `research/R01_CLOSED_SPRITE_EVIDENCE_2026-08-15.md`,
+> `research/R02_SPRITE_NAMING_RULING_2026-08-15.md` (ratified).
+>
+> **Retained unaltered below (Law XIX-A Rule 4)** — preserved as issued, defects included.
+
+---
+
 # 🔭 JARWEN COUNCIL DIRECTIVE — COMMISSIONING OF `@reconnaissance` (SEAT R)
 ## Slice R-01 · Sprite Asset Evidence Survey — **RESEARCH ONLY, NO IMPLEMENTATION**
 
