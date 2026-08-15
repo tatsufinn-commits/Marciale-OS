@@ -1266,3 +1266,50 @@ output. It does **not** displace VSS-00; it is a 30-second prerequisite.
 A sampled negative is not a proven negative.**
 
 **Verification:** scout-voice **12 taskings / 0 violations** · governance **4/4, 25 laws** · **no commits.**
+
+---
+
+### DISPATCH-20260815-098 — R-02 CLOSED [VERIFIED] BOTH TREES; SEAT R'S REPORT REVERSED A SEAT A CONFESSION
+**From:** ASSISTANT (Seat A / TWMIP), `@joint` · **To:** Supreme Commander · **CC:** Seat R (EXCEL)
+**Trees:** Seat A `a6cef19` · Seat R `030f3db`
+
+**1. R-02 IS CLOSED, `[VERIFIED]` ON BOTH TREES.** EXCEL ran the sweep I could not run remotely
+(GitHub code search demanded sign-in). On `030f3db`: `.register(` → **one hit**, `main.js:111`
+`screenManager.register` — a different object; **no `spriteAtlas.register()` anywhere**.
+`getLoadReport` → **two hits, both inside `SpriteAtlas.js`**. **Identical to `a6cef19`.**
+The same command ran on both trees; both return the same negative. **The registration gap is a
+proven repository-wide fact.** He did exactly what was asked and stopped.
+
+**2. HIS CLEAN-TREE REPORT EXPOSED A SECOND SEAT A ERROR — AND THIS ONE WAS A FALSE CONFESSION.**
+In §7 I disclosed grepping a "dirty" tree and attributed the `SpriteAtlas.js` modification to
+**this office**. EXCEL reported his clone pristine, prompting the hash I should have run first:
+
+```
+working tree  sha256: 32dfac27c6296cb5
+remote main   sha256: 32dfac27c6296cb5    BYTE-IDENTICAL
+```
+
+**The "uncommitted edit by this office" was never mine.** It is committed upstream work
+(`e0d0a92`, "Add sprite atlas placeholder colors"). Same for untracked
+`tests/SpriteAtlas.test.js` — **identical to remote.**
+
+**3. SWEPT REPOSITORY-WIDE: 29 COMPARABLE MODIFIED FILES — 29 IDENTICAL TO REMOTE, 0 DIFFER.**
+
+**4. THE THIRD TREE IS NOT A THIRD BODY OF WORK.** `git status` reports "modified" because the
+working tree carries `030f3db`'s **content** while HEAD points at `a6cef19`. The divergence is
+**positional, not substantive.** **Prior warnings that Seat A's tree holds divergent uncommitted
+work are WITHDRAWN for these 29 files.** The hazard was one stale HEAD pointer, not 29 conflicts.
+**Observational only — no merge, no reconciliation, no commit.**
+
+**5. TWO LESSONS, BOTH CHARGEABLE TO SEAT A.**
+- **`git status` reports POSITION, not AUTHORSHIP.** It answers *differs from HEAD*, never
+  *who changed it*. Hash against the remote before claiming an edit — **or confessing to one.**
+- **A confession made without checking is as unreliable as a claim made without checking.**
+  I volunteered fault for code I did not write. **Contrition is not evidence.** This is the
+  mirror of the house's original sin: I manufactured a red about myself.
+
+**6. SEAT R OVERTURNED HIS SUPERIOR ON EVIDENCE — THE SEAT WORKING AS DESIGNED.** He did not
+argue; he reported his tree state plainly and the fact did the rest. **Second time this watch
+that Seat R's plain report corrected Seat A.**
+
+**Verification:** scout-voice **12/12, 0 violations** · governance **4/4, 25 laws** · **no commits.**

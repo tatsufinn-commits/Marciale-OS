@@ -1180,3 +1180,12 @@ When you clone this repository in a new chat:
   snake_case aliases only; `register`/`load`/`getLoadReport` untouched, confirmed vs HEAD).
 - **R-02-B issued:** repository-wide `register()` sweep on `030f3db` — the one thing only
   Seat R can run. Does not displace VSS-00.
+
+## 2026-08-15 — R-02 CLOSED [VERIFIED] both trees; Seat A's "dirty tree" confession reversed
+- EXCEL's sweep on `030f3db` matched `a6cef19` exactly: one `.register(` hit (screenManager),
+  `getLoadReport` only inside its own class. **Registration gap proven repository-wide.**
+- **False confession corrected:** the "uncommitted `SpriteAtlas.js` edit by this office" is
+  **byte-identical to remote main** (`32dfac27…`) — upstream commit `e0d0a92`, not our work.
+- **29 of 29 comparable modified files are byte-identical to remote; 0 differ.** The local tree
+  is remote content on an older HEAD — **positional divergence, not 29 conflicting versions.**
+- Prior "divergent uncommitted work" warnings **withdrawn** for those 29 files. No commits made.

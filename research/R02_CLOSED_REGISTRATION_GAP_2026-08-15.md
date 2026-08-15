@@ -2,7 +2,7 @@
 
 **Filed:** 2026-08-15 · **Closed by:** Seat A (TWMIP), `@joint`
 **Trees examined:** local `a6cef19` (grep) **and** remote `030f3db` (raw fetch, all 4 chunks)
-**Status:** ⚠️ **ANSWERED ON `a6cef19`; PARTIALLY VERIFIED ON `030f3db` — see §7 CORRECTION.**
+**Status:** ✅ **CLOSED — `[VERIFIED]` ON BOTH TREES.** Seat R ran the same sweep on `030f3db`; identical negative. See §7 (Seat A scope correction) and §8 (a second Seat A error, reversed by Seat R's clean-tree report).
 
 ---
 
@@ -149,3 +149,68 @@ files are `[INFERRED]` identical, not verified.**
 
 **Lesson logged: "verified on both trees" must mean the same command ran on both trees.
 Two files is a sample, not a sweep — and a sampled negative is not a proven negative.**
+
+
+---
+
+## 8. §7'S "DIRTY TREE" DISCLOSURE WAS ITSELF WRONG — REVERSED
+
+**Filed 2026-08-15 after Seat R (EXCEL) reported his tree clean at `030f3db`.**
+
+### 8.1 R-02 CLOSES `[VERIFIED]` ON BOTH TREES
+
+EXCEL ran the sweep I could not run remotely. On `030f3db`:
+
+```
+$ grep -rn "\.register(" Gamecompanion/files/src/ --include=*.js
+main.js:111:  screenManager.register('quests', { render: renderQuestsBody });   <- ONE hit
+$ grep -rn "getLoadReport" Gamecompanion/files/src/ --include=*.js
+rendering/SpriteAtlas.js:36   (inside load())
+rendering/SpriteAtlas.js:77   (the definition)
+```
+
+**Identical to `a6cef19`. The same command ran on both trees and both return the same
+negative.** The registration gap is now a proven repository-wide fact, not an inference.
+**Seat R discharged in one pass exactly what was asked, and nothing more.**
+
+### 8.2 THE ERROR HIS REPORT EXPOSED
+
+§7 disclosed that I had grepped a "dirty" tree — `SpriteAtlas.js` showing as
+uncommitted-modified — and I attributed that edit to **this office**. EXCEL reported his tree
+**pristine**, which prompted the check I should have run first:
+
+```
+working tree  sha256: 32dfac27c6296cb5
+remote main   sha256: 32dfac27c6296cb5   <- BYTE-IDENTICAL
+```
+
+**The "uncommitted modification by this office" is byte-identical to remote `main`.** It is not
+my edit at all — it is **committed upstream work** (`e0d0a92`, "Add sprite atlas placeholder
+colors"). The same holds for the untracked `tests/SpriteAtlas.test.js`: **identical to remote.**
+
+**Swept repository-wide:** of 35 modified tracked files, 29 were fetchable from remote main.
+**29 IDENTICAL. 0 DIFFER.** (6 unfetchable, plus 21 more paths not on remote.)
+
+### 8.3 WHAT THIS ACTUALLY MEANS — THE THIRD TREE IS NOT A THIRD BODY OF WORK
+
+`git status` on `a6cef19` reports "modified" because the **working tree carries `030f3db`'s
+content while HEAD points at `a6cef19`.** The divergence is **positional, not substantive**:
+**the local tree is not dirty with unsaved edits — it is the remote's content on an older HEAD.**
+
+**Consequences:**
+1. **I mis-attributed authorship of code I did not write** and confessed to an edit that was
+   never mine. **A confession made without checking is as unreliable as a claim made without
+   checking.** Contrition is not evidence.
+2. `git status` alone **cannot distinguish "my uncommitted work" from "upstream work sitting in
+   my working tree."** Only a content hash against the remote can. **"Modified" answers *differs
+   from HEAD* — never *who changed it*.**
+3. The three-tree hazard is **materially smaller than recorded**: on every comparable file,
+   Seat A's working tree and remote `main` **agree byte-for-byte**. The risk was never 29
+   conflicting versions; it was **one stale HEAD pointer**.
+
+**Standing correction to the record: prior warnings that Seat A's tree held divergent
+uncommitted work are WITHDRAWN for these 29 files. No merge, no reconciliation, no commit was
+performed — the finding is observational only.**
+
+**Lesson: `git status` reports POSITION, not AUTHORSHIP. Hash against the remote before you
+claim an edit is yours — or confess to one.**
