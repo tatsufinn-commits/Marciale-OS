@@ -92,14 +92,20 @@ async function runStatus() {
 
   // 5. Verification Commands
   console.log('\n⚡ OPERATIONAL QUICK COMMANDS:');
-  console.log('   • Run Full Test Suite:    npm test            (Runs 43 test suites / 137 assertions)');
+  console.log('   • Run Full Test Suite:    npm test            (Companion emits TAP; TheHUB does not)');
   console.log('   • Run Web Security Audits: npm run audit:all  (Scout, WCAG 2.2 & Bridge contracts)');
   console.log('   • Run SRE Fault Scanner:  npm run sre:scan    (Automated diagnostic & redmark scan)');
   console.log('   • Check Studio Plate:     npm run plate:check (Mapúa Architecture plate validator)');
   console.log('   • Start TheHUB Server:    npm start           (Launches Python server on :8000)');
 
+  // HOTFIX 2026-08-15 (Law XIX-A Rule 3 - Commandment IV - JOINT/@qa audit):
+  // This banner previously printed "100% OPERATIONAL & VERIFIED GREEN" unconditionally.
+  // quick-status runs NO test and inspects NO result. It is an inventory tool.
+  // A status board that renders a verdict it never measured launders failure as proof.
   console.log('\n================================================================');
-  console.log('🎉 SYSTEM INTEGRITY: 100% OPERATIONAL & VERIFIED GREEN');
+  console.log('INVENTORY COMPLETE - NO VERDICT RENDERED');
+  console.log('   quick-status inspects presence and size only. It executes no tests.');
+  console.log('   For a measured verdict run: npm run pangolin  (parses harness output)');
   console.log('================================================================\n');
 }
 

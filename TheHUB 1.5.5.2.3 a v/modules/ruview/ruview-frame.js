@@ -497,6 +497,9 @@
       
       // Listen for parent commands
       window.addEventListener('message', function(e){
+        // SECURITY 2026-08-15 (@joint fault audit): e.data.from is forgeable.
+        if(e.origin && e.origin !== 'null' && e.origin !== window.location.origin) return;
+        if(e.source && e.source !== window.parent) return;
         if(e.data && e.data.from === 'TheHUB'){
           if(e.data.type === 'ruview:request_state') sendToParent('ruview:state_response', { bridgeVersion: BRIDGE_VERSION, ts: Date.now() });
         }

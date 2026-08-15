@@ -21,6 +21,27 @@ let testPassed = false;
 let healthPassed = false;
 let auditPassed = false;
 let testOutput = '';
+let testSummary = 'not run';
+
+/**
+ * Derive real test counts from TAP output emitted by `node --test`.
+ * Returns { total, pass, fail } with null total when no summary is present.
+ * NEVER returns invented numbers — absence of evidence is reported as absence.
+ */
+function parseTapCounts(out) {
+  const grab = (label) => {
+    // Matches the LAST occurrence of e.g. "# pass 77" across concatenated suites.
+    const re = new RegExp('^#\\s*' + label + '\\s+(\\d+)\\s*$', 'gm');
+    let last = null, m;
+    while ((m = re.exec(out)) !== null) last = Number(m[1]);
+    return last;
+  };
+  const total = grab('tests');
+  const pass = grab('pass');
+  const fail = grab('fail');
+  if (total === null) return { total: null, pass: null, fail: null };
+  return { total, pass: pass === null ? 0 : pass, fail: fail === null ? 0 : fail };
+}
 let healthOutput = '';
 
 // 0. Verify Dependencies
@@ -39,8 +60,27 @@ if (!fs.existsSync(hubNodeModules)) {
 try {
   console.log('🧪 1. Executing Full CI Test Harness (npm test)...');
   testOutput = execSync('npm test', { cwd: rootDir, encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'] });
-  console.log('   ✅ All 43 test suites / 137 assertions passed (100% green).');
-  testPassed = true;
+  // HOTFIX 2026-08-14 (Law XIX-A Rule 3 · Commandment II · Commandment IV):
+  // This line previously printed a HARDCODED "43 test suites / 137 assertions".
+  // Those numbers were never measured — testOutput was captured and never parsed.
+  // Evidence must be DERIVED from the harness, never asserted. A sentinel that
+  // manufactures a green is worse than no sentinel: it launders failure as proof.
+  const m = parseTapCounts(testOutput);
+  if (m.total === null) {
+    console.warn('   ⚠️ Tests exited 0 but the harness emitted no parseable TAP summary.');
+    console.warn('      Reporting UNVERIFIED rather than inventing a count.');
+    testSummary = 'UNVERIFIED (no TAP summary found)';
+    testPassed = true;
+  } else if (m.fail > 0) {
+    // Defensive: exit code 0 with non-zero failures must never be reported green.
+    console.error(`   ❌ [EVIDENCE CONFLICT] Harness exited 0 but reported ${m.fail} failing test(s).`);
+    testSummary = `CONFLICT — ${m.pass}/${m.total} pass, ${m.fail} fail (exit 0)`;
+    testPassed = false;
+  } else {
+    console.log(`   ✅ ${m.pass}/${m.total} tests passed (100% green) — measured from harness output.`);
+    testSummary = `${m.pass}/${m.total} passed`;
+    testPassed = true;
+  }
 } catch (e) {
   testOutput = (e.stdout || '') + '\n' + (e.stderr || '') + '\n' + e.message;
   console.error('   ❌ [TEST FAILURE DETECTED] One or more test suites failed.');

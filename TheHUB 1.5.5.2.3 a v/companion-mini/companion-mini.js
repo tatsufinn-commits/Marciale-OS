@@ -20,7 +20,15 @@
     if($('#miniLast')) $('#miniLast').innerHTML = 'Last feed: ' + esc(latest ? (latest.label || latest.type || 'activity') : 'none');
     if($('#miniBridge')) $('#miniBridge').textContent = 'Bridge: ' + (snapshot.bridge?.deliveryStatus || 'waiting');
   }
+  // SECURITY 2026-08-15 (@joint fault audit, SEV-2): this listener previously
+  // accepted messages from ANY frame. It renders into innerHTML downstream, so an
+  // untrusted poster could drive UI state. Guard: same-origin parent only.
+  // 'null' is permitted for file:// and sandboxed-iframe hosting (see ruview-frame
+  // ALLOWED_ORIGINS, Build 33.3) which is how the mini panel is embedded offline.
+  const MINI_ALLOWED_ORIGINS = [window.location.origin, 'null'];
   window.addEventListener('message', event => {
+    if (event.origin && !MINI_ALLOWED_ORIGINS.includes(event.origin)) return;
+    if (event.source && event.source !== window.parent) return;
     const data = event.data || {};
     if(data.type === 'hub.companion.snapshot') render(data.snapshot);
     if(data.type === 'hub.companion.event') {

@@ -79,6 +79,16 @@ function validatePlate(tla, zone, footprint, rampH, corridorW) {
     console.error(`⚠️  JURY READINESS: 🔴 ${redFlags} CODE RED FLAGS DETECTED! Review numbers above.`);
   }
   console.log('======================================================\n');
+  return redFlags;
 }
 
-validatePlate(tla, zone, footprint, rampH, corridorW);
+// HOTFIX 2026-08-15 (@joint fault audit): this validator printed RED FLAGS and still
+// exited 0 -- it had no process.exit(1) anywhere and could not fail. A statutory
+// compliance check that cannot go red is decoration. The count is now returned by
+// validatePlate() (a local shadowed any module-level counter) and drives the exit code.
+const plateRedFlags = validatePlate(tla, zone, footprint, rampH, corridorW);
+if (plateRedFlags > 0) {
+  console.error(`🚨 PLATE NON-COMPLIANT: ${plateRedFlags} statutory red flag(s). NOT jury-ready.`);
+  process.exit(1);
+}
+process.exit(0);

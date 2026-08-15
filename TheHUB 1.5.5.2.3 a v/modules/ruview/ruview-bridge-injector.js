@@ -180,6 +180,11 @@
   
   // ── Listen for parent commands ──────────────────────────────
   window.addEventListener('message', function(event){
+    // SECURITY 2026-08-15 (@joint fault audit, SEV-2): data.from === 'TheHUB' is a
+    // SELF-DECLARED field any frame can forge. It authenticates nothing. The origin
+    // and the source handle are the only unforgeable facts about a postMessage.
+    if(event.origin && event.origin !== 'null' && event.origin !== window.location.origin) return;
+    if(event.source && event.source !== window.parent) return;
     const data = event.data;
     if(!data || typeof data !== 'object') return;
     if(typeof data.from !== 'string' || data.from !== 'TheHUB') return;

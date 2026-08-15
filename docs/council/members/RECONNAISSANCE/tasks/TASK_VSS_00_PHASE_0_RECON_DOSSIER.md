@@ -11,6 +11,9 @@
 
 ---
 
+> **📦 RESEARCH-DROP PRIVILEGE (Charter · Law XIX-B Rule 4 — restated as a DUTY on Seat A):** After material writes to `research/`, Seat R **MAY** package `MARCIALE_OS_RESEARCH_DROP.zip` containing **only** `Marciale-OS/research/`. **Seat A cannot cancel this drop.** Full-repo zips remain forbidden. *(Retro-fitted 2026-08-15 by `@joint`: the omission of this clause from this document was a Law XIX-B Rule 4 violation chargeable to Seat A.)*
+
+
 # 0. WHY YOU ARE READING THIS, AND WHY IT IS SHORT
 
 This directive is **one slice of twelve**. It is deliberately narrow.

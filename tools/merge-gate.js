@@ -40,8 +40,26 @@ try {
 console.log('\n🧪 [LAYER 3] Executing Full Test Harness (npm test)...');
 try {
   const testOut = execSync('npm test', { cwd: rootDir, encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'] });
-  console.log('   ✅ All test suites passed (100% green).');
-  layer3Passed = true;
+  // HOTFIX 2026-08-15 (Law XIX-A Rule 3 - Commandment II - JOINT/@qa audit):
+  // testOut was captured and NEVER READ, then "100% green" was asserted regardless.
+  // Same defect class as the sentinel fabrication fixed 2026-08-14. Evidence must be
+  // DERIVED from the harness, never asserted alongside it.
+  const tm = testOut.match(/^# tests (\d+)/m);
+  const pm = testOut.match(/^# pass (\d+)/m);
+  const fm = testOut.match(/^# fail (\d+)/m);
+  if (fm && parseInt(fm[1], 10) > 0) {
+    console.error(`   \u274c [EVIDENCE CONFLICT] Harness exited 0 but reported ${fm[1]} failing test(s).`);
+    layer3Passed = false;
+  } else if (tm && pm) {
+    console.log(`   \u2705 ${pm[1]}/${tm[1]} tests passed - measured from harness output.`);
+    console.log('      \u26a0\ufe0f  SCOPE: this TAP summary covers the Companion suite only.');
+    console.log('         TheHUB emits no TAP; its assertions are NOT in this count.');
+    layer3Passed = true;
+  } else {
+    console.warn('   \u26a0\ufe0f  UNVERIFIED - tests exited 0 but emitted no parseable TAP summary.');
+    console.warn('      Reporting UNVERIFIED rather than inventing a green.');
+    layer3Passed = true;
+  }
 } catch (e) {
   console.error('   ❌ [QA FAILURE] Unit test failure detected.');
 }

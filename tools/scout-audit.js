@@ -75,9 +75,15 @@ if (zips.length > 2) {
   console.log(`   ✅ Root archive storage is lean and clean.`);
 }
 
+// HOTFIX 2026-08-15 (@joint fault audit): the banner claimed security this tool
+// never tested. It walks DIRECT dependencies for LICENCE fields only.
+console.log('\n   \u26a0\ufe0f  SCOPE: LICENCE ONLY, DIRECT DEPENDENCIES ONLY.');
+console.log('      No vulnerability scan. No transitive tree walk.');
+console.log('      Read ' + totalDeps + ' declared deps; the installed tree is larger.');
+console.log('      For security posture run: npm audit   (2026-08-15: 4 HIGH unresolved)');
 console.log('\n======================================================');
 if (issuesFound === 0) {
-  console.log(`🎉 SCOUT AUDIT PASSED: ${totalDeps} dependencies scanned with ZERO copyleft or license risks!`);
+  console.log(`🎉 SCOUT LICENCE AUDIT PASSED: ${totalDeps} DIRECT dependencies, ZERO copyleft conflicts.`);
   console.log('======================================================\n');
   process.exit(0);
 } else {

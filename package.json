@@ -18,14 +18,15 @@
     "audit:wcag": "node tools/qa-wcag-audit.js",
     "audit:bridge": "node tools/bridge-contract-verify.js",
     "audit:governance": "node tools/governance-audit.js",
-    "audit:all": "node tools/scout-audit.js && node tools/qa-wcag-audit.js && node tools/bridge-contract-verify.js && node tools/governance-audit.js",
+    "audit:all": "node tools/scout-audit.js && node tools/qa-wcag-audit.js && node tools/bridge-contract-verify.js && node tools/governance-audit.js && node tools/scout-voice-check.js",
     "start": "cd \"TheHUB 1.5.5.2.3 a v\" && python3 server.py",
     "build": "npm --prefix \"Gamecompanion/files\" run build",
     "build:companion": "npm --prefix \"Gamecompanion/files\" run build",
     "dev": "npm --prefix \"Gamecompanion/files\" run dev",
     "dev:companion": "npm --prefix \"Gamecompanion/files\" run dev",
     "install:all": "npm --prefix \"TheHUB 1.5.5.2.3 a v\" install && npm --prefix \"Gamecompanion/files\" install",
-    "hooks:install": "node tools/install-git-hooks.js"
+    "hooks:install": "node tools/install-git-hooks.js",
+    "audit:scoutvoice": "node tools/scout-voice-check.js"
   },
   "keywords": [
     "personal-os",
