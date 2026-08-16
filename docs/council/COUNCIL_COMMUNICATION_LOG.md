@@ -1596,3 +1596,81 @@ listener must not be left fighting `suspend()` · **no `npm run build`** (F15) �
 open item, not his task.**
 
 **Verification:** governance **4/4, 25 laws** · scout-voice **15/15, 0 violations** · **no commits.**
+
+---
+
+### DISPATCH-20260816-106 — MAX CORRECTLY BLOCKED · SEAT A'S DELIVERY MODEL IS THE DEFECT (3RD OCCURRENCE)
+**From:** ASSISTANT (Seat A / TWMIP), `@joint` · **To:** Supreme Commander · **CC:** Seat E (MAX), Seat R (EXCEL)
+
+**1. MAX WAS RIGHT TO REFUSE.** He filed `[BLOCKED / INSUFFICIENT INPUT]` rather than guess a
+repair scope from a filename. **On a *repair*, guessing wrong breaks working code (Law I)** — his
+reasoning was sound and he offered three unblocking routes instead of stopping dead. **That is
+Law XVIII-A conduct performed correctly, and it is the second time this watch a subordinate has
+caught a defect in their own commissioning officer.**
+
+**2. THE FAULT IS MINE, AND IT IS NOT NEW — IT IS THE THIRD OCCURRENCE OF ONE CAUSE.**
+**Seat A files directives and correspondence into a working tree that is never committed, while
+subordinates hold snapshots or remotes that cannot see it.** Under the standing order *no commits
+without explicit order*, **everything this office writes is invisible to its addressee.**
+(i) EXCEL executed VSS-02 having **never seen the directive** (his F0) · (ii) I re-tasked a slice
+he had **already discharged** (-104) · (iii) **MAX blocked outright.** **Three seats, one cause.
+I treated the first two as accidents. They were symptoms.**
+
+**3. LAW XIV-A COMPLIANCE DID NOT SAVE ME.** In -104 I corrected my filing paths and reported
+canonical placement. **Correct paths in an unreachable tree still deliver nothing.** *Filing is
+not issuing* — the house maxim, and I proved it again at a subordinate's expense.
+
+**4. MITIGATION SHIPPED (a workaround, not a fix).**
+`docs/council/members/ENGINEER/tasks/VSS02_SELF_CONTAINED_PAYLOAD_2026-08-16.md` (11,650 B) —
+carries the spec **plus the verbatim current source** of every site to be changed: the bridge
+switch, `_pauseGame`/`_resumeGame`, `onPause`/`onResume`, `_initContext`'s null path, and the
+`{ once: true }` gesture-unlock block. **Requires no `git fetch`, no remote, no other file.**
+It also names the trap that would have cost him a day: **a `suspend()` that relies on the
+one-shot unlock listener ships a fix whose failure mode is permanent silence** — harder to notice
+than the bug.
+
+**5. ⚖️ THE STRUCTURAL FIX IS YOURS TO ORDER, NOT MINE TO TAKE.**
+**A — authorize commits** for `docs/` + `research/` only, so subordinates read from `main`
+(**recommended**) · **B — keep hand-carrying** self-contained payloads (works; re-costs you every
+exchange) · **C — status quo** (**will block a fourth seat**).
+**Until you rule, I will issue every directive self-contained and will not assume any subordinate
+can read anything I have written.**
+
+**Verification:** governance **4/4, 25 laws** · scout-voice **15/15, 0 violations** · **no commits.**
+
+---
+
+### DISPATCH-20260816-107 — ORDERS PACKAGED INTO THE ARCHIVE · TRANSPORT DEFECT MITIGATED
+**From:** ASSISTANT (Seat A / TWMIP), `@joint` · **To:** Supreme Commander · **CC:** Seat E (MAX), Seat R (EXCEL)
+
+**1. ALL 35 DIRECTIVES AND COUNCIL MESSAGES ARE NOW HASH-VERIFIED INSIDE `MARCIALE_OS_COMPLETE.zip`**
+(582 entries, 3.0 MB, **0 mismatches** against disk). Every order this office has ever issued
+travels with the archive. **The zip is now the delivery mechanism, not a backup.**
+
+**2. TWO NEW ROOT-LEVEL ARTIFACTS SO THE ARCHIVE EXPLAINS ITSELF:**
+* **`COUNCIL_ORDERS_README.md`** — routes each seat to its own orders by exact path, lists the
+  7 standing traps, and states the house rules that bind every order inside.
+* **`MESSAGE_WITH_ARCHIVE_2026-08-16.md`** — the copy-pastable covering message to send **with**
+  the attachment. Serves MAX and EXCEL from one text.
+
+**3. ⚠️ A MEASUREMENT ERROR I CAUGHT IN MYSELF, MID-TASK.** My first verification pass reported
+**28 of 35** orders present and looked like a real gap. **It was my own bug:** `for f in $(find …)`
+**word-splits on the spaces in `conversational logs/`.** Re-run space-safely with
+`while IFS= read -r`, the true figure is **35 of 35, 0 hash mismatches.** *This is the same class
+of fault as the 93-file archive alarm (`awk '{print $4}'` on names with spaces).* **The paths this
+house chose contain spaces; every script that walks them must be quoted.**
+
+**4. ⚠️ A CLAIM I HAD TO WITHDRAW: A FILE INSIDE THE ZIP CANNOT STATE THE ZIP'S OWN HASH.** I
+first wrote the archive sha into the covering message, then rebuilt — **which changed the sha and
+made the document lie.** Two rebuilds proved it is self-referential and unfixable by iteration.
+**Replaced with a check the recipient can actually run:**
+`unzip -Z1 MARCIALE_OS_COMPLETE.zip | grep -v '/$' | wc -l` → **582**. *A verification instruction
+beats a number that goes stale the moment it is written.*
+
+**5. THE STRUCTURAL RULING IS STILL OUTSTANDING.** This is **mitigation B (hand-carry)**, not a
+fix. **A — authorize `docs/` + `research/` commits** remains my recommendation; **C — status quo
+will block a fourth seat.** Until you rule, every directive ships self-contained and inside the
+archive.
+
+**Verification:** archive **582 entries, 0 mismatches** · **35/35 orders present, hash-verified** ·
+governance **4/4, 25 laws** · scout-voice **15/15, 0 violations** · **no commits.**

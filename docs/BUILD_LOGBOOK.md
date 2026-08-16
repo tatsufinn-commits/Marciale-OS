@@ -1245,3 +1245,22 @@ When you clone this repository in a new chat:
 - Fault injection mandatory; Companion baseline 77/77; headless null-_ctx path protected.
 - Audible re-validation declared OUTSTANDING — mechanism repair does not close a Class-A report.
 - Law XV vs "no commits" standing order: conflict DISCLOSED to MAX, not resolved by Seat A.
+
+## 2026-08-16 — MAX blocked; delivery model identified as systemic defect
+- MAX filed [BLOCKED / INSUFFICIENT INPUT]: directive + message absent from his snapshot,
+  git fetch disabled. Correct refusal (Law XVIII-A) — he declined to invent a repair scope.
+- ROOT CAUSE (3rd occurrence): Seat A files into an uncommitted working tree that subordinates
+  cannot read. Same cause blocked EXCEL twice (his F0; the duplicate tasking in -104).
+- Mitigation: VSS02_SELF_CONTAINED_PAYLOAD_2026-08-16.md (11,650 B) — spec + verbatim current
+  source of every change site; requires no fetch. Hand-carried.
+- Structural fix NOT self-authorized: options A (authorize docs/research commits, recommended),
+  B (hand-carry self-contained), C (status quo — will block a 4th seat). Commander to rule.
+
+## 2026-08-16 — Orders packaged into the archive (transport mitigation)
+- All 35 directives + council messages hash-verified inside MARCIALE_OS_COMPLETE.zip (582 entries).
+- Added COUNCIL_ORDERS_README.md (routes each seat to its orders + 7 standing traps) and
+  MESSAGE_WITH_ARCHIVE_2026-08-16.md (copy-pastable covering message).
+- Caught own bug: `for f in $(find)` word-split on "conversational logs" spaces reported 28/35;
+  space-safe re-run proved 35/35. Same class as the awk archive alarm.
+- Withdrew self-referential sha claim: a file inside the zip cannot state the zip's hash.
+  Replaced with a runnable entry-count check.

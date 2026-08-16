@@ -32,7 +32,7 @@ checkpoint at every boundary.**
 | **Repairs shipped from findings** | **1** — host-side bridge origin gap (F1/F2/F4/F5) |
 | **Open findings from VSS-00** | **11 of 15** (4 closed by the patch) |
 | **Repository floor** | Marciale-OS only. **TAMAKEE has never been opened.** ✅ |
-| **Current blocker** | **None.** VSS-02 Phase 2 repair commissioned to MAX (Seat E) 2026-08-16. |
+| **Current blocker** | ⚠️ **DELIVERY MODEL.** Seat A files to an uncommitted tree subordinates cannot read. **3rd occurrence.** Needs the Commander's ruling. |
 | **Seat R (Reconnaissance)** | **MANNED** — call sign **EXCEL**, Track A, idle & standing by |
 | **Seat E (Engineer)** | **MAX** — not yet tasked this program |
 | **Commits** | **ZERO.** All work is working-tree only, by standing order. |
@@ -343,3 +343,45 @@ resolved on test evidence alone.**
 commit/push on assigned tasks; the Commander's standing order on this program is **no commits
 without explicit order**. **Seat A did not resolve this by assumption** — MAX is directed to work
 in the tree, report, and **ask before pushing.** *(Awaiting the Commander's word.)*
+
+
+---
+
+## 13. ⚠️ SYSTEMIC DEFECT — THE DELIVERY MODEL IS BROKEN (2026-08-16)
+
+**MAX filed `[BLOCKED / INSUFFICIENT INPUT]` on VSS-02 Phase 2. He was right, and the fault is
+Seat A's.**
+
+**The pattern, three occurrences, one cause:**
+
+| # | Event | Cause |
+|---|---|---|
+| 1 | EXCEL executed VSS-02 without ever seeing the directive; worked from the message body's redundancy (his F0) | Directive existed only in Seat A's uncommitted tree |
+| 2 | Seat A re-tasked a slice EXCEL had **already discharged** (DISPATCH-104) | Seat A could not see EXCEL's remote deliverables |
+| 3 | **MAX blocked** — directive (8,635 B) and message not in his snapshot; `git fetch` disabled | Same |
+
+**Root cause `[VERIFIED]`: Seat A writes correspondence and directives into a working tree that
+is never committed, while subordinates hold snapshots or remotes that cannot see it.** Under the
+standing order *no commits without explicit order*, **every artifact this office files is
+invisible to the seat it is addressed to.** Law XIV-A filing is necessary but **not sufficient** —
+correct paths in an unreachable tree deliver nothing.
+
+**Compounding:** Law XIV-A has **no tooling enforcement** (DISPATCH-104 — `check-divisions.sh`
+does not exist; `grep -ln "conversational logs" tools/*` → no matches).
+
+**Mitigation applied this watch (not a fix):**
+`docs/council/members/ENGINEER/tasks/VSS02_SELF_CONTAINED_PAYLOAD_2026-08-16.md` (11,650 B) —
+a **self-contained payload**: the spec plus the **verbatim current source** of every site to be
+changed (bridge switch, `_pauseGame`/`_resumeGame`, `onPause`/`onResume`, `_initContext`, the
+gesture-unlock block). **Requires no `git fetch` and no other file.** Hand-carried by the
+Commander, the transport that demonstrably works.
+
+**⚖️ THE STRUCTURAL FIX REQUIRES THE COMMANDER'S RULING — three options, none self-authorized:**
+- **A. Authorize commits** for council correspondence + directives (narrow licence: `docs/` and
+  `research/` only). Subordinates then read from `main`. **Recommended.**
+- **B. Keep hand-carrying** — every tasking must be self-contained like this payload. Works, but
+  scales badly and re-costs the Commander on every exchange.
+- **C. Status quo** — continue filing to an invisible tree. **This will block a fourth seat.**
+
+**Until ruled, Seat A will issue every directive in self-contained form (B) and will not assume
+a subordinate can read anything Seat A has written.**
