@@ -28,11 +28,11 @@ checkpoint at every boundary.**
 
 | | |
 |---|---|
-| **Slices discharged** | **1 of 12** — VSS-00 · **VSS-02 recon in flight** |
+| **Slices discharged** | **2 of 12** — VSS-00 · **VSS-02 (Phase 0)** |
 | **Repairs shipped from findings** | **1** — host-side bridge origin gap (F1/F2/F4/F5) |
 | **Open findings from VSS-00** | **11 of 15** (4 closed by the patch) |
 | **Repository floor** | Marciale-OS only. **TAMAKEE has never been opened.** ✅ |
-| **Current blocker** | **None.** VSS-02 Phase 0 commissioned to EXCEL 2026-08-15. |
+| **Current blocker** | **None.** VSS-02 Phase 2 repair commissioned to MAX (Seat E) 2026-08-16. |
 | **Seat R (Reconnaissance)** | **MANNED** — call sign **EXCEL**, Track A, idle & standing by |
 | **Seat E (Engineer)** | **MAX** — not yet tasked this program |
 | **Commits** | **ZERO.** All work is working-tree only, by standing order. |
@@ -75,7 +75,7 @@ when all five Definition-of-Done conditions hold.**
 | Order | Slice | Repo | Status | Notes |
 |---|---|---|---|---|
 | **1st** | **VSS-00** Shared runtime / cohesion | Marciale-OS | ✅ **DISCHARGED** | 15 findings; 4 repaired. Foundation for all others. |
-| 2nd | **VSS-02** Audio lifecycle | Marciale-OS | 🔭 **PHASE 0 IN FLIGHT** | Commissioned 2026-08-15 to EXCEL. Audio continues after navigating away. |
+| 2nd | **VSS-02** Audio lifecycle | Marciale-OS | 🔧 **PHASE 2 REPAIR IN FLIGHT** | EXCEL, 13 findings. Root cause: `TheHUBBridge` has no `case 'hub.frame.pause'` — thread dies in the switch. |
 | 3rd | **VSS-01** IdleHero / Aetherwave | Marciale-OS | ⬜ | Background session/lifesign not visibly represented. Depends on VSS-00 contracts. |
 | 4th | **VSS-06** Intake context integrity | Marciale-OS | ⬜ | Quick Add contaminates unintended context. Isolated blast radius. |
 | 5th | **VSS-03** ChessLab | Marciale-OS | ⬜ | **Largest single-repo slice — 4 observations** (heatmap, Stockfish WASM, Maia ONNX, Vesta ELO). |
@@ -273,3 +273,73 @@ sprite art (the standing bar in §8 holds).
 
 *Maintained under Law XIV. Updated only from re-measured evidence. Last full verification:
 2026-08-15 — TheHUB 147 ✅ · Companion 77/77 · bridge 15/15 · governance 4/4 · **no commits**.*
+
+
+---
+
+## 11. VSS-02 PHASE 0 — DISCHARGED (2026-08-16, Seat R / EXCEL)
+
+**Dossier:** `research/VSS_RECONNAISSANCE_DOSSIER_VSS02.md` (22,082 B) — **13 findings.**
+
+**The Commander's defect explained.** *Audio continues after navigating away* because **nobody
+owns the audio lifecycle.** Three subsystems each hold their own audio with no shared contract
+and **no teardown at all**:
+
+| Trigger | Where sound survives | Mechanism |
+|---|---|---|
+| **Tab-hide** | `Gamecompanion/files/src/main.js:82` `audioSystem.play('hit')` | Loop keeps ticking `combatEngine.tick(dt)` at 5 FPS while hidden; `onHit` fires audio with no pause gate; AudioContext never suspended |
+| **Pause message** | `Gamecompanion/files/src/integration/TheHUBBridge.js:44-63` | Bridge handles `hub.companion.pause` but **not** `hub.frame.pause` — which is what `16-hubframe.js:107` actually posts. **The thread dies in the switch.** |
+| **Frame teardown** | `AudioSystem.js` (no `dispose`) | `HubFrame.destroy()` clears the DOM, posts no audio teardown, cannot suspend the iframe's context |
+
+**Root cause `[VERIFIED — independently reconfirmed by Seat A]`: two divergent pause
+vocabularies.** `hub.frame.*` (HubFrame) vs `hub.companion.*` (14-companion.js:211). The frame's
+pause signal is **dead on arrival**. Confirmed locally: `grep -c "hub.frame" TheHUBBridge.js` → **0**.
+
+**Supporting:** `AudioSystem` public surface is `constructor:6` / `play:33` / `setVolume:113` /
+`toggle:117` — **no `stop`, `suspend`, `dispose`, `close`** · `GAME_PAUSED` has **zero listeners**
+in `src/` · `main.js:450` `onPause` throttles FPS + pauses `timeKeeper`, **never audio** ·
+**F12:** chess's lone `visibilitychange` (`15-chess.js:1806`) guards **engine workers**, not
+`CHESS_AUDIO_CACHE` — the same asymmetry in miniature.
+
+**Seat R's judgement (proposal only):** audio is VSS-00's disease in concrete form. Cure = one
+shared audio service owning context + lifecycle (`play/suspend/resume/dispose`), with all three
+consumers calling in; a single pause hook then suspends everything at once. Per-subsystem
+teardown as a *general* principle is the wrong lesson — the platform-level contract is.
+
+**Seat A correction on the record:** my earlier hypothesis ("nothing stops the sound because
+nothing exposes a way to stop it") was **directionally right but shallower than the truth**. The
+missing method is real; the **contract mismatch** is the root cause. EXCEL found the line I could not.
+
+**⚠️ GOVERNANCE DEFECT FOUND IN PASSING (unresolved, needs Commander's ruling):** **Law XIV-A is
+unenforced by any tool.** `check-divisions.sh` does not exist; `grep -ln "conversational logs"
+tools/*` → **no matches**. Seat A drifted two correspondence files into a non-canonical bare
+`messages/` path and **it was caught by a subordinate, not by a gate.** Corrected this watch;
+**the enforcement gap remains open.**
+
+
+---
+
+## 12. VSS-02 PHASE 2 — REPAIR COMMISSIONED (2026-08-16, Seat E / MAX)
+
+**Directive:** `docs/council/members/ENGINEER/tasks/TASK_VSS_02_PHASE_2_AUDIO_PAUSE_REPAIR_2026-08-16.md`
+**Message:** `docs/council/members/ENGINEER/conversational logs/messages/ASSISTANT/A_TO_E_2026-08-16_VSS02-REPAIR-TASKING.md`
+
+**Four changes, one bite:** (1) `TheHUBBridge.js` accepts `hub.frame.pause|resume` **in addition
+to** `hub.companion.*` — no renaming · (2) `AudioSystem` gains null-safe `suspend`/`resume`/
+`dispose` · (3) `main.js:450-455` `onPause`/`onResume` drive audio · (4) hidden combat gated.
+
+**Explicitly OUT:** F7 audio-service consolidation (right cure, crosses two repos, **not
+authorized**) · F12 chess SFX · Hub-side `00-utils-config.js` · `16-hubframe.js` · TAMAKEE ·
+`npm run build` (F15).
+
+**⚠️ THE CLOSING CONDITION IS NOT A GREEN SUITE.** EXCEL could not reproduce the defect audibly
+(no audio device) and tagged it `[INSUFFICIENT EVIDENCE]`. All house audio is **one-shot**
+(`osc.stop(t0+0.12…0.36)`), so the Commander most likely hears **repeated short hit-sounds from
+hidden auto-combat**, not a sustained tone. MAX is ordered to report the **mechanism as repaired**
+and the **audible re-validation as OUTSTANDING** on a live build. **VSS-02 is not to be marked
+resolved on test evidence alone.**
+
+**⚖️ COMMIT-AUTHORITY CONFLICT DISCLOSED, NOT RESOLVED:** Law XV grants Seat E autonomous
+commit/push on assigned tasks; the Commander's standing order on this program is **no commits
+without explicit order**. **Seat A did not resolve this by assumption** — MAX is directed to work
+in the tree, report, and **ask before pushing.** *(Awaiting the Commander's word.)*

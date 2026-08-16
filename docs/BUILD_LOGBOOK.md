@@ -1236,3 +1236,12 @@ When you clone this repository in a new chat:
 - Evidenced lead handed over: `main.js:521` pauses loop+clock on hide, never audio;
   `AudioSystem` exposes no `stop()`/`suspend()`; `GAME_PAUSED` never reaches it.
 - Masterplan updated: VSS-02 = 🔭 Phase 0 in flight.
+
+## 2026-08-16 — VSS-02 Phase 2 repair commissioned to MAX (Seat E)
+- Directive `TASK_VSS_02_PHASE_2_AUDIO_PAUSE_REPAIR_2026-08-16.md` (8,635 B) + copy-pastable
+  message filed to the canonical Law XIV-A path (ENGINEER/conversational logs/messages/ASSISTANT/).
+- Scope: 4 changes — bridge accepts hub.frame.pause|resume; AudioSystem suspend/resume/dispose
+  (null-safe); onPause/onResume drive audio; hidden-combat gate. F7 consolidation OUT.
+- Fault injection mandatory; Companion baseline 77/77; headless null-_ctx path protected.
+- Audible re-validation declared OUTSTANDING — mechanism repair does not close a Class-A report.
+- Law XV vs "no commits" standing order: conflict DISCLOSED to MAX, not resolved by Seat A.

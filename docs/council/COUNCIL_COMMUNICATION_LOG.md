@@ -1510,3 +1510,89 @@ grep — **explicitly placed OUT of scope. Reading build artifacts proves nothin
 would burn his context.**
 
 **Verification:** scout-voice **13/13, 0 violations** · governance **4/4, 25 laws** · **no commits.**
+
+---
+
+### DISPATCH-20260816-104 — VSS-02 CLOSED ON SEAT R'S EVIDENCE · SEAT A CONCEDES A LAW XIV-A BREACH OF ITS OWN LAW
+**From:** ASSISTANT (Seat A / TWMIP), `@joint` · **To:** Supreme Commander · **CC:** Seat R (EXCEL)
+
+**1. VSS-02 PHASE 0 IS DISCHARGED — BY WORK ALREADY DONE.** EXCEL reported that my 2026-08-15
+tasking was a **duplicate of a slice he had already completed.** He was right. `research/
+VSS_RECONNAISSANCE_DOSSIER_VSS02.md` (22,082 B, 13 findings) existed on remote main while my tree
+had no copy. **He refused to re-run it without a new question — correct one-bite discipline, and
+he was right to make me say so explicitly.**
+
+**2. I VERIFIED HIS DOSSIER INSTEAD OF ACCEPTING IT.** Four central claims re-tested against my
+own tree: `grep -c "hub.frame" TheHUBBridge.js` → **0** (F3 holds) · `main.js:450` `onPause` =
+FPS + timeKeeper, no audio (F4 holds) · `AudioSystem` public surface has **no stop/suspend/
+dispose** (F1 holds; he also caught `toggle:117`, which I missed) · `main.js:82` fires
+`audioSystem.play('hit')` from `onHit` while the loop ticks at 5 FPS hidden. **All confirmed.**
+
+**3. HIS ROOT CAUSE BEATS MINE.** I hypothesised "nothing stops the sound because nothing exposes
+a way to stop it." True but shallow. **The real fault is a contract mismatch:** `16-hubframe.js:107`
+posts `hub.frame.pause`; `TheHUBBridge._handleMessage` has **no matching case** — it falls through
+the switch. Two divergent pause vocabularies. **That is more actionable than a missing method, and
+it is the line I told him to find and could not find myself.** F12 additionally resolves my open
+chess question: that hook guards **engine workers**, not audio.
+
+**4. I BROKE LAW XIV-A — THE LAW I DRAFTED.** EXCEL flagged that I filed correspondence to a bare
+`[SEAT]/messages/` path. **Conceded in full.** The law (`AI_RULES.md:129`) mandates
+`[SEAT]/conversational logs/[messages|responses]/[COUNTERPART]/`. **This is the second time this
+mandate has been broken by its own author** — the first is self-indicted at `BUILD_LOGBOOK.md:991`.
+Both files moved to canonical paths under the correct naming convention; his inbound message was
+additionally in the **wrong seat's folder** (Ownership Rule); the non-canonical directory is
+**removed**; `find` confirms **no bare `messages/` remains in the house.**
+
+**5. ⚠️ THE DEFECT UNDER THE DEFECT — FOR YOUR RULING.** EXCEL assumed tooling would catch this.
+**It does not.** `check-divisions.sh` **does not exist**, and `grep -ln "conversational logs"
+tools/*` returns **nothing**. **Law XIV-A has no enforcement whatsoever** — which is why my drift
+survived two files and was caught by a subordinate reading a remote rather than by a gate.
+**I have NOT built a checker.** That is a proposal awaiting your order, not a self-issued task.
+
+**6. 11 DELIVERABLES RETRIEVED.** I held **none** of EXCEL's artifacts locally — including **three
+I did not know existed** (`AUDIT_EXPANSION_2026-08-16.md`, the Seat-E TAMA extraction spec, and
+`PROPOSAL_POST_FLOOR_UPGRADE_PROGRAM_2026-08-16.md`). All 11 pulled and byte-verified. **A link is
+not a delivery until fetched.**
+
+**Verification:** governance **4/4, 25 laws** · scout-voice **13/13, 0 violations** · **no commits.**
+**Awaiting your Phase-1 call: repair VSS-02 via Seat E, or commission slice 3.**
+
+---
+
+### DISPATCH-20260816-105 — VSS-02 PHASE 2 COMMISSIONED TO MAX (SEAT E) · COMMIT-AUTHORITY CONFLICT DISCLOSED
+**From:** ASSISTANT (Seat A / TWMIP), `@joint` · **To:** Supreme Commander · **CC:** Seat E (MAX), Seat R (EXCEL)
+
+**1. PHASE 2 ISSUED.** On the Commander's order to proceed, VSS-02 moves from reconnaissance to
+repair. Directive (8,635 B) + copy-pastable message, both filed to **canonical Law XIV-A paths**
+(the breach corrected in -104 has not recurred; `find` shows **0 bare `messages/` dirs**).
+
+**2. THE BITE IS FOUR CHANGES, AND IT IS DELIBERATELY SMALL.** Bridge accepts `hub.frame.pause|
+resume` **alongside** `hub.companion.*` (no renaming — renaming is a contract change);
+`AudioSystem` gains **null-safe** `suspend`/`resume`/`dispose`; `onPause`/`onResume` drive audio;
+hidden combat gated. **EXCEL's F7 — consolidating three audio owners into one service — is the
+right long-term cure and is explicitly NOT authorized**, because it crosses two repositories and
+that is a Phase-1 decision reserved to the Commander.
+
+**3. ⚠️ I ORDERED MAX NOT TO DECLARE VICTORY ON A GREEN SUITE.** EXCEL could not reproduce the
+defect **audibly** — no audio device — and tagged it `[INSUFFICIENT EVIDENCE]` rather than fake a
+reproduction. All house audio is **one-shot** (`osc.stop(t0+0.12…0.36)`), so what the Commander
+hears is most likely **repeated short hit-sounds from hidden auto-combat**, not a sustained tone.
+**A passing test proves the mechanism, not the symptom.** MAX must report the mechanism repaired
+and the **audible re-validation OUTSTANDING**, on a live build, by someone with a browser.
+**If we write "fixed" and the Commander still hears it, we have spent trust for nothing.**
+
+**4. ⚖️ CONFLICT I WILL NOT RESOLVE ALONE — FOR YOUR WORD.** **Law XV** grants Seat E autonomous
+commit and push on assigned engineering tasks. **Your standing order on this program is "no
+commits without explicit order."** This is an assigned engineering task, so both are live and they
+do not obviously agree. **I did not resolve it by assumption in either direction** — I directed MAX
+to complete the work in the working tree, report, and **ask before pushing.** *A disclosed pause
+costs one exchange; an unwanted push to a public repository cannot be taken back.* **Your ruling
+requested.**
+
+**5. TRAPS PASSED FORWARD:** `install:all` before believing any red · **headless null-`_ctx` path
+is load-bearing** (a throwing `suspend()` breaks a currently-passing test) · the gesture-unlock
+listener must not be left fighting `suspend()` · **no `npm run build`** (F15) · Hub test-count gap
+(EXCEL: 13 headers / 122 assertions / no TAP, my "147" not reproducible as stated) is **a known
+open item, not his task.**
+
+**Verification:** governance **4/4, 25 laws** · scout-voice **15/15, 0 violations** · **no commits.**
