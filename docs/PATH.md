@@ -163,6 +163,19 @@ When modifying, adding course modules, or committing to **`TAMAKEE`**, follow th
 
 # 4. WHAT GOES WHERE: QUICK DECISION MATRIX FOR @ENGINEER
 
+> **📦 LAW XV-A — THE TWMIP MANDATE S03 (enacted 2026-08-16). READ BEFORE DELIVERING.**
+> **@engineer (Max) delivers as a PATCH FILE, not as a push:**
+> ```
+> docs/patchnotes/SEAT E patches/[identifier].patch
+> ```
+> Seat A then executes four stages, none skippable: **RECOVER** (fetch from remote before
+> declaring a file missing) → **CHECK** (`npm run health` = `@sre` **and** `npm run pangolin`,
+> both green, counts **measured** from harness output) → **IMPLEMENT** (only on both greenmarks;
+> rebuild `MARCIALE_OS_COMPLETE.zip` for the Commander, hash-verified) → **REPORT** (dispatch).
+> **Packaging is NOT committing.** The law grants no push authority.
+> **A patch may carry an entire branch** — Seat A extracts only the task's files (Law I).
+> **`node --check` is not a scope check.** Verify identifiers are in scope at the point of use.
+
 | If you are creating or modifying... | Commit to Repository | Exact Target Directory |
 |---|:---:|---|
 | **UI components, modals, styles, or cards for TheHUB** | `Marciale-OS` | `TheHUB 1.5.5.2.3 a v/modules/` or `style.css` |

@@ -30,6 +30,12 @@ npm run build           # Compiles Vite companion bundle directly into TheHUB
 
 ## 📂 Project Architecture & Governance Scaffolding
 
+> **📦 Engineering deliverables (Law XV-A, the TWMIP Mandate S03):** Seat E (`@engineer`) ships
+> work as patch files to **`docs/patchnotes/SEAT E patches/`**. Seat A recovers each patch, gates
+> it with **`npm run health` (`@sre`)** and **`npm run pangolin`**, and — only if both are green —
+> packages it into **`MARCIALE_OS_COMPLETE.zip`** for the Commander to download.
+> **Program status lives on one page: [`docs/PROJECT_VSS_MASTERPLAN.md`](docs/PROJECT_VSS_MASTERPLAN.md).**
+
 ```text
 Marciale-OS/
 ├── package.json                         # Root workspace controller (npm start, npm test, npm run build)

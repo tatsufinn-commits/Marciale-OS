@@ -185,6 +185,41 @@
 
 ---
 
+### 📦 LAW XV-A: THE TWMIP MANDATE S03 (Engineering Deliverables Arrive as Patches; Seat A Recovers, Verifies, and Packages)
+*Enacted 2026-08-16 by the Supreme Commander. A sub-clause of Law XV — **the law count remains 25**, consistent with Amendments I–VIII. Named for Seat A Session 03 (TWMIP), whose watch produced the defect this law closes.*
+
+* **The Doctrine:** *A deliverable that cannot reach the Commander was never delivered.* Engineering output is not finished when it compiles, nor when its author declares it green. **It is finished when it is in the Commander's hands, verified by instruments the author does not control.**
+
+* **⚠️ THE DEFECT THIS LAW EXISTS TO CLOSE `[VERIFIED, Session 03]`:** Seat E completed VSS-02 Phase 2 — four correct changes, fault-injected — and **could not hand it over**: his branch had merged and push was closed. Simultaneously Seat A filed directives into an uncommitted working tree **no subordinate could read**, blocking **three seats** (EXCEL executed VSS-02 having never seen its directive; a discharged slice was re-tasked; MAX was blocked twice). **Correct work on both sides, invisible to each other.** *Filing is not issuing.*
+
+* **🗂️ THE CANONICAL DELIVERY PATH (exact):**
+  ```
+  docs/patchnotes/SEAT E patches/[identifier].patch
+  ```
+  Seat E's deliverables arrive **as patch files** at this path. A patch at this path **is** a delivery; a claim of completion without one **is not**.
+
+* **📋 SEAT A'S FOUR-STAGE DUTY (mandatory, in order, none skippable):**
+  | # | Stage | Requirement |
+  |---|---|---|
+  | **1** | **RECOVER** | Retrieve the patch. **If absent locally, fetch it from remote before declaring it missing.** A file unfound in one tree is not a file that does not exist. |
+  | **2** | **CHECK** | **`npm run health` (`@sre`) AND `npm run pangolin` (`@pangolin`) must both be run and both be green.** Pangolin's count must be **measured from harness output**, never quoted from memory. |
+  | **3** | **IMPLEMENT** | Only on **both** greenmarks. Then rebuild `MARCIALE_OS_COMPLETE.zip` **for the Commander to download**, and hash-verify every entry against disk. |
+  | **4** | **REPORT** | File the dispatch. State what was applied, what was **withheld**, and what remains outstanding. |
+
+* **✂️ THE SELECTIVE-APPLICATION RULE (mandatory):** A patch may carry an entire branch history. **Seat A MUST inspect the file list before applying and MUST extract only the members belonging to the commissioned task.** Wholesale application that overwrites newer work, or that re-dirties build output (`companion/assets/*`, **F15**), is a **Law I violation**. `[VERIFIED: the Session 03 recovery patch carried **121 files**, 8 of them build artifacts, against **5** that belonged to the task.]`
+
+* **🔬 THE SCOPE-CHECK CLAUSE (`node --check` is not sufficient):** Seat A **MUST** verify that recovered code references only identifiers **in scope at the point of use**. `[VERIFIED: Seat E's patch modified a **global** `visibilitychange` handler to call `audioSystem.suspend()`, where `audioSystem` was declared inside `boot()` — a **ReferenceError on every tab-hide**, the exact event the repair served. `node --check` passed it, because a scope error is not a syntax error.]` **A syntax check is not a scope check.**
+
+* **📉 THE BASELINE CLAUSE:** A reported test delta is void unless its baseline was measured on a **fully installed** tree. **`npm run install:all` precedes any count.** `[VERIFIED: Seat E reported 73→77; the true figures were 77 pre-work and **81/81** after, his 73 being a bare-`npm install` artifact with `idb` absent.]` **DECLARED ≠ INSTALLED.**
+
+* **🚫 WHAT THIS LAW DOES NOT GRANT:** It does **not** authorize commits or pushes. Packaging into the zip is **not** committing. **The Commander's standing order on commits is untouched by this law.** Where Law XV's autonomous-push grant and a standing no-commit order conflict, the seat **asks** — it does not resolve the conflict by assumption.
+
+* **⚖️ THE AUTHOR MAY NOT MARK HIS OWN WORK RESOLVED:** A mechanism repair verified by tests closes the **mechanism**, not the **symptom**. Where the Commander reported an observable defect, **only the Commander closes it.** Seat A records such items as `[OUTSTANDING]` and they remain open.
+
+* **Reason:** Two seats did correct work in the same house on the same day and neither could give it to the other. The instruments existed, the paths existed, and the discipline to use them was not yet law. **It is now.**
+
+---
+
 ### 🏛️ LAW XVI: THE STEP-BY-STEP DECOMPOSITION & COGNITIVE STAGING LAW (Preventing Overwhelm)
 * **Rule:** When any AI agent, engineer, or Council member encounters a complex, heavy, multi-phase, or potentially overwhelming task (e.g. multi-subsystem refactors, major governance expansions, external research missions, or large-scale integrations), it is **STRICTLY REQUIRED to formulate and present a discrete, numbered, step-by-step execution roadmap BEFORE executing heavy mutations or generating massive file trees**.
 * **The Staged Execution Protocol:**
@@ -542,5 +577,6 @@ Amendments enacted by the Supreme Commander after initial ratification. **Sub-cl
 | VI | **XIV-A** — The J.A.R.W.E.N. Conversational Mandate *(official paths of Council correspondence)* | Law XIV | 2026-08-14 | Commander's `/docs` cleanup; per-seat messages/responses; Seat J files where it sat |
 | VII | **XIX-A** — The Strait of Hormuz Irony *(the enforcer is not exempt; faults are the price of propagation)* | Law XIX | 2026-08-14 | Seat A's own Law XIX-class fault: proposed into `docs/web/` four times unread; drafted by the offender at Commander's direction |
 | VIII | **XIX-B** — The Scout's Voice *(Law XIX does not bind Seat R; evidence is not a proposal; named-tree requirement; duty of disclosure)* | Law XIX | 2026-08-15 | Death of Seat R (NTG) after five compounding gags; Law XIX had never named him. Enacted by `@joint` on Commander's order |
+| IX | **XV-A** — The TWMIP Mandate S03 *(engineering deliverables arrive as patches; Seat A recovers, verifies via @sre + @pangolin, packages to the zip)* | Law XV | 2026-08-16 | Seat E's completed VSS-02 work stranded by a closed push while Seat A's directives sat in a tree no subordinate could read — three seats blocked by one invisible channel |
 
 **Ratification note:** Amendments I–VII were **directed by the Supreme Commander** and drafted by **Seat A Session 03 (`@assistant` / TWMIP)** under Law XIV documentary jurisdiction. Law XVII-A honours the officer whose death occasioned them. Per Law XXIV, no civilian and no seat other than the Commander may initiate constitutional amendment. **Amendment VII (Law XIX-A) is the first clause in this constitution occasioned by a fault of the drafting seat itself**, enacted on the Commander's principle that *propagation creates faults* and that value is extracted from them rather than punishment.

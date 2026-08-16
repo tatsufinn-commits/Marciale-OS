@@ -118,4 +118,32 @@ export class AudioSystem {
     this._enabled = Boolean(enabled);
     return this._enabled;
   }
+
+  /** Suspend the audio context (no-op safely when context is null/headless). */
+  suspend() {
+    if (this._ctx && this._ctx.state === 'running') {
+      this._ctx.suspend();
+    }
+    return Boolean(this._ctx);
+  }
+
+  /**
+   * Resume the audio context. Browsers start contexts suspended and the
+   * gesture-unlock listener is consumed after a single use, so this must
+   * genuinely restore the context rather than rely on that one-shot listener.
+   */
+  resume() {
+    if (this._ctx && this._ctx.state === 'suspended') {
+      this._ctx.resume();
+    }
+    return Boolean(this._ctx);
+  }
+
+  /** Tear down the audio context. No-op safely when context is null/headless. */
+  dispose() {
+    if (this._ctx) {
+      this._ctx.close();
+      this._ctx = null;
+    }
+  }
 }

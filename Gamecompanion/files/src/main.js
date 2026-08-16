@@ -77,9 +77,10 @@ async function boot() {
       { path: 'combat.state', value: 'fighting' }
     ]);
   }
+  let isAudioPaused = false;
   const audioSystem = new AudioSystem({ volume: 0.25 });
   const combatEngine = new CombatEngine({ stateManager, eventBus, events: Events, damageCalculator: new DamageCalculator({ affinityTable }), onHit: ({ defender, damage }) => {
-    audioSystem.play('hit');
+    if (!isAudioPaused) audioSystem.play('hit');
     particles.addFloatingText({ x: defender.x + defender.width / 2, y: defender.y - 8 }, `-${Math.ceil(damage)}`, defender.type === 'enemy' ? '#8abaf0' : '#e06c75');
     particles.addBurst({ x: defender.x + defender.width / 2, y: defender.y + defender.height / 2 }, defender.type === 'enemy' ? '#8abaf0' : '#e06c75', 4);
   } });
@@ -450,10 +451,14 @@ async function boot() {
     onPause: () => {
       gameLoop.setTargetFPS(5);
       timeKeeper.pause();
+      isAudioPaused = true;
+      audioSystem.suspend();
     },
     onResume: () => {
       gameLoop.setTargetFPS(60);
       timeKeeper.resume();
+      isAudioPaused = false;
+      audioSystem.resume();
     },
     onFocus: (focus) => {
       const active = !!(focus && focus.active);

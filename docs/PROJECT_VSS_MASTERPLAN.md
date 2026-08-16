@@ -385,3 +385,8 @@ Commander, the transport that demonstrably works.
 
 **Until ruled, Seat A will issue every directive in self-contained form (B) and will not assume
 a subordinate can read anything Seat A has written.**
+
+
+## 14. VSS-07 NAMED — UX & ACCESSIBILITY SHELL
+
+The Commander's 17 UX items are chartered at `docs/PROJECT_VSS_07_UX_SHELL_CHARTER.md`, filling the first reserved cross-cutting slot (VSS-07…VSS-11, proposal line 204). **Decomposed into 5 bites**; recommended first is **07-B Mobile shell** (Commander's stated daily surface). **⚠️ TheHUB already has a theme engine** (`00-utils-config.js:691` `applyTheme`) — the darkmode toggle must extend it, not fork it. **Charter only; no implementation authorized.**

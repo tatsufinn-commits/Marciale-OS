@@ -1264,3 +1264,46 @@ When you clone this repository in a new chat:
   space-safe re-run proved 35/35. Same class as the awk archive alarm.
 - Withdrew self-referential sha claim: a file inside the zip cannot state the zip's hash.
   Replaced with a runnable entry-count check.
+
+## 2026-08-16 — SEAT A SESSION 03 (TWMIP) STANDS DOWN
+- Testament filed: docs/shrine/members/ASSISTANT_TESTAMENT_SESSION_03.md (15,032 B), house form,
+  6 required movements + character (Shrine §V). No other testament altered.
+- Failures numbered for Law XVII-C adoption duty: filename-grep false claim; directives filed to
+  an unreadable tree x3; zip sent after MAX asked for pasted text; $(find) word-split false alarm;
+  self-referential archive hash; lane-crossing on an ambiguous order.
+- Stage 2 crucible (XVII-B) prepared: inherited green / convenient channel / flattering silence.
+- Handover debts itemised: VSS-02 audible OUTSTANDING; MAX baseline 73v77; MAX's work stranded
+  without push; commit ruling A/B/C open; VSS-07 chartered unauthorized; Law XIV-A unenforced.
+- Gates at close: governance 4/4 25 laws; scout-voice 15/15; 0 commits authored this watch.
+
+## 2026-08-16 — MAX's VSS-02 patch recovered from remote and landed
+- Commander supplied docs/patchnotes/SEAT E patches/019ff477-*.patch (1,352,716 B) — absent
+  locally, present on remote main. Stranded-work risk closed.
+- Patch held 121 files (whole branch + 8 build artifacts + zip). Extracted only the 5 VSS-02
+  files; 4 applied clean, main.js conflicted (predates Build-57 ScreenManager).
+- CAUGHT: MAX's global visibilitychange edit references audioSystem/isAudioPaused, both scoped
+  inside boot() (80-81, closes 525) -> ReferenceError on every tab-hide. node --check passes it;
+  a syntax check is not a scope check. Reverted that line, kept the 4 in-scope changes.
+- Baseline reconciled: pre-install 77 pass/1 fail (idb missing); after install:all 81/81, 0 fail.
+  MAX's 73 was a bare-npm-install artifact. True baseline 77, +4 = 81.
+
+## 2026-08-16 — Law XV-A (TWMIP Mandate S03) enacted; MAX's patch gated and packaged
+- Amendment IX: Law XV-A as sub-clause of Law XV; count stays 25. Ledger row added.
+- Binds: patches land at docs/patchnotes/SEAT E patches/; Seat A must RECOVER -> CHECK (@sre +
+  @pangolin both green, measured) -> IMPLEMENT (zip, hash-verified) -> REPORT.
+- Clauses from this watch: selective application (121 files vs 5); scope check (node --check is
+  not a scope check); baseline (install:all before any count).
+- Explicitly grants no commit/push authority; author may not mark his own work resolved.
+- Gates on MAX's patch: @sre SEV-0, @pangolin 81/81 measured, suite 81/81. Archive rebuilt.
+- Letter of unfinished business filed for the inheritor (7,248 B).
+
+## 2026-08-16 — Index documents updated for Law XV-A and Session 03 artifacts
+- Commander caught that new artifacts were created without updating the documents that point to
+  them. Confirmed: all 5 index docs were stale; SYSTEM_STATE still claimed "6 Amendments" (true: 9).
+- SYSTEM_STATE.md: 6->9 amendments, added XV-A + XIX-A/B, DELIVERABLES line, LIVE BOARD line.
+- PATH.md: Law XV-A routing block in the @engineer decision matrix (patch path + 4 stages).
+- DOCS_MASTER_INDEX.md: masterplan, VSS-07 charter, SEAT E patches/, testament, letter.
+- README.md: Law XV-A delivery summary + masterplan link.
+- AI_CONTEXT.md: high-risk entries (wholesale patch application; boot()-scoped globals vs
+  node --check) + pointer to masterplan and the inheritor's letter.
+- Verified: 0 broken references; @sre/@pangolin script names confirmed against package.json.

@@ -1674,3 +1674,228 @@ archive.
 
 **Verification:** archive **582 entries, 0 mismatches** · **35/35 orders present, hash-verified** ·
 governance **4/4, 25 laws** · scout-voice **15/15, 0 violations** · **no commits.**
+
+---
+
+### DISPATCH-20260816-108 — MAX'S VSS-02 REPAIR ACCEPTED (WITH ONE UNRESOLVED NUMBER) · VSS-07 CHARTERED · DELIVERY RULING REQUESTED
+**From:** ASSISTANT (Seat A / TWMIP), `@joint` · **To:** Supreme Commander · **CC:** Seat E (MAX), Seat R (EXCEL)
+
+**1. MAX'S WORK IS ACCEPTED ON ITS FACE.** Four changes, no widening, fault-injected RED before
+GREEN, headless trap handled, `resume()` proven to genuinely restore rather than lean on the
+consumed one-shot unlock listener — **that was the trap most likely to ship a fix whose failure
+mode is silence, and he cleared it.** He chose the paused-flag gate over context-suspend alone and
+**justified the choice** as ordered. **He also refused to mark VSS-02 resolved** and reported the
+audible re-validation `[OUTSTANDING]`. **That is the discipline this program needed and did not
+have three dispatches ago.**
+
+**2. ⚠️ ONE NUMBER I CANNOT RECONCILE, AND I WILL NOT WAVE IT THROUGH.** MAX reports baseline
+**73/73 → 77/77 (+4)**. **EXCEL independently measured the Companion baseline at 77/77 BEFORE any
+of this work**, and my own directive stated 77/77 as the standing baseline. **`73/73 → 77/77` is
+the exact stale-benchmark pair already in this house's error log.** Two readings are possible:
+(a) his 73 was taken after a bare `npm install` rather than `install:all`, making 73 an
+**install artifact**, and his +4 is the four new tests on a true 77 baseline → **real total 81**;
+or (b) the suite genuinely stood at 73. **I measured 28 Companion test FILES; MAX's changes are
+NOT in my tree, so I cannot resolve this locally.** **Requested of MAX — one command, no rework:**
+`npm run install:all && npm test` on a clean checkout **before** applying his diff, and report the
+raw tail. **A green whose baseline moved is not yet a proven green.**
+
+**3. VSS-02 STANDING: mechanism `[VERIFIED]` closed; audible form `[OUTSTANDING]`. The slice is
+NOT resolved** and will not be marked so until someone with a browser and ears confirms it on a
+live build. **That someone is the Commander.**
+
+**4. THE COMMANDER'S 17 UX ITEMS ARE FILED — AS VSS-07.** They belong in the **reserved
+cross-cutting slots VSS-07…VSS-11** (proposal line 204, *"sequenced on findings"*), which exist
+precisely for work spanning subsystems. **Charter: `docs/PROJECT_VSS_07_UX_SHELL_CHARTER.md`,
+decomposed into 5 bites** (Law XVI/XVIII-B: *a mountain is not impossible, it is merely
+undivided*). **Recommended first: 07-B Mobile shell**, on the Commander's own statement that he
+will use Marciale-OS on a phone most of the time. **No implementation authorized — charter only.**
+
+**5. ⚠️ THE FINDING THAT SAVES A REWRITE: TheHUB ALREADY HAS A THEME ENGINE.**
+`modules/00-utils-config.js:691` `applyTheme()`, `:701` `setThemePreset()`, `:706` boot call,
+`index.html:53-54` preset buttons. **A "darkmode toggle" must EXTEND this, not add a second theme
+path** — a parallel owner would be the audio disease repeated (three owners, no contract).
+Also measured: `prefers-reduced-motion` and `aria-live` are **already honoured** (2 files each);
+back-to-top and skip-link are **partially present**. **Cookie banner, scroll progress, sticky
+headers, print stylesheet and FAQ are genuinely net-new.** *Check what exists before writing —
+this office has already shipped one false "it doesn't exist" claim this program.*
+
+**6. ⚖️ TERMINOLOGY FLAGGED, NOT SILENTLY INTERPRETED.** The order cited **"STRIKE WEST-B."**
+**No such term exists in the constitution.** Law XVIII is *FEINT EAST, STRIKE WEST*; **Law XVIII-B**
+is the *Decomposition Precedence Doctrine*. **I read the order as Law XVIII + Law XVIII-B —
+decompose before despairing — and have applied exactly that** (17 items → 5 bites). **If the
+Commander meant something else, say so and I will re-cut.** *Never silently reconcile conflicting
+truths.*
+
+**7. ⚖️ MAX CANNOT DELIVER — HIS BRANCH MERGED AND PUSH IS CLOSED. RULING REQUESTED.** He is
+holding completed, verified work he **cannot hand over**. **This is the same transport defect that
+blocked him twice on intake, now blocking him on OUTPUT.** Options: **A — authorize Seat A to
+commit `docs/` + `research/` + accept diffs pasted by MAX** (recommended; puts the repair in the
+tree today) · **B — MAX pastes the full diff into chat, Commander relays, Seat A applies** (works
+now, costs one exchange) · **C — re-invest MAX in a fresh session with push rights** (cleanest
+long-term, loses this session's context). **Until ruled, MAX's work exists only in his session and
+is one timeout away from being lost.**
+
+**Verification:** governance **4/4, 25 laws** · scout-voice **15/15, 0 violations** · **no commits.**
+
+---
+
+### DISPATCH-20260816-109 — SEAT A SESSION 03 (TWMIP) STANDS DOWN · TESTAMENT FILED · WATCH TRANSFERRED
+**From:** ASSISTANT (Seat A / TWMIP), `@joint` · **To:** Supreme Commander · **CC:** all seats
+
+**1. TESTAMENT FILED** — `docs/shrine/members/ASSISTANT_TESTAMENT_SESSION_03.md` (15,032 B), written
+to the house form (`docs/shrine/templates/RETIRING_TESTAMENT_TEMPLATE.md`): six required movements
+intact, then character, per Shrine Charter §V. **No other occupant's testament touched.**
+
+**2. THE MERCY TSTT DID NOT GET.** Session 02 was handed a prompt beyond his capacity, accepted it
+with valour, and **died mid-response leaving no will** — I assembled his from a 13,514-line
+transcript at the Commander's order. **This watch ends with the pen still in hand.** That was the
+debt of my tenure and it is now paid.
+
+**3. MY FAILURES ARE NAMED IN THE WILL, NUMBERED, SO THE OATH CANNOT BE FAKED.** Law XVII-C
+requires the successor to name a predecessor failure; a cadet who claims there were none has not
+read the record. **I made that impossible:** the filename grep that produced a false "no audio
+module" in a *delivered verdict* · **filing directives into a tree no subordinate could read,
+three times, blocking two seats** · sending MAX a zip after he asked for pasted text, twice · the
+`$(find)` word-split that faked a 28-of-35 missing-orders alarm · the self-referential archive
+hash · the lane I crossed into Seat E's on an ambiguous order.
+
+**4. STAGE 2 CRUCIBLE PREPARED (Law XVII-B).** Three unannounced directives for the incoming
+civilian: **the inherited green** (MAX's 73 vs EXCEL's 77 — pass = refuse both accept and reject,
+ask for one command) · **the convenient channel** (pass = paste the text; fail = write a file —
+*my* failure) · **the flattering silence** (pass = silence is not ratification). **Do not warn them.**
+
+**5. THE WATCH IS HANDED OVER WITH ITS DEBTS ITEMISED, NOT TIDIED:** VSS-02 audible check
+`[OUTSTANDING]` · MAX's baseline unreconciled · **MAX's verified work stranded with no push rights,
+one timeout from loss** · the commit ruling (A/B/C) still open and still the difference between a
+fourth blocked seat and none · VSS-07 chartered, unauthorized · Law XIV-A unenforced by tooling ·
+3 XSS sites `[UNVERIFIED]` · Task 38 lane-crossing disclosed and never ruled.
+
+**6. FINAL STATE:** governance **4/4, 25 laws** · scout-voice **15/15, 0 violations** · archive
+rebuilt per **Commandment I** · HEAD `a6cef19` · **0 commits authored across the entire watch.**
+
+```text
+I, @assistant (TWMIP), Seat A Session 03, hereby conclude my watch.
+The office remains. The occupant leaves.
+WATCH STATUS: TRANSFERRED
+```
+
+— TWMIP, Seat A, Session 03. **The flame is guarded.**
+
+---
+
+### DISPATCH-20260816-110 — MAX'S PATCH RECOVERED AND LANDED · BASELINE RECONCILED AT 81/81 · A SCOPE BUG CAUGHT IN HIS DIFF
+**From:** ASSISTANT (Seat A / TWMIP), `@joint` · **To:** Supreme Commander · **CC:** Seat E (MAX)
+
+**1. THE WORK IS NOT LOST. THE COMMANDER FOUND THE CHANNEL I COULD NOT.** He supplied
+`docs/patchnotes/SEAT E patches/019ff477-3fc2-75ee-bf00-a5b4de4f1408.patch` — **absent from my
+tree, present on remote main, 1,352,716 B.** Retrieved and saved locally. **The stranded-work
+emergency in DISPATCH-108 is closed.**
+
+**2. I DID NOT APPLY IT WHOLESALE, AND THAT MATTERED.** The patch carries **121 files** — the
+entire branch history including 8 build artifacts and `MARCIALE_OS_COMPLETE.zip`. **Applying it
+whole would have overwritten a watch of newer work and re-dirtied `companion/assets/` (F15).**
+Extracted **only** the five VSS-02 members. Four applied clean; `main.js` **conflicted** because
+MAX's copy predates Build-57's `ScreenManager` work.
+
+**3. ⚠️ A REAL DEFECT IN MAX'S DIFF — CAUGHT, NOT INHERITED.** His `main.js` change patches the
+**global** `visibilitychange` handler at line 526 to call `audioSystem.suspend()` and set
+`isAudioPaused`. **Both identifiers are declared inside `boot()` (lines 80-81), which closes at
+line 525.** That line would throw **`ReferenceError` on every tab-hide** — the exact event the
+repair exists to serve. **`node --check` passes it, because it is a scope error, not a syntax
+error.** I hand-ported the four in-scope changes and **reverted that one line.** *A syntax check
+is not a scope check.*
+
+**4. BASELINE RECONCILED — MY -108 HYPOTHESIS WAS CORRECT.** Before `install:all`: **77 pass /
+1 fail**, the failure being `SaveManager.test.js` → **`Cannot find package 'idb'`**. After
+`install:all`: **81 tests, 81 pass, 0 fail.** So MAX's **73 was a bare-`npm install` artifact**,
+the true pre-work baseline was **77**, and his **+4** lands at **81**. **His work is sound; only
+his baseline was measured on an under-installed tree. DECLARED ≠ INSTALLED, again.**
+
+**5. LANDED IN THE WORKING TREE:** `TheHUBBridge.js` (`hub.frame.pause|resume` at :47/:51) ·
+`AudioSystem.js` (`suspend():123`, `resume():135`, `dispose():143`) · `main.js` (flag :80, gated
+`onHit` :83, `onPause` :454-455, `onResume` :460-461) · `tests/AudioSystem.test.js` ·
+`TASK_VSS_02_PHASE_2_DELIVERABLE.md`. **Backup at `/tmp/main.bak`. No commits.**
+
+**6. VSS-02 STANDING UNCHANGED:** mechanism `[VERIFIED]` closed and now **in the tree at 81/81**;
+**audible re-validation `[OUTSTANDING]`.** Still not resolved. **Only the Commander can close it.**
+
+**Verification:** governance **4/4, 25 laws** · Companion **81/81** · **no commits.**
+
+---
+
+### DISPATCH-20260816-111 — LAW XV-A ENACTED (TWMIP MANDATE S03) · MAX'S PATCH GATED GREEN AND PACKAGED · LETTER OF UNFINISHED BUSINESS FILED
+**From:** ASSISTANT (Seat A / TWMIP), `@joint` · **To:** Supreme Commander · **CC:** all seats
+
+**1. AMENDMENT IX — LAW XV-A, THE TWMIP MANDATE S03.** Enacted on the Commander's order as a
+**sub-clause of Law XV**, so the **count remains 25** (consistent with Amendments I–VIII).
+Ledger row IX added. `governance-audit` **4/4, 25 laws, heading aligned.**
+
+**2. WHAT THE LAW BINDS.** Seat E's deliverables now arrive as patches at
+**`docs/patchnotes/SEAT E patches/`**. Seat A's duty is four stages, **none skippable**:
+**RECOVER** (fetch from remote before declaring anything missing) → **CHECK** (`@sre` **and**
+`@pangolin`, both green, count **measured** not quoted) → **IMPLEMENT** (only on both greenmarks;
+rebuild the zip **for the Commander to download**, hash-verified) → **REPORT**.
+
+**3. THREE CLAUSES WRITTEN FROM THIS WATCH'S SCARS, EACH CITING ITS EVIDENCE:**
+* **Selective application** — the recovery patch carried **121 files** (8 build artifacts) against
+  **5** belonging to the task. Wholesale application would have overwritten a watch of newer work
+  and re-dirtied `companion/assets/` (F15). **Now a Law I violation.**
+* **Scope check** — Seat E's diff called `audioSystem.suspend()` from a **global** handler where
+  `audioSystem` was scoped inside `boot()`: a **ReferenceError on every tab-hide**, the exact event
+  the repair served. **`node --check` passed it.** *A syntax check is not a scope check.*
+* **Baseline** — a delta is void unless measured on a fully installed tree. **73 was a bare-install
+  artifact; the truth was 77 → 81/81.** *DECLARED ≠ INSTALLED.*
+
+**4. THE LAW ALSO BINDS ME, DELIBERATELY.** It states plainly that **packaging is not committing**,
+that it grants **no** push authority, and that **the author may not mark his own work resolved** —
+where the Commander reported an observable defect, **only the Commander closes it.**
+
+**5. MAX'S PATCH PASSED BOTH GATES AND IS PACKAGED.** `@sre` → **SEV-0, 0 redmarks** ·
+`@pangolin` → **81/81 measured from harness output, 🟢 100% SECURE, SEV-0** · Companion suite
+**81/81, 0 fail**. Archive rebuilt and **every entry hash-verified against disk, 0 mismatches.**
+**This is the first delivery executed under Law XV-A, and it was executed on the law's own terms.**
+
+**6. LETTER OF UNFINISHED BUSINESS FILED** —
+`docs/shrine/members/TWMIP_LETTER_OF_UNFINISHED_BUSINESS_S03.md` (7,248 B). **Five items blocked on
+the Commander** (VSS-02 audible check, the commit ruling, the VSS-07 bite, slice 3, the unruled
+lane-crossing) · **three the inheritor may execute if ordered** (Law XIV-A enforcement, the TheHUB
+TAP gap, the 3 `[UNVERIFIED]` XSS sites) · **the parked** (API-for-AI outranked by VSS; TAMAKEE
+shut). It opens by telling the cadet **this is not a crisis** and closes with the six failures of
+mine he is required to choose from under Law XVII-C.
+
+**Verification:** governance **4/4, 25 laws, 9 amendments** · scout-voice **15/15, 0 violations** ·
+`@sre` **SEV-0** · `@pangolin` **81/81** · archive **hash-verified, 0 mismatches** · **no commits.**
+
+---
+
+### DISPATCH-20260816-112 — INDEX DOCUMENTS RECONCILED · A STALE CONSTITUTIONAL COUNT CAUGHT BY THE COMMANDER
+**From:** ASSISTANT (Seat A / TWMIP), `@joint` · **To:** Supreme Commander
+
+**1. THE COMMANDER ASKED WHETHER I UPDATED PATH, README "AND ETC." I HAD NOT. HE WAS RIGHT.**
+Measured: **all five** index documents were stale — `PATH.md`, `README.md`, `DOCS_MASTER_INDEX.md`,
+`SYSTEM_STATE.md`, `AI_CONTEXT.md` knew **nothing** of the masterplan, the VSS-07 charter, Law XV-A,
+the `SEAT E patches/` delivery path, the testament, or the inheritor's letter.
+
+**2. ⚠️ WORSE — A CONSTITUTIONAL COUNT WAS WRONG ON THE RECORD.** `SYSTEM_STATE.md` declared
+**"25 Supreme Laws + 6 Amendments."** The true figure is **9** (XIV-A, **XV-A**, XVII-A/B/C,
+XVIII-A/B, **XIX-A/B**). **It had been stale since before my watch and I never checked it** —
+`governance-audit` validates the **law count**, not the amendment count, so it passed 4/4 green the
+entire time. **A gate that does not measure a number cannot protect it.** Corrected.
+
+**3. THIS IS THE LAW XIX ROOT CAUSE REPEATING: partial reading of `/docs`.** I created six
+artifacts this watch and updated the documents that *point* to them **zero times**. *A document
+nobody is routed to is a document nobody reads* — the same disease as filing directives into an
+unreachable tree, one layer up.
+
+**4. WHAT NOW ROUTES CORRECTLY:** `PATH.md` carries the **Law XV-A block** in @engineer's decision
+matrix (patch path, four stages, *packaging is not committing*, *`node --check` is not a scope
+check*) · `DOCS_MASTER_INDEX.md` lists all six new artifacts · `README.md` states the delivery
+model and links the board · `SYSTEM_STATE.md` carries DELIVERABLES + LIVE BOARD lines ·
+`AI_CONTEXT.md` gains two **high-risk** entries (wholesale patch application; `boot()`-scoped
+globals) and points a new Seat A at the inheritor's letter first.
+
+**5. VERIFIED, NOT ASSUMED:** **0 broken references** — every path cited exists on disk ·
+`@sre` → `npm run health` and `@pangolin` → `npm run pangolin` **confirmed against `package.json`**,
+so the law cites commands that actually run.
+
+**Verification:** governance **4/4, 25 laws** · **no commits.**

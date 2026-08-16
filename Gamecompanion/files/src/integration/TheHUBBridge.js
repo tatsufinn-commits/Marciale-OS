@@ -44,9 +44,11 @@ export class TheHUBBridge {
         this._handleFocus(data.payload || data.focus || data);
         break;
       case 'hub.companion.pause':
+      case 'hub.frame.pause':
         this._pauseGame();
         break;
       case 'hub.companion.resume':
+      case 'hub.frame.resume':
         this._resumeGame();
         break;
       case 'hub.theme':

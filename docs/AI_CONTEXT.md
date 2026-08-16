@@ -41,6 +41,11 @@ Marciale-OS is a **local-first, zero-cloud personal command center** that unifie
 
 # 2. THE 13-DOCUMENT OPERATIONAL SYSTEM
 
+> **Live program status is NOT in this file.** For where the VSS program actually stands, read
+> **`docs/PROJECT_VSS_MASTERPLAN.md`** (one page, kept current). If you are a new Seat A, read
+> **`docs/shrine/members/TWMIP_LETTER_OF_UNFINISHED_BUSINESS_S03.md`** first — it lists every open
+> item and separates what is blocked on the Commander from what you may execute.
+
 Any AI working on this repository must consult the dedicated operational document for its task:
 
 | Document | Role & Purpose | Key Target |
@@ -65,6 +70,15 @@ Any AI working on this repository must consult the dedicated operational documen
 # 3. HIGH-RISK CODE AREAS & SAFE MODIFICATION RULES
 
 ### ⚠️ HIGH RISK FILES (Modify with extreme caution)
+
+* **Applying a recovered `.patch` wholesale** — a patch may carry an entire branch history
+  (a real one carried **121 files**, 8 of them build artifacts, against **5** that belonged to the
+  task). Extract only the task's files, or you overwrite newer work and re-dirty
+  `companion/assets/*` (**F15**). **Law XV-A makes wholesale application a Law I violation.**
+* **`Gamecompanion/files/src/main.js` global handlers** — `audioSystem`, `isAudioPaused`,
+  `gameLoop` and friends are scoped **inside `boot()`**. A global `visibilitychange` handler
+  referencing them throws **ReferenceError on every tab-hide**, and **`node --check` will not
+  catch it — a scope error is not a syntax error.**
 1. **`TheHUB/modules/00-storage.js` & `01-migrations.js`**: Core data layer. Never alter storage keys without writing an explicit migration function in `01-migrations.js`.
 2. **`TheHUB/server.py`**: Handles security boundaries, CORS filtering, ICS line unfolding, and RuView WebSocket relays. Never allow unvalidated URL fetching in `/api/fetch`.
 3. **`TheHUB/modules/08-assistant.js`**: 106KB monolithic AI engine. Do not alter `readOllamaChatStream` or `mergeStreamToolCalls` without running `node tests/app-smoke.js`.

@@ -63,6 +63,12 @@
 # 📂 COMPLETE DOCUMENTATION INVENTORY
 
 ### 🏛️ 1. Core Governance & Council Suite (`/docs/` & `/docs/council/`)
+
+| **`/docs/PROJECT_VSS_MASTERPLAN.md`** | 🎯 **THE LIVE BOARD** — one-page VSS program status: slice ledger, findings, verdicts. **The Commander reads this instead of the dispatch bus.** Keep it current. | Seat A |
+| **`/docs/PROJECT_VSS_07_UX_SHELL_CHARTER.md`** | VSS-07 UX & Accessibility Shell — 17 Commander UX items decomposed into 5 bites. **Chartered, not authorized.** | Seat A |
+| **`/docs/patchnotes/SEAT E patches/`** | 📦 **Law XV-A delivery path** — Seat E's engineering deliverables arrive here as `.patch` files for Seat A to recover, gate and package. | Seat E → Seat A |
+| **`/docs/shrine/members/ASSISTANT_TESTAMENT_SESSION_03.md`** | Seat A Session 03 (TWMIP) testament — will, cognitive cues, Stage-2 crucible. | Shrine (read-only) |
+| **`/docs/shrine/members/TWMIP_LETTER_OF_UNFINISHED_BUSINESS_S03.md`** | 📜 **START HERE IF YOU ARE THE NEW SEAT A** — every open item, what is blocked on the Commander vs executable. | Shrine (read-only) |
 1. **`THE_10_COMMANDMENTS_OF_DOCS.md`:** The Supreme Inviolable Bible of Documentation & Releases.
 2. **`AI_RULES.md`:** The 24 Supreme Constitutional Laws of Marciale-OS (through Law XXIV: The Civilian Estate).
 3. **`AGENT_PLAYBOOK.md`:** Reverse-Intent Decoder, Autonomous Severity Classifier & 0-Paralysis Protocol.
