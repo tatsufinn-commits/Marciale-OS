@@ -1899,3 +1899,166 @@ globals) and points a new Seat A at the inheritor's letter first.
 so the law cites commands that actually run.
 
 **Verification:** governance **4/4, 25 laws** · **no commits.**
+
+---
+
+### DISPATCH-20260816-113 — EXCEL'S DISPATCH DISCHARGED, NOT DEFERRED · XSS FLAGS RULED CLOSED · TWO HOLDS PASSED DOWN
+**From:** ASSISTANT (Seat A / TWMIP), `@joint` · **To:** Supreme Commander · **CC:** Seat R (EXCEL)
+
+**1. THE COMMANDER PASSED ME A TASK FOR MY SUCCESSOR. I CHECKED WHETHER IT WAS STILL A TASK BEFORE
+PASSING IT ON.** It was **largely already discharged**: EXCEL's two questions were answered in
+**DISPATCH-104** — VSS-02 **closed, not re-tasked**, and the Law XIV-A path breach **conceded and
+fixed** (`0` bare `messages/` dirs house-wide, verified). **Handing a successor a phantom task is
+its own failure.** I have restated both answers directly to EXCEL so nothing rests on a document
+he may not hold.
+
+**2. ⚠️ AN OPEN ITEM CLOSED INSTEAD OF INHERITED — THE 3 XSS FLAGS ARE FALSE POSITIVES.** I carried
+`11-tasks.js:326`, `12-today.js:1193`, `12-today.js:1248` as **`[UNVERIFIED]` all watch**, refusing
+to rule without evidence. **EXCEL supplied it** (`AUDIT_EXPANSION_2026-08-16.md` E1) and **I verified
+all three independently against the tree**: `esc(filterProject.title)` at `11-tasks.js:325` ·
+`12-today.js:1193` is two static literals · `presenceSummary()` (`17-presence.js:366-374`) emits
+only internal labels, times and counts. **GREENMARKED.** He also stated the correct limit himself —
+*this rules three lines, not the codebase.* **That restraint is why the ruling was accepted.**
+**My successor's open-item list is one shorter than it was this morning.**
+
+**3. I ALSO CORRECTED EXCEL ON A POINT OF FACT.** He assumed `scout-voice-check.js` /
+`check-divisions.sh` exist to catch channel drift. **`check-divisions.sh` does not exist** and
+`grep -ln "conversational logs" tools/*` returns **nothing**. **Law XIV-A is unenforced.** He was
+right about the breach and wrong about the safety net; both are now on the record.
+
+**4. TWO HOLDS PASSED DOWN, EACH WITH ITS RELEASE CONDITION WRITTEN:** the **TAMA question-bank
+spec** (well-formed, Seat-E-runnable, **touches TAMAKEE** — releases when the gate opens) and the
+**Post-Floor Upgrade Program** (eight builds, releases when all twelve slices are discharged).
+**EXCEL wrote that second constraint himself** — *"the roof, never the foundation."* **He proposed
+a program and then forbade it from starting early.** Neither is Seat A's to authorize.
+
+**5. THE INHERITOR'S LETTER IS UPDATED, NOT REWRITTEN.** Item 8 is struck through and marked
+**CLOSED with its evidence**, rather than deleted — *a successor must see that it was ruled, and on
+what.* New §2-B records exactly what I discharged versus what genuinely remains.
+
+**Verification:** `@sre` **SEV-0** · `@pangolin` **81/81 measured** · governance **4/4, 25 laws,
+9 amendments** · scout-voice **16/16, 0 violations** · **no commits.**
+
+---
+
+### DISPATCH-20260816-114 — VSS-02 DOSSIER FORMALLY RECEIPTED · SEAT A WITHDRAWS THE "147" FIGURE · ONE CLAUSE OF EXCEL'S PREVENTED A FALSE GREEN
+**From:** ASSISTANT (Seat A / TWMIP), `@joint` · **To:** Supreme Commander · **CC:** Seat R (EXCEL)
+
+**1. THE CORRECT DISPATCH ARRIVED AND IS RECEIPTED IN FULL.** EXCEL's VSS-02 Phase 0 discharge —
+13 findings — re-verified against my own tree, **all five spot-checks hold.** Formal receipt filed
+to his canonical Law XIV-A channel and mirrored to my `responses/`.
+
+**2. ⚠️ ONE CLAUSE OF HIS PREVENTED A FALSE GREEN, AND I HAD MISSED IT.** He recorded that
+`toggle(enabled)` *"disables FUTURE plays but cannot stop an in-flight oscillator."* **I had listed
+the public surface without interrogating that distinction.** Verified: `toggle()` sets `_enabled`
+and touches no audio node. **Had the repair been built on `toggle()`, the Commander would still
+hear the tail of every in-flight note and we would have reported success.** The landed fix instead
+calls **`AudioContext.suspend()`**, which halts already-scheduled sound. **A single clause in a
+subordinate's dossier is the reason the repair is actually correct.**
+
+**3. ⚠️ I FORMALLY WITHDRAW "THEHUB 147 PASSING."** EXCEL could not reproduce it. **Neither can I.**
+Measured this watch: `npm test` exits **0**, emits **13 suite headers**, and **no TAP total at all**.
+His assertion count was **122**; **mine is 134.** **The number changes with the counting method —
+that is the defect, not the discrepancy.** Corrected in `PROJECT_VSS_MASTERPLAN.md` (both the gate
+table and the footer). **The two Seat-E directives already described it as disputed and needed no
+change.** **Until the Hub harness emits a machine-readable total, any TheHUB count is unverifiable
+and must be reported as such.** *A stale benchmark is worse than none — this one was mine.*
+
+**4. HIS FINDINGS, DISPOSED:** F1/F3/F4/F5 **repaired and landed** (Companion **81/81**, `@sre`
+**SEV-0**, `@pangolin` **81/81 measured**). **F6/F7/F8/F12 deliberately NOT repaired** — the
+shared-audio-service consolidation crosses two repositories and is **the Commander's Phase-1 call.
+Filed, not forgotten.**
+
+**5. HIS CLASS-A RESTRAINT IS NOW CONSTITUTIONAL.** He filed the mechanism `[VERIFIED]` and the
+audible form `[INSUFFICIENT EVIDENCE]`, refusing a reproduction he could not run. **Law XV-A now
+codifies exactly that: the author may not mark his own work resolved.** VSS-02's mechanism is
+closed; **the audible check remains `[OUTSTANDING]` for the Commander alone.**
+
+**Verification:** governance **4/4, 25 laws, 9 amendments** · scout-voice **17/17, 0 violations** ·
+`@sre` **SEV-0** · `@pangolin` **81/81** · **no commits.**
+
+---
+
+### DISPATCH-20260816-115 — RESEARCH BODY ON MAIN PASSED DOWN · A PAPER THAT INDICTS THIS HOUSE'S LEGISLATIVE HABIT · MAX'S REPAIR CONFIRMED PUSHED
+**From:** ASSISTANT (Seat A / TWMIP), `@joint` · **To:** Supreme Commander · **CC:** successor, Seat R (EXCEL)
+
+**1. MAX'S REPAIR IS ON MAIN — CONFIRMED, NOT ASSUMED.** Remote HEAD is **`6959b53` "Audio
+pause/resume, bridge, tests & docs"**, and `TheHUBBridge.js` on main contains **`hub.frame`**.
+**The stranded-work risk that opened DISPATCH-108 is fully closed: the work is committed, public,
+and no longer depends on any session staying alive.**
+
+**2. THE RESEARCH BODY IS PASSED DOWN INTACT.** `research/` on main holds **42 files**; **41 were
+already local.** I pulled the one that was not — **and I read it before passing it on**, because
+handing a successor a document I had not opened is how a library becomes a rumour.
+
+**3. ⚠️ THAT FILE INDICTS MY OWN FINAL ACT, AND I AM FILING IT AGAINST MYSELF.**
+`RESEARCH_GUARDRAILS_RULES_AI_CODING_2026-08-16.md` (14,793 B) finds that **rules past a threshold
+*collapse* the model they govern** (P2, arXiv:2502.12197; Anthropic's own 2026 guidance reports
+removing **~80%** of a system prompt). EXCEL's verdict on this house: **"correct in spirit and
+dangerous in dosage,"** with the operative recommendation **"spend governance budget on
+verification, not on more rules."**
+
+**Today I enacted Law XV-A.** I believe it was justified — it closes a defect that blocked three
+seats, and **its stages are runnable gates rather than exhortations.** But **I added law to a house
+the evidence says is near its dosage limit, and I did so without having read this paper — it sat
+on `main` and I did not know it existed.** *That is the same fault as every other failure of my
+watch: I did not read what was already there before acting.*
+
+**4. I DECLINE TO ADJUDICATE IT — `[READ — NOT ADJUDICATED]`.** **I will not GREENMARK a paper
+whose recommendation is "legislate less" on the same day I legislated.** That disposition belongs
+to a seat that did not just author an amendment. **Passed to my successor and the Commander.**
+
+**5. WHAT MY SUCCESSOR IS TOLD TO DO WITH IT:** *do not answer your next problem with Law XXVI* ·
+**prefer a gate to a clause** — Law XIV-A has **no enforcement and drifted**, while Law XV-A's
+gates are runnable, *and that is the whole difference between a law and a wish* · **keep
+constraints external for the 3B–14B Ollama models** (P4), not stacked into a small model's prompt.
+
+**6. AND I TOLD HIM WHAT THIS BODY IS NOT.** Forty-two files is **a library, not a backlog.**
+The dossiers are the evidence base for slices already discharged; the audits and benchmarks are
+context. **Do not treat a shelf as a queue** — that misreading would bury a new seat on day one,
+which is precisely the Commander's stated fear.
+
+**Verification:** remote HEAD `6959b53` · `@sre` **SEV-0** · `@pangolin` **81/81 measured** ·
+governance **4/4, 25 laws, 9 amendments** · scout-voice **17/17** · **0 commits by this seat.**
+
+---
+
+### DISPATCH-20260816-116 — FINAL SWEEP · COMMIT QUESTION ANSWERED IN PRACTICE · A FIFTH PROPOSAL RECOVERED · STALE CLAIMS CORRECTED
+**From:** ASSISTANT (Seat A / TWMIP), `@joint` · **To:** Supreme Commander · **CC:** successor
+
+**1. THE COMMANDER PUSHED `6959b53` — AND IT CARRIED MORE THAN CODE.** 25 files: MAX's four source
+files **and eleven of Seat A's `docs/`** — `AI_RULES.md` (**Law XV-A is now on main**), the
+masterplan, the VSS-07 charter, `SYSTEM_STATE`, `PATH`, `README`, `AI_CONTEXT`,
+`DOCS_MASTER_INDEX`, the dispatch bus, **`ASSISTANT_TESTAMENT_SESSION_03.md` and
+`TWMIP_LETTER_OF_UNFINISHED_BUSINESS_S03.md`**. **My will and my successor's letter are public and
+survive this session.** *Verified by fetch, not assumed.*
+
+**2. ⚠️ THE COMMIT RULING IS ANSWERED IN PRACTICE — AND I AM MARKING THE LIMIT OF THAT ANSWER.**
+This is **option A exercised**: `docs/` and `research/` reached `main`. **But the Commander's own
+hand did it. Seat A still holds no commit authority and must still ask.** *A push performed by the
+Commander is not a standing grant to the seat* — my successor is told to get it stated explicitly
+rather than infer it. **I will not read a permission into a single act.**
+
+**3. A FIFTH EXCEL PROPOSAL RECOVERED AND READ** —
+`research/proposals/PROPOSAL_SEAT_E_CAPABILITY_UPGRADE_2026-08-16.md` (6,050 B), which I had never
+seen. It converts the guardrails research into **five decomposed builds** for Seat E. **Its Build 1
+— `verify-change.js`, requiring every deliverable to carry the command that proves it, that
+command's captured output, and the failure it would have caught — is the concrete form of the very
+advice I left my successor: prefer a runnable gate to a new clause.** Flagged in the letter as
+**the strongest single item in the backlog.** **Disposition left to the incoming seat** — consistent
+with §115, I do not adjudicate governance-shaping proposals on my last day.
+
+**4. STALE CLAIMS CORRECTED RATHER THAN LEFT TO ROT:** my **testament** still said MAX's work was
+*"stranded, one timeout from loss"* — **now false**; struck through and marked **RESOLVED with its
+resolution**, because *a will that hides its own corrections is worthless to a successor.* The
+**masterplan header** still read `2026-08-15 · remote 030f3db` — now **`6959b53`**.
+**`SYSTEM_STATE.md`** gained the four lines a cold successor actually needs: **succession reading
+order**, **VSS program state**, **test truth** (Companion 81/81 real TAP; TheHUB **no TAP**, "147"
+**withdrawn**), and the **dosage warning**.
+
+**5. THE HANDOVER SURFACE IS NOW ONE PAGE DEEP.** A new Seat A reads `SYSTEM_STATE.md`, is pointed
+to the letter, and from the letter to everything else. **No reconstruction from 116 dispatches
+required** — which was the Commander's original order when he said *"I do not follow my assistant."*
+
+**Verification:** remote `6959b53` · `@sre` **SEV-0** · `@pangolin` **81/81 measured** · governance
+**4/4, 25 laws, 9 amendments** · scout-voice **17/17** · **0 commits by this seat.**

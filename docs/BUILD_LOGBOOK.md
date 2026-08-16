@@ -1307,3 +1307,45 @@ When you clone this repository in a new chat:
 - AI_CONTEXT.md: high-risk entries (wholesale patch application; boot()-scoped globals vs
   node --check) + pointer to masterplan and the inheritor's letter.
 - Verified: 0 broken references; @sre/@pangolin script names confirmed against package.json.
+
+## 2026-08-16 — EXCEL's dispatch discharged; XSS flags ruled closed; two holds passed down
+- Verified before passing down: both EXCEL questions already answered (DISPATCH-104). Restated to
+  him directly so nothing depends on a document he may not hold.
+- AUDIT_EXPANSION E1 GREENMARKED: 3 XSS flags ruled FALSE POSITIVES after independent
+  verification against the tree. Open-item list shortened by one.
+- Corrected EXCEL: check-divisions.sh does not exist; Law XIV-A has no tooling enforcement.
+- HELD with release conditions: TAMA question-bank spec (TAMAKEE gate) and Post-Floor Upgrade
+  Program (all 12 slices). Neither is Seat A's to authorize.
+- Inheritor's letter: item 8 struck through and marked CLOSED with evidence; new section 2-B.
+
+## 2026-08-16 — VSS-02 dossier receipted; "147" withdrawn; toggle() clause credited
+- EXCEL's VSS-02 Phase 0 dispatch receipted in full; 5 spot-checks re-verified against own tree.
+- CREDITED: his clause that toggle(enabled) disables FUTURE plays but cannot stop an in-flight
+  oscillator. Verified (sets _enabled only). Repair correctly uses AudioContext.suspend() instead
+  — a toggle()-based fix would have left in-flight notes sounding and been reported as success.
+- WITHDRAWN: "TheHUB 147 passing." Measured: exit 0, 13 suite headers, NO TAP total. EXCEL counted
+  122 assertions, Seat A counted 134 — the count varies by method. Corrected in the masterplan
+  (gate table + footer). The two Seat-E directives already framed it as disputed.
+- F6/F7/F8/F12 remain unrepaired by design (two-repo consolidation = Commander's Phase-1 call).
+
+## 2026-08-16 — Research body on main passed down; dosage finding recorded
+- Remote HEAD 6959b53 "Audio pause/resume, bridge, tests & docs"; hub.frame confirmed present on
+  main -> MAX's repair is committed and public. Stranded-work risk closed for good.
+- research/ on main = 42 files; 41 already local. Pulled and READ the missing one before passing
+  it down: RESEARCH_GUARDRAILS_RULES_AI_CODING_2026-08-16.md (14,793 B).
+- FINDING: rules past a threshold collapse the model they govern (P2 arXiv:2502.12197; Anthropic
+  removed ~80% of a system prompt). House verdict: correct in spirit, dangerous in dosage. Spend
+  governance budget on verification, not more rules.
+- Seat A declined to adjudicate it ([READ — NOT ADJUDICATED]): will not greenmark "legislate less"
+  on the day it enacted Law XV-A. Passed to successor + Commander.
+- Recorded in masterplan §15 as a standing warning, and in the inheritor's letter §2-C.
+
+## 2026-08-16 — Final sweep before succession
+- Verified push 6959b53 carried 25 files incl. 11 Seat A docs: AI_RULES (Law XV-A), masterplan,
+  VSS-07 charter, SYSTEM_STATE, PATH, README, AI_CONTEXT, DOCS_MASTER_INDEX, bus, testament, letter.
+- Commit ruling: ANSWERED IN PRACTICE (option A) but by the Commander's hand; seat still holds no
+  authority and must still ask. Successor told not to infer a standing grant from one push.
+- Recovered + read a 5th EXCEL proposal: PROPOSAL_SEAT_E_CAPABILITY_UPGRADE (6,050 B). Build 1
+  (verify-change.js) flagged as strongest backlog item. Left unadjudicated by design.
+- Corrected stale claims: testament (MAX stranded -> RESOLVED, struck not deleted); masterplan
+  header (030f3db -> 6959b53); SYSTEM_STATE gained succession/VSS/test-truth/dosage lines.

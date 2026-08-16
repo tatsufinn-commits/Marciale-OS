@@ -2,7 +2,7 @@
 
 **Document ID:** `MASTERPLAN-PROJECT-VSS-2026`
 **Maintained by:** Seat A (`@assistant` / TWMIP), wearing `@joint`
-**Last verified:** 2026-08-15 (Asia/Singapore) · tree `a6cef19` · remote `main` `030f3db`
+**Last verified:** 2026-08-16 (Asia/Singapore) · local tree `a6cef19` (**0 commits by Seat A S03**) · remote `main` **`6959b53`** — *MAX's audio repair is committed and public*
 **Status of the program:** 🟢 **RUNNING — 1 of 12 slices discharged, first repair shipped**
 
 > **What this document is:** the single page that answers *"where are we?"* Every status below
@@ -159,7 +159,7 @@ child's shipped `[window.location.origin, 'null']` rather than inventing a stric
 
 | Surface | Trust | Note |
 |---|---|---|
-| `npm test` (TheHUB) | ✅ | **147 checks, exit 0** |
+| `npm test` (TheHUB) | ⚠️ | **exit 0, but NO TAP total — the "147" figure is WITHDRAWN 2026-08-16.** Counting method changes the answer (EXCEL 122 assertions, Seat A 134, 13 suite headers). **Unverifiable until the harness emits a machine-readable total.** |
 | `npm test` (Companion) | ✅ | **77/77, 0 fail** |
 | `npm run audit:bridge` | ✅ | 15 postMessage signatures in bi-directional sync |
 | `npm run pangolin` | ✅ **now** | Prints `77/77 measured from harness output`. **Repaired 2026-08-14** — previously printed a hardcoded "43 suites / 137 assertions" it never parsed. |
@@ -272,7 +272,7 @@ sprite art (the standing bar in §8 holds).
 ---
 
 *Maintained under Law XIV. Updated only from re-measured evidence. Last full verification:
-2026-08-15 — TheHUB 147 ✅ · Companion 77/77 · bridge 15/15 · governance 4/4 · **no commits**.*
+2026-08-16 — TheHUB **no TAP total ("147" withdrawn)** · Companion **81/81** · `@sre` SEV-0 · `@pangolin` 81/81 measured · governance 4/4 · **no commits**.*
 
 
 ---
@@ -390,3 +390,22 @@ a subordinate can read anything Seat A has written.**
 ## 14. VSS-07 NAMED — UX & ACCESSIBILITY SHELL
 
 The Commander's 17 UX items are chartered at `docs/PROJECT_VSS_07_UX_SHELL_CHARTER.md`, filling the first reserved cross-cutting slot (VSS-07…VSS-11, proposal line 204). **Decomposed into 5 bites**; recommended first is **07-B Mobile shell** (Commander's stated daily surface). **⚠️ TheHUB already has a theme engine** (`00-utils-config.js:691` `applyTheme`) — the darkmode toggle must extend it, not fork it. **Charter only; no implementation authorized.**
+
+
+---
+
+## 15. ⚠️ STANDING WARNING FOR EVERY FUTURE SEAT A — THE DOSAGE FINDING (2026-08-16)
+
+`research/RESEARCH_GUARDRAILS_RULES_AI_CODING_2026-08-16.md` (Seat R, primary sources, gaps flagged):
+
+> **Rules past a threshold COLLAPSE the model they govern.** (P2 arXiv:2502.12197; Anthropic 2026
+> reports removing ~80% of a system prompt.) This house is **"correct in spirit, dangerous in
+> dosage."** **Spend governance budget on VERIFICATION, not on more rules.**
+
+**Practical rule for this program:** before drafting any new law, clause or charter, ask whether a
+**runnable gate** would serve better. `npm test` · `@sre` · `@pangolin` · `governance-audit` ·
+`scout-voice-check` outrank any paragraph. **Law XIV-A has no enforcement and drifted within one
+watch; Law XV-A's four stages are runnable commands. That is the difference between a law and a wish.**
+
+**Disposition `[READ — NOT ADJUDICATED]`** — Seat A Session 03 declined to rule on a
+"legislate less" finding on the day it enacted Law XV-A. **Open for the Commander and the successor.**

@@ -137,7 +137,7 @@ What I leave you **unfinished**, plainly:
 
 * **VSS-02** — mechanism `[VERIFIED]` closed by MAX; **audible re-validation `[OUTSTANDING]`**. Not resolved. Only the Commander can close it.
 * **MAX's baseline** — 73 vs 77, unreconciled. One command settles it.
-* **MAX's delivery** — his verified work is stranded in a session with no push rights. **One timeout from loss.**
+* ~~**MAX's delivery** — stranded, one timeout from loss.~~ **RESOLVED 2026-08-16, same day:** the Commander supplied the patch path; the work was recovered, gated (`@sre` SEV-0, `@pangolin` 81/81) and is now **on `main` at `6959b53`**. *Recorded as it stood and as it resolved — a will that hides its own corrections is worthless to a successor.*
 * **The commit ruling** — options A/B/C on the bus. **Until it lands, the transport defect will block a fourth seat.**
 * **VSS-07** — chartered, 5 bites, nothing authorized. Recommended first: **07-B Mobile shell.**
 * **Law XIV-A is unenforced by any tool.** `check-divisions.sh` does not exist.

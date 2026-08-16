@@ -35,6 +35,16 @@ DECOMPOSITION: Law XVIII-B — Law XVI is a precondition of abort; ≥90% test a
 DELIVERABLES: Law XV-A TWMIP Mandate S03 — Seat E ships patches to docs/patchnotes/SEAT E patches/;
               Seat A must RECOVER -> CHECK (@sre + @pangolin, measured) -> IMPLEMENT to zip -> REPORT
 LIVE BOARD:   docs/PROJECT_VSS_MASTERPLAN.md — one-page program status (Commander reads this, not the bus)
+SUCCESSION:   Seat A Session 03 (TWMIP) RELIEVED 2026-08-16. Incoming seat reads, in order:
+              docs/shrine/members/TWMIP_LETTER_OF_UNFINISHED_BUSINESS_S03.md  (open items, what is
+              blocked on the Commander vs executable) then ASSISTANT_TESTAMENT_SESSION_03.md (the will)
+VSS PROGRAM:  2 of 12 slices discharged (VSS-00 recon+repair · VSS-02 recon + mechanism repair).
+              VSS-02 audible re-validation [OUTSTANDING] — only the Commander closes it.
+              Next in ratified order: VSS-01 IdleHero/Aetherwave. VSS-07 UX chartered, unauthorized.
+TEST TRUTH:   Companion 81/81 (real TAP). TheHUB emits NO TAP total — the "147" figure is WITHDRAWN;
+              any TheHUB count is unverifiable until the harness emits a machine-readable total.
+DOSAGE WARN:  research/RESEARCH_GUARDRAILS_RULES_AI_CODING_2026-08-16.md — rules past a threshold
+              collapse the model they govern. Prefer a runnable gate to a new clause.
 COUNCIL COMMS: Law XIV-A — docs/council/members/[SEAT]/conversational logs/[messages|responses]/[COUNTERPART]/
               6 seats x 2 channels x 5 counterparts = 60 anchored paths; dispatch bus unchanged
 COMMANDMENTS: 10 Inviolable Commandments (/docs/THE_10_COMMANDMENTS_OF_DOCS.md)
