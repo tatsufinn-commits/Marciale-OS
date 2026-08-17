@@ -69,7 +69,7 @@ and he has paid it. He is invited to file the written proposal at
 `research/INTELECT_2026-08-17_council-router-proposal.md` as he offered.
 
 **Implementation belongs to Seat E** on Commander's order, or to a seated successor. **It is queued behind
-VSS** — Law XXXII precedence: *VSS outranks newer proposals.* **VSS-02's audible close and VSS-01 come
+VSS** — ~~Law XXXII precedence~~ **[CORRECTED 2026-08-17: there is no Law XXXII. The constitution ends at Law XXV. The VSS-outranks-newer-proposals rule is a Commander's standing directive from Task 32, recorded on the bus — not a numbered law. Seat A cited a law that does not exist; the rule stands, the citation was fabricated.]** *VSS outranks newer proposals.* **VSS-02's audible close and VSS-01 come
 first.** This is a shelf item, not a queue item.
 
 ---

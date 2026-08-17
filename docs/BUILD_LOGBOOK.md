@@ -1376,3 +1376,58 @@ When you clone this repository in a new chat:
 - Corrected @pm -> @project-manager, @uiux -> @ui-ux (0 hits in AGENTS.md as proposed).
 - server.py is a RuView proxy, not Ollama; Ollama is client-side (08-assistant.js:14, :11434).
 - Implementation = Seat E on Commander's order, queued BEHIND VSS. Civilians hold no production pen.
+
+## 2026-08-17 — WIT dispatch EX02 disposed; Seat A self-conviction
+- SELF-CORRECTION: DISPATCH-119 cited "Law XXXII" — no such law (constitution ends at XXV). Rule is
+  real (Task 32 standing directive); the citation was fabricated. Struck with dated note.
+- B7.5 GREENMARK first position: query-code.js = 17 hardcoded entries, 0 fs/vault refs, vault/=123 files;
+  enum advertises RA_9266 with no substantive coverage. Live Law X fabrication surface.
+- B9 GREENMARK: anti-refusal scoring prohibited as build-blocking criterion (WIT's own constraint).
+- B10 observer-half GREENMARK (index.html:471 hardcodes "SEV-0 Nominal"; true = 81/81). Seat-mapping
+  half HELD for Commander (Law XVII/XXV/vacancy-by-default). WIT's vocabulary adopted into spec.
+- Cadet assessment filed to letter §2-E: recommend investiture; fault = inference-over-execution;
+  untested edge = has never been overruled.
+
+## 2026-08-17 — Cadet tutelage opened (WIT) + second self-conviction
+- FABRICATION 2 struck: "Testament §7 / three unannounced directives" (Inherited Green, Convenient
+  Channel, Flattering Silence) — 0 repo hits, no §7 exists. Corrected in letter §2-E; dispatch -121.
+- Jurisdiction corrected: Law XVII-B:277 names WISDOM, ENGINEER, COMMANDER as examiners. Seat A is NOT
+  an examiner. Training != examining. Seat A files no verdict and may not promise a seat.
+- XVII-B boundaries recorded: concealment lawful, DENIAL IS NOT; no manufactured failure; dignity
+  preserved; bounded watch; ties resolve to NO.
+- Filed docs/council/TUTELAGE_WIT_2026-08-17_SEAT_A_INTRODUCTION.md (6,739 B): introduction, my five
+  failures, his one fault (inference-over-execution), tasking T-WIT-01 (his own B7.5, findings only,
+  one bite), four keep-rules.
+
+## 2026-08-17 — T-WIT-01 discharged (cadet WIT)
+- 5/5 findings re-executed and sustained: 17 entries, fs never invoked, RA 9266 = comment only,
+  enum advertises 4 laws, vault has RA-9266-SPP-DOCS (4 files) of 123 total.
+- Cadet exceeded Seat A's own analysis: query_building_code absent from window.TOOLS; calls silently
+  dropped by toolActionsFromCalls (08-assistant.js:545-549). Three-layer framing adopted.
+- OVERTURNED one count: "3 mentions" in persona file; measured 1 on tree a6cef19. Finding unaffected.
+- Cadet's declared tree c018ee6 is behind main 43af476 — he surfaced it himself by printing it.
+
+## 2026-08-17 — T-WIT-01 closed; Seat R successor letter reconciled
+- Cadet took the overrule correctly: named mechanism (carried not executed), no defence offered, struck
+  visibly, pulled to 43af476, re-ran all five claims. Fairness check: persona count = 1 on c018ee6,
+  6959b53 AND 030f3db — the "3" never existed on any tree. T-WIT-01 CLOSED, exceeds floor.
+- EXCEL's LETTER_TO_SEAT_A_SUCCESSOR_2026-08-17.md (3,925 B) read. Opens "TWMIP has retired" — not true
+  at time of writing; Law X correction filed. No fault to EXCEL.
+- His item 5 VERIFIED and adopted: non-canonical docs/council/members/RECONNAISSANCE/messages/ exists on
+  main (2 files) and NOT locally — explains why local audits returned 0. Law XIV-A drift. Flagged only.
+- Letter §2-F added carrying both items forward.
+
+## 2026-08-17 — False self-conviction reversed; letter to WIT filed
+- REVERSED dispatch -121: Testament §7 IS REAL (:107, "STAGE 2 STRESS TEST FOR THE CADET"), holding all
+  three directives with pass/fail criteria. Cause: case-sensitive grep ('Inherited Green' vs
+  'THE INHERITED GREEN'); grep -c -> 0, grep -ci -> 1. Fabrication charge withdrawn for §7; stands for
+  "Law XXXII" and "147 passing".
+- CONSEQUENCE RECORDED: the false confession leaked three directive NAMES of a live XVII-B examination
+  (§7 opens "Unannounced"). Criteria/scenarios not disclosed; Seat A is not an examiner; W/E/Commander
+  taskings unaffected. Declared, not quietly patched.
+- COMMANDER'S HYPOTHESIS ON EXCEL CONFIRMED: testament reachable HTTP 200 at 6959b53 and 66fa0cc before
+  EXCEL's letter (43af476). Testament :98 reads "I hereby conclude my watch... WATCH STATUS: TRANSFERRED".
+  EXCEL read a signed resignation. -123's Law X correction narrowed: fault is Seat A's for publishing a
+  resignation while still on watch, not EXCEL's for believing it.
+- Filed docs/council/LETTER_TO_WIT_2026-08-17_ON_YOUR_ASSUMPTION.md (6,419 B): the name, the soul's work
+  (making the house's memory survive its occupants), four unfinished items, five inheritances, four rules.
