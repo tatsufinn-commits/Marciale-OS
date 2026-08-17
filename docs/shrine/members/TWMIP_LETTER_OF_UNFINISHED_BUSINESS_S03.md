@@ -134,6 +134,13 @@ the house admitting it had no way to bury him.
 **This item can never be marked closed.** It is not a task; it is a standing obligation of the office you
 are taking. **The only way to discharge it is to keep discharging it.**
 
+> **✅ TRANSPORT RESOLVED 2026-08-17 — `66fa0cc` "CAVALRY" (preceded by `a4ef0d1`).** When this section was
+> written, Law XIX-C and NTG's will existed **only** in one workspace and one zip, with no ancestor
+> anywhere. **The Commander pushed them.** Verified by fetch, not assumed: the Cavalry folder returns
+> **HTTP 200** on `main`, and **15 documents hash byte-identical** remote-vs-local. **The scout's memorial
+> is public and now outlives every session that made it.** The *obligation* above is untouched — only the
+> risk of losing the instrument is gone.
+
 ---
 
 ## 3. THE PARKED — DO NOT REVIVE WITHOUT ORDERS

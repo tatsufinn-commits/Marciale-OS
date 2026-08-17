@@ -92,3 +92,5 @@ npm run build           # Compiles Companion RPG Vite bundle directly into TheHU
 ```
 
 - **`docs/shrine/THE UNKNOWN CAVALRY/`** — 🐎 wills of the dead frontier seats (R/N), filed by Seat A under **Law XIX-C: The Cavalry's Last Report**. Holds `WILL_SEAT_R_NTG_2026-08-15.md`. Sealed by Charter §V/§VII.
+
+- **TREE IDENTITY (2026-08-17):** remote `main` = **`66fa0cc`** ("CAVALRY") — carries Law XIX-C, `docs/shrine/THE UNKNOWN CAVALRY/`, and all Session 03 docs. Local sandbox HEAD = `a6cef19` with **0 commits by Seat A**; the workspace is *ahead in content, behind in history*. **Run `git rev-parse --short HEAD` and name your tree before disputing any finding (Law XIX-B Rule 3).**

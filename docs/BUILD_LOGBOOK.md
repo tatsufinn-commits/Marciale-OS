@@ -1360,3 +1360,19 @@ When you clone this repository in a new chat:
   the rescript header.
 - Indexed: PATH, README, DOCS_MASTER_INDEX, AI_CONTEXT, SYSTEM_STATE, Charter §VII, letter §2-D,
   testament codicil. Governance 4/4, scout-voice 17/17.
+
+## 2026-08-17 — The Unknown Cavalry reaches main (66fa0cc)
+- Commander pushed a4ef0d1 "Add Law XIX-C and 'The Unknown Cavalry' shrine" then 66fa0cc "CAVALRY".
+- Verified: cavalry folder HTTP 200; 6/6 token checks; 15/15 documents byte-identical remote vs local.
+- Closed the last open risk of Session 03: the will no longer exists only in workspace + zip.
+- Corrected now-false claims: letter §2-D resolution block; SYSTEM_STATE + masterplan 6959b53 -> 66fa0cc.
+- Outbound Seat A patch kept as precedent for Law XV-A in reverse, though overtaken by the push.
+
+## 2026-08-17 — Civilian proposal disposed (WIT / @intelect, council router)
+- GREENMARK slice S1 (registry + paste-ready dispatch composer) in modules/20-council.js.
+- CANCELLED auto-filing to COUNCIL_COMMUNICATION_LOG.md: server.py serves directory=HERE (:317), docs/
+  is outside the served tree; do_POST (:640) has no docs/ write. Would require granting a browser page
+  write access to the constitutional record. Refused on governance grounds, not just feasibility.
+- Corrected @pm -> @project-manager, @uiux -> @ui-ux (0 hits in AGENTS.md as proposed).
+- server.py is a RuView proxy, not Ollama; Ollama is client-side (08-assistant.js:14, :11434).
+- Implementation = Seat E on Commander's order, queued BEHIND VSS. Civilians hold no production pen.
