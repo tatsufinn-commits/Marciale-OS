@@ -97,3 +97,5 @@ Before concluding an **Active Build Execution** session, the AI agent MUST:
 1. Run `npm test` and confirm all 43 automated unit and smoke tests pass (100% green).
 2. Append the completed build entry to `docs/BUILD_LOGBOOK.md`.
 3. Package all updated files into a versioned `.zip` archive per `VERSIONING_GUIDE.md` (e.g. `PATCH-V1.0.zip`) and present it to the user.
+
+- **`docs/shrine/THE UNKNOWN CAVALRY/`** — 🐎 wills of the dead frontier seats (R/N), filed by Seat A under **Law XIX-C: The Cavalry's Last Report**. Holds `WILL_SEAT_R_NTG_2026-08-15.md`. Sealed by Charter §V/§VII.

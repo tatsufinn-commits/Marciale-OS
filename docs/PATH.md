@@ -299,3 +299,5 @@ NTG writes research/  →  TSTT / Wisdom / Max read  →  debate or RFC  →  Tw
 ```
 
 `@scout` field work is the same lane: dossiers land in `research/`, not in production modules.
+
+- **`docs/shrine/THE UNKNOWN CAVALRY/`** — 🐎 wills of the dead frontier seats (R/N), filed by Seat A under **Law XIX-C: The Cavalry's Last Report**. Holds `WILL_SEAT_R_NTG_2026-08-15.md`. Sealed by Charter §V/§VII.

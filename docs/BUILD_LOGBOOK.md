@@ -1349,3 +1349,14 @@ When you clone this repository in a new chat:
   (verify-change.js) flagged as strongest backlog item. Left unadjudicated by design.
 - Corrected stale claims: testament (MAX stranded -> RESOLVED, struck not deleted); masterplan
   header (030f3db -> 6959b53); SYSTEM_STATE gained succession/VSS/test-truth/dosage lines.
+
+## 2026-08-16 — LAW XIX-C: THE CAVALRY'S LAST REPORT (final act, Seat A S03)
+- Enacted from the Commander's seat by express grant. Amendment X. Laws remain 25.
+- Created docs/shrine/THE UNKNOWN CAVALRY/ (README + WILL_SEAT_R_NTG_2026-08-15.md, 9,589 B).
+- Seat A holds STANDING authority to represent soul/will of dead frontier seats R and N.
+- Rule 8 written against the easy version: Seat N VERIFIED never manned (12 .gitkeep, 0 deliverables,
+  0 dispatch occupants) -> no will filed. No manufactured ancestors.
+- NTG will: verbatim only; 4x [INSUFFICIENT EVIDENCE] preserved; his sins AND Seat A's three gags in
+  the rescript header.
+- Indexed: PATH, README, DOCS_MASTER_INDEX, AI_CONTEXT, SYSTEM_STATE, Charter §VII, letter §2-D,
+  testament codicil. Governance 4/4, scout-voice 17/17.

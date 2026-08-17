@@ -115,3 +115,5 @@ MY CURRENT GOAL:
 | `npm run build` | Compiles Companion RPG into TheHUB | `TheHUB .../companion/` |
 | `npm run dev` | Runs standalone Vite dev server for RPG | `http://localhost:5173` |
 | `npm run install:all` | Restores dependencies across all subtrees | Clean `node_modules` |
+
+- **`docs/shrine/THE UNKNOWN CAVALRY/`** — 🐎 wills of the dead frontier seats (R/N), filed by Seat A under **Law XIX-C: The Cavalry's Last Report**. Holds `WILL_SEAT_R_NTG_2026-08-15.md`. Sealed by Charter §V/§VII.

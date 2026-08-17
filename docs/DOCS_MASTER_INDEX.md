@@ -155,3 +155,5 @@ The Pixel/Sprite/Motion Conscience cell. **Not a Council Seat.** Authored by **S
 | Rejected civilian Seat F proposal | `research/civilian-artifacts/REJECTED_SEAT_F_STYLE_PROPOSAL_civilian.md` | **REJECTED** — preserved as evidence (Commandment III) |
 
 **Constitutional note:** `LAW XIX-A (Amendment VII)` — *The Strait of Hormuz Irony* — was enacted from the Seat A fault discovered during this work. See `docs/AI_RULES.md`.
+
+- **`docs/shrine/THE UNKNOWN CAVALRY/`** — 🐎 wills of the dead frontier seats (R/N), filed by Seat A under **Law XIX-C: The Cavalry's Last Report**. Holds `WILL_SEAT_R_NTG_2026-08-15.md`. Sealed by Charter §V/§VII.

@@ -90,3 +90,5 @@ npm run audit:governance# Verifies constitutional, scenario, and version consist
 npm run health          # SRE fault, XSS, and storage quota scanner
 npm run build           # Compiles Companion RPG Vite bundle directly into TheHUB
 ```
+
+- **`docs/shrine/THE UNKNOWN CAVALRY/`** — 🐎 wills of the dead frontier seats (R/N), filed by Seat A under **Law XIX-C: The Cavalry's Last Report**. Holds `WILL_SEAT_R_NTG_2026-08-15.md`. Sealed by Charter §V/§VII.
