@@ -1,0 +1,13 @@
+# Deployment Model Decision
+
+**Default Deployment Model:** **A** – Local‑only (offline‑first, no cloud subscription).
+
+**Rationale:**  
+- Preserves the 100 % local‑first philosophy of Marciale‑OS.  
+- No dependence on external SaaS, matching Law XXIV (Civilian Estate) and the zero‑knowledge privacy mandate.  
+- Aligns with the current test‑suite and health checks which assume all AI processing runs on‑device via Ollama.
+
+**Effective Date:** 2026‑09‑03 (Asia/Manila)  
+**Decision Maker:** Seat A (CARTHOGRAPHER), under the Mosaic Autonomous Council Protocol.
+
+[VERIFIED] This decision is recorded in the canonical tree via `git ls-files docs/COMMAND` on `main`.
