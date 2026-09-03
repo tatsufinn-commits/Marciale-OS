@@ -19,6 +19,8 @@ Whenever an AI completes a build, patch, governance update, or feature sprint, i
 
 **Seat R exception (narrow):** `@reconnaissance` fulfills Commandment I with `MARCIALE_OS_RESEARCH_DROP.zip` containing **only** `Marciale-OS/research/`. That drop **cannot be cancelled by Seat A** as a substitute for the house zip. Recon must never emit the full-repo archive onto `main`.
 
+**Subordinate exception (patch) — Law XVII-D:** `@tatciale` and `@tamakee` fulfill their packaging duty with a **patch archive** on the `patches` branch (never a full-repo zip, never `main`). The **integrated full-clone archive** — the release package under this Commandment — is produced by the **@assistant** after the patch passes verification, for the Commander to push. This keeps the Commander's sole push authority and the assistant's sole packaging authority, and the subordinates' work is never stranded in an uncommitted tree.
+
 ---
 
 ### ⚡ COMMANDMENT II: THE GREEN TEST CONTRACT

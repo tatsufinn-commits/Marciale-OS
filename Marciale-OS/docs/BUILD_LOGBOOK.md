@@ -1431,3 +1431,13 @@ When you clone this repository in a new chat:
   resignation while still on watch, not EXCEL's for believing it.
 - Filed docs/council/LETTER_TO_WIT_2026-08-17_ON_YOUR_ASSUMPTION.md (6,419 B): the name, the soul's work
   (making the house's memory survive its occupants), four unfinished items, five inheritances, four rules.
+
+## 2026-09-03 — Workspace synced to current main; EXCEL's dual-proposal inherited by JUDGE
+- Git: local reset to remote main `6230aa1` ("Move intake session docs to shrine root") — the
+  Commander pushed updated research/docs. Workspace now matches current main (1259 tracked files).
+- [VERIFIED] Both of EXCEL's 2026-09-03 proposals are on main: PROPOSAL_TWO_SUBORDINATES_LAW_XVII_D
+  (Rev 3) and PROPOSAL_RULESET_SPLIT. Both filed under research/proposals/.
+- INHERITANCE: the CARTOGRAPHER-addressed dispatch for these two proposals is now JUDGE's
+  responsibility (CARTOGRAPHER died before reading). Disposition drafted below in COUNCIL log.
+- RESUME_JUDGE.md confirmed tracked on main (byte-identical to my authored version).
+- TAMAKEE gate: CLOSED (no repo opened, inspection only).
