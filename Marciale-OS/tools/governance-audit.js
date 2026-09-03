@@ -105,6 +105,45 @@ console.log(`   • TheHUB Subsystem:      ${hubPkg.version}`);
 console.log(`   • Companion RPG Engine:  ${companionPkg.version}`);
 checks++;
 
+// 5. Rule Index Integrity Audit (Proposal 2 gate — boundary rule + rule index)
+console.log('\n📇 5. Auditing Rule Index Integrity...');
+const ruleIndexPath = path.join(docsDir, 'RULE_INDEX.md');
+let ruleIndexMissing = 0;
+if (fs.existsSync(ruleIndexPath)) {
+  const ruleIndexContent = fs.readFileSync(ruleIndexPath, 'utf8');
+  // Collect every LAW heading from AI_RULES.md (roman numeral + optional lettered amendment)
+  const aiRulesContent = fs.readFileSync(aiRulesPath, 'utf8');
+  const lawIds = new Set();
+  (aiRulesContent.match(/LAW ([IVXLCDM]+(?:-[A-Z])?):/g) || []).forEach(m => lawIds.add(m.slice(4, -1)));
+  // Collect every Commandment heading
+  const commandmentsContent = fs.readFileSync(path.join(docsDir, 'THE_10_COMMANDMENTS_OF_DOCS.md'), 'utf8');
+  const cmdIds = new Set();
+  (commandmentsContent.match(/COMMANDMENT ([IVXLCDM]+):/g) || []).forEach(m => cmdIds.add(m.slice(12, -1)));
+
+  const missingRules = [];
+  // Regex: match the ID at the start of a table cell, with a negative lookahead so partial IDs
+  // (e.g. `LAW I` inside `LAW XIII`) do NOT count as indexed.
+  lawIds.forEach(id => {
+    const re = new RegExp('\\|\\s*LAW ' + id + '(?![IVXLCDM0-9-])');
+    if (!re.test(ruleIndexContent)) missingRules.push(`LAW ${id}`);
+  });
+  cmdIds.forEach(id => {
+    const re = new RegExp('\\|\\s*COMMANDMENT ' + id + '(?![IVXLCDM0-9-])');
+    if (!re.test(ruleIndexContent)) missingRules.push(`COMMANDMENT ${id}`);
+  });
+
+  if (missingRules.length === 0) {
+    console.log(`   ✅ Rule Index verified: ${lawIds.size} laws + ${cmdIds.size} commandments all indexed.`);
+    checks++;
+  } else {
+    console.error(`   ❌ [RULE INDEX GAP] ${missingRules.length} rule(s) not indexed: ${missingRules.join(', ')}`);
+    issues++;
+  }
+} else {
+  console.error('   ❌ [RULE INDEX MISSING] docs/RULE_INDEX.md not found.');
+  issues++;
+}
+
 console.log('\n======================================================');
 if (issues === 0) {
   console.log(`🎉 GOVERNANCE AUDIT PASSED: All ${checks} Checks Nominal (0 Conflicts)`);

@@ -2518,3 +2518,42 @@ authorization. Joint assent noted as the remaining formal check, but the Command
 direction. Proposal 2 remains ungated until the index exists.
 
 — JUDGE · Seat A · `[VERIFIED]` at `6230aa1` (working tree)
+
+---
+
+## DISPATCH-20260903-005 · Seat A (JUDGE) — PROPOSAL 2 GATE BUILT (Boundary Rule + Rule Index + live lint)
+
+**Tree:** `6230aa1` (working) · **Date:** 2026-09-03 (Asia/Manila) · **Re:** Proposal 2 (Two Rule-Set
+Split) — the gated prerequisite, per the agreed plan.
+
+**WHAT WAS BUILT (the gate, not the migration):**
+
+1. **`docs/RULE_INDEX.md`** — contains the **Boundary Rule** (conduct = AI *or* artifact = repository
+   *or* both = both) and the **Rule Index** mapping every rule to its book(s). Index covers
+   **37 laws + 10 commandments** as `R` / `AI` / `B`. Includes the migration rules (re-home, never
+   re-word) and states clearly that **the 618-line re-homing is GATED and does not proceed here.**
+2. **Index lint added to `governance-audit.js`** (5th check) — verifies every LAW/COMMANDMENT heading
+   resolved from the source files appears in the index. Makes the gate a **runnable check**, not a
+   document that merely claims to be one (the house's own preference: a gate over a clause).
+
+**VERIFICATION (Commandment II — executed, not asserted):**
+- `governance-audit` → **5/5 nominal** (incl. new Rule Index check) `[VERIFIED]`.
+- **Fault-injection proven:** removed `LAW XXV` row → audit FAILED with `[RULE INDEX GAP] LAW XXV`;
+   restored → 5/5. This is a real lint, not a rubber stamp.
+- Companion suite → **81/81, 0 fail** `[VERIFIED]`.
+- Index resolves **37 laws + 10 commandments**, all indexed.
+
+**⚠️ FINDING (pre-existing, not caused by this watch):** the audit's "Authoritative Supreme Laws"
+count is **26**, not the header's **25** — because the regex counts any `🏛️ LAW` heading and
+**XIII-A uses `🏛️`**, so it's double-counted. Present at HEAD. Not a blocker for the index (the
+index resolves the real set), but flagged for a clean-up bite. My amendment XVII-D correctly uses
+`⚙️` and is excluded.
+
+**NOT DONE (explicitly):** the **618-line migration** (re-homing rules into two books) is **GATED**.
+It does not proceed until this index + boundary rule are **ratified (Commander + Joint)** and the
+index-lint is confirmed live — which it now is. Enacting the split is a separate, larger watch.
+
+**Authority record:** Drafted by Seat A (JUDGE) on Commander's "proceed" direction; evidence from
+Seat R (EXCEL). Not enacted as law; not canonical. Ratification: Commander + Joint.
+
+— JUDGE · Seat A · `[VERIFIED]` at `6230aa1` (working tree)

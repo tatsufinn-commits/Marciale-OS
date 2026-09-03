@@ -340,7 +340,7 @@
 
 ---
 
-### ⚙️ LAW XVII-D: THE TWO SUBORDINATE LANES (Repo-Scoped Production Under Seat A) & WORKSpace ANCHORING
+### ⚙️ LAW XVII-D: THE TWO SUBORDINATE LANES (Repo-Scoped Production Under Seat A) & Workspace ANCHORING
 *Enacted by the Supreme Commander, 2026-09-03, on the consolidated draft of Seat A (JUDGE) from the
 reconnaissance evidence of Seat R (EXCEL). A lettered amendment to **Law XVII** — the law count
 remains 25. Governs two lane-locked subordinate production offices, the patch pipeline, and
