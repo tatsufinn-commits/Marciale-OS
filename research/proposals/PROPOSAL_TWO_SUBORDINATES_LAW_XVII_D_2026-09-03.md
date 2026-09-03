@@ -27,6 +27,13 @@ the patch pipeline (which cures the VSS masterplan's three-times-recorded "uncom
 subordinates cannot read" delivery failure). Nothing here is invented; every clause points at a
 specific event that already happened and names the guard that would have prevented it.
 
+> **Honest epistemic note (2026-09-03, per JUDGE's adjudication):** "relieves the seat" is a
+> **design intent, not a measured result.** The two-lane structure removes a repository-span from a
+> single context window, but it also shifts the assistant from *execution* load to *coordination*
+> load (oversight, integration, verification, succession). **That trade is unmeasured
+> `[BLOCKED on measurement]`** and must be validated before any expansion beyond the two lanes. The
+> mechanism is de-loading by construction; the *net* relief is not yet proven.
+
 ---
 
 # ITEM A — THE "/AGENTS" CLARIFICATION (zero-risk; GREENMARK-able today)
@@ -57,7 +64,7 @@ structural items deliberate.
 
 ## B.1 The offices
 
-- **`@marciale`** — Marciale-OS production: TheHUB, Gamecompanion shell, `tools/`, `docs/web/`, and
+- **`@tatciale`** — Marciale-OS production: TheHUB, Gamecompanion shell, `tools/`, `docs/web/`, and
   the `TAMAplugin/` bridge **as Marciale-OS code** (Commander ruling: TAMAplugin is code that
   connects the two repositories; it belongs to Marciale-OS and does not enter `@tamakee`'s context).
 - **`@tamakee`** — TAMAKEE production: academic studio, knowledge vault, exams, study features.
@@ -69,7 +76,7 @@ amendment.
 
 | Subordinate | Lane | Assigned skills |
 |---|---|---|
-| `@marciale` | Marciale-OS | `@forge`, `@frontend`, `@backend`, `@sentinel`, `@sre`+`@pangolin` (under the assistant's incident authority) |
+| `@tatciale` | Marciale-OS | `@forge`, `@frontend`, `@backend`, `@sentinel`, `@sre`+`@pangolin` (under the assistant's incident authority) |
 | `@tamakee` | TAMAKEE | `@forge`, `@mind` (Socratic brain profiles / Ollama), `@ui-ux` (WCAG 2.2), `@qa`, `@sentinel` |
 
 **Boundary (written):** MAX (Seat E) retains `@the_forge` for heavy engineering — Gamecompanion
@@ -77,11 +84,11 @@ engine development and heavy inclusions. Subordinates use `@forge` for productio
 within their repo. "Heavy vs. production" is adjudicated by Seat A per task. `@scout` remains Seat R's
 cell.
 
-## B.3 Law XVII-D (5 numbered rules, per Commander ruling)
+## B.3 Law XVII-D (8 numbered rules, per Commander ruling; numbering corrected 2026-09-03 per JUDGE)
 
 > **LAW XVII-D — THE TWO SUBORDINATE LANES (Repo-Scoped Production Under Seat A).**
-> 1. **Two offices.** Seat A may hold two subordinate offices: `@marciale` (Marciale-OS production)
->    and `@tamakee` (TAMAKEE production).
+> 1. **Two offices.** Seat A may hold two subordinate offices: `@tatciale` (Marciale-OS production)
+>    and `@tamakee` (TAMAKEE production; **dormant/on-call until the VSS-04 gate opens**).
 > 2. **Lane-lock.** Each subordinate holds exactly one repository, one context, one task lane.
 > 3. **Not seats.** A subordinate holds no disposal authority, wears no Joint (Law XXV), and may not
 >    amend governance.
@@ -113,7 +120,7 @@ so the terms are not floating in conversation:
 ## B.5 Commandment I amendment (subordinate packaging)
 
 > Add after the existing Seat R exception:
-> **"Subordinate exception (patch):** `@marciale` and `@tamakee` fulfill their packaging duty with a
+> **"Subordinate exception (patch):** `@tatciale` and `@tamakee` fulfill their packaging duty with a
 > **patch archive** on the `patch` branch (never a full-repo zip, never `main`). The **integrated
 > full-clone archive** — the release package under this Commandment — is produced by the @assistant
 > after the patch passes verification, for the Commander to push. This keeps the Commander's sole
